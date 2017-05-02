@@ -1,0 +1,124 @@
+/**
+ * White theme for reveal.js. This is the opposite of the 'black' theme.
+ *
+ * By Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+@import url(../../lib/font/roboto/Roboto.css);
+@import url(../../lib/font/roboto-mono/Roboto-mono.css);
+
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #fff;
+
+$mainColor: #323335;
+$headingColor: #323335;
+
+$mainFontSize: 30px;
+$mainFont: Roboto, sans-serif;
+$codeFont: 'Roboto Mono', monospace;
+$headingFont: Roboto, sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: none;
+$headingFontWeight: 500;
+$linkColor: #699f00;
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: lighten( $linkColor, 25% );
+
+$heading1Size: 3.33em; /* 3.33 * 30px <p> = 100px */
+$heading2Size: 2.00em; /* 2.00 * 30px <p> = 60px  */
+$heading3Size: 1.47em; /* 1.37 * 30px <p> = 44px  */
+$heading4Size: 1.00em; /* 1.00 * 30px <p> = 30px  */
+
+$triangleSize: 111px;
+$logoWidth: 131px;
+$logoHeight: 53px;
+
+section.has-dark-background {
+	&, h1, h2, h3, h4, h5, h6 {
+		color: #CDCCCA; /* inverted 323335 */
+	}
+}
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+
+// Custom  -------------------------------------
+.center-horizontal {
+	text-align: center;
+}
+
+.center-vertical {
+	bottom: 0;
+	top: 0;
+}
+
+#header-left {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+
+	display: block;
+
+	width: 0;
+	height: 0;
+
+	content: "";
+
+	border-width: $triangleSize $triangleSize 0 0;
+	border-style: solid;
+	border-color: $linkColor transparent transparent transparent;
+}
+
+#header-right {
+	position: absolute;
+	z-index: 1;
+	top: 1rem;
+	right: 1rem;
+
+	display: block;
+
+	width: $logoWidth;
+	height: $logoHeight;
+
+	content: "";
+
+	background-image: url(/css/img/university-logo.svg);
+	background-size: $logoWidth $logoHeight;
+
+	-webkit-print-color-adjust: exact;
+}
+
+@media(max-width: 1024px) {
+	#header-right {
+		width: $logoWidth*0.5;
+		height: $logoHeight*0.5;
+		background-size: $logoWidth*0.5 $logoHeight*0.5;
+	}
+
+	#header-left {
+		border-width: $triangleSize*0.5 $triangleSize*0.5 0 0;
+	}
+
+	.reveal {
+		font-size: $mainFontSize * 0.5;
+	}
+}
+
+#footer-left {
+	position: absolute;
+	bottom: 0%;
+	left: 0%;
+}
