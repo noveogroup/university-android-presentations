@@ -32,20 +32,20 @@ $headingTextTransform: none;
 $headingFontWeight: 500;
 $linkColor: #699f00;
 $linkColorHover: lighten( $linkColor, 15% );
-$selectionBackgroundColor: lighten( $linkColor, 25% );
+$selectionBackgroundColor: $linkColor;
 
 $heading1Size: 3.33em; /* 3.33 * 30px <p> = 100px */
 $heading2Size: 2.00em; /* 2.00 * 30px <p> = 60px  */
 $heading3Size: 1.47em; /* 1.37 * 30px <p> = 44px  */
 $heading4Size: 1.00em; /* 1.00 * 30px <p> = 30px  */
 
-$triangleSize: 111px;
-$logoWidth: 131px;
-$logoHeight: 53px;
+$triangleSize: 148px;
+$logoWidth: 174px;
+$logoHeight: 70px;
 
 section.has-dark-background {
 	&, h1, h2, h3, h4, h5, h6 {
-		color: #CDCCCA; /* inverted 323335 */
+		color: #fff;
 	}
 }
 
@@ -85,8 +85,8 @@ section.has-dark-background {
 #header-right {
 	position: absolute;
 	z-index: 1;
-	top: 1rem;
-	right: 1rem;
+	top: 1.5rem;
+	right: 1.5rem;
 
 	display: block;
 
@@ -101,24 +101,116 @@ section.has-dark-background {
 	-webkit-print-color-adjust: exact;
 }
 
-@media(max-width: 1024px) {
-	#header-right {
-		width: $logoWidth*0.5;
-		height: $logoHeight*0.5;
-		background-size: $logoWidth*0.5 $logoHeight*0.5;
-	}
-
-	#header-left {
-		border-width: $triangleSize*0.5 $triangleSize*0.5 0 0;
-	}
-
-	.reveal {
-		font-size: $mainFontSize * 0.5;
-	}
+.has-dark-background #header-right,
+div[data-background-hash] #header-right {
+	background-image: url(/css/img/university-logo-white.svg);
 }
 
 #footer-left {
 	position: absolute;
 	bottom: 0%;
 	left: 0%;
+}
+
+.half-left {
+	width: 50%;
+	float: left;
+	position:relative;
+	padding-right: 0.5rem;
+}
+
+.half-right {
+	width: 50%;
+	float: right;
+	position:relative;
+	padding-left: 0.5rem;
+}
+
+.third-left {
+	width: 33.3%;
+	float: left;
+	position:relative;
+	padding-right: 0.25rem;
+}
+
+.third-center {
+	width: 33.3%;
+	float: left;
+	position:relative;
+	padding-right: 0.25rem;
+	padding-left: 0.25rem;
+}
+
+.third-right {
+	width: 33.3%;
+	float: right;
+	position:relative;
+	padding-left: 0.25rem;
+}
+
+.reveal section div.overlap-fragment pre {
+	min-width: 100%;
+}
+
+.reveal pre code {
+	font-size: $mainFontSize;
+	line-height: $mainFontSize * 1.5;
+}
+
+.reveal pre code.tiny {
+	font-size: $mainFontSize / 1.5 / 1.5;
+	line-height: $mainFontSize / 1.5;
+}
+
+.reveal pre code.small {
+	font-size: $mainFontSize / 1.5;
+	line-height: $mainFontSize;
+}
+
+.reveal pre code.large {
+	font-size: $mainFontSize * 1.5;
+	line-height: $mainFontSize * 1.5 * 1.5;
+}
+
+.overlap-fragment {
+	position: absolute;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+$scaleFactor: 0.35;
+@media(max-width: 1024px) {
+	#header-right {
+		width: $logoWidth*$scaleFactor;
+		height: $logoHeight*$scaleFactor;
+		background-size: $logoWidth*$scaleFactor $logoHeight*$scaleFactor;
+	}
+
+	#header-left {
+		border-width: $triangleSize*$scaleFactor $triangleSize*$scaleFactor 0 0;
+	}
+
+	.reveal {
+		font-size: $mainFontSize * $scaleFactor;
+	}
+
+	.reveal pre code {
+		font-size: $mainFontSize * $scaleFactor;
+		line-height: $mainFontSize * 1.5 * $scaleFactor;
+	}
+
+	.reveal pre code.tiny {
+		font-size: $mainFontSize / 1.5 / 1.5 * $scaleFactor;
+		line-height: $mainFontSize / 1.5 * $scaleFactor;
+	}
+
+	.reveal pre code.small {
+		font-size: $mainFontSize / 1.5 * $scaleFactor;
+		line-height: $mainFontSize * $scaleFactor;
+	}
+
+	.reveal pre code.large {
+		font-size: $mainFontSize * 1.5 * $scaleFactor;
+		line-height: $mainFontSize * 1.5 * 1.5 * $scaleFactor;
+	}
 }

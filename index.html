@@ -1,38 +1,207 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Template - Android Lecture</title>
+    <title>Template - Android Lecture</title>
 
-		<link rel="stylesheet" href="css/reveal.css"> 				 	<!--slide style-->
-		<link rel="stylesheet" href="css/theme/noveo.css" id="theme"> 	<!--noveo theme-->
-		<link rel="stylesheet" href="lib/css/magula.css"> 				<!--code highlight-->
+    <link rel="stylesheet" href="css/reveal.css">                    <!--slide style-->
+    <link rel="stylesheet" href="css/theme/noveo.css" id="theme">    <!--noveo theme-->
+    <link rel="stylesheet" href="lib/css/magula.css">                <!--code highlight-->
+</head>
+<body>
+<div id="hidden" style="display: none">
+    <div id="header">
+        <div id="header-left"></div>
+        <div id="header-right"></div>
+    </div>
+</div>
+<div class="reveal">
+    <div class="slides">
+        <!--positioning content-->
+        <section data-markdown="src/slide01__intro.md" class="center center-horizontal"></section>
+        <!--md file with several slides related to the section-->
+        <section data-background-color="#699f00" class="center center-horizontal">
+            <h1>Markdown: multiple slides in file</h1>
+        </section>
+        <section data-markdown="src/slide02__section__about.md"></section>
+        <section data-markdown="src/slide03__section__with-horizontal-slides.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"></section>
+        <!--example of code highlighting-->
+        <section data-background-color="#699f00" class="center center-horizontal">
+            <h1>Markdown: code examples</h1>
+        </section>
+        <section data-markdown="src/slide04__code-example.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"></section>
+        <!--html markup-->
+        <section data-background-color="#699f00" class="center center-horizontal">
+            <h1>HTML: iframes</h1>
+        </section>
+        <section>
+            <h2>IFrame example</h2>
+            <P>Полезно для всяких ссылочек на либы, например</P>
+            <iframe class="fragment" data-fragment-index="1"
+                    width="400" height="600"
+                    src="http://reactivex.io/"></iframe>
+            <iframe class="fragment" data-fragment-index="2"
+                    width="400" height="600"
+                    src="http://jakewharton.github.io/butterknife/"></iframe>
+            <iframe class="fragment" data-fragment-index="3"
+                    width="400" height="600"
+                    src="https://google.github.io/dagger/android.html"></iframe>
+            <iframe class="fragment" data-fragment-index="4"
+                    width="400" height="600"
+                    src="http://square.github.io/okhttp/"></iframe>
+        </section>
+        <section data-background-color="#699f00" class="center center-horizontal">
+            <h1>HTML: split screen</h1>
+        </section>
+        <section>
+            <h2>Позиционирование контента</h2>
+            <div class="half-left">
+                <h4>Левая колонка</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tincidunt laoreet bibendum. Fusce
+                    eleifend viverra enim, sed aliquet odio faucibus quis. Fusce vulputate pharetra nisl nec porttitor.
+                    Nam consectetur tincidunt dignissim. Morbi ut leo risus. Pellentesque ac nisi nec elit efficitur
+                    consequat sed nec massa. Fusce vel luctus ante, et ultrices sapien. Pellentesque sed ornare orci.
+                    Fusce a quam at mi bibendum finibus.</p>
+            </div>
+            <div class="half-right">
+                <h4>Правая колонка</h4>
+                <p>Vivamus tempor ligula leo, at porta sem euismod vitae. Etiam pharetra turpis vitae lectus rutrum,
+                    placerat elementum nibh efficitur. Morbi in felis vehicula dolor consequat tempor. Donec eget ante
+                    hendrerit, tincidunt tortor sit amet, eleifend lorem. Donec accumsan tempus erat. Etiam gravida,
+                    odio in dictum pulvinar, ex felis aliquam neque, vitae congue dui turpis quis mi. Vestibulum sit
+                    amet nunc et massa iaculis sollicitudin vitae non lacus. Mauris dapibus elit nulla, ut vehicula
+                    tellus dapibus nec. Proin egestas pretium nisl a bibendum.</p>
+            </div>
+        </section>
+        <section>
+            <h2>Позиционирование контента</h2>
+            <div class="third-left">
+                <h2>Left</h2>
+                <img class="fragment" data-fragment-index="1"
+                     src="https://www.w3schools.com/css/trolltunga.jpg">
+            </div>
+            <div class="third-center">
+                <h2>Center</h2>
+                <div class="center-horizontal">
+                    <p class="fragment" data-fragment-index="2">just text</p>
+                    <ul class="fragment" data-fragment-index="2">
+                        <li>unordered 1</li>
+                        <li>unordered 2</li>
+                        <li>unordered 3</li>
+                    </ul>
+                    <p class="fragment" data-fragment-index="3">more text</p>
+                    <ol class="fragment" data-fragment-index="3">
+                        <li>ordered 1</li>
+                        <li>ordered 2</li>
+                        <li>ordered 3</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="third-right">
+                <h2>Right</h2>
+                <img class="fragment" data-fragment-index="4"
+                     src="https://www.w3schools.com/css/trolltunga.jpg">
+            </div>
+        </section>
+        <section data-background-color="#699f00" class="center center-horizontal">
+            <h1>HTML: fragmentation</h1>
+        </section>
+        <section>
+            <h2>Code fragmenting</h2>
+            <pre><code data-trim data-noescape>
+						public interface NewsService {
+							//do your requests, use Observables.
 
-		<script src="js/printpdf.js"></script>							<!--/?print-pdf style-->
-	</head>
-	<body>
-		<div id="header">
-			<div id="header-left"></div>
-			<div id="header-right"></div>
-		</div>
-		<div class="reveal">
-			<div class="slides">
-				<section data-markdown="src/slide01__intro.md" class="center center-horizontal"></section>
-				<section data-markdown="src/slide01__intro.md" class="center"></section>
-				<section data-markdown="src/slide01__intro.md" class="center-horizontal"></section>
-				<section data-markdown="src/slide01__intro.md"></section>
-				<section data-markdown="src/slide02__section__about.md"></section>
-				<section data-markdown="src/slide03__section__with-horizontal-slides.md"
-						 data-separator-vertical="^\r?\n------\r?\n$"></section>
-				<section data-markdown="src/slide04__code-example.md"
-						 data-separator-vertical="^\r?\n------\r?\n$"></section>
-			</div>
-		</div>
+							<span class="fragment highlight-red" data-fragment-index="1">@GET("news/getAll")
+							Observable&lt;List&lt;News>> getAll();</span>
 
-		<script src="lib/js/head.min.js"></script> 	<!--HeadJS functions-->
-		<script src="js/reveal.js"></script>		<!--RevealJS functions-->
-		<script src="js/config.js"></script>		<!--RevealJS config-->
-	</body>
+							@GET("news/getById")
+							<span class="fragment highlight-green" data-fragment-index="2">Observable&lt;NewsDetails> getNewsById(@Query("id") String newsId);</span>
+						}
+					</code></pre>
+        </section>
+        <section>
+            <div class="fragment fade-out overlap-fragment" data-fragment-index="1">
+                <h3>&lt;pre>&lt;code class="tiny"></h3>
+                <pre><code class="tiny" data-trim data-noescape>
+                    @NonNull
+                    private static OkHttpClient.Builder getDefaultOkHttpBuilder() {
+                        return new OkHttpClient.Builder()
+                                .addInterceptor(getHttpLoggingInterceptor());
+                    }
+
+                    @NonNull
+                    private static HttpLoggingInterceptor getHttpLoggingInterceptor() {
+                        final HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
+                        <mark>httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);</mark>
+                        return httpLoggingInterceptor;
+                    }
+                </code></pre>
+            </div>
+            <div class="fragment current-visible fade-up fade-out overlap-fragment" data-fragment-index="1">
+                <h3>&lt;pre>&lt;code class="small"></h3>
+                <pre><code class="small" data-trim data-noescape>
+                    @NonNull
+                    private static OkHttpClient.Builder getDefaultOkHttpBuilder() {
+                        return new OkHttpClient.Builder()
+                                .addInterceptor(getHttpLoggingInterceptor());
+                    }
+
+                    @NonNull
+                    private static HttpLoggingInterceptor getHttpLoggingInterceptor() {
+                        final HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
+                        <mark>httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);</mark>
+                        return httpLoggingInterceptor;
+                    }
+                </code></pre>
+            </div>
+            <div class="fragment current-visible fade-up fade-out overlap-fragment" data-fragment-index="2">
+                <h3>&lt;pre>&lt;code></h3>
+                <pre><code data-trim data-noescape>
+                    @NonNull
+                    private static OkHttpClient.Builder getDefaultOkHttpBuilder() {
+                        return new OkHttpClient.Builder()
+                                .addInterceptor(getHttpLoggingInterceptor());
+                    }
+
+                    @NonNull
+                    private static HttpLoggingInterceptor getHttpLoggingInterceptor() {
+                        final HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
+                        <mark>httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);</mark>
+                        return httpLoggingInterceptor;
+                    }
+                </code></pre>
+            </div>
+            <div class="fragment fade-up overlap-fragment" data-fragment-index="3">
+                <h3>&lt;pre>&lt;code class="large"></h3>
+                <pre><code class="large" data-trim data-noescape>
+                    @NonNull
+                    private static OkHttpClient.Builder getDefaultOkHttpBuilder() {
+                        return new OkHttpClient.Builder()
+                                .addInterceptor(getHttpLoggingInterceptor());
+                    }
+
+                    @NonNull
+                    private static HttpLoggingInterceptor getHttpLoggingInterceptor() {
+                        final HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
+                        <mark>httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);</mark>
+                        return httpLoggingInterceptor;
+                    }
+                </code></pre>
+            </div>
+        </section>
+    </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>    <!--HeadJS functions-->
+<script src="js/reveal.js"></script>        <!--RevealJS functions-->
+<script src="js/config.js"></script>        <!--RevealJS config-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js/printpdf.js"></script>
+</body>
 </html>

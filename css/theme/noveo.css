@@ -10,8 +10,7 @@
 /* 1.37 * 30px <p> = 44px  */
 /* 1.00 * 30px <p> = 30px  */
 section.has-dark-background, section.has-dark-background h1, section.has-dark-background h2, section.has-dark-background h3, section.has-dark-background h4, section.has-dark-background h5, section.has-dark-background h6 {
-  color: #CDCCCA;
-  /* inverted 323335 */ }
+  color: #fff; }
 
 /*********************************************
  * GLOBAL STYLES
@@ -28,12 +27,12 @@ body {
 
 ::selection {
   color: #fff;
-  background: #b3ff20;
+  background: #699f00;
   text-shadow: none; }
 
 ::-moz-selection {
   color: #fff;
-  background: #b3ff20;
+  background: #699f00;
   text-shadow: none; }
 
 .reveal .slides > section,
@@ -313,34 +312,105 @@ body {
   width: 0;
   height: 0;
   content: "";
-  border-width: 111px 111px 0 0;
+  border-width: 148px 148px 0 0;
   border-style: solid;
   border-color: #699f00 transparent transparent transparent; }
 
 #header-right {
   position: absolute;
   z-index: 1;
-  top: 1rem;
-  right: 1rem;
+  top: 1.5rem;
+  right: 1.5rem;
   display: block;
-  width: 131px;
-  height: 53px;
+  width: 174px;
+  height: 70px;
   content: "";
   background-image: url(/css/img/university-logo.svg);
-  background-size: 131px 53px;
+  background-size: 174px 70px;
   -webkit-print-color-adjust: exact; }
 
-@media (max-width: 1024px) {
-  #header-right {
-    width: 65.5px;
-    height: 26.5px;
-    background-size: 65.5px 26.5px; }
-  #header-left {
-    border-width: 55.5px 55.5px 0 0; }
-  .reveal {
-    font-size: 15px; } }
+.has-dark-background #header-right,
+div[data-background-hash] #header-right {
+  background-image: url(/css/img/university-logo-white.svg); }
 
 #footer-left {
   position: absolute;
   bottom: 0%;
   left: 0%; }
+
+.half-left {
+  width: 50%;
+  float: left;
+  position: relative;
+  padding-right: 0.5rem; }
+
+.half-right {
+  width: 50%;
+  float: right;
+  position: relative;
+  padding-left: 0.5rem; }
+
+.third-left {
+  width: 33.3%;
+  float: left;
+  position: relative;
+  padding-right: 0.25rem; }
+
+.third-center {
+  width: 33.3%;
+  float: left;
+  position: relative;
+  padding-right: 0.25rem;
+  padding-left: 0.25rem; }
+
+.third-right {
+  width: 33.3%;
+  float: right;
+  position: relative;
+  padding-left: 0.25rem; }
+
+.reveal section div.overlap-fragment pre {
+  min-width: 100%; }
+
+.reveal pre code {
+  font-size: 30px;
+  line-height: 45px; }
+
+.reveal pre code.tiny {
+  font-size: 13.3333333333px;
+  line-height: 20px; }
+
+.reveal pre code.small {
+  font-size: 20px;
+  line-height: 30px; }
+
+.reveal pre code.large {
+  font-size: 45px;
+  line-height: 67.5px; }
+
+.overlap-fragment {
+  position: absolute;
+  max-width: 100%;
+  max-height: 100%; }
+
+@media (max-width: 1024px) {
+  #header-right {
+    width: 60.9px;
+    height: 24.5px;
+    background-size: 60.9px 24.5px; }
+  #header-left {
+    border-width: 51.8px 51.8px 0 0; }
+  .reveal {
+    font-size: 10.5px; }
+  .reveal pre code {
+    font-size: 10.5px;
+    line-height: 15.75px; }
+  .reveal pre code.tiny {
+    font-size: 4.6666666667px;
+    line-height: 7px; }
+  .reveal pre code.small {
+    font-size: 7px;
+    line-height: 10.5px; }
+  .reveal pre code.large {
+    font-size: 15.75px;
+    line-height: 23.625px; } }

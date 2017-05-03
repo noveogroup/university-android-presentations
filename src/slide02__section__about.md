@@ -24,6 +24,6 @@
 
 ### Другие
 
-* `ImageView` – картинка
-* `Button` – кнопочка
-* `CheckBox` – галочка
+* ImageView – картинка    <!-- .element: class="fragment" data-fragment-index="1" -->
+* Button – кнопочка       <!-- .element: class="fragment" data-fragment-index="2" -->
+* CheckBox – галочка      <!-- .element: class="fragment" data-fragment-index="3" -->
