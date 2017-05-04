@@ -1,20 +1,10 @@
-/**
- * White theme for reveal.js. This is the opposite of the 'black' theme.
- *
- * By Hakim El Hattab, http://hakim.se
- */
-
-
 // Default mixins and settings -----------------
 @import "../template/mixins";
 @import "../template/settings";
 // ---------------------------------------------
-
-
 // Include theme-specific fonts
 @import url(../../lib/font/roboto/Roboto.css);
 @import url(../../lib/font/roboto-mono/Roboto-mono.css);
-
 
 // Override theme settings (see ../template/settings.scss)
 $backgroundColor: #fff;
@@ -31,7 +21,7 @@ $headingLetterSpacing: normal;
 $headingTextTransform: none;
 $headingFontWeight: 500;
 $linkColor: #699f00;
-$linkColorHover: lighten( $linkColor, 15% );
+$linkColorHover: lighten($linkColor, 15%);
 $selectionBackgroundColor: $linkColor;
 
 $heading1Size: 3.33em; /* 3.33 * 30px <p> = 100px */
@@ -43,174 +33,71 @@ $triangleSize: 148px;
 $logoWidth: 174px;
 $logoHeight: 70px;
 
+$mobileScreenScale: 0.35;
+$codeScale: 1.5;
+
 section.has-dark-background {
-	&, h1, h2, h3, h4, h5, h6 {
-		color: #fff;
-	}
+  &, h1, h2, h3, h4, h5, h6 {
+    color: #fff;
+  }
 }
 
 // Theme template ------------------------------
 @import "../template/theme";
+@import "../template/utility";
+@import "../template/overlay";
 // ---------------------------------------------
 
+// Custom code sizing --------------------------
+.reveal {
+  section div.overlap-fragment pre {
+    min-width: 100%;
+  }
 
-// Custom  -------------------------------------
-.center-horizontal {
-	text-align: center;
+  pre code {
+    font-size: $mainFontSize;
+    line-height: $mainFontSize * $codeScale;
+
+    &.tiny {
+      font-size: $mainFontSize / $codeScale / $codeScale;
+      line-height: $mainFontSize / $codeScale;
+    }
+
+    &.small {
+      font-size: $mainFontSize / $codeScale;
+      line-height: $mainFontSize;
+    }
+
+    &.large {
+      font-size: $mainFontSize * $codeScale;
+      line-height: $mainFontSize * $codeScale * $codeScale;
+    }
+  }
 }
 
-.center-vertical {
-	bottom: 0;
-	top: 0;
-}
 
-#header-left {
-	position: absolute;
-	z-index: 1;
-	top: 0;
-	left: 0;
-
-	display: block;
-
-	width: 0;
-	height: 0;
-
-	content: "";
-
-	border-width: $triangleSize $triangleSize 0 0;
-	border-style: solid;
-	border-color: $linkColor transparent transparent transparent;
-}
-
-#header-right {
-	position: absolute;
-	z-index: 1;
-	top: 1.5rem;
-	right: 1.5rem;
-
-	display: block;
-
-	width: $logoWidth;
-	height: $logoHeight;
-
-	content: "";
-
-	background-image: url(/css/img/university-logo.svg);
-	background-size: $logoWidth $logoHeight;
-
-	-webkit-print-color-adjust: exact;
-}
-
-.has-dark-background #header-right,
-div[data-background-hash] #header-right {
-	background-image: url(/css/img/university-logo-white.svg);
-}
-
-#footer-left {
-	position: absolute;
-	bottom: 0%;
-	left: 0%;
-}
-
-.half-left {
-	width: 50%;
-	float: left;
-	position:relative;
-	padding-right: 0.5rem;
-}
-
-.half-right {
-	width: 50%;
-	float: right;
-	position:relative;
-	padding-left: 0.5rem;
-}
-
-.third-left {
-	width: 33.3%;
-	float: left;
-	position:relative;
-	padding-right: 0.25rem;
-}
-
-.third-center {
-	width: 33.3%;
-	float: left;
-	position:relative;
-	padding-right: 0.25rem;
-	padding-left: 0.25rem;
-}
-
-.third-right {
-	width: 33.3%;
-	float: right;
-	position:relative;
-	padding-left: 0.25rem;
-}
-
-.reveal section div.overlap-fragment pre {
-	min-width: 100%;
-}
-
-.reveal pre code {
-	font-size: $mainFontSize;
-	line-height: $mainFontSize * 1.5;
-}
-
-.reveal pre code.tiny {
-	font-size: $mainFontSize / 1.5 / 1.5;
-	line-height: $mainFontSize / 1.5;
-}
-
-.reveal pre code.small {
-	font-size: $mainFontSize / 1.5;
-	line-height: $mainFontSize;
-}
-
-.reveal pre code.large {
-	font-size: $mainFontSize * 1.5;
-	line-height: $mainFontSize * 1.5 * 1.5;
-}
-
-.overlap-fragment {
-	position: absolute;
-	max-width: 100%;
-	max-height: 100%;
-}
-
-$scaleFactor: 0.35;
 @media(max-width: 1024px) {
-	#header-right {
-		width: $logoWidth*$scaleFactor;
-		height: $logoHeight*$scaleFactor;
-		background-size: $logoWidth*$scaleFactor $logoHeight*$scaleFactor;
-	}
+  .reveal {
+    font-size: $mainFontSize * $mobileScreenScale;
 
-	#header-left {
-		border-width: $triangleSize*$scaleFactor $triangleSize*$scaleFactor 0 0;
-	}
+    pre code {
+      font-size: $mainFontSize * $mobileScreenScale;
+      line-height: $mainFontSize * $codeScale * $mobileScreenScale;
 
-	.reveal {
-		font-size: $mainFontSize * $scaleFactor;
-	}
+      &.tiny {
+        font-size: $mainFontSize / $codeScale / $codeScale * $mobileScreenScale;
+        line-height: $mainFontSize / $codeScale * $mobileScreenScale;
+      }
 
-	.reveal pre code {
-		font-size: $mainFontSize * $scaleFactor;
-		line-height: $mainFontSize * 1.5 * $scaleFactor;
-	}
+      &.small {
+        font-size: $mainFontSize / $codeScale * $mobileScreenScale;
+        line-height: $mainFontSize * $mobileScreenScale;
+      }
 
-	.reveal pre code.tiny {
-		font-size: $mainFontSize / 1.5 / 1.5 * $scaleFactor;
-		line-height: $mainFontSize / 1.5 * $scaleFactor;
-	}
-
-	.reveal pre code.small {
-		font-size: $mainFontSize / 1.5 * $scaleFactor;
-		line-height: $mainFontSize * $scaleFactor;
-	}
-
-	.reveal pre code.large {
-		font-size: $mainFontSize * 1.5 * $scaleFactor;
-		line-height: $mainFontSize * 1.5 * 1.5 * $scaleFactor;
-	}
+      &.large {
+        font-size: $mainFontSize * $codeScale * $mobileScreenScale;
+        line-height: $mainFontSize * $codeScale * $codeScale * $mobileScreenScale;
+      }
+    }
+  }
 }

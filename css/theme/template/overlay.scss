@@ -1,0 +1,47 @@
+#header-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: block;
+
+  width: 0;
+  height: 0;
+
+  border-width: $triangleSize $triangleSize 0 0;
+  border-style: solid;
+  border-color: $linkColor transparent transparent transparent;
+}
+
+#header-right {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+
+  display: block;
+
+  width: $logoWidth;
+  height: $logoHeight;
+
+  background-image: url(/css/img/university-logo.svg);
+  background-size: $logoWidth $logoHeight;
+
+  -webkit-print-color-adjust: exact;
+}
+
+.has-dark-background #header-right,
+div[data-background-hash] #header-right {
+  background-image: url(/css/img/university-logo-white.svg);
+}
+
+@media(max-width: 1024px) {
+  #header-right {
+    width: $logoWidth*$mobileScreenScale;
+    height: $logoHeight*$mobileScreenScale;
+    background-size: $logoWidth*$mobileScreenScale $logoHeight*$mobileScreenScale;
+  }
+
+  #header-left {
+    border-width: $triangleSize*$mobileScreenScale $triangleSize*$mobileScreenScale 0 0;
+  }
+}
