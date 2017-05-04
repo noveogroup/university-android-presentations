@@ -48,3 +48,8 @@
   position: relative;
   padding-left: 0.25rem;
 }
+
+.reveal div.underfloating {
+  clear: both;
+  padding-top: $blockMargin;
+}

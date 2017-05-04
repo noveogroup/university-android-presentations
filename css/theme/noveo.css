@@ -334,6 +334,10 @@ body {
   position: relative;
   padding-left: 0.25rem; }
 
+.reveal div.underfloating {
+  clear: both;
+  padding-top: 20px; }
+
 #header-left {
   position: absolute;
   top: 0;
