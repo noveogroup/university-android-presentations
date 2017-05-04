@@ -338,6 +338,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 1;
   display: block;
   width: 0;
   height: 0;
@@ -349,16 +350,17 @@ body {
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
+  z-index: 1;
   display: block;
   width: 174px;
   height: 70px;
-  background-image: url(css/img/university-logo.svg);
+  background-image: url(img/university-logo.svg);
   background-size: 174px 70px;
   -webkit-print-color-adjust: exact; }
 
 .has-dark-background #header-right,
 div[data-background-hash] #header-right {
-  background-image: url(css/img/university-logo-white.svg); }
+  background-image: url(img/university-logo-white.svg); }
 
 @media (max-width: 1024px) {
   #header-right {
