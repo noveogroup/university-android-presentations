@@ -58,7 +58,7 @@
 
 ------
 
-## Примеры кода - маленький кусок
+## Примеры кода — маленький кусок
 
     protected BaseMeasurementProcessor(final BluetoothProvider bluetoothProvider,
                                        final DatabaseApi databaseApi,
