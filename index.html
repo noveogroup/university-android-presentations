@@ -19,179 +19,28 @@
 </div>
 <div class="reveal">
     <div class="slides">
-        <!--positioning content-->
-        <section data-markdown="src/slide01__intro.md" class="center center-horizontal"></section>
-        <!--md file with several slides related to the section-->
-        <section data-background-color="#699f00" class="center center-horizontal">
-            <h1>Markdown: multiple slides in file</h1>
-        </section>
-        <section data-markdown="src/slide02__section__about.md"></section>
-        <section data-markdown="src/slide03__section__with-horizontal-slides.md"
-                 data-separator-vertical="^\r?\n------\r?\n$"></section>
-        <!--example of code highlighting-->
-        <section data-background-color="#699f00" class="center center-horizontal">
-            <h1>Markdown: code examples</h1>
-        </section>
-        <section data-markdown="src/slide04__code-example.md"
-                 data-separator-vertical="^\r?\n------\r?\n$"></section>
-        <!--html markup-->
-        <section data-background-color="#699f00" class="center center-horizontal">
-            <h1>HTML: iframes</h1>
-        </section>
         <section>
-            <h2>IFrame example</h2>
-            <P>Полезно для всяких ссылочек на либы, например</P>
-            <iframe class="fragment" data-fragment-index="1"
-                    width="400" height="600"
-                    src="http://reactivex.io/"></iframe>
-            <iframe class="fragment" data-fragment-index="2"
-                    width="400" height="600"
-                    src="http://jakewharton.github.io/butterknife/"></iframe>
-            <iframe class="fragment" data-fragment-index="3"
-                    width="400" height="600"
-                    src="https://google.github.io/dagger/android.html"></iframe>
-            <iframe class="fragment" data-fragment-index="4"
-                    width="400" height="600"
-                    src="http://square.github.io/okhttp/"></iframe>
-        </section>
-        <section data-background-color="#699f00" class="center center-horizontal">
-            <h1>HTML: split screen</h1>
-        </section>
-        <section>
-            <h2>Позиционирование контента</h2>
-            <div class="half-left">
-                <h4>Левая колонка</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tincidunt laoreet bibendum. Fusce
-                    eleifend viverra enim, sed aliquet odio faucibus quis. Fusce vulputate pharetra nisl nec porttitor.
-                    Nam consectetur tincidunt dignissim. Morbi ut leo risus. Pellentesque ac nisi nec elit efficitur
-                    consequat sed nec massa. Fusce vel luctus ante, et ultrices sapien. Pellentesque sed ornare orci.
-                    Fusce a quam at mi bibendum finibus.</p>
+            <div>
+                <h2>Лекции</h2>
+                <p><a href="example.html">Example</a></p>
             </div>
-            <div class="half-right">
-                <h4>Правая колонка</h4>
-                <p>Vivamus tempor ligula leo, at porta sem euismod vitae. Etiam pharetra turpis vitae lectus rutrum,
-                    placerat elementum nibh efficitur. Morbi in felis vehicula dolor consequat tempor. Donec eget ante
-                    hendrerit, tincidunt tortor sit amet, eleifend lorem. Donec accumsan tempus erat. Etiam gravida,
-                    odio in dictum pulvinar, ex felis aliquam neque, vitae congue dui turpis quis mi. Vestibulum sit
-                    amet nunc et massa iaculis sollicitudin vitae non lacus. Mauris dapibus elit nulla, ut vehicula
-                    tellus dapibus nec. Proin egestas pretium nisl a bibendum.</p>
-            </div>
-        </section>
-        <section>
-            <h2>Позиционирование контента</h2>
-            <div class="third-left">
-                <h2>Left</h2>
-                <img class="fragment" data-fragment-index="1"
-                     src="https://www.w3schools.com/css/trolltunga.jpg">
-            </div>
-            <div class="third-center">
-                <h2>Center</h2>
-                <div class="center-horizontal">
-                    <p class="fragment" data-fragment-index="2">just text</p>
-                    <ul class="fragment" data-fragment-index="2">
-                        <li>unordered 1</li>
-                        <li>unordered 2</li>
-                        <li>unordered 3</li>
+            <div>
+                <div class="half-left">
+                    <ul>
+                        <li><a href="lecture/01-intro/index.html">01. Intro</a></li>
+                        <li><a href="lecture/java-01/index.html">02. Java - 01</a></li>
+                        <li><a href="lecture/java-02/index.html">03. Java - 02</a></li>
+                        <li><a href="lecture/java-03/index.html">04. Java - 03</a></li>
+                        <li><a href="lecture/android-01/index.html">05. Android - Basics</a></li>
+                        <li><a href="lecture/android-02/index.html">06. Android - Gradle</a></li>
+                        <li><a href="lecture/android-03/index.html">07. Android - UI</a></li>
+                        <li><a href="lecture/android-04/index.html">08. Android - Fragments</a></li>
+                        <li><a href="lecture/android-05/index.html">09. Android - Database</a></li>
+                        <li><a href="lecture/android-06/index.html">10. Android - Network</a></li>
                     </ul>
-                    <p class="fragment" data-fragment-index="3">more text</p>
-                    <ol class="fragment" data-fragment-index="3">
-                        <li>ordered 1</li>
-                        <li>ordered 2</li>
-                        <li>ordered 3</li>
-                    </ol>
                 </div>
-            </div>
-            <div class="third-right">
-                <h2>Right</h2>
-                <img class="fragment" data-fragment-index="4"
-                     src="https://www.w3schools.com/css/trolltunga.jpg">
-            </div>
-        </section>
-        <section data-background-color="#699f00" class="center center-horizontal">
-            <h1>HTML: fragmentation</h1>
-        </section>
-        <section>
-            <h2>Code fragmenting</h2>
-            <pre><code data-trim data-noescape>
-						public interface NewsService {
-							//do your requests, use Observables.
-
-							<span class="fragment highlight-red" data-fragment-index="1">@GET("news/getAll")
-							Observable&lt;List&lt;News>> getAll();</span>
-
-							@GET("news/getById")
-							<span class="fragment highlight-green" data-fragment-index="2">Observable&lt;NewsDetails> getNewsById(@Query("id") String newsId);</span>
-						}
-					</code></pre>
-        </section>
-        <section>
-            <div class="fragment fade-out overlap-fragment" data-fragment-index="1">
-                <h3>&lt;pre>&lt;code class="tiny"></h3>
-                <pre><code class="tiny" data-trim data-noescape>
-                    @NonNull
-                    private static OkHttpClient.Builder getDefaultOkHttpBuilder() {
-                        return new OkHttpClient.Builder()
-                                .addInterceptor(getHttpLoggingInterceptor());
-                    }
-
-                    @NonNull
-                    private static HttpLoggingInterceptor getHttpLoggingInterceptor() {
-                        final HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
-                        <mark>httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);</mark>
-                        return httpLoggingInterceptor;
-                    }
-                </code></pre>
-            </div>
-            <div class="fragment current-visible fade-up fade-out overlap-fragment" data-fragment-index="1">
-                <h3>&lt;pre>&lt;code class="small"></h3>
-                <pre><code class="small" data-trim data-noescape>
-                    @NonNull
-                    private static OkHttpClient.Builder getDefaultOkHttpBuilder() {
-                        return new OkHttpClient.Builder()
-                                .addInterceptor(getHttpLoggingInterceptor());
-                    }
-
-                    @NonNull
-                    private static HttpLoggingInterceptor getHttpLoggingInterceptor() {
-                        final HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
-                        <mark>httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);</mark>
-                        return httpLoggingInterceptor;
-                    }
-                </code></pre>
-            </div>
-            <div class="fragment current-visible fade-up fade-out overlap-fragment" data-fragment-index="2">
-                <h3>&lt;pre>&lt;code></h3>
-                <pre><code data-trim data-noescape>
-                    @NonNull
-                    private static OkHttpClient.Builder getDefaultOkHttpBuilder() {
-                        return new OkHttpClient.Builder()
-                                .addInterceptor(getHttpLoggingInterceptor());
-                    }
-
-                    @NonNull
-                    private static HttpLoggingInterceptor getHttpLoggingInterceptor() {
-                        final HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
-                        <mark>httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);</mark>
-                        return httpLoggingInterceptor;
-                    }
-                </code></pre>
-            </div>
-            <div class="fragment fade-up overlap-fragment" data-fragment-index="3">
-                <h3>&lt;pre>&lt;code class="large"></h3>
-                <pre><code class="large" data-trim data-noescape>
-                    @NonNull
-                    private static OkHttpClient.Builder getDefaultOkHttpBuilder() {
-                        return new OkHttpClient.Builder()
-                                .addInterceptor(getHttpLoggingInterceptor());
-                    }
-
-                    @NonNull
-                    private static HttpLoggingInterceptor getHttpLoggingInterceptor() {
-                        final HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
-                        <mark>httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);</mark>
-                        return httpLoggingInterceptor;
-                    }
-                </code></pre>
+                <div class="half-right">
+                </div>
             </div>
         </section>
     </div>
