@@ -23,7 +23,7 @@
   width: $logoWidth;
   height: $logoHeight;
 
-  background-image: url(css/img/university-logo.svg);
+  background-image: url(img/university-logo.svg);
   background-size: $logoWidth $logoHeight;
 
   -webkit-print-color-adjust: exact;
@@ -31,7 +31,7 @@
 
 .has-dark-background #header-right,
 div[data-background-hash] #header-right {
-  background-image: url(css/img/university-logo-white.svg);
+  background-image: url(img/university-logo-white.svg);
 }
 
 @media(max-width: 1024px) {
