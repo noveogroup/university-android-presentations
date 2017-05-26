@@ -405,3 +405,15 @@ div[data-background-hash] #header-right {
       .reveal pre code.large {
         font-size: 15.75px;
         line-height: 23.625px; } }
+
+.reveal section img {
+  border: 0 none transparent;
+  box-shadow: none; }
+
+.reveal blockquote {
+  width: 95%;
+  margin: 20px 5%; }
+  .reveal blockquote.noveo-info {
+    background-color: #ecf1ec; }
+  .reveal blockquote.noveo-warn {
+    background-color: #f4f4f4; }

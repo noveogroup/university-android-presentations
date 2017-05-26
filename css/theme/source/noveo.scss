@@ -75,7 +75,6 @@ section.has-dark-background {
   }
 }
 
-
 @media(max-width: 1024px) {
   .reveal {
     font-size: $mainFontSize * $mobileScreenScale;
@@ -98,6 +97,26 @@ section.has-dark-background {
         font-size: $mainFontSize * $codeScale * $mobileScreenScale;
         line-height: $mainFontSize * $codeScale * $codeScale * $mobileScreenScale;
       }
+    }
+  }
+}
+
+.reveal section img {
+  border: 0 none transparent;
+  box-shadow: none;
+}
+
+.reveal {
+  blockquote {
+    width: 95%;
+    margin: 20px 5%;
+
+    &.noveo-info {
+      background-color: #ecf1ec;
+    }
+
+    &.noveo-warn {
+      background-color: #f4f4f4;
     }
   }
 }
