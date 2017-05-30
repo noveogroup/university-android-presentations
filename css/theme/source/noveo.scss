@@ -7,12 +7,35 @@
 @import url(../../lib/font/roboto-mono/Roboto-mono.css);
 
 // Override theme settings (see ../template/settings.scss)
-$backgroundColor: #fff;
+$backgroundColor: white;
+
+//Label
+$labelPath: "img/label_android.svg";
+$labelWidth: 277px;
+$labelHeight: 70px;
+$labelTopMargin: 60px;
+
+//Background
+$titleBackgroundPath: "img/background_title.svg";
+$titleBackgroundWidth: 688px;
+$titleBackgroundHeight: 656px;
+
+//Logo
+$logoPath: "img/university-logo.svg";
+$logoWhitePath: "img/university-logo-white.svg";
+$logoWidth: 242px;
+$logoHeight: 94px;
+$overlayMargin: 54px;
+$overlaySideMargin: 80px;
+
+$webText: "noveo.ru";
+
+$slideTopMargin: $logoHeight;
 
 $mainColor: #323335;
 $headingColor: #323335;
+$greyColor: #9e9e9e;
 
-$mainFontSize: 30px;
 $mainFont: Roboto, sans-serif;
 $codeFont: 'Roboto Mono', monospace;
 $headingFont: Roboto, sans-serif;
@@ -24,21 +47,24 @@ $linkColor: #699f00;
 $linkColorHover: lighten($linkColor, 15%);
 $selectionBackgroundColor: $linkColor;
 
-$heading1Size: 3.33em; /* 3.33 * 30px <p> = 100px */
-$heading2Size: 2.00em; /* 2.00 * 30px <p> = 60px  */
-$heading3Size: 1.47em; /* 1.37 * 30px <p> = 44px  */
-$heading4Size: 1.00em; /* 1.00 * 30px <p> = 30px  */
+$titleBlockMargin: 60px;
+$mainFontSize: 28pt;
+$mainCodeSize: 16.8pt;
+$heading1Size: 1.77em;
+$heading2Size: 1.33em;
+$heading3Size: 1.11em;
+$heading4Size: 1.00em;
 
-$triangleSize: 148px;
-$logoWidth: 174px;
-$logoHeight: 70px;
+$titleMainFontSize: 32pt;
+$titleHeader1Size: 2.14em;
+$titleHeader2Size: 0.57em;
 
 $mobileScreenScale: 0.35;
 $codeScale: 1.5;
 
 section.has-dark-background {
   &, h1, h2, h3, h4, h5, h6 {
-    color: #fff;
+    color: white;
   }
 }
 
@@ -50,36 +76,137 @@ section.has-dark-background {
 
 // Custom code sizing --------------------------
 .reveal {
+  &.has-dark-background {
+    .slide-number {
+      span {
+        color: white;
+      }
+    }
+  }
+
+  .slides > section, .slides .pdf-page > section {
+    width: 91%;
+    padding: $overlaySideMargin + $slideTopMargin $overlaySideMargin $overlaySideMargin $overlaySideMargin;
+    > section {
+      margin-top: $overlaySideMargin + $slideTopMargin - $blockMargin;
+    }
+
+    &.noveo-title {
+      font-size: $titleMainFontSize;
+      padding-top: $overlaySideMargin;
+      * {
+        width: 50%;
+      }
+      .title-separator {
+        width: 200px;
+        border-bottom: 2px solid $linkColor;
+      }
+      h1 {
+        font-size: $titleHeader1Size;
+        font-weight: 700;
+        margin-bottom: $titleBlockMargin;
+      }
+      h2 {
+        font-size: $titleHeader2Size;
+        text-transform: uppercase;
+        color: $greyColor;
+        margin-top: $titleBlockMargin;
+      }
+    }
+
+    div.borders {
+      border: 1px solid $linkColor;
+    }
+
+    img {
+      border: none;
+      box-shadow: none;
+    }
+  }
+
+  ul, ul ul, ul ul ul {
+    display: block;
+    margin: $blockMargin 0 0 0;
+    list-style: none !important;
+    padding: 0;
+    > li {
+      padding-left: 1em;
+      text-indent: -0.7em;
+      &::before {
+        content: "● ";
+        color: $linkColor;
+      }
+    }
+  }
+
+  ol, ol ol, ol ol ol {
+    display: block;
+    margin: $blockMargin 0 0 0;
+    list-style: none !important;
+    padding: 0;
+    > li {
+      padding-left: 1em;
+      text-indent: -0.7em;
+      counter-increment: ordered-list;
+      &::before {
+        content: counter(ordered-list) ". ";
+        color: $linkColor;
+      }
+    }
+  }
+
+  h4.noveo-image-header {
+    max-width: 35%;
+    text-transform: uppercase;
+    color: white;
+    opacity: 0.9;
+    line-height: 1.5;
+    background-color: $linkColor;
+    margin-left: -1 * $overlaySideMargin;
+    padding: $overlayMargin $overlaySideMargin $overlayMargin $overlaySideMargin;
+  }
+
+  .slide-number {
+    left: $overlaySideMargin;
+    bottom: $overlayMargin;
+    right: auto;
+    background: none;
+    span {
+      font-family: "Roboto Mono", monospace;
+      font-size: $mainFontSize;
+      color: $greyColor;
+    }
+  }
+
   section div.overlap-fragment pre {
     min-width: 100%;
   }
 
   pre code {
-    font-size: $mainFontSize;
-    line-height: $mainFontSize * $codeScale;
-
     &.tiny {
-      font-size: $mainFontSize / $codeScale / $codeScale;
-      line-height: $mainFontSize / $codeScale;
+      font-size: $mainCodeSize / $codeScale / $codeScale;
+      line-height: $mainCodeSize;
     }
 
     &.small {
-      font-size: $mainFontSize / $codeScale;
-      line-height: $mainFontSize;
+      font-size: $mainCodeSize / $codeScale;
+      line-height: $mainCodeSize;
     }
 
+    font-size: $mainCodeSize;
+    line-height: $mainCodeSize * $codeScale;
+
     &.large {
-      font-size: $mainFontSize * $codeScale;
-      line-height: $mainFontSize * $codeScale * $codeScale;
+      font-size: $mainCodeSize * $codeScale;
+      line-height: $mainCodeSize * $codeScale * $codeScale;
     }
   }
 }
 
-
+/*
 @media(max-width: 1024px) {
   .reveal {
     font-size: $mainFontSize * $mobileScreenScale;
-
     pre code {
       font-size: $mainFontSize * $mobileScreenScale;
       line-height: $mainFontSize * $codeScale * $mobileScreenScale;
@@ -100,4 +227,4 @@ section.has-dark-background {
       }
     }
   }
-}
+}*/

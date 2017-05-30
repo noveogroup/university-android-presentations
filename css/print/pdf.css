@@ -91,13 +91,14 @@ ul, ol, div, p {
 	page-break-after: always;
 }
 
+
+
 .reveal .slides section {
 	visibility: visible !important;
 	display: block !important;
 	position: absolute !important;
 
 	margin: 0 !important;
-	padding: 0 !important;
 	box-sizing: border-box !important;
 	min-height: 1px;
 
@@ -112,6 +113,10 @@ ul, ol, div, p {
 	   -moz-transform: none !important;
 	    -ms-transform: none !important;
 	        transform: none !important;
+}
+
+.reveal .slides > section {
+	width: 100%;
 }
 
 .reveal section.stack {

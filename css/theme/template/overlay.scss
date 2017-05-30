@@ -1,42 +1,65 @@
 #header-left {
   position: absolute;
-  top: 0;
+  top: $labelTopMargin;
   left: 0;
+  z-index: 1000;
+  opacity: 0.95;
 
-  z-index: 1;
   display: block;
 
-  width: 0;
-  height: 0;
+  width: $labelWidth;
+  height: $labelHeight;
 
-  border-width: $triangleSize $triangleSize 0 0;
-  border-style: solid;
-  border-color: $linkColor transparent transparent transparent;
+  background-image: url($labelPath);
+  background-size: $labelWidth $labelHeight;
+
+  -webkit-print-color-adjust: exact;
 }
 
 #header-right {
   position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  z-index: 1;
+  top: $overlayMargin;
+  right: $overlaySideMargin;
+  z-index: 1000;
 
   display: block;
 
   width: $logoWidth;
   height: $logoHeight;
 
-  background-image: url(img/university-logo.svg);
+  background-image: url($logoPath);
   background-size: $logoWidth $logoHeight;
 
   -webkit-print-color-adjust: exact;
 }
 
-.has-dark-background #header-right,
-div[data-background-hash] #header-right {
-  background-image: url(img/university-logo-white.svg);
+#footer-right::after {
+  position: absolute;
+  bottom: $overlayMargin;
+  right: $overlaySideMargin;
+  z-index: 1000;
+  content: $webText;
+  color: $greyColor;
+
+  display: block;
 }
 
-@media(max-width: 1024px) {
+.has-dark-background {
+  #header-right {
+    background-image: url($logoWhitePath);
+  }
+  #footer-right::after {
+    color: transparent;
+  }
+}
+
+.has-light-background {
+  #footer-right::after {
+    color: transparent;
+  }
+}
+
+/*@media(max-width: 1024px) {
   #header-right {
     width: $logoWidth*$mobileScreenScale;
     height: $logoHeight*$mobileScreenScale;
@@ -44,6 +67,8 @@ div[data-background-hash] #header-right {
   }
 
   #header-left {
-    border-width: $triangleSize*$mobileScreenScale $triangleSize*$mobileScreenScale 0 0;
+    width: $labelWidth*$mobileScreenScale;
+    height: $labelHeight*$mobileScreenScale;
+    background-size: $labelWidth*$mobileScreenScale $labelHeight*$mobileScreenScale;
   }
-}
+}*/

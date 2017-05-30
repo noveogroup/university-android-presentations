@@ -5,14 +5,14 @@
 Reveal.initialize({
     width: '100%',
     height: '100%',
-    margin: 0.1,
+    margin: 0, //1920 * 0.083333 / 2 = 80px as in specs for slide margin
     minScale: 0.25,
     maxScale: 1.0,
 
     pdfMaxPagesPerSlide: 3,
 
     // Display controls in the bottom right corner
-    controls: true,
+    controls: false,
 
     // Display a presentation progress bar
     progress: true,
@@ -21,7 +21,7 @@ Reveal.initialize({
     defaultTiming: 600,
 
     // Display the page number of the current slide
-    slideNumber: 'c/t',
+    slideNumber: 'h.v',
 
     // Push each slide change to the browser history
     history: false,
