@@ -12,30 +12,47 @@
 </head>
 <body>
 <div id="hidden" style="display: none">
-    <div id="header">
+    <div id="overlay">
         <div id="header-left"></div>
         <div id="header-right"></div>
+        <div id="footer-right"></div>
     </div>
 </div>
 <div class="reveal">
     <div class="slides">
-        <!--positioning content-->
-        <section data-markdown="lecture/example/slide01__intro.md" class="center center-horizontal"></section>
-        <!--md file with several slides related to the section-->
-        <section data-background-color="#699f00" class="center center-horizontal">
+        <section data-background-image="css/theme/img/background_title.svg"
+                 data-background-position="right bottom"
+                 data-background-size="688px 660px"
+                 data-markdown="lecture/example/slide01__intro.md"
+                 class="noveo-title center"></section>
+
+        <section data-background-image="css/theme/img/background_title.svg"
+                 data-background-position="right bottom"
+                 data-background-size="688px 660px"
+                 data-markdown="lecture/example/slide01__intro.md"
+                 class="noveo-title center"></section>
+
+        <section data-background-image="css/theme/img/background_title.svg"
+                 data-background-position="right bottom"
+                 data-background-size="688px 660px" class="noveo-title center">
             <h1>Markdown: multiple slides in file</h1>
         </section>
         <section data-markdown="lecture/example/slide02__section__about.md"></section>
         <section data-markdown="lecture/example/slide03__section__with-horizontal-slides.md"
+                 id="03"
                  data-separator-vertical="^\r?\n------\r?\n$"></section>
         <!--example of code highlighting-->
-        <section data-background-color="#699f00" class="center center-horizontal">
+        <section data-background-image="css/theme/img/background_title.svg"
+                 data-background-position="right bottom"
+                 data-background-size="688px 660px" class="center">
             <h1>Markdown: code examples</h1>
         </section>
         <section data-markdown="lecture/example/slide04__code-example.md"
                  data-separator-vertical="^\r?\n------\r?\n$"></section>
         <!--html markup-->
-        <section data-background-color="#699f00" class="center center-horizontal">
+        <section data-background-image="css/theme/img/background_title.svg"
+                 data-background-position="right bottom"
+                 data-background-size="688px 660px" class="center">
             <h1>HTML: iframes</h1>
         </section>
         <section>
@@ -44,23 +61,25 @@
             <div>
 
                 <iframe class="fragment" data-fragment-index="1"
-                        width="400" height="600"
+                        width="400" height="500"
                         src="https://reactivex.io/"></iframe>
                 <iframe class="fragment" data-fragment-index="2"
-                        width="400" height="600"
+                        width="400" height="500"
                         src="https://jakewharton.github.io/butterknife/"></iframe>
                 <iframe class="fragment" data-fragment-index="3"
-                        width="400" height="600"
+                        width="400" height="500"
                         src="https://google.github.io/dagger/android.html"></iframe>
                 <iframe class="fragment" data-fragment-index="4"
-                        width="400" height="600"
+                        width="400" height="500"
                         src="https://square.github.io/okhttp/"></iframe>
             </div>
             <div class="fragment" data-fragment-index="5">
                 <p>*src="https", если грузить http - оно не откроется на GitHub Pages</p>
             </div>
         </section>
-        <section data-background-color="#699f00" class="center center-horizontal">
+        <section data-background-image="css/theme/img/background_title.svg"
+                 data-background-position="right bottom"
+                 data-background-size="688px 660px" class="center">
             <h1>HTML: split screen</h1>
         </section>
         <section>
@@ -113,11 +132,14 @@
                      src="https://www.w3schools.com/css/trolltunga.jpg">
             </div>
         </section>
-        <section data-background-color="#699f00" class="center center-horizontal">
+        <section data-background-image="css/theme/img/background_title.svg"
+                 data-background-position="right bottom"
+                 data-background-size="688px 660px" class="center">
             <h1>HTML: fragmentation</h1>
         </section>
         <section>
             <h2>Code fragmenting</h2>
+            <div>
             <pre><code data-trim data-noescape>
 						public interface NewsService {
 							//do your requests, use Observables.
@@ -129,8 +151,9 @@
 							<span class="fragment highlight-green" data-fragment-index="2">Observable&lt;NewsDetails> getNewsById(@Query("id") String newsId);</span>
 						}
 					</code></pre>
+            </div>
         </section>
-        <section>
+        <section id="code">
             <div class="fragment fade-out overlap-fragment" data-fragment-index="1">
                 <h3>&lt;pre>&lt;code class="tiny"></h3>
                 <pre><code class="tiny" data-trim data-noescape>

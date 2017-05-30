@@ -1,5 +1,7 @@
 # [тема] Заголовок
 
-### Android
+<div class="title-separator"></div>
 
-#### [автор] Name Surname
+## автор:
+
+Name Surname
