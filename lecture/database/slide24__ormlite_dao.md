@@ -1,10 +1,45 @@
-## DAO 
-Data Access Object - объект, который
+## DAO
+
+**D**ata **A**ccess **O**bject  
+
+<br>
+
+Объект, который
 * Предоставляет абстрактный интерфейс к какому-либо типу БД
-* Изолирует в себе работу с БД.
+* Изолирует в себе работу с БД
+
+------
+
+## DAO в ORMLite
 
 Для каждого класса `@DatabaseTable`:
 
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+```
+
+public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
+    private Dao<Customer, Long> customerDao;
+    
+    public Dao<Customer, Long> getCustomerDao() throws SQLException {
+            if (customerDao == null) {
+                customerDao = getDao(Customer.class);
+            }
+            return customerDao;
+    }
+...
+}
+
+```
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+
+------
+
+## DAO в ORMLite
+
+Методы RuntimeExceptionDao не бросают SQLException. 
 
 ```
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
@@ -23,7 +58,6 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
 <!-- .element: class="fragment" data-fragment-index="1" -->
 
-
 ------
 
 ## DAO
@@ -31,14 +65,14 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 Предоставляет удобные методы:
 
 * `create()`
-* `createIfNotExists()`
+* `createIfNotExists()`&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
 * `createOrUpdate()`
 * `update()`
 
 <!-- .element: class="fragment" data-fragment-index="1" -->
 
 * `delete()`
-* `deleteById()`
+* `deleteById()`&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
 
 <!-- .element: class="fragment" data-fragment-index="2" -->
 
@@ -48,5 +82,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 * `queryForFirst()`
 
 <!-- .element: class="fragment" data-fragment-index="3" -->
+
+<br>
 
 и другие.<!-- .element: class="fragment" data-fragment-index="4" -->

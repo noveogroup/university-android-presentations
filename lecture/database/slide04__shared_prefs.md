@@ -2,6 +2,17 @@
 
 Данные в виде пар `key`-`value`.  
 
+
+Находятся в папке приложения:  
+`/data/data/YOUR_PACKAGE_NAME/shared_prefs/YOUR_PREFS_NAME.xml`
+
+<br>
+
+*Use case*:  
+Настройки пользователя и маленькие наборы данных.  
+
+<br>
+
 |   key    |  value       |
 | -------- | --------     |
 |`String`  |  `int`       |
@@ -11,38 +22,24 @@
 |          |`Set<String>` |
 
 
-<br>
-
-*Use case*:  
-Настройки пользователя и маленькие наборы данных.  
-
-<br>
-
-Находятся в папке приложения:  
-`
-/data/data/YOUR_PACKAGE_NAME/shared_prefs/YOUR_PREFS_NAME.xml
-`
-
-
 ------
 
 ## Shared Preferences
 
-`//todo: replace with PrefsManager`
-
-### Get
+### Get:
 
 ```
-public static String PREFERENCES_KEY = "com.example.myapp.MY_OWN_PREFS";
+static String PREFERENCES_KEY = "com.example.myapp.MY_OWN_PREFS";
 SharedPreferences preferences =
-context.getSharedPreferences(PREFERENCES_KEY, Context.MODE_PRIVATE);
+                context.getSharedPreferences(PREFERENCES_KEY, Context.MODE_PRIVATE);
 ```
 
 ------
 
 ## Shared Preferences
 
-### Write
+### Write:
+
 
 ```
 SharedPreferences.Editor editor = preferences.edit();
@@ -50,18 +47,15 @@ editor.putBoolean(NOTIFICATIONS_ENABLES, enabled);
 editor.commit();
 ```
 
-------
+<br>
 
-## Shared Preferences
+### Read:
 
-### Read
+<!-- .element: class="fragment" data-fragment-index="1" -->
 
-```
-int highScore = preferences.getInt(SAVED_SCORE_KEY, defaultValue);
-```
+<pre>
+<code data-trim data-noescape>
+int highScore = preferences.getInt(SAVED_SCORE_KEY<span class="fragment fade-in" data-fragment-index="3">);</span><span class="fragment fade-out" data-fragment-index="2">, defaultValue);</span>
+</code></pre>
 
-или просто 
-
-```
-int highScore = preferences.getInt(SAVED_SCORE_KEY);
-```
+<!-- .element: class="fragment" data-fragment-index="1" -->

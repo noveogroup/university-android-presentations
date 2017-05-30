@@ -1,7 +1,9 @@
+<!-- .slide: class="center" -->
+
 ## [SQL](#/storage__sql)
 
 SQLite + ORM:
-* ORMLite
+* **ORMLite**
 * greenDao
 * Cupboard
-* Room
+* **Room**

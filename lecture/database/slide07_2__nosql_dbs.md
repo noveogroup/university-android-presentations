@@ -1,7 +1,7 @@
 ## [NoSQL](#/storage__nosql)
 
 Нереляционные БД:
-* Realm
+* **Realm**
 * Paper
 * ObjectBox
 * Noodle

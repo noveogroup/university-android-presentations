@@ -21,36 +21,50 @@
 
 <div class="reveal">
     <div class="slides">
-        <section data-markdown="lecture/database/slide01__intro.md" class="center center-horizontal"></section>
+        <section data-markdown="lecture/database/slide01_0__intro.md" class="center center-horizontal"></section>
+
+        <section data-markdown="lecture/database/slide01_1__why.md" class="center center-horizontal"
+                 data-separator-vertical="^\r?\n------\r?\n$"></section>
+
         <section data-markdown="lecture/database/slide02__what_to_store.md"></section>
+
         <section data-markdown="lecture/database/slide03__storage_options.md"></section>
 
         <section data-background-color="#699f00" class="center center-horizontal">
-            <h1>Preferences</h1>
+            <h1 class="fragment" data-fragment-index="1">Preferences</h1>
         </section>
 
         <section data-markdown="lecture/database/slide04__shared_prefs.md"
-                 data-separator-vertical="^\r?\n------\r?\n$" id="storage__shared_preferences"></section>
+                 data-separator-vertical="^\r?\n------\r?\n$"
+                 id="storage__shared_preferences"></section>
 
         <section data-background-color="#699f00" class="center center-horizontal" id="storage__filesystem">
-            <h1>File Storage</h1>
+            <h1 class="fragment" data-fragment-index="1">File Storage</h1>
         </section>
 
         <section data-markdown="lecture/database/slide05__internal_storage.md"
-                 data-separator-vertical="^\r?\n------\r?\n$" id="storage__filesystem_internal"></section>
+                 data-separator-vertical="^\r?\n------\r?\n$"
+                 id="storage__filesystem_internal"></section>
+
         <section data-markdown="lecture/database/slide06__external_storage.md"
-                 data-separator-vertical="^\r?\n------\r?\n$" id="storage__filesystem_external"></section>
+                 data-separator-vertical="^\r?\n------\r?\n$"
+                 id="storage__filesystem_external">
+
+            <img class="img-bottom-right" src="lecture/database/img/external_storage.png">
+
+        </section>
 
         <section data-background-color="#699f00" class="center center-horizontal">
-            <h1>Database</h1>
+            <h1 class="fragment" data-fragment-index="1">Database</h1>
         </section>
 
         <section data-markdown="lecture/database/slide07__database_general.md"
                  data-separator-vertical="^\r?\n------\r?\n$">
         </section>
 
-        <section class="center center-horizontal center-vertical" id="storage__database">
-            <h2 class="center">Базы данных</h2>
+        <section class="center"
+                 id="storage__database">
+            <h2>Базы данных</h2>
             <div class="third-left navigate-left">
                 <p data-markdown="lecture/database/slide07_1__sql_dbs.md"></p>
             </div>
@@ -59,31 +73,44 @@
             </div>
         </section>
 
-        <section data-markdown="lecture/database/slide08__sql.md" id="storage__sql"></section>
+        <section data-markdown="lecture/database/slide08__sql.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"
+                 id="storage__sql"></section>
 
-        <section data-markdown="lecture/database/slide09__sqlite.md"></section>
+        <section data-markdown="lecture/database/slide09__sqlite.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"
+                 id="storage__sqlite">
 
-        <section data-markdown="lecture/database/slide10__sqlite_android.md"></section>
+        </section>
+
+        <section data-markdown="lecture/database/slide10__sqlite_android.md"
+                 data-background-image="lecture/database/img/sqlite_android.png"
+                 data-background-position="left bottom"
+                 data-background-size="auto"></section>
 
         <section data-markdown="lecture/database/slide11__work_with_sqlite.md"></section>
 
-        <section data-markdown="lecture/database/slide12__contract_class.md"
+        <section data-markdown="lecture/database/slide12__sqlite_open_helper.md"
                  data-separator-vertical="^\r?\n------\r?\n$"></section>
 
-        <section data-markdown="lecture/database/slide13__sqlite_open_helper.md"
-                 data-separator-vertical="^\r?\n------\r?\n$"></section>
-
-        <section data-markdown="lecture/database/slide14__sqlite_database.md"
+        <section data-markdown="lecture/database/slide13__sqlite_database.md"
                  data-separator-vertical="^\r?\n------\r?\n$"
                  id="storage__sqlite_database"></section>
 
-        <section data-markdown="lecture/database/slide15__cursor.md"
+        <section data-markdown="lecture/database/slide14__cursor.md"
                  data-separator-vertical="^\r?\n------\r?\n$"
                  id="cursor"></section>
 
+        <section data-markdown="lecture/database/slide15__contract_class.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"></section>
+
+        <section data-markdown="lecture/database/slide16__cursor_resumption.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"></section>
+
+
         <section data-background-color="#699f00" class="center center-horizontal" id="storage__orm">
-            <h1>ORM</h1>
-            <h3>Object-Relational Mapping</h3>
+            <h1 class="fragment" data-fragment-index="1">ORM</h1>
+            <h3 class="fragment" data-fragment-index="1">Object-Relational Mapping</h3>
         </section>
 
         <section data-markdown="lecture/database/slide18__orm.md"></section>
@@ -99,19 +126,68 @@
                  data-separator-vertical="^\r?\n------\r?\n$"></section>
 
         <section data-markdown="lecture/database/slide23__ormlite_entities_foreign.md"
-                 id="storage__ormlite_entities_foreign"
-                 data-separator-vertical="^\r?\n------\r?\n$"></section>
+                 data-separator-vertical="^\r?\n------\r?\n$"
+                 id="storage__ormlite_foreign">
+        </section>
+
+        <section id="storage__ormlite_entities_foreign">
+
+            <h2>Внешние ключи</h2>
+            <section style="width: 60%">
+                <div class="third-left navigate-left">
+                    <p data-markdown="lecture/database/slide23_1__column.md"></p>
+                </div>
+
+                <div class="third-center center-horizontal">
+                    <p>
+                        <br>
+                        <br>
+                        +</p>
+                </div>
+
+                <div class="third-right">
+                    <p data-markdown="lecture/database/slide23_3__column.md"></p>
+                </div>
+            </section>
+
+        </section>
+
 
         <section data-markdown="lecture/database/slide24__ormlite_dao.md"
                  id="storage__ormlite_dao"
                  data-separator-vertical="^\r?\n------\r?\n$"></section>
 
-        <!--        <section data-markdown="lecture/database/slide16__content_provider.md"
-                 data-separator-vertical="^\r?\n&#45;&#45;&#45;&#45;&#45;&#45;\r?\n$"></section>
+        <section data-markdown="lecture/database/slide25__easy_dao.md"
+                 id="storage__easy_dao"
+                 data-separator-vertical="^\r?\n------\r?\n$">
+        </section>
+
+        <section data-background-color="#699f00" class="center center-horizontal">
+            <h1 class="fragment" data-fragment-index="1">More info</h1>
+        </section>
+
+        <section data-markdown="lecture/database/slide26__content_provider.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"></section>
 
 
-        <section data-markdown="lecture/database/slide17__content_provider_uri.md"
-                 data-separator-vertical="^\r?\n&#45;&#45;&#45;&#45;&#45;&#45;\r?\n$"></section>-->
+        <section data-markdown="lecture/database/slide27__content_provider_uri.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"></section>
+
+        <section data-background-color="#699f00" class="center center-horizontal">
+            <h1 class="fragment" data-fragment-index="1">Handy Tips</h1>
+        </section>
+
+        <section data-markdown="lecture/database/slide28__debug.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"
+                 id="debug"></section>
+
+        <section data-markdown="lecture/database/slide29__debug_stetho.md"
+                 id="stetho"></section>
+
+        <section data-markdown="lecture/database/slide30__clear_data.md"
+                 id="clear_data"></section>
+
+        <section data-markdown="lecture/database/slide31__respect_the_main_thread.md"></section>
 
     </div>
 </div>

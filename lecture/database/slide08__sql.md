@@ -4,11 +4,16 @@
 Предназначен для работы с данными в **реляционной базе данных**.
 
 <br>
+<br>
 
-Реляционные БД представлены в виде таблиц
+Данные в виде таблиц:  
 
-`//TODO: табличка`
+<img src="lecture/database/img/relational_database.png">
 
+------
 
+## SQL
 
+### Пример
 
+<img src="lecture/database/img/database_example.png">

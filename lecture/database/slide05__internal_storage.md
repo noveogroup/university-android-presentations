@@ -9,10 +9,9 @@
 * Внутренние данные приложения
     - Созданные в приложении файлы
     - Скачанный с сервера контент
+    - ```getFilesDir() ```
 * Кэш
     - ```getCacheDir() ```
-
-`//todo: посмотреть про стримы в java-лекции (и лабе)`
 
 ------
 
@@ -24,23 +23,26 @@
 
 <!-- .element: class="fragment" data-fragment-index="1" -->  
 
+```
+File file = new File(context.getFilesDir(), "my_file.txt");
+outputStream = new FileOutputStream(file.getAbsolutePath());
+```
+<!-- .element: class="fragment" data-fragment-index="1" -->
 
 ```
 FileOutputStream outputStream =
-                context.openFileOutput(FILENAME, Context.MODE_PRIVATE);
-outputStream.write(text.getBytes());
-outputStream.close();
+                context.openFileOutput("my_file.txt", Context.MODE_PRIVATE);
 ```
-<!-- .element: class="fragment" data-fragment-index="1" -->
+<!-- .element: class="fragment" data-fragment-index="2" -->
 
 
 <br>
 
 * `InputStream`:
 
-<!-- .element: class="fragment" data-fragment-index="2" -->
+<!-- .element: class="fragment" data-fragment-index="3" -->
 
 ```
-FileInputStream inputStream = context.openFileInput(FILENAME);
+FileInputStream inputStream = context.openFileInput("my_file.txt");
 ```
-<!-- .element: class="fragment" data-fragment-index="2" -->
+<!-- .element: class="fragment" data-fragment-index="3" -->

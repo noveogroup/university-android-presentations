@@ -1,6 +1,11 @@
 ## URI
 
-При работе с провайдером используются URI.
+**U**niform **R**esource **I**dentifier — унифицированный идентификатор ресурса.
+
+<br>
+<br>
+
+При работе с провайдером используются URI и [`UriMatcher`](https://developer.android.com/reference/android/content/UriMatcher.html)
 
 ```
 content://<authority>/<path>/<id>
@@ -28,14 +33,3 @@ content://com.noveo.db.provider/toys/5
 
 Если на `toys/[ID]` — про конкретную игрушку
 <br>
-
-
-------
-
-## URI
-### UriMatcher
-
-* Служит для определения деталей запроса к Content Provider
-* Отображает URI разных видов на целочисленные константы
-* Полезен в случаях, когда обслуживаются разные URI для доступа к одному и тому же источнику данных
-

@@ -1,11 +1,8 @@
 ## External Storage
 
-Общедоступное место для хранения файлов на съёмном носителе или в публичном разделе памяти.
+Общедоступное место для хранения файлов.
 
-<blockquote class="noveo-warn">
-*Caution!*
-Файлы могут быть перезаписаны, удалены или недоступны!
-</blockquote/>
+Находится на съёмном носителе или в публичном разделе внутренней памяти.
 
 <br>
 
@@ -13,18 +10,36 @@
 * Медиа-файлы
 * Не критичные для работы приложения данные
 
-<br>
-
-
 ------
 
 ## External Storage
 
-Для работы с внешним хранилищем требуется запросить разрешения:
+
+* `getExternalFilesDir()`
+* `getExternalCacheDir()`
+
+<br>
+
+Нужны разрешения:
+<!-- .element: class="fragment" data-fragment-index="1" -->
 
 ```
 <uses-permission
-    android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+        android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 <uses-permission
-    android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 ```
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+<br>
+
+<blockquote class="noveo-warn">
+*Caution!*
+Файлы могут быть перезаписаны, удалены или недоступны!
+</blockquote/>
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+<img style="float: right" src="lecture/database/img/external_storage.png">
+
+<br>

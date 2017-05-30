@@ -30,5 +30,6 @@
 * `id` &ensp; — &ensp; устанавливается в коде
 * `generatedId` &ensp; — &ensp; генерируется автоматически (autoincrement)
 * `defaultValue`
+* `notNull`
 * `unique`
 
