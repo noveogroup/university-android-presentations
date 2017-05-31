@@ -10,6 +10,12 @@
 
 `$ adb pull /sdcard/your_database.db`
 
+<br>
+<br>
+
+Для просмотра базы можно использовать [DB Browser for SQLite](http://sqlitebrowser.org/).
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
 
 ------
 
