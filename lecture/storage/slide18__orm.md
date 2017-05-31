@@ -6,4 +6,4 @@ Object-relational mapping.
 Не надо писать SQL-код для взаимодействия с БД!
 </blockquote>
 
-<img src="lecture/database/img/java-orm-database.png">
+<img src="lecture/storage/img/java-orm-database.png">

@@ -40,6 +40,6 @@
 </blockquote/>
 <!-- .element: class="fragment" data-fragment-index="2" -->
 
-<img style="float: right" src="lecture/database/img/external_storage.png">
+<img style="float: right" src="lecture/storage/img/external_storage.png">
 
 <br>

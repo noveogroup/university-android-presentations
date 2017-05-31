@@ -8,4 +8,4 @@ Android предоставляет полную поддержку SQLite.
 
 <br>
 
-<img src="lecture/database/img/sqlite_android.png">
+<img src="lecture/storage/img/sqlite_android.png">

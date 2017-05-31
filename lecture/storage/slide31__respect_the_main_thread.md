@@ -4,4 +4,4 @@
 
 <br>
 
-<img src="lecture/database/img/thread_profiling.png">
+<img src="lecture/storage/img/thread_profiling.png">

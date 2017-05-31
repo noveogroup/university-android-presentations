@@ -1,6 +1,6 @@
 ## Всегда очищайте данные
 
-<img src="lecture/database/img/clear_data_screenshot.png">
+<img src="lecture/storage/img/clear_data_screenshot.png">
 
 <br>
 

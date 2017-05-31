@@ -8,7 +8,7 @@
 
 Данные в виде таблиц:  
 
-<img src="lecture/database/img/relational_database.png">
+<img src="lecture/storage/img/relational_database.png">
 
 ------
 
@@ -16,4 +16,4 @@
 
 ### Пример
 
-<img src="lecture/database/img/database_example.png">
+<img src="lecture/storage/img/database_example.png">

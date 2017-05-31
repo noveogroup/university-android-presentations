@@ -11,7 +11,7 @@ ORM [библиотека](https://developer.android.com/topic/libraries/archite
 Проект выйдет в релиз осенью.
 <!-- .element: class="fragment" data-fragment-index="1" -->
 
-<img class="fragment" data-fragment-index="1" src="lecture/database/img/android_o.png">
+<img class="fragment" data-fragment-index="1" src="lecture/storage/img/android_o.png">
 
 ------
 

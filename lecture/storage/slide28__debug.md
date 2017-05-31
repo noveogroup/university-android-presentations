@@ -29,5 +29,5 @@
 
 Доступен в Android Studio 3.+
 
-<img src="lecture/database/img/android_studio_3.0.png">
+<img src="lecture/storage/img/android_studio_3.0.png">
 

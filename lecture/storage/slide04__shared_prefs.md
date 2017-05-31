@@ -29,9 +29,8 @@
 ### Get:
 
 ```
-static String PREFERENCES_KEY = "com.example.myapp.MY_OWN_PREFS";
 SharedPreferences preferences =
-                context.getSharedPreferences(PREFERENCES_KEY, Context.MODE_PRIVATE);
+                context.getSharedPreferences("my_preferences", Context.MODE_PRIVATE);
 ```
 
 ------

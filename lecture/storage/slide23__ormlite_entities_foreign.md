@@ -1,7 +1,7 @@
 ## Внешние ключи
 
 
-<img src="lecture/database/img/foreign-key-example.png">
+<img src="lecture/storage/img/foreign-key-example.png">
 
 ------
 

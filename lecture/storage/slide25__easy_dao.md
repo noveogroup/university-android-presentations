@@ -31,5 +31,5 @@ cursor.close();
 List<Customer> customers = customerDao.queryForAll();
 ```
 
-<img style="float: right" src="lecture/database/img/happy_droid.png">
+<img style="float: right" src="lecture/storage/img/happy_droid.png">
 <!-- .element: class="fragment" data-fragment-index="1" -->
