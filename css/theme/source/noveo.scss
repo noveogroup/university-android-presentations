@@ -11,6 +11,7 @@ $backgroundColor: white;
 
 //Label
 $labelPath: "img/label_android.svg";
+$labelInvertedPath: "img/label_android_inverted.svg";
 $labelWidth: 277px;
 $labelHeight: 70px;
 $labelTopMargin: 60px;
@@ -28,10 +29,11 @@ $logoHeight: 94px;
 $overlayMargin: 54px;
 $overlaySideMargin: 80px;
 
-$webText: "noveo.ru";
+$webText: "";
 
 $slideTopMargin: $logoHeight;
 
+$androidColor: #699f00;
 $mainColor: #323335;
 $headingColor: #323335;
 $greyColor: #9e9e9e;
@@ -43,8 +45,10 @@ $headingTextShadow: none;
 $headingLetterSpacing: normal;
 $headingTextTransform: none;
 $headingFontWeight: 500;
-$linkColor: #699f00;
+$linkColor: $androidColor;
 $linkColorHover: lighten($linkColor, 15%);
+$linkColorInverted: lighten($linkColor, 15%);
+$linkColorInvertedHover: lighten($linkColorInverted, 15%);
 $selectionBackgroundColor: $linkColor;
 
 $titleBlockMargin: 60px;
@@ -76,10 +80,10 @@ section.has-dark-background {
 
 // Custom code sizing --------------------------
 .reveal {
-  &.has-dark-background {
+  &.has-dark-background, &.has-light-background {
     .slide-number {
       span {
-        color: white;
+        color: transparent;
       }
     }
   }
@@ -87,8 +91,13 @@ section.has-dark-background {
   .slides > section, .slides .pdf-page > section {
     width: 91%;
     padding: $overlaySideMargin + $slideTopMargin $overlaySideMargin $overlaySideMargin $overlaySideMargin;
-    > section {
+    section {
+      width: 92.5%;
       margin-top: $overlaySideMargin + $slideTopMargin - $blockMargin;
+      &.has-dark-background, &.center, &.center-vertical {
+        padding-top: $overlaySideMargin - $blockMargin;
+        margin-top: $overlaySideMargin - $blockMargin;
+      }
     }
 
     &.noveo-title {
@@ -98,8 +107,9 @@ section.has-dark-background {
         width: 50%;
       }
       .title-separator {
+        margin: 0;
         width: 200px;
-        border-bottom: 2px solid $linkColor;
+        border-bottom: 2px solid $androidColor;
       }
       h1 {
         font-size: $titleHeader1Size;
@@ -115,7 +125,16 @@ section.has-dark-background {
     }
 
     div.borders {
-      border: 1px solid $linkColor;
+      border: 1px solid $androidColor;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: $blockMargin;
+      img {
+        max-height: 100%;
+        max-width: 100%;
+      }
     }
 
     img {
@@ -134,7 +153,7 @@ section.has-dark-background {
       text-indent: -0.7em;
       &::before {
         content: "● ";
-        color: $linkColor;
+        color: $androidColor;
       }
     }
   }
@@ -150,18 +169,18 @@ section.has-dark-background {
       counter-increment: ordered-list;
       &::before {
         content: counter(ordered-list) ". ";
-        color: $linkColor;
+        color: $androidColor;
       }
     }
   }
 
-  h4.noveo-image-header {
+  .noveo-image-header {
     max-width: 35%;
     text-transform: uppercase;
     color: white;
     opacity: 0.9;
     line-height: 1.5;
-    background-color: $linkColor;
+    background-color: $androidColor;
     margin-left: -1 * $overlaySideMargin;
     padding: $overlayMargin $overlaySideMargin $overlayMargin $overlaySideMargin;
   }
@@ -178,14 +197,14 @@ section.has-dark-background {
     }
   }
 
-  section div.overlap-fragment pre {
+  pre {
     min-width: 100%;
   }
 
   pre code {
     &.tiny {
-      font-size: $mainCodeSize / $codeScale / $codeScale;
-      line-height: $mainCodeSize;
+      font-size: $mainCodeSize / $codeScale / 1.2;
+      line-height: $mainCodeSize / 1.2;
     }
 
     &.small {

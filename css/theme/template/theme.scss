@@ -108,7 +108,6 @@ body {
 .reveal dl,
 .reveal ul {
   display: inline-block;
-
   text-align: left;
   margin: 0 0 0 1em;
 }
@@ -199,8 +198,11 @@ body {
   word-wrap: normal;
 }
 
-.reveal table {
+.reveal .center-horizontal table {
   margin: auto;
+}
+
+.reveal table {
   border-collapse: collapse;
   border-spacing: 0;
 }
@@ -213,7 +215,6 @@ body {
 .reveal table td {
   text-align: left;
   padding: 0.2em 0.5em 0.2em 0.5em;
-  border-bottom: 1px solid;
 }
 
 .reveal table th[align="center"],
@@ -270,6 +271,14 @@ body {
   border: none;
 }
 
+.reveal.has-dark-background a, section.has-dark-background a {
+  color: $linkColorInverted;
+}
+
+.reveal.has-dark-background a:hover, section.has-dark-background a:hover {
+  color: $linkColorInvertedHover;
+}
+
 .reveal .roll span:after {
   color: #fff;
   background: darken($linkColor, 15%);
@@ -279,7 +288,7 @@ body {
  * IMAGES
  *********************************************/
 
-.reveal section img {
+.reveal section img.shadow {
   margin: 15px 0px;
   background: rgba(255, 255, 255, 0.12);
   border: 4px solid $mainColor;
@@ -287,7 +296,7 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 }
 
-.reveal section img.plain {
+.reveal section img {
   border: 0;
   box-shadow: none;
 }

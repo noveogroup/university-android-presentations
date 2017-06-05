@@ -45,6 +45,9 @@
 }
 
 .has-dark-background {
+  #header-left {
+    background-image: url($labelInvertedPath);
+  }
   #header-right {
     background-image: url($logoWhitePath);
   }

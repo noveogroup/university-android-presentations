@@ -162,8 +162,10 @@ body {
   max-height: 700px;
   word-wrap: normal; }
 
+.reveal .center-horizontal table {
+  margin: auto; }
+
 .reveal table {
-  margin: auto;
   border-collapse: collapse;
   border-spacing: 0; }
 
@@ -173,8 +175,7 @@ body {
 .reveal table th,
 .reveal table td {
   text-align: left;
-  padding: 0.2em 0.5em 0.2em 0.5em;
-  border-bottom: 1px solid; }
+  padding: 0.2em 0.5em 0.2em 0.5em; }
 
 .reveal table th[align="center"],
 .reveal table td[align="center"] {
@@ -218,6 +219,12 @@ body {
   text-shadow: none;
   border: none; }
 
+.reveal.has-dark-background a, section.has-dark-background a {
+  color: #9cec00; }
+
+.reveal.has-dark-background a:hover, section.has-dark-background a:hover {
+  color: #bcff39; }
+
 .reveal .roll span:after {
   color: #fff;
   background: #365300; }
@@ -225,13 +232,13 @@ body {
 /*********************************************
  * IMAGES
  *********************************************/
-.reveal section img {
+.reveal section img.shadow {
   margin: 15px 0px;
   background: rgba(255, 255, 255, 0.12);
   border: 4px solid #323335;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
 
-.reveal section img.plain {
+.reveal section img {
   border: 0;
   box-shadow: none; }
 
@@ -292,6 +299,8 @@ body {
   text-align: center; }
 
 .center-vertical {
+  display: flex;
+  align-items: center;
   bottom: 0;
   top: 0; }
 
@@ -301,39 +310,118 @@ body {
   max-height: 100%; }
 
 .half-left {
-  width: 50%;
+  width: 48.4%;
+  min-height: 28pt;
   float: left;
   position: relative;
-  padding-right: 0.5rem; }
+  padding-right: 0.5rem;
+  margin-left: 1%;
+  margin-right: 0.5%; }
 
 .half-right {
-  width: 50%;
+  width: 48.4%;
+  min-height: 28pt;
   float: right;
   position: relative;
-  padding-left: 0.5rem; }
+  padding-left: 0.5rem;
+  margin-left: 0.5%;
+  margin-right: 1%; }
 
 .third-left {
-  width: 33.3%;
-  float: left;
-  position: relative;
-  padding-right: 0.25rem; }
-
-.third-center {
-  width: 33.3%;
+  width: 31.9%;
   float: left;
   position: relative;
   padding-right: 0.25rem;
-  padding-left: 0.25rem; }
+  margin-left: 1%;
+  margin-right: 0.5%; }
+
+.third-center {
+  width: 31.9%;
+  float: left;
+  position: relative;
+  padding-right: 0.25rem;
+  padding-left: 0.25rem;
+  margin-left: 0.5%;
+  margin-right: 0.5%; }
 
 .third-right {
-  width: 33.3%;
+  width: 31.9%;
   float: right;
   position: relative;
-  padding-left: 0.25rem; }
+  padding-left: 0.25rem;
+  margin-left: 0.5%;
+  margin-right: 1%; }
 
 .reveal div.underfloating {
   clear: both;
   padding-top: 20px; }
+
+.reveal blockquote {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  margin: 20px 5%;
+  padding: 0;
+  background-color: #f5f5f5; }
+  .reveal blockquote::before {
+    margin: 20px;
+    background-image: url("img/ic_quote.svg");
+    background-color: transparent;
+    background-size: 46.6px 46.6px;
+    display: inline-block;
+    width: 46.6px;
+    height: 46.6px;
+    content: ""; }
+  .reveal blockquote.noveo-success {
+    background-color: #dff0d8; }
+    .reveal blockquote.noveo-success::before {
+      background-image: url(img/ic_check.svg); }
+  .reveal blockquote.noveo-info {
+    background-color: #d9edf7; }
+    .reveal blockquote.noveo-info::before {
+      background-image: url(img/ic_info.svg); }
+  .reveal blockquote.noveo-warn, .reveal blockquote.noveo-warning {
+    background-color: #f2dede; }
+    .reveal blockquote.noveo-warn::before, .reveal blockquote.noveo-warning::before {
+      background-image: url(img/ic_warn.svg); }
+
+div.pdf-page {
+  height: 951px !important; }
+  div.pdf-page ul.table-of-content {
+    overflow: hidden; }
+
+ul.table-of-content {
+  list-style: none;
+  padding: 0;
+  overflow-x: hidden;
+  width: 70%;
+  margin: 20px auto !important; }
+  ul.table-of-content a + span {
+    float: right;
+    padding-left: 1em;
+    background: white; }
+  ul.table-of-content ul {
+    margin: 20px 0 20px 20px !important; }
+  ul.table-of-content li:not(.nested):before {
+    float: left;
+    width: 0;
+    white-space: nowrap;
+    content: ". . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . "; }
+  ul.table-of-content li.nested:before {
+    content: none; }
+  ul.table-of-content li::before {
+    content: none; }
+  ul.table-of-content li a:first-child {
+    padding-right: 0.33em;
+    background: white; }
+
+.how-its-made {
+  position: fixed !important;
+  top: 0 !important;
+  left: 45% !important; }
+
+.pdf-page .how-its-made {
+  display: none; }
 
 #header-left {
   position: absolute;
@@ -365,9 +453,12 @@ body {
   bottom: 54px;
   right: 80px;
   z-index: 1000;
-  content: "noveo.ru";
+  content: "";
   color: #9e9e9e;
   display: block; }
+
+.has-dark-background #header-left {
+  background-image: url("img/label_android_inverted.svg"); }
 
 .has-dark-background #header-right {
   background-image: url("img/university-logo-white.svg"); }
@@ -391,20 +482,25 @@ body {
     background-size: $labelWidth*$mobileScreenScale $labelHeight*$mobileScreenScale;
   }
 }*/
-.reveal.has-dark-background .slide-number span {
-  color: white; }
+.reveal.has-dark-background .slide-number span, .reveal.has-light-background .slide-number span {
+  color: transparent; }
 
 .reveal .slides > section, .reveal .slides .pdf-page > section {
   width: 91%;
   padding: 174px 80px 80px 80px; }
-  .reveal .slides > section > section, .reveal .slides .pdf-page > section > section {
+  .reveal .slides > section section, .reveal .slides .pdf-page > section section {
+    width: 92.5%;
     margin-top: 154px; }
+    .reveal .slides > section section.has-dark-background, .reveal .slides > section section.center, .reveal .slides > section section.center-vertical, .reveal .slides .pdf-page > section section.has-dark-background, .reveal .slides .pdf-page > section section.center, .reveal .slides .pdf-page > section section.center-vertical {
+      padding-top: 60px;
+      margin-top: 60px; }
   .reveal .slides > section.noveo-title, .reveal .slides .pdf-page > section.noveo-title {
     font-size: 32pt;
     padding-top: 80px; }
     .reveal .slides > section.noveo-title *, .reveal .slides .pdf-page > section.noveo-title * {
       width: 50%; }
     .reveal .slides > section.noveo-title .title-separator, .reveal .slides .pdf-page > section.noveo-title .title-separator {
+      margin: 0;
       width: 200px;
       border-bottom: 2px solid #699f00; }
     .reveal .slides > section.noveo-title h1, .reveal .slides .pdf-page > section.noveo-title h1 {
@@ -417,7 +513,15 @@ body {
       color: #9e9e9e;
       margin-top: 60px; }
   .reveal .slides > section div.borders, .reveal .slides .pdf-page > section div.borders {
-    border: 1px solid #699f00; }
+    border: 1px solid #699f00;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px; }
+    .reveal .slides > section div.borders img, .reveal .slides .pdf-page > section div.borders img {
+      max-height: 100%;
+      max-width: 100%; }
   .reveal .slides > section img, .reveal .slides .pdf-page > section img {
     border: none;
     box-shadow: none; }
@@ -447,7 +551,7 @@ body {
       content: counter(ordered-list) ". ";
       color: #699f00; }
 
-.reveal h4.noveo-image-header {
+.reveal .noveo-image-header {
   max-width: 35%;
   text-transform: uppercase;
   color: white;
@@ -467,15 +571,15 @@ body {
     font-size: 28pt;
     color: #9e9e9e; }
 
-.reveal section div.overlap-fragment pre {
+.reveal pre {
   min-width: 100%; }
 
 .reveal pre code {
   font-size: 16.8pt;
   line-height: 25.2pt; }
   .reveal pre code.tiny {
-    font-size: 7.4666666667pt;
-    line-height: 16.8pt; }
+    font-size: 9.3333333333pt;
+    line-height: 14pt; }
   .reveal pre code.small {
     font-size: 11.2pt;
     line-height: 16.8pt; }
