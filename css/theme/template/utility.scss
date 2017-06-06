@@ -169,3 +169,130 @@ ul.table-of-content {
 .pdf-page .how-its-made {
   display: none;
 }
+
+@media(max-width: $screenLarge) {
+  .reveal div.underfloating {
+    padding-top: $blockMargin * $scaleLarge;
+  }
+
+  .reveal {
+    blockquote {
+      margin: $blockMargin * $scaleLarge 5%;
+
+      &::before {
+        margin: $blockMargin * $scaleLarge;
+        background-size: $blockquoteIconSize * $scaleLarge $blockquoteIconSize * $scaleLarge;
+        width: $blockquoteIconSize * $scaleLarge;
+        height: $blockquoteIconSize * $scaleLarge;
+      }
+    }
+  }
+
+  ul.table-of-content {
+    margin: $blockMargin * $scaleLarge auto !important;
+
+    ul {
+      margin: $blockMargin * $scaleLarge 0 $blockMargin * $scaleLarge $blockMargin * $scaleLarge !important;
+    }
+  }
+
+  .how-its-made {
+    left: 44% !important;
+  }
+}
+
+@media(max-width: $screenMedium) {
+
+  .reveal div.underfloating {
+    padding-top: $blockMargin * $scaleMedium;
+  }
+
+  .reveal {
+    blockquote {
+      margin: $blockMargin * $scaleMedium 5%;
+
+      &::before {
+        margin: $blockMargin * $scaleMedium;
+        background-size: $blockquoteIconSize * $scaleMedium $blockquoteIconSize * $scaleMedium;
+        width: $blockquoteIconSize * $scaleMedium;
+        height: $blockquoteIconSize * $scaleMedium;
+      }
+    }
+  }
+
+  ul.table-of-content {
+    margin: $blockMargin * $scaleMedium auto !important;
+
+    ul {
+      margin: $blockMargin * $scaleMedium 0 $blockMargin * $scaleMedium $blockMargin * $scaleMedium !important;
+    }
+  }
+
+  .how-its-made {
+    left: 43% !important;
+  }
+}
+
+@media(max-width: $screenNormal) {
+
+  .reveal div.underfloating {
+    padding-top: $blockMargin * $scaleNormal;
+  }
+
+  .reveal {
+    blockquote {
+      margin: $blockMargin * $scaleNormal 5%;
+
+      &::before {
+        margin: $blockMargin * $scaleNormal;
+        background-size: $blockquoteIconSize * $scaleNormal $blockquoteIconSize * $scaleNormal;
+        width: $blockquoteIconSize * $scaleNormal;
+        height: $blockquoteIconSize * $scaleNormal;
+      }
+    }
+  }
+
+  ul.table-of-content {
+    margin: $blockMargin * $scaleNormal auto !important;
+
+    ul {
+      margin: $blockMargin * $scaleNormal 0 $blockMargin * $scaleNormal $blockMargin * $scaleNormal !important;
+    }
+  }
+
+  .how-its-made {
+    left: 42% !important;
+  }
+}
+
+@media(max-width: $screenSmall) {
+
+  .reveal div.underfloating {
+    padding-top: $blockMargin * $scaleSmall;
+  }
+
+  .reveal {
+    blockquote {
+      margin: $blockMargin * $scaleSmall 5%;
+
+      &::before {
+        margin: $blockMargin * $scaleSmall;
+        background-size: $blockquoteIconSize * $scaleSmall $blockquoteIconSize * $scaleSmall;
+        width: $blockquoteIconSize * $scaleSmall;
+        height: $blockquoteIconSize * $scaleSmall;
+      }
+    }
+  }
+
+  ul.table-of-content {
+    margin: $blockMargin * $scaleSmall auto !important;
+
+    ul {
+      margin: $blockMargin * $scaleSmall 0 $blockMargin * $scaleSmall $blockMargin * $scaleSmall !important;
+    }
+  }
+
+  .how-its-made {
+    left: 41% !important;
+  }
+}

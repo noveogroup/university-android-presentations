@@ -6,6 +6,16 @@
 @import url(../../lib/font/roboto/Roboto.css);
 @import url(../../lib/font/roboto-mono/Roboto-mono.css);
 
+$screenLarge: 1680px;
+$screenMedium: 1366px;
+$screenNormal: 1024px;
+$screenSmall: 750px;
+
+$scaleLarge: 0.71;
+$scaleMedium: 0.53;
+$scaleNormal: 0.39;
+$scaleSmall: 0.25;
+
 // Override theme settings (see ../template/settings.scss)
 $backgroundColor: white;
 
@@ -16,11 +26,6 @@ $labelWidth: 277px;
 $labelHeight: 70px;
 $labelTopMargin: 60px;
 
-//Background
-$titleBackgroundPath: "img/background_title.svg";
-$titleBackgroundWidth: 688px;
-$titleBackgroundHeight: 656px;
-
 //Logo
 $logoPath: "img/university-logo.svg";
 $logoWhitePath: "img/university-logo-white.svg";
@@ -28,6 +33,7 @@ $logoWidth: 242px;
 $logoHeight: 94px;
 $overlayMargin: 54px;
 $overlaySideMargin: 80px;
+$separatorWidth: 200px;
 
 $webText: "";
 
@@ -79,6 +85,9 @@ section.has-dark-background {
 // ---------------------------------------------
 
 // Custom code sizing --------------------------
+html {
+  font-size: $mainFontSize;
+}
 .reveal {
   &.has-dark-background, &.has-light-background {
     .slide-number {
@@ -108,7 +117,7 @@ section.has-dark-background {
       }
       .title-separator {
         margin: 0;
-        width: 200px;
+        width: $separatorWidth;
         border-bottom: 2px solid $androidColor;
       }
       h1 {
@@ -222,28 +231,314 @@ section.has-dark-background {
   }
 }
 
-/*
-@media(max-width: 1024px) {
+@media(max-width: $screenLarge) {
+  html {
+    font-size: $mainFontSize * $scaleLarge;
+  }
   .reveal {
-    font-size: $mainFontSize * $mobileScreenScale;
-    pre code {
-      font-size: $mainFontSize * $mobileScreenScale;
-      line-height: $mainFontSize * $codeScale * $mobileScreenScale;
+    .slides > section, .slides .pdf-page > section {
+      padding: $scaleLarge * ($overlaySideMargin + $slideTopMargin) $scaleLarge * $overlaySideMargin $scaleLarge * $overlaySideMargin $scaleLarge * $overlaySideMargin;
+      section {
+        margin-top: $scaleLarge * ($overlaySideMargin + $slideTopMargin - $blockMargin);
+        &.has-dark-background, &.center, &.center-vertical {
+          padding-top: $scaleLarge * ($overlaySideMargin - $blockMargin);
+          margin-top: $scaleLarge * ($overlaySideMargin - $blockMargin);
+        }
+      }
 
+      &.noveo-title {
+        font-size: $scaleLarge * $titleMainFontSize;
+        padding-top: $scaleLarge * $overlaySideMargin;
+        .title-separator {
+          width: $scaleLarge * $separatorWidth;
+          border-bottom: 1px solid $androidColor;
+        }
+        h1 {
+          margin-bottom: $scaleLarge * $titleBlockMargin;
+        }
+        h2 {
+          margin-top: $scaleLarge * $titleBlockMargin;
+        }
+      }
+
+      div.borders {
+        padding: $scaleLarge * $blockMargin;
+      }
+    }
+
+    ul, ul ul, ul ul ul {
+      margin: $scaleLarge * $blockMargin 0 0 0;
+    }
+
+    ol, ol ol, ol ol ol {
+      margin: $scaleLarge * $blockMargin 0 0 0;
+    }
+
+    .noveo-image-header {
+      margin-left: -1 * $scaleLarge * $overlaySideMargin;
+      padding: $scaleLarge * $overlayMargin $scaleLarge * $overlaySideMargin $scaleLarge * $overlayMargin $scaleLarge * $overlaySideMargin;
+    }
+
+    .slide-number {
+      left: $scaleLarge * $overlaySideMargin;
+      bottom: $scaleLarge * $overlayMargin;
+      span {
+        font-size: $scaleLarge * $mainFontSize;
+      }
+    }
+
+    pre code {
       &.tiny {
-        font-size: $mainFontSize / $codeScale / $codeScale * $mobileScreenScale;
-        line-height: $mainFontSize / $codeScale * $mobileScreenScale;
+        font-size: $scaleLarge * $mainCodeSize / $codeScale / 1.2;
+        line-height: $scaleLarge * $mainCodeSize / 1.2;
       }
 
       &.small {
-        font-size: $mainFontSize / $codeScale * $mobileScreenScale;
-        line-height: $mainFontSize * $mobileScreenScale;
+        font-size: $scaleLarge * $mainCodeSize / $codeScale;
+        line-height: $scaleLarge * $mainCodeSize;
       }
 
+      font-size: $scaleLarge * $mainCodeSize;
+      line-height: $scaleLarge * $mainCodeSize * $codeScale;
+
       &.large {
-        font-size: $mainFontSize * $codeScale * $mobileScreenScale;
-        line-height: $mainFontSize * $codeScale * $codeScale * $mobileScreenScale;
+        font-size: $scaleLarge * $mainCodeSize * $codeScale;
+        line-height: $scaleLarge * $mainCodeSize * $codeScale * $codeScale;
       }
     }
   }
-}*/
+}
+
+@media(max-width: $screenMedium) {
+  html {
+    font-size: $mainFontSize * $scaleMedium;
+  }
+  .reveal {
+    .slides > section, .slides .pdf-page > section {
+      padding: $scaleMedium * ($overlaySideMargin + $slideTopMargin) $scaleMedium * $overlaySideMargin $scaleMedium * $overlaySideMargin $scaleMedium * $overlaySideMargin;
+      section {
+        margin-top: $scaleMedium * ($overlaySideMargin + $slideTopMargin - $blockMargin);
+        &.has-dark-background, &.center, &.center-vertical {
+          padding-top: $scaleMedium * ($overlaySideMargin - $blockMargin);
+          margin-top: $scaleMedium * ($overlaySideMargin - $blockMargin);
+        }
+      }
+
+      &.noveo-title {
+        font-size: $scaleMedium * $titleMainFontSize;
+        padding-top: $scaleMedium * $overlaySideMargin;
+        .title-separator {
+          width: $scaleMedium * $separatorWidth;
+          border-bottom: 1px solid $androidColor;
+        }
+        h1 {
+          margin-bottom: $scaleMedium * $titleBlockMargin;
+        }
+        h2 {
+          margin-top: $scaleMedium * $titleBlockMargin;
+        }
+      }
+
+      div.borders {
+        padding: $scaleMedium * $blockMargin;
+      }
+    }
+
+    ul, ul ul, ul ul ul {
+      margin: $scaleMedium * $blockMargin 0 0 0;
+    }
+
+    ol, ol ol, ol ol ol {
+      margin: $scaleMedium * $blockMargin 0 0 0;
+    }
+
+    .noveo-image-header {
+      margin-left: -1 * $scaleMedium * $overlaySideMargin;
+      padding: $scaleMedium * $overlayMargin $scaleMedium * $overlaySideMargin $scaleMedium * $overlayMargin $scaleMedium * $overlaySideMargin;
+    }
+
+    .slide-number {
+      left: $scaleMedium * $overlaySideMargin;
+      bottom: $scaleMedium * $overlayMargin;
+      span {
+        font-size: $scaleMedium * $mainFontSize;
+      }
+    }
+
+    pre code {
+      &.tiny {
+        font-size: $scaleMedium * $mainCodeSize / $codeScale / 1.2;
+        line-height: $scaleMedium * $mainCodeSize / 1.2;
+      }
+
+      &.small {
+        font-size: $scaleMedium * $mainCodeSize / $codeScale;
+        line-height: $scaleMedium * $mainCodeSize;
+      }
+
+      font-size: $scaleMedium * $mainCodeSize;
+      line-height: $scaleMedium * $mainCodeSize * $codeScale;
+
+      &.large {
+        font-size: $scaleMedium * $mainCodeSize * $codeScale;
+        line-height: $scaleMedium * $mainCodeSize * $codeScale * $codeScale;
+      }
+    }
+  }
+}
+
+@media(max-width: $screenNormal) {
+  html {
+    font-size: $mainFontSize * $scaleNormal;
+  }
+  .reveal {
+    .slides > section, .slides .pdf-page > section {
+      padding: $scaleNormal * ($overlaySideMargin + $slideTopMargin) $scaleNormal * $overlaySideMargin $scaleNormal * $overlaySideMargin $scaleNormal * $overlaySideMargin;
+      section {
+        margin-top: $scaleNormal * ($overlaySideMargin + $slideTopMargin - $blockMargin);
+        &.has-dark-background, &.center, &.center-vertical {
+          padding-top: $scaleNormal * ($overlaySideMargin - $blockMargin);
+          margin-top: $scaleNormal * ($overlaySideMargin - $blockMargin);
+        }
+      }
+
+      &.noveo-title {
+        font-size: $scaleNormal * $titleMainFontSize;
+        padding-top: $scaleNormal * $overlaySideMargin;
+        .title-separator {
+          width: $scaleNormal * $separatorWidth;
+          border-bottom: 1px solid $androidColor;
+        }
+        h1 {
+          margin-bottom: $scaleNormal * $titleBlockMargin;
+        }
+        h2 {
+          margin-top: $scaleNormal * $titleBlockMargin;
+        }
+      }
+
+      div.borders {
+        padding: $scaleNormal * $blockMargin;
+      }
+    }
+
+    ul, ul ul, ul ul ul {
+      margin: $scaleNormal * $blockMargin 0 0 0;
+    }
+
+    ol, ol ol, ol ol ol {
+      margin: $scaleNormal * $blockMargin 0 0 0;
+    }
+
+    .noveo-image-header {
+      margin-left: -1 * $scaleNormal * $overlaySideMargin;
+      padding: $scaleNormal * $overlayMargin $scaleNormal * $overlaySideMargin $scaleNormal * $overlayMargin $scaleNormal * $overlaySideMargin;
+    }
+
+    .slide-number {
+      left: $scaleNormal * $overlaySideMargin;
+      bottom: $scaleNormal * $overlayMargin;
+      span {
+        font-size: $scaleNormal * $mainFontSize;
+      }
+    }
+
+    pre code {
+      &.tiny {
+        font-size: $scaleNormal * $mainCodeSize / $codeScale / 1.2;
+        line-height: $scaleNormal * $mainCodeSize / 1.2;
+      }
+
+      &.small {
+        font-size: $scaleNormal * $mainCodeSize / $codeScale;
+        line-height: $scaleNormal * $mainCodeSize;
+      }
+
+      font-size: $scaleNormal * $mainCodeSize;
+      line-height: $scaleNormal * $mainCodeSize * $codeScale;
+
+      &.large {
+        font-size: $scaleNormal * $mainCodeSize * $codeScale;
+        line-height: $scaleNormal * $mainCodeSize * $codeScale * $codeScale;
+      }
+    }
+  }
+}
+
+@media(max-width: $screenSmall) {
+  html {
+    font-size: $mainFontSize * $scaleSmall;
+  }
+  .reveal {
+    .slides > section, .slides .pdf-page > section {
+      padding: $scaleSmall * ($overlaySideMargin + $slideTopMargin) $scaleSmall * $overlaySideMargin $scaleSmall * $overlaySideMargin $scaleSmall * $overlaySideMargin;
+      section {
+        margin-top: $scaleSmall * ($overlaySideMargin + $slideTopMargin - $blockMargin);
+        &.has-dark-background, &.center, &.center-vertical {
+          padding-top: $scaleSmall * ($overlaySideMargin - $blockMargin);
+          margin-top: $scaleSmall * ($overlaySideMargin - $blockMargin);
+        }
+      }
+
+      &.noveo-title {
+        font-size: $scaleSmall * $titleMainFontSize;
+        padding-top: $scaleSmall * $overlaySideMargin;
+        .title-separator {
+          width: $scaleSmall * $separatorWidth;
+          border-bottom: 1px solid $androidColor;
+        }
+        h1 {
+          margin-bottom: $scaleSmall * $titleBlockMargin;
+        }
+        h2 {
+          margin-top: $scaleSmall * $titleBlockMargin;
+        }
+      }
+
+      div.borders {
+        padding: $scaleSmall * $blockMargin;
+      }
+    }
+
+    ul, ul ul, ul ul ul {
+      margin: $scaleSmall * $blockMargin 0 0 0;
+    }
+
+    ol, ol ol, ol ol ol {
+      margin: $scaleSmall * $blockMargin 0 0 0;
+    }
+
+    .noveo-image-header {
+      margin-left: -1 * $scaleSmall * $overlaySideMargin;
+      padding: $scaleSmall * $overlayMargin $scaleSmall * $overlaySideMargin $scaleSmall * $overlayMargin $scaleSmall * $overlaySideMargin;
+    }
+
+    .slide-number {
+      left: $scaleSmall * $overlaySideMargin;
+      bottom: $scaleSmall * $overlayMargin;
+      span {
+        font-size: $scaleSmall * $mainFontSize;
+      }
+    }
+
+    pre code {
+      &.tiny {
+        font-size: $scaleSmall * $mainCodeSize / $codeScale / 1.2;
+        line-height: $scaleSmall * $mainCodeSize / 1.2;
+      }
+
+      &.small {
+        font-size: $scaleSmall * $mainCodeSize / $codeScale;
+        line-height: $scaleSmall * $mainCodeSize;
+      }
+
+      font-size: $scaleSmall * $mainCodeSize;
+      line-height: $scaleSmall * $mainCodeSize * $codeScale;
+
+      &.large {
+        font-size: $scaleSmall * $mainCodeSize * $codeScale;
+        line-height: $scaleSmall * $mainCodeSize * $codeScale * $codeScale;
+      }
+    }
+  }
+}
