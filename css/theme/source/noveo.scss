@@ -133,6 +133,9 @@ html {
       }
     }
 
+    li p {
+      display: inline;
+    }
     div.borders {
       border: 1px solid $androidColor;
       text-align: center;

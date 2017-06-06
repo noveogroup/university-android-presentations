@@ -514,6 +514,8 @@ html {
       text-transform: uppercase;
       color: #9e9e9e;
       margin-top: 60px; }
+  .reveal .slides > section li p, .reveal .slides .pdf-page > section li p {
+    display: inline; }
   .reveal .slides > section div.borders, .reveal .slides .pdf-page > section div.borders {
     border: 1px solid #699f00;
     text-align: center;
