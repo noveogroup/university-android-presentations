@@ -295,94 +295,6 @@ body {
   -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }
 
-@media (max-width: 1680px) {
-  .reveal {
-    font-size: 19.88pt; }
-    .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
-      margin: 0 0 14.2px 0; }
-    .reveal p {
-      margin: 14.2px 0; }
-    .reveal ul ul,
-    .reveal ul ol,
-    .reveal ol ol,
-    .reveal ol ul,
-    .reveal dd {
-      margin-left: 28.4px; }
-    .reveal blockquote {
-      margin: 14.2px auto;
-      padding: 3.55px; }
-    .reveal pre {
-      margin: 14.2px auto; }
-      .reveal pre code {
-        padding: 3.55px;
-        max-height: 497px; } }
-
-@media (max-width: 1366px) {
-  .reveal {
-    font-size: 14.84pt; }
-    .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
-      margin: 0 0 10.6px 0; }
-    .reveal p {
-      margin: 10.6px 0; }
-    .reveal ul ul,
-    .reveal ul ol,
-    .reveal ol ol,
-    .reveal ol ul,
-    .reveal dd {
-      margin-left: 21.2px; }
-    .reveal blockquote {
-      margin: 10.6px auto;
-      padding: 2.65px; }
-    .reveal pre {
-      margin: 10.6px auto; }
-      .reveal pre code {
-        padding: 2.65px;
-        max-height: 371px; } }
-
-@media (max-width: 1024px) {
-  .reveal {
-    font-size: 10.92pt; }
-    .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
-      margin: 0 0 7.8px 0; }
-    .reveal p {
-      margin: 7.8px 0; }
-    .reveal ul ul,
-    .reveal ul ol,
-    .reveal ol ol,
-    .reveal ol ul,
-    .reveal dd {
-      margin-left: 15.6px; }
-    .reveal blockquote {
-      margin: 7.8px auto;
-      padding: 1.95px; }
-    .reveal pre {
-      margin: 7.8px auto; }
-      .reveal pre code {
-        padding: 1.95px;
-        max-height: 273px; } }
-
-@media (max-width: 750px) {
-  .reveal {
-    font-size: 7pt; }
-    .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
-      margin: 0 0 5px 0; }
-    .reveal p {
-      margin: 5px 0; }
-    .reveal ul ul,
-    .reveal ul ol,
-    .reveal ol ol,
-    .reveal ol ul,
-    .reveal dd {
-      margin-left: 10px; }
-    .reveal blockquote {
-      margin: 5px auto;
-      padding: 1.25px; }
-    .reveal pre {
-      margin: 5px auto; }
-      .reveal pre code {
-        padding: 1.25px;
-        max-height: 175px; } }
-
 .center-horizontal {
   text-align: center; }
 
@@ -503,81 +415,25 @@ ul.table-of-content {
     padding-right: 0.33em;
     background: white; }
 
-.how-its-made {
-  position: fixed !important;
-  top: 0 !important;
-  left: 45% !important; }
+.reveal .slides .how-its-made {
+  position: absolute !important;
+  top: 1em !important;
+  right: 1em !important;
+  text-align: right;
+  width: auto !important;
+  background-color: #daffe1; }
+
+.reveal .slides #contents .how-its-made {
+  top: 4em !important; }
 
 .pdf-page .how-its-made {
   display: none; }
 
-@media (max-width: 1680px) {
-  .reveal div.underfloating {
-    padding-top: 14.2px; }
-  .reveal blockquote {
-    margin: 14.2px 5%; }
-    .reveal blockquote::before {
-      margin: 14.2px;
-      background-size: 33.086px 33.086px;
-      width: 33.086px;
-      height: 33.086px; }
-  ul.table-of-content {
-    margin: 14.2px auto !important; }
-    ul.table-of-content ul {
-      margin: 14.2px 0 14.2px 14.2px !important; }
-  .how-its-made {
-    left: 44% !important; } }
+.reveal a.not-ready {
+  color: #aaaaaa; }
 
-@media (max-width: 1366px) {
-  .reveal div.underfloating {
-    padding-top: 10.6px; }
-  .reveal blockquote {
-    margin: 10.6px 5%; }
-    .reveal blockquote::before {
-      margin: 10.6px;
-      background-size: 24.698px 24.698px;
-      width: 24.698px;
-      height: 24.698px; }
-  ul.table-of-content {
-    margin: 10.6px auto !important; }
-    ul.table-of-content ul {
-      margin: 10.6px 0 10.6px 10.6px !important; }
-  .how-its-made {
-    left: 43% !important; } }
-
-@media (max-width: 1024px) {
-  .reveal div.underfloating {
-    padding-top: 7.8px; }
-  .reveal blockquote {
-    margin: 7.8px 5%; }
-    .reveal blockquote::before {
-      margin: 7.8px;
-      background-size: 18.174px 18.174px;
-      width: 18.174px;
-      height: 18.174px; }
-  ul.table-of-content {
-    margin: 7.8px auto !important; }
-    ul.table-of-content ul {
-      margin: 7.8px 0 7.8px 7.8px !important; }
-  .how-its-made {
-    left: 42% !important; } }
-
-@media (max-width: 750px) {
-  .reveal div.underfloating {
-    padding-top: 5px; }
-  .reveal blockquote {
-    margin: 5px 5%; }
-    .reveal blockquote::before {
-      margin: 5px;
-      background-size: 11.65px 11.65px;
-      width: 11.65px;
-      height: 11.65px; }
-  ul.table-of-content {
-    margin: 5px auto !important; }
-    ul.table-of-content ul {
-      margin: 5px 0 5px 5px !important; }
-  .how-its-made {
-    left: 41% !important; } }
+.reveal a.link-example {
+  color: #1f2484; }
 
 #header-left {
   position: absolute;
@@ -624,70 +480,6 @@ ul.table-of-content {
 
 .has-light-background #footer-right::after {
   color: transparent; }
-
-@media (max-width: 1680px) {
-  #header-left {
-    top: 42.6px;
-    width: 196.67px;
-    height: 49.7px;
-    background-size: 196.67px 49.7px; }
-  #header-right {
-    top: 38.34px;
-    right: 56.8px;
-    width: 171.82px;
-    height: 66.74px;
-    background-size: 171.82px 66.74px; }
-  #footer-right::after {
-    bottom: 38.34px;
-    right: 56.8px; } }
-
-@media (max-width: 1366px) {
-  #header-left {
-    top: 31.8px;
-    width: 146.81px;
-    height: 37.1px;
-    background-size: 146.81px 37.1px; }
-  #header-right {
-    top: 28.62px;
-    right: 42.4px;
-    width: 128.26px;
-    height: 49.82px;
-    background-size: 128.26px 49.82px; }
-  #footer-right::after {
-    bottom: 28.62px;
-    right: 42.4px; } }
-
-@media (max-width: 1024px) {
-  #header-left {
-    top: 23.4px;
-    width: 108.03px;
-    height: 27.3px;
-    background-size: 108.03px 27.3px; }
-  #header-right {
-    top: 21.06px;
-    right: 31.2px;
-    width: 94.38px;
-    height: 36.66px;
-    background-size: 94.38px 36.66px; }
-  #footer-right::after {
-    bottom: 21.06px;
-    right: 31.2px; } }
-
-@media (max-width: 750px) {
-  #header-left {
-    top: 15px;
-    width: 69.25px;
-    height: 17.5px;
-    background-size: 69.25px 17.5px; }
-  #header-right {
-    top: 13.5px;
-    right: 20px;
-    width: 60.5px;
-    height: 23.5px;
-    background-size: 60.5px 23.5px; }
-  #footer-right::after {
-    bottom: 13.5px;
-    right: 20px; } }
 
 html {
   font-size: 28pt; }
@@ -984,3 +776,215 @@ html {
     .reveal pre code.large {
       font-size: 6.3pt;
       line-height: 9.45pt; } }
+
+@media (max-width: 1680px) {
+  #header-left {
+    top: 42.6px;
+    width: 196.67px;
+    height: 49.7px;
+    background-size: 196.67px 49.7px; }
+  #header-right {
+    top: 38.34px;
+    right: 56.8px;
+    width: 171.82px;
+    height: 66.74px;
+    background-size: 171.82px 66.74px; }
+  #footer-right::after {
+    bottom: 38.34px;
+    right: 56.8px; } }
+
+@media (max-width: 1366px) {
+  #header-left {
+    top: 31.8px;
+    width: 146.81px;
+    height: 37.1px;
+    background-size: 146.81px 37.1px; }
+  #header-right {
+    top: 28.62px;
+    right: 42.4px;
+    width: 128.26px;
+    height: 49.82px;
+    background-size: 128.26px 49.82px; }
+  #footer-right::after {
+    bottom: 28.62px;
+    right: 42.4px; } }
+
+@media (max-width: 1024px) {
+  #header-left {
+    top: 23.4px;
+    width: 108.03px;
+    height: 27.3px;
+    background-size: 108.03px 27.3px; }
+  #header-right {
+    top: 21.06px;
+    right: 31.2px;
+    width: 94.38px;
+    height: 36.66px;
+    background-size: 94.38px 36.66px; }
+  #footer-right::after {
+    bottom: 21.06px;
+    right: 31.2px; } }
+
+@media (max-width: 750px) {
+  #header-left {
+    top: 15px;
+    width: 69.25px;
+    height: 17.5px;
+    background-size: 69.25px 17.5px; }
+  #header-right {
+    top: 13.5px;
+    right: 20px;
+    width: 60.5px;
+    height: 23.5px;
+    background-size: 60.5px 23.5px; }
+  #footer-right::after {
+    bottom: 13.5px;
+    right: 20px; } }
+
+@media (max-width: 1680px) {
+  .reveal {
+    font-size: 19.88pt; }
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+      margin: 0 0 14.2px 0; }
+    .reveal p {
+      margin: 14.2px 0; }
+    .reveal ul ul,
+    .reveal ul ol,
+    .reveal ol ol,
+    .reveal ol ul,
+    .reveal dd {
+      margin-left: 28.4px; }
+    .reveal blockquote {
+      margin: 14.2px auto;
+      padding: 3.55px; }
+    .reveal pre {
+      margin: 14.2px auto; }
+      .reveal pre code {
+        padding: 3.55px;
+        max-height: 497px; } }
+
+@media (max-width: 1366px) {
+  .reveal {
+    font-size: 14.84pt; }
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+      margin: 0 0 10.6px 0; }
+    .reveal p {
+      margin: 10.6px 0; }
+    .reveal ul ul,
+    .reveal ul ol,
+    .reveal ol ol,
+    .reveal ol ul,
+    .reveal dd {
+      margin-left: 21.2px; }
+    .reveal blockquote {
+      margin: 10.6px auto;
+      padding: 2.65px; }
+    .reveal pre {
+      margin: 10.6px auto; }
+      .reveal pre code {
+        padding: 2.65px;
+        max-height: 371px; } }
+
+@media (max-width: 1024px) {
+  .reveal {
+    font-size: 10.92pt; }
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+      margin: 0 0 7.8px 0; }
+    .reveal p {
+      margin: 7.8px 0; }
+    .reveal ul ul,
+    .reveal ul ol,
+    .reveal ol ol,
+    .reveal ol ul,
+    .reveal dd {
+      margin-left: 15.6px; }
+    .reveal blockquote {
+      margin: 7.8px auto;
+      padding: 1.95px; }
+    .reveal pre {
+      margin: 7.8px auto; }
+      .reveal pre code {
+        padding: 1.95px;
+        max-height: 273px; } }
+
+@media (max-width: 750px) {
+  .reveal {
+    font-size: 7pt; }
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+      margin: 0 0 5px 0; }
+    .reveal p {
+      margin: 5px 0; }
+    .reveal ul ul,
+    .reveal ul ol,
+    .reveal ol ol,
+    .reveal ol ul,
+    .reveal dd {
+      margin-left: 10px; }
+    .reveal blockquote {
+      margin: 5px auto;
+      padding: 1.25px; }
+    .reveal pre {
+      margin: 5px auto; }
+      .reveal pre code {
+        padding: 1.25px;
+        max-height: 175px; } }
+
+@media (max-width: 1680px) {
+  .reveal div.underfloating {
+    padding-top: 14.2px; }
+  .reveal blockquote {
+    margin: 14.2px 5%; }
+    .reveal blockquote::before {
+      margin: 14.2px;
+      background-size: 33.086px 33.086px;
+      width: 33.086px;
+      height: 33.086px; }
+  ul.table-of-content {
+    margin: 14.2px auto !important; }
+    ul.table-of-content ul {
+      margin: 14.2px 0 14.2px 14.2px !important; } }
+
+@media (max-width: 1366px) {
+  .reveal div.underfloating {
+    padding-top: 10.6px; }
+  .reveal blockquote {
+    margin: 10.6px 5%; }
+    .reveal blockquote::before {
+      margin: 10.6px;
+      background-size: 24.698px 24.698px;
+      width: 24.698px;
+      height: 24.698px; }
+  ul.table-of-content {
+    margin: 10.6px auto !important; }
+    ul.table-of-content ul {
+      margin: 10.6px 0 10.6px 10.6px !important; } }
+
+@media (max-width: 1024px) {
+  .reveal div.underfloating {
+    padding-top: 7.8px; }
+  .reveal blockquote {
+    margin: 7.8px 5%; }
+    .reveal blockquote::before {
+      margin: 7.8px;
+      background-size: 18.174px 18.174px;
+      width: 18.174px;
+      height: 18.174px; }
+  ul.table-of-content {
+    margin: 7.8px auto !important; }
+    ul.table-of-content ul {
+      margin: 7.8px 0 7.8px 7.8px !important; } }
+
+@media (max-width: 750px) {
+  .reveal div.underfloating {
+    padding-top: 5px; }
+  .reveal blockquote {
+    margin: 5px 5%; }
+    .reveal blockquote::before {
+      margin: 5px;
+      background-size: 11.65px 11.65px;
+      width: 11.65px;
+      height: 11.65px; }
+  ul.table-of-content {
+    margin: 5px auto !important; }
+    ul.table-of-content ul {
+      margin: 5px 0 5px 5px !important; } }
