@@ -95,6 +95,22 @@ html {
         color: transparent;
       }
     }
+
+    ul, ul ul, ul ul ul {
+      > li {
+        &::before {
+          color: white;
+        }
+      }
+    }
+
+    ol, ol ol, ol ol ol {
+      > li {
+        &::before {
+          color: white;
+        }
+      }
+    }
   }
 
   .slides > section, .slides .pdf-page > section {
