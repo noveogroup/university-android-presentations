@@ -21,10 +21,15 @@
 <div class="reveal">
     <div class="slides">
         <!--positioning content-->
-        <section class="center center-horizontal">
+        <section class="center noveo-title"
+                 data-background-color="#fff"
+                 data-background-image="css/theme/img/background_title.svg"
+                 data-background-position="right bottom"
+                 data-background-size="auto">
             <h1>Android User Interface</h1>
-            <h3>Android</h3>
-            <h4>Клещев Денис</h4>
+            <div class="title-separator"></div>
+            <h2>автор:</h2>
+            <p>Клещев Денис</p>
         </section>
         <section class="center center-horizontal">
             <h2>UI Overview</h2>
@@ -37,7 +42,7 @@
         </section>
         <section class="center center-horizontal">
             <h2>UI Overview</h2>
-            <img src="http://i.stack.imgur.com/vYsMp.png">
+            <img src="http://i.stack.imgur.com/vYsMp.png" height="600" width="1000">
         </section>
         <section class="center center-horizontal">
             <h2>Declaring Views</h2>
@@ -61,55 +66,8 @@
                 <li class="fragment" data-fragment-index="5">CheckBox - галочка</li>
             </ul>
         </section>
-        <section>
-            <section class="center">
-                <h2>Attributes</h2>
-                <ul>
-                    <li>В xml поведение отдельного View можно настраивать с помощью аттрибутов</li>
-                    <li>Существует набор аттрибутов общих для всех View</li>
-                    <li>Почти каждый наследник View имеет свой собственный набор специфичных для него аттрибутов</li>
-                    <li>Можно создавать свои собственные аттрибуты</li>
-                    <li>Часто для каждого аттрибута существуют соответствующие ему методы</li>
-                </ul>
-            </section>
-            <section class="center">
-                <h2>Common Attributes</h2>
-                <ul>
-                    <li>android:id - уникальный идентификатор</li>
-                    <li>android:layout_width - ширина элемента</li>
-                    <li>android:layout_height - высота элемента</li>
-                    <li>android:layout_margin - отступы снаружи элемента</li>
-                    <li>android:padding - отступы внутри элемента</li>
-                    <li>android:layout_gravity - расположение элемента внутри родителя</li>
-                    <li>android:gravity - расположение контента внутри элемента</li>
-                    <li>android:visibility - показывать элемент или нет</li>
-                    <li>android:background - фоновое изображение</li>
-                    <li>...</li>
-                </ul>
-            </section>
-            <section class="center">
-                <h2>Unique Attributes</h2>
-                <h3>TextView</h3>
-                <ul>
-                    <li>android:text – текст</li>
-                    <li>android:textSize – размер</li>
-                    <li>android:textColor – цвет</li>
-                    <li>android:textStyle - стиль (bold, italic, monospace)</li>
-                    <li>android:singleLine - максимум одна строка текста</li>
-                    <li>android:maxLines - максимальное число строк текста</li>
-                    <li>android:ellipsize - что делать, если текст слишком длинный</li>
-                </ul>
-            </section>
-            <section class="center">
-                <h2>Unique Attributes</h2>
-                <h3>ImageView</h3>
-                <ul>
-                    <li>android:src - что показывать</li>
-                    <li>android:scaleType - как масштабировать</li>
-                    <li>android:adjustViewBounds - меняем размеры View в зависимости от размеров картинки</li>
-                </ul>
-            </section>
-        </section>
+                <section data-markdown="lecture/ui/attr.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"></section>
         <section class="center center-horizontal">
             <h2>Dimension Units</h2>
             <ul>
@@ -129,44 +87,9 @@
             <h4>Good practice</h4>
             <img src="http://developer.android.com/images/screens_support/density-test-good.png">            
         </section>
-        <section>
-            <section class="center">
-                <h2>Drawable Types</h2>
-                <ul>
-                    <li>ColorDrawable - просто цвет</li>
-                    <li>BitmapDrawable - просто картинка</li>
-                    <li>NinePatchDrawable - картинка, которая умеет правильно растягиваться</li>
-                    <li>StateListDrawable - меняет свой контент в зависимости от состояния</li>
-                    <li>ShapeDrawable - набор свойств таких как: просто цвет, радиус скругления, градиент, обводка</li>
-                </ul>
-            </section>
-            <section class="center">
-                <h2>Drawable Types</h2>
-                <h3>drawable/view_selector.xml</h3>
-                <pre>
-                    <code class="small" data-trim>
-                        <?xml version="1.0" encoding="utf-8"?>
-                        <selector xmlns:android="http://schemas.android.com/apk/res/android">
-                            <item android:drawable="@drawable/icon" android:state_enabled="true"></item>
-                            <item android:drawable="@drawable/icon_inactive" android:state_enabled="false"></item>
-                        </selector>
-                    </code>
-                </pre>
-            </section>
-            <section class="center">
-                <h2>Drawable Types</h2>
-                <h3>drawable/view_bg_shape.xml</h3>
-                <pre>
-                    <code class="small" data-trim>
-                        <?xml version="1.0" encoding="utf-8"?>
-                        <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
-                            <solid android:color="@color/blue"></solid>
-                            <corners android:radius="2dp"></corners>
-                        </shape>
-                    </code>
-                </pre>
-            </section>            
         </section>
+                <section data-markdown="lecture/ui/drawable.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"></section>
         <section class="center center-horizontal">
             <h2>Input Handling</h2>
             <ul>
@@ -191,9 +114,6 @@
                 <li>ScrollView - добавляет скролл, если контент слишком большой</li>
                 <li>TableLayout - таблица для статичных данных</li>
             </ul>
-        </section>
-        <section class="center center-horizontal">
-            <h1>Интерактивчик!</h1>
         </section>
         <section class="center center-horizontal">
             <h2>ListView, GridView</h2>
@@ -223,8 +143,8 @@
                 <li class="fragment" data-fragment-index="2">GridLayoutManager - таблица</li>
                 <li class="fragment" data-fragment-index="3">StaggeredGridLayoutManager - кривая таблица</li>
                 <li class="fragment" data-fragment-index="4">Custom</li>
-                <li class="fragment" data-fragment-index="4"><img src="https://i.ytimg.com/vi/NaSd2d5rwPE/hqdefault.jpg"></li>
             </ul>
+            <img class="fragment" data-fragment-index="4" src="https://i.ytimg.com/vi/NaSd2d5rwPE/hqdefault.jpg"/>
         </section>
         <section class="center center-horizontal">
             <h2>RecyclerView.Adapter</h2>
@@ -244,7 +164,7 @@
         <section class="center center-horizontal">
             <h2>RecyclerView.ViewHolder</h2>
             <div class="half-left">
-                <pre class="fragment" data-fragment-index="1"><code class="small" data-trim data-noescape>
+                <pre class="fragment" data-fragment-index="1"><code class="normal" data-trim data-noescape>
                     class ViewHolder extends RecyclerView.ViewHolder {
                         ImageView avatar;
                         TextView userName;
@@ -260,7 +180,7 @@
                 </code></pre>
             </div>
             <div class="half-right">
-                <pre class="fragment" data-fragment-index="2"><code class="small" data-trim data-noescape>
+                <pre class="fragment" data-fragment-index="2"><code class="normal" data-trim data-noescape>
                     class ViewHolder extends RecyclerView.ViewHolder {
                         @BindView(R.id.avatar)
                         ImageView avatar;
@@ -303,7 +223,7 @@
         </section>
         <section class="center center-horizontal">
             <h2>RecyclerView. DiffUtil</h2>
-            <pre><code class="small" data-trim data-noescape>
+            <pre><code class="normal" data-trim data-noescape>
                 DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new DiffUtil.Callback() {
                     public int getOldListSize();
                     public int getNewListSize();
@@ -318,7 +238,7 @@
         <section class="center center-horizontal">
             <h2>RecyclerView. Click handling</h2>
             <p>Good practice:</p>
-            <pre><code class="small" data-trim data-noescape>
+            <pre><code class="normal" data-trim data-noescape>
                 ItemClickSupport.addTo(mRecyclerView).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
                     @Override
                     public void onItemClicked(RecyclerView recyclerView, int position, View v) {
@@ -327,7 +247,7 @@
                 });
             </code></pre>
             <p>Добавить в ids.xml:</p>
-            <pre><code class="small" data-trim>
+            <pre><code class="normal" data-trim>
                 <?xml version="1.0" encoding="utf-8"?>
                 <resources>
                     <item name="item_click_support" type="id"></item>
@@ -337,7 +257,7 @@
         <section class="center center-horizontal">
             <h2>RecyclerView</h2>
             <p>Использование RecyclerView</p>
-            <pre><code class="small" data-trim data-noescape>
+            <pre><code class="normal" data-trim data-noescape>
                 final RecyclerView recycler; //init it
                 final MyAwesomeAdapter adapter = new MyAwesomeAdapter(getItems());
 
@@ -397,15 +317,13 @@
                 </li>
             </ul>
         </section>
-        <section data-markdown="lecture/ui/custom_view_attributes.md"></section>
+        <section data-markdown="lecture/ui/card.md"></section>
         <section class="center center-horizontal">
             <h2>Custom Views: Наследование</h2>
             <ol type="1">
                 <li>Получить атрибуты в конструкторе
                     <pre><code class="normal" data-trim data-noescape>
-                        TypedArray a = 
-                            context.obtainStyledAttributes(attrs, 
-                                        R.styleable.CustomImageView);
+                        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CustomImageView);
                     </code></pre>
                 </li>
                 <li>Получить нужные значения
