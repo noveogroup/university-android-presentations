@@ -173,7 +173,7 @@ html {
 
   ul, ul ul, ul ul ul {
     display: block;
-    margin: $blockMargin 0 0 0;
+    margin: $blockMargin 0 $blockMargin 0;
     list-style: none !important;
     padding: 0;
     > li {
@@ -188,7 +188,7 @@ html {
 
   ol, ol ol, ol ol ol {
     display: block;
-    margin: $blockMargin 0 0 0;
+    margin: $blockMargin 0 $blockMargin 0;
     list-style: none !important;
     padding: 0;
     > li {

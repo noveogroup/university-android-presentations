@@ -534,7 +534,7 @@ html {
 
 .reveal ul, .reveal ul ul, .reveal ul ul ul {
   display: block;
-  margin: 20px 0 0 0;
+  margin: 20px 0 20px 0;
   list-style: none !important;
   padding: 0; }
   .reveal ul > li, .reveal ul ul > li, .reveal ul ul ul > li {
@@ -546,7 +546,7 @@ html {
 
 .reveal ol, .reveal ol ol, .reveal ol ol ol {
   display: block;
-  margin: 20px 0 0 0;
+  margin: 20px 0 20px 0;
   list-style: none !important;
   padding: 0; }
   .reveal ol > li, .reveal ol ol > li, .reveal ol ol ol > li {
