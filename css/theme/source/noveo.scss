@@ -95,6 +95,22 @@ html {
         color: transparent;
       }
     }
+
+    ul, ul ul, ul ul ul {
+      > li {
+        &::before {
+          color: white;
+        }
+      }
+    }
+
+    ol, ol ol, ol ol ol {
+      > li {
+        &::before {
+          color: white;
+        }
+      }
+    }
   }
 
   .slides > section, .slides .pdf-page > section {
@@ -157,7 +173,7 @@ html {
 
   ul, ul ul, ul ul ul {
     display: block;
-    margin: $blockMargin 0 0 0;
+    margin: $blockMargin 0 $blockMargin 0;
     list-style: none !important;
     padding: 0;
     > li {
@@ -172,7 +188,7 @@ html {
 
   ol, ol ol, ol ol ol {
     display: block;
-    margin: $blockMargin 0 0 0;
+    margin: $blockMargin 0 $blockMargin 0;
     list-style: none !important;
     padding: 0;
     > li {

@@ -9,58 +9,62 @@
   top: 0;
 }
 
-.overlap-fragment {
-  position: absolute;
-  max-width: 100%;
-  max-height: 100%;
-}
+.reveal section {
+  div, pre, code, img {
+    &.overlap-fragment {
+      position: absolute !important;
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
 
-.half-left {
-  width: 48.4%;
-  min-height: $mainFontSize;
-  float: left;
-  position: relative;
-  padding-right: 0.5rem;
-  margin-left: 1%;
-  margin-right: 0.5%;
-}
+  div.half-left {
+    width: 48%;
+    min-height: $mainFontSize;
+    float: left;
+    position: relative;
+    padding-right: 0.5rem;
+    margin-left: 0.5%;
+    margin-right: 0.25%;
+  }
 
-.half-right {
-  width: 48.4%;
-  min-height: $mainFontSize;
-  float: right;
-  position: relative;
-  padding-left: 0.5rem;
-  margin-left: 0.5%;
-  margin-right: 1%;
-}
+  div.half-right {
+    width: 48%;
+    min-height: $mainFontSize;
+    float: right;
+    position: relative;
+    padding-left: 0.5rem;
+    margin-left: 0.25%;
+    margin-right: 0.5%;
+  }
 
-.third-left {
-  width: 31.9%;
-  float: left;
-  position: relative;
-  padding-right: 0.25rem;
-  margin-left: 1%;
-  margin-right: 0.5%;
-}
+  div.third-left {
+    width: 31.5%;
+    float: left;
+    position: relative;
+    padding-right: 0.25rem;
+    margin-left: 0.5%;
+    margin-right: 0.25%;
+  }
 
-.third-center {
-  width: 31.9%;
-  float: left;
-  position: relative;
-  padding-right: 0.25rem;
-  padding-left: 0.25rem;
-  margin-left: 0.5%;
-  margin-right: 0.5%;
-}
+  div.third-center {
+    width: 31.5%;
+    float: left;
+    position: relative;
+    padding-right: 0.25rem;
+    padding-left: 0.25rem;
+    margin-left: 0.25%;
+    margin-right: 0.25%;
+  }
 
-.third-right {
-  width: 31.9%;
-  float: right;
-  position: relative;
-  padding-left: 0.25rem;
-  margin-left: 0.5%;
-  margin-right: 1%;
+  div.third-right {
+    width: 31.5%;
+    float: left;
+    position: relative;
+    padding-left: 0.25rem;
+    margin-left: 0.25%;
+    margin-right: 0.5%;
+  }
 }
 
 .reveal div.underfloating {
