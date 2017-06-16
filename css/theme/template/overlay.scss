@@ -45,6 +45,9 @@
 }
 
 .has-dark-background {
+  #header-left {
+    background-image: url($labelInvertedPath);
+  }
   #header-right {
     background-image: url($logoWhitePath);
   }
@@ -58,17 +61,3 @@
     color: transparent;
   }
 }
-
-/*@media(max-width: 1024px) {
-  #header-right {
-    width: $logoWidth*$mobileScreenScale;
-    height: $logoHeight*$mobileScreenScale;
-    background-size: $logoWidth*$mobileScreenScale $logoHeight*$mobileScreenScale;
-  }
-
-  #header-left {
-    width: $labelWidth*$mobileScreenScale;
-    height: $labelHeight*$mobileScreenScale;
-    background-size: $labelWidth*$mobileScreenScale $labelHeight*$mobileScreenScale;
-  }
-}*/

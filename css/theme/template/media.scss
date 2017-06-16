@@ -1,0 +1,652 @@
+@media(max-width: $screenLarge) {
+  html {
+    font-size: $mainFontSize * $scaleLarge;
+  }
+  .reveal {
+    .slides > section, .slides .pdf-page > section {
+      padding: $scaleLarge * ($overlaySideMargin + $slideTopMargin) $scaleLarge * $overlaySideMargin $scaleLarge * $overlaySideMargin $scaleLarge * $overlaySideMargin;
+      section {
+        margin-top: $scaleLarge * ($overlaySideMargin + $slideTopMargin - $blockMargin);
+        &.has-dark-background, &.center, &.center-vertical {
+          padding-top: $scaleLarge * ($overlaySideMargin - $blockMargin);
+          margin-top: $scaleLarge * ($overlaySideMargin - $blockMargin);
+        }
+      }
+
+      &.noveo-title {
+        font-size: $scaleLarge * $titleMainFontSize;
+        padding-top: $scaleLarge * $overlaySideMargin;
+        .title-separator {
+          width: $scaleLarge * $separatorWidth;
+          border-bottom: 1px solid $androidColor;
+        }
+        h1 {
+          margin-bottom: $scaleLarge * $titleBlockMargin;
+        }
+        h2 {
+          margin-top: $scaleLarge * $titleBlockMargin;
+        }
+      }
+
+      div.borders {
+        padding: $scaleLarge * $blockMargin;
+      }
+    }
+
+    ul, ul ul, ul ul ul {
+      margin: $scaleLarge * $blockMargin 0 0 0;
+    }
+
+    ol, ol ol, ol ol ol {
+      margin: $scaleLarge * $blockMargin 0 0 0;
+    }
+
+    .noveo-image-header {
+      margin-left: -1 * $scaleLarge * $overlaySideMargin;
+      padding: $scaleLarge * $overlayMargin $scaleLarge * $overlaySideMargin $scaleLarge * $overlayMargin $scaleLarge * $overlaySideMargin;
+    }
+
+    .slide-number {
+      left: $scaleLarge * $overlaySideMargin;
+      bottom: $scaleLarge * $overlayMargin;
+      span {
+        font-size: $scaleLarge * $mainFontSize;
+      }
+    }
+
+    pre code {
+      &.tiny {
+        font-size: $scaleLarge * $mainCodeSize / $codeScale / 1.2;
+        line-height: $scaleLarge * $mainCodeSize / 1.2;
+      }
+
+      &.small {
+        font-size: $scaleLarge * $mainCodeSize / $codeScale;
+        line-height: $scaleLarge * $mainCodeSize;
+      }
+
+      font-size: $scaleLarge * $mainCodeSize;
+      line-height: $scaleLarge * $mainCodeSize * $codeScale;
+
+      &.large {
+        font-size: $scaleLarge * $mainCodeSize * $codeScale;
+        line-height: $scaleLarge * $mainCodeSize * $codeScale * $codeScale;
+      }
+    }
+  }
+}
+
+@media(max-width: $screenMedium) {
+  html {
+    font-size: $mainFontSize * $scaleMedium;
+  }
+  .reveal {
+    .slides > section, .slides .pdf-page > section {
+      padding: $scaleMedium * ($overlaySideMargin + $slideTopMargin) $scaleMedium * $overlaySideMargin $scaleMedium * $overlaySideMargin $scaleMedium * $overlaySideMargin;
+      section {
+        margin-top: $scaleMedium * ($overlaySideMargin + $slideTopMargin - $blockMargin);
+        &.has-dark-background, &.center, &.center-vertical {
+          padding-top: $scaleMedium * ($overlaySideMargin - $blockMargin);
+          margin-top: $scaleMedium * ($overlaySideMargin - $blockMargin);
+        }
+      }
+
+      &.noveo-title {
+        font-size: $scaleMedium * $titleMainFontSize;
+        padding-top: $scaleMedium * $overlaySideMargin;
+        .title-separator {
+          width: $scaleMedium * $separatorWidth;
+          border-bottom: 1px solid $androidColor;
+        }
+        h1 {
+          margin-bottom: $scaleMedium * $titleBlockMargin;
+        }
+        h2 {
+          margin-top: $scaleMedium * $titleBlockMargin;
+        }
+      }
+
+      div.borders {
+        padding: $scaleMedium * $blockMargin;
+      }
+    }
+
+    ul, ul ul, ul ul ul {
+      margin: $scaleMedium * $blockMargin 0 0 0;
+    }
+
+    ol, ol ol, ol ol ol {
+      margin: $scaleMedium * $blockMargin 0 0 0;
+    }
+
+    .noveo-image-header {
+      margin-left: -1 * $scaleMedium * $overlaySideMargin;
+      padding: $scaleMedium * $overlayMargin $scaleMedium * $overlaySideMargin $scaleMedium * $overlayMargin $scaleMedium * $overlaySideMargin;
+    }
+
+    .slide-number {
+      left: $scaleMedium * $overlaySideMargin;
+      bottom: $scaleMedium * $overlayMargin;
+      span {
+        font-size: $scaleMedium * $mainFontSize;
+      }
+    }
+
+    pre code {
+      &.tiny {
+        font-size: $scaleMedium * $mainCodeSize / $codeScale / 1.2;
+        line-height: $scaleMedium * $mainCodeSize / 1.2;
+      }
+
+      &.small {
+        font-size: $scaleMedium * $mainCodeSize / $codeScale;
+        line-height: $scaleMedium * $mainCodeSize;
+      }
+
+      font-size: $scaleMedium * $mainCodeSize;
+      line-height: $scaleMedium * $mainCodeSize * $codeScale;
+
+      &.large {
+        font-size: $scaleMedium * $mainCodeSize * $codeScale;
+        line-height: $scaleMedium * $mainCodeSize * $codeScale * $codeScale;
+      }
+    }
+  }
+}
+
+@media(max-width: $screenNormal) {
+  html {
+    font-size: $mainFontSize * $scaleNormal;
+  }
+  .reveal {
+    .slides > section, .slides .pdf-page > section {
+      padding: $scaleNormal * ($overlaySideMargin + $slideTopMargin) $scaleNormal * $overlaySideMargin $scaleNormal * $overlaySideMargin $scaleNormal * $overlaySideMargin;
+      section {
+        margin-top: $scaleNormal * ($overlaySideMargin + $slideTopMargin - $blockMargin);
+        &.has-dark-background, &.center, &.center-vertical {
+          padding-top: $scaleNormal * ($overlaySideMargin - $blockMargin);
+          margin-top: $scaleNormal * ($overlaySideMargin - $blockMargin);
+        }
+      }
+
+      &.noveo-title {
+        font-size: $scaleNormal * $titleMainFontSize;
+        padding-top: $scaleNormal * $overlaySideMargin;
+        .title-separator {
+          width: $scaleNormal * $separatorWidth;
+          border-bottom: 1px solid $androidColor;
+        }
+        h1 {
+          margin-bottom: $scaleNormal * $titleBlockMargin;
+        }
+        h2 {
+          margin-top: $scaleNormal * $titleBlockMargin;
+        }
+      }
+
+      div.borders {
+        padding: $scaleNormal * $blockMargin;
+      }
+    }
+
+    ul, ul ul, ul ul ul {
+      margin: $scaleNormal * $blockMargin 0 0 0;
+    }
+
+    ol, ol ol, ol ol ol {
+      margin: $scaleNormal * $blockMargin 0 0 0;
+    }
+
+    .noveo-image-header {
+      margin-left: -1 * $scaleNormal * $overlaySideMargin;
+      padding: $scaleNormal * $overlayMargin $scaleNormal * $overlaySideMargin $scaleNormal * $overlayMargin $scaleNormal * $overlaySideMargin;
+    }
+
+    .slide-number {
+      left: $scaleNormal * $overlaySideMargin;
+      bottom: $scaleNormal * $overlayMargin;
+      span {
+        font-size: $scaleNormal * $mainFontSize;
+      }
+    }
+
+    pre code {
+      &.tiny {
+        font-size: $scaleNormal * $mainCodeSize / $codeScale / 1.2;
+        line-height: $scaleNormal * $mainCodeSize / 1.2;
+      }
+
+      &.small {
+        font-size: $scaleNormal * $mainCodeSize / $codeScale;
+        line-height: $scaleNormal * $mainCodeSize;
+      }
+
+      font-size: $scaleNormal * $mainCodeSize;
+      line-height: $scaleNormal * $mainCodeSize * $codeScale;
+
+      &.large {
+        font-size: $scaleNormal * $mainCodeSize * $codeScale;
+        line-height: $scaleNormal * $mainCodeSize * $codeScale * $codeScale;
+      }
+    }
+  }
+}
+
+@media(max-width: $screenSmall) {
+  html {
+    font-size: $mainFontSize * $scaleSmall;
+  }
+  .reveal {
+    .slides > section, .slides .pdf-page > section {
+      padding: $scaleSmall * ($overlaySideMargin + $slideTopMargin) $scaleSmall * $overlaySideMargin $scaleSmall * $overlaySideMargin $scaleSmall * $overlaySideMargin;
+      section {
+        margin-top: $scaleSmall * ($overlaySideMargin + $slideTopMargin - $blockMargin);
+        &.has-dark-background, &.center, &.center-vertical {
+          padding-top: $scaleSmall * ($overlaySideMargin - $blockMargin);
+          margin-top: $scaleSmall * ($overlaySideMargin - $blockMargin);
+        }
+      }
+
+      &.noveo-title {
+        font-size: $scaleSmall * $titleMainFontSize;
+        padding-top: $scaleSmall * $overlaySideMargin;
+        .title-separator {
+          width: $scaleSmall * $separatorWidth;
+          border-bottom: 1px solid $androidColor;
+        }
+        h1 {
+          margin-bottom: $scaleSmall * $titleBlockMargin;
+        }
+        h2 {
+          margin-top: $scaleSmall * $titleBlockMargin;
+        }
+      }
+
+      div.borders {
+        padding: $scaleSmall * $blockMargin;
+      }
+    }
+
+    ul, ul ul, ul ul ul {
+      margin: $scaleSmall * $blockMargin 0 0 0;
+    }
+
+    ol, ol ol, ol ol ol {
+      margin: $scaleSmall * $blockMargin 0 0 0;
+    }
+
+    .noveo-image-header {
+      margin-left: -1 * $scaleSmall * $overlaySideMargin;
+      padding: $scaleSmall * $overlayMargin $scaleSmall * $overlaySideMargin $scaleSmall * $overlayMargin $scaleSmall * $overlaySideMargin;
+    }
+
+    .slide-number {
+      left: $scaleSmall * $overlaySideMargin;
+      bottom: $scaleSmall * $overlayMargin;
+      span {
+        font-size: $scaleSmall * $mainFontSize;
+      }
+    }
+
+    pre code {
+      &.tiny {
+        font-size: $scaleSmall * $mainCodeSize / $codeScale / 1.2;
+        line-height: $scaleSmall * $mainCodeSize / 1.2;
+      }
+
+      &.small {
+        font-size: $scaleSmall * $mainCodeSize / $codeScale;
+        line-height: $scaleSmall * $mainCodeSize;
+      }
+
+      font-size: $scaleSmall * $mainCodeSize;
+      line-height: $scaleSmall * $mainCodeSize * $codeScale;
+
+      &.large {
+        font-size: $scaleSmall * $mainCodeSize * $codeScale;
+        line-height: $scaleSmall * $mainCodeSize * $codeScale * $codeScale;
+      }
+    }
+  }
+}
+
+
+@media(max-width: $screenLarge) {
+  #header-left {
+    top: $labelTopMargin * $scaleLarge;
+    width: $labelWidth * $scaleLarge;
+    height: $labelHeight * $scaleLarge;
+    background-size: $labelWidth * $scaleLarge $labelHeight * $scaleLarge;
+  }
+
+  #header-right {
+    top: $overlayMargin * $scaleLarge;
+    right: $overlaySideMargin * $scaleLarge;
+    width: $logoWidth * $scaleLarge;
+    height: $logoHeight * $scaleLarge;
+    background-size: $logoWidth * $scaleLarge $logoHeight * $scaleLarge;
+  }
+
+  #footer-right::after {
+    bottom: $overlayMargin * $scaleLarge;
+    right: $overlaySideMargin * $scaleLarge;
+  }
+}
+
+
+@media(max-width: $screenMedium) {
+  #header-left {
+    top: $labelTopMargin * $scaleMedium;
+    width: $labelWidth * $scaleMedium;
+    height: $labelHeight * $scaleMedium;
+    background-size: $labelWidth * $scaleMedium $labelHeight * $scaleMedium;
+  }
+
+  #header-right {
+    top: $overlayMargin * $scaleMedium;
+    right: $overlaySideMargin * $scaleMedium;
+    width: $logoWidth * $scaleMedium;
+    height: $logoHeight * $scaleMedium;
+    background-size: $logoWidth * $scaleMedium $logoHeight * $scaleMedium;
+  }
+
+  #footer-right::after {
+    bottom: $overlayMargin * $scaleMedium;
+    right: $overlaySideMargin * $scaleMedium;
+  }
+}
+
+@media(max-width: $screenNormal) {
+  #header-left {
+    top: $labelTopMargin * $scaleNormal;
+    width: $labelWidth * $scaleNormal;
+    height: $labelHeight * $scaleNormal;
+    background-size: $labelWidth * $scaleNormal $labelHeight * $scaleNormal;
+  }
+
+  #header-right {
+    top: $overlayMargin * $scaleNormal;
+    right: $overlaySideMargin * $scaleNormal;
+    width: $logoWidth * $scaleNormal;
+    height: $logoHeight * $scaleNormal;
+    background-size: $logoWidth * $scaleNormal $logoHeight * $scaleNormal;
+  }
+
+  #footer-right::after {
+    bottom: $overlayMargin * $scaleNormal;
+    right: $overlaySideMargin * $scaleNormal;
+  }
+}
+
+@media(max-width: $screenSmall) {
+  #header-left {
+    top: $labelTopMargin * $scaleSmall;
+    width: $labelWidth * $scaleSmall;
+    height: $labelHeight * $scaleSmall;
+    background-size: $labelWidth * $scaleSmall $labelHeight * $scaleSmall;
+  }
+
+  #header-right {
+    top: $overlayMargin * $scaleSmall;
+    right: $overlaySideMargin * $scaleSmall;
+    width: $logoWidth * $scaleSmall;
+    height: $logoHeight * $scaleSmall;
+    background-size: $logoWidth * $scaleSmall $logoHeight * $scaleSmall;
+  }
+
+  #footer-right::after {
+    bottom: $overlayMargin * $scaleSmall;
+    right: $overlaySideMargin * $scaleSmall;
+  }
+}
+
+
+@media(max-width: $screenLarge) {
+  .reveal {
+    font-size: $mainFontSize * $scaleLarge;
+
+    h1, h2, h3, h4, h5, h6 {
+      margin: 0 0 $blockMargin * $scaleLarge 0 ;
+    }
+    p {
+      margin: $blockMargin * $scaleLarge 0;
+    }
+
+    ul ul,
+    ul ol,
+    ol ol,
+    ol ul,
+    dd {
+      margin-left: 40px * $scaleLarge;
+    }
+
+    blockquote {
+      margin: $blockMargin * $scaleLarge auto;
+      padding: 5px * $scaleLarge;
+    }
+
+    pre {
+      margin: $blockMargin * $scaleLarge auto;
+      code {
+        padding: 5px * $scaleLarge;
+        max-height: 700px * $scaleLarge;
+      }
+    }
+  }
+}
+
+@media(max-width: $screenMedium) {
+
+  .reveal {
+    font-size: $mainFontSize * $scaleMedium;
+
+    h1, h2, h3, h4, h5, h6 {
+      margin: 0 0 $blockMargin * $scaleMedium 0 ;
+    }
+    p {
+      margin: $blockMargin * $scaleMedium 0;
+    }
+
+    ul ul,
+    ul ol,
+    ol ol,
+    ol ul,
+    dd {
+      margin-left: 40px * $scaleMedium;
+    }
+
+    blockquote {
+      margin: $blockMargin * $scaleMedium auto;
+      padding: 5px * $scaleMedium;
+    }
+
+    pre {
+      margin: $blockMargin * $scaleMedium auto;
+      code {
+        padding: 5px * $scaleMedium;
+        max-height: 700px * $scaleMedium;
+      }
+    }
+  }
+}
+
+@media(max-width: $screenNormal) {
+
+  .reveal {
+    font-size: $mainFontSize * $scaleNormal;
+
+    h1, h2, h3, h4, h5, h6 {
+      margin: 0 0 $blockMargin * $scaleNormal 0 ;
+    }
+    p {
+      margin: $blockMargin * $scaleNormal 0;
+    }
+
+    ul ul,
+    ul ol,
+    ol ol,
+    ol ul,
+    dd {
+      margin-left: 40px * $scaleNormal;
+    }
+
+    blockquote {
+      margin: $blockMargin * $scaleNormal auto;
+      padding: 5px * $scaleNormal;
+    }
+
+    pre {
+      margin: $blockMargin * $scaleNormal auto;
+      code {
+        padding: 5px * $scaleNormal;
+        max-height: 700px * $scaleNormal;
+      }
+    }
+  }
+}
+@media(max-width: $screenSmall) {
+
+  .reveal {
+    font-size: $mainFontSize * $scaleSmall;
+
+    h1, h2, h3, h4, h5, h6 {
+      margin: 0 0 $blockMargin * $scaleSmall 0 ;
+    }
+    p {
+      margin: $blockMargin * $scaleSmall 0;
+    }
+
+    ul ul,
+    ul ol,
+    ol ol,
+    ol ul,
+    dd {
+      margin-left: 40px * $scaleSmall;
+    }
+
+    blockquote {
+      margin: $blockMargin * $scaleSmall auto;
+      padding: 5px * $scaleSmall;
+    }
+
+    pre {
+      margin: $blockMargin * $scaleSmall auto;
+      code {
+        padding: 5px * $scaleSmall;
+        max-height: 700px * $scaleSmall;
+      }
+    }
+  }
+}
+
+
+@media(max-width: $screenLarge) {
+  .reveal div.underfloating {
+    padding-top: $blockMargin * $scaleLarge;
+  }
+
+  .reveal {
+    blockquote {
+      margin: $blockMargin * $scaleLarge 5%;
+
+      &::before {
+        margin: $blockMargin * $scaleLarge;
+        background-size: $blockquoteIconSize * $scaleLarge $blockquoteIconSize * $scaleLarge;
+        width: $blockquoteIconSize * $scaleLarge;
+        height: $blockquoteIconSize * $scaleLarge;
+      }
+    }
+  }
+
+  ul.table-of-content {
+    margin: $blockMargin * $scaleLarge auto !important;
+
+    ul {
+      margin: $blockMargin * $scaleLarge 0 $blockMargin * $scaleLarge $blockMargin * $scaleLarge !important;
+    }
+  }
+}
+
+@media(max-width: $screenMedium) {
+
+  .reveal div.underfloating {
+    padding-top: $blockMargin * $scaleMedium;
+  }
+
+  .reveal {
+    blockquote {
+      margin: $blockMargin * $scaleMedium 5%;
+
+      &::before {
+        margin: $blockMargin * $scaleMedium;
+        background-size: $blockquoteIconSize * $scaleMedium $blockquoteIconSize * $scaleMedium;
+        width: $blockquoteIconSize * $scaleMedium;
+        height: $blockquoteIconSize * $scaleMedium;
+      }
+    }
+  }
+
+  ul.table-of-content {
+    margin: $blockMargin * $scaleMedium auto !important;
+
+    ul {
+      margin: $blockMargin * $scaleMedium 0 $blockMargin * $scaleMedium $blockMargin * $scaleMedium !important;
+    }
+  }
+}
+
+@media(max-width: $screenNormal) {
+
+  .reveal div.underfloating {
+    padding-top: $blockMargin * $scaleNormal;
+  }
+
+  .reveal {
+    blockquote {
+      margin: $blockMargin * $scaleNormal 5%;
+
+      &::before {
+        margin: $blockMargin * $scaleNormal;
+        background-size: $blockquoteIconSize * $scaleNormal $blockquoteIconSize * $scaleNormal;
+        width: $blockquoteIconSize * $scaleNormal;
+        height: $blockquoteIconSize * $scaleNormal;
+      }
+    }
+  }
+
+  ul.table-of-content {
+    margin: $blockMargin * $scaleNormal auto !important;
+
+    ul {
+      margin: $blockMargin * $scaleNormal 0 $blockMargin * $scaleNormal $blockMargin * $scaleNormal !important;
+    }
+  }
+}
+
+@media(max-width: $screenSmall) {
+
+  .reveal div.underfloating {
+    padding-top: $blockMargin * $scaleSmall;
+  }
+
+  .reveal {
+    blockquote {
+      margin: $blockMargin * $scaleSmall 5%;
+
+      &::before {
+        margin: $blockMargin * $scaleSmall;
+        background-size: $blockquoteIconSize * $scaleSmall $blockquoteIconSize * $scaleSmall;
+        width: $blockquoteIconSize * $scaleSmall;
+        height: $blockquoteIconSize * $scaleSmall;
+      }
+    }
+  }
+
+  ul.table-of-content {
+    margin: $blockMargin * $scaleSmall auto !important;
+
+    ul {
+      margin: $blockMargin * $scaleSmall 0 $blockMargin * $scaleSmall $blockMargin * $scaleSmall !important;
+    }
+  }
+}
