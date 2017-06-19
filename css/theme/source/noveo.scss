@@ -6,15 +6,31 @@
 @import url(../../lib/font/roboto/Roboto.css);
 @import url(../../lib/font/roboto-mono/Roboto-mono.css);
 
-$screenLarge: 1680px;
-$screenMedium: 1366px;
-$screenNormal: 1024px;
-$screenSmall: 750px;
+$screenAspectRation: 1920/1080;
 
-$scaleLarge: 0.71;
-$scaleMedium: 0.53;
-$scaleNormal: 0.39;
-$scaleSmall: 0.25;
+$screen_xxxl: 1760px;
+$scale_xxxl: 0.9;
+
+$screen_xxl: 1600px;
+$scale_xxl: 0.81;
+
+$screen_xl: 1440px;
+$scale_xl: 0.72;
+
+$screen_l: 1280px;
+$scale_l: 0.63;
+
+$screen_n: 1120px;
+$scale_n: 0.54;
+
+$screen_s: 960px;
+$scale_s: 0.45;
+
+$screen_xs: 800px;
+$scale_xs: 0.34;
+
+$screen_xxs: 640px;
+$scale_xxs: 0.25;
 
 // Override theme settings (see ../template/settings.scss)
 $backgroundColor: white;

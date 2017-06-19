@@ -306,7 +306,7 @@ body {
   max-height: 100%; }
 
 .reveal section div.half-left {
-  width: 48%;
+  width: 47.5%;
   min-height: 28pt;
   float: left;
   position: relative;
@@ -315,7 +315,7 @@ body {
   margin-right: 0.25%; }
 
 .reveal section div.half-right {
-  width: 48%;
+  width: 47.5%;
   min-height: 28pt;
   float: right;
   position: relative;
@@ -593,243 +593,687 @@ html {
     font-size: 25.2pt;
     line-height: 37.8pt; }
 
-@media (max-width: 1680px) {
+@media (max-width: 1760px), (max-height: 990px) {
   html {
-    font-size: 19.88pt; }
-  .reveal .slides > section, .reveal .slides .pdf-page > section {
-    padding: 123.54px 56.8px 56.8px 56.8px; }
-    .reveal .slides > section section, .reveal .slides .pdf-page > section section {
-      margin-top: 109.34px; }
-      .reveal .slides > section section.has-dark-background, .reveal .slides > section section.center, .reveal .slides > section section.center-vertical, .reveal .slides .pdf-page > section section.has-dark-background, .reveal .slides .pdf-page > section section.center, .reveal .slides .pdf-page > section section.center-vertical {
-        padding-top: 42.6px;
-        margin-top: 42.6px; }
-    .reveal .slides > section.noveo-title, .reveal .slides .pdf-page > section.noveo-title {
-      font-size: 22.72pt;
-      padding-top: 56.8px; }
-      .reveal .slides > section.noveo-title .title-separator, .reveal .slides .pdf-page > section.noveo-title .title-separator {
-        width: 142px;
-        border-bottom: 1px solid #699f00; }
-      .reveal .slides > section.noveo-title h1, .reveal .slides .pdf-page > section.noveo-title h1 {
-        margin-bottom: 42.6px; }
-      .reveal .slides > section.noveo-title h2, .reveal .slides .pdf-page > section.noveo-title h2 {
-        margin-top: 42.6px; }
-    .reveal .slides > section div.borders, .reveal .slides .pdf-page > section div.borders {
-      padding: 14.2px; }
-  .reveal ul, .reveal ul ul, .reveal ul ul ul {
-    margin: 14.2px 0 0 0; }
-  .reveal ol, .reveal ol ol, .reveal ol ol ol {
-    margin: 14.2px 0 0 0; }
-  .reveal .noveo-image-header {
-    margin-left: -56.8px;
-    padding: 38.34px 56.8px 38.34px 56.8px; }
-  .reveal .slide-number {
-    left: 56.8px;
-    bottom: 38.34px; }
-    .reveal .slide-number span {
-      font-size: 19.88pt; }
-  .reveal pre code {
-    font-size: 11.928pt;
-    line-height: 17.892pt; }
-    .reveal pre code.tiny {
-      font-size: 6.6266666667pt;
-      line-height: 9.94pt; }
-    .reveal pre code.small {
-      font-size: 7.952pt;
-      line-height: 11.928pt; }
-    .reveal pre code.large {
-      font-size: 17.892pt;
-      line-height: 26.838pt; } }
+    font-size: 25.2pt; }
+  .reveal {
+    font-size: 25.2pt; }
+    .reveal .noveo-image-header {
+      margin-left: -72px;
+      padding: 48.6px 72px 48.6px 72px; }
+    .reveal .slide-number {
+      left: 72px;
+      bottom: 48.6px; }
+      .reveal .slide-number span {
+        font-size: 25.2pt; }
+    .reveal div.underfloating {
+      padding-top: 18px; }
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+      margin: 0 0 18px 0; }
+    .reveal p {
+      margin: 18px 0; }
+    .reveal blockquote {
+      margin: 18px 5%;
+      padding: 4.5px; }
+      .reveal blockquote::before {
+        margin: 18px;
+        background-size: 41.94px 41.94px;
+        width: 41.94px;
+        height: 41.94px; }
+    .reveal pre {
+      margin: 18px auto; }
+      .reveal pre code {
+        padding: 4.5px;
+        height: 630px;
+        font-size: 15.12pt;
+        line-height: 22.68pt; }
+        .reveal pre code.tiny {
+          font-size: 8.4pt;
+          line-height: 12.6pt; }
+        .reveal pre code.small {
+          font-size: 10.08pt;
+          line-height: 15.12pt; }
+        .reveal pre code.large {
+          font-size: 22.68pt;
+          line-height: 34.02pt; }
+    .reveal .slides > section, .reveal .slides .pdf-page > section {
+      padding: 156.6px 72px 72px 72px; }
+      .reveal .slides > section section, .reveal .slides .pdf-page > section section {
+        margin-top: 138.6px; }
+        .reveal .slides > section section.has-dark-background, .reveal .slides > section section.center, .reveal .slides > section section.center-vertical, .reveal .slides .pdf-page > section section.has-dark-background, .reveal .slides .pdf-page > section section.center, .reveal .slides .pdf-page > section section.center-vertical {
+          padding-top: 54px;
+          margin-top: 54px; }
+      .reveal .slides > section.noveo-title, .reveal .slides .pdf-page > section.noveo-title {
+        font-size: 28.8pt;
+        padding-top: 72px; }
+        .reveal .slides > section.noveo-title .title-separator, .reveal .slides .pdf-page > section.noveo-title .title-separator {
+          width: 180px;
+          border-bottom: 1px solid #699f00; }
+        .reveal .slides > section.noveo-title h1, .reveal .slides .pdf-page > section.noveo-title h1 {
+          margin-bottom: 54px; }
+        .reveal .slides > section.noveo-title h2, .reveal .slides .pdf-page > section.noveo-title h2 {
+          margin-top: 54px; }
+      .reveal .slides > section div.borders, .reveal .slides .pdf-page > section div.borders {
+        padding: 18px; }
+    .reveal ul, .reveal ul ul, .reveal ul ul ul {
+      margin: 18px 0 0 0; }
+    .reveal ol, .reveal ol ol, .reveal ol ol ol {
+      margin: 18px 0 0 0; }
+    .reveal ul ul, .reveal ul ol, .reveal ol ol, .reveal ol ul, .reveal dd {
+      margin-left: 36px; }
+    .reveal ul.table-of-content {
+      margin: 18px auto !important; }
+      .reveal ul.table-of-content ul {
+        margin: 18px 0 18px 18px !important; }
+  #header-left {
+    top: 54px;
+    width: 249.3px;
+    height: 63px;
+    background-size: 249.3px 63px; }
+  #header-right {
+    top: 48.6px;
+    right: 72px;
+    width: 217.8px;
+    height: 84.6px;
+    background-size: 217.8px 84.6px; }
+  #footer-right::after {
+    bottom: 48.6px;
+    right: 72px; } }
 
-@media (max-width: 1366px) {
+@media (max-width: 1600px), (max-height: 900px) {
   html {
-    font-size: 14.84pt; }
-  .reveal .slides > section, .reveal .slides .pdf-page > section {
-    padding: 92.22px 42.4px 42.4px 42.4px; }
-    .reveal .slides > section section, .reveal .slides .pdf-page > section section {
-      margin-top: 81.62px; }
-      .reveal .slides > section section.has-dark-background, .reveal .slides > section section.center, .reveal .slides > section section.center-vertical, .reveal .slides .pdf-page > section section.has-dark-background, .reveal .slides .pdf-page > section section.center, .reveal .slides .pdf-page > section section.center-vertical {
-        padding-top: 31.8px;
-        margin-top: 31.8px; }
-    .reveal .slides > section.noveo-title, .reveal .slides .pdf-page > section.noveo-title {
-      font-size: 16.96pt;
-      padding-top: 42.4px; }
-      .reveal .slides > section.noveo-title .title-separator, .reveal .slides .pdf-page > section.noveo-title .title-separator {
-        width: 106px;
-        border-bottom: 1px solid #699f00; }
-      .reveal .slides > section.noveo-title h1, .reveal .slides .pdf-page > section.noveo-title h1 {
-        margin-bottom: 31.8px; }
-      .reveal .slides > section.noveo-title h2, .reveal .slides .pdf-page > section.noveo-title h2 {
-        margin-top: 31.8px; }
-    .reveal .slides > section div.borders, .reveal .slides .pdf-page > section div.borders {
-      padding: 10.6px; }
-  .reveal ul, .reveal ul ul, .reveal ul ul ul {
-    margin: 10.6px 0 0 0; }
-  .reveal ol, .reveal ol ol, .reveal ol ol ol {
-    margin: 10.6px 0 0 0; }
-  .reveal .noveo-image-header {
-    margin-left: -42.4px;
-    padding: 28.62px 42.4px 28.62px 42.4px; }
-  .reveal .slide-number {
-    left: 42.4px;
-    bottom: 28.62px; }
-    .reveal .slide-number span {
-      font-size: 14.84pt; }
-  .reveal pre code {
-    font-size: 8.904pt;
-    line-height: 13.356pt; }
-    .reveal pre code.tiny {
-      font-size: 4.9466666667pt;
-      line-height: 7.42pt; }
-    .reveal pre code.small {
-      font-size: 5.936pt;
-      line-height: 8.904pt; }
-    .reveal pre code.large {
-      font-size: 13.356pt;
-      line-height: 20.034pt; } }
+    font-size: 22.68pt; }
+  .reveal {
+    font-size: 22.68pt; }
+    .reveal .noveo-image-header {
+      margin-left: -64.8px;
+      padding: 43.74px 64.8px 43.74px 64.8px; }
+    .reveal .slide-number {
+      left: 64.8px;
+      bottom: 43.74px; }
+      .reveal .slide-number span {
+        font-size: 22.68pt; }
+    .reveal div.underfloating {
+      padding-top: 16.2px; }
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+      margin: 0 0 16.2px 0; }
+    .reveal p {
+      margin: 16.2px 0; }
+    .reveal blockquote {
+      margin: 16.2px 5%;
+      padding: 4.05px; }
+      .reveal blockquote::before {
+        margin: 16.2px;
+        background-size: 37.746px 37.746px;
+        width: 37.746px;
+        height: 37.746px; }
+    .reveal pre {
+      margin: 16.2px auto; }
+      .reveal pre code {
+        padding: 4.05px;
+        height: 567px;
+        font-size: 13.608pt;
+        line-height: 20.412pt; }
+        .reveal pre code.tiny {
+          font-size: 7.56pt;
+          line-height: 11.34pt; }
+        .reveal pre code.small {
+          font-size: 9.072pt;
+          line-height: 13.608pt; }
+        .reveal pre code.large {
+          font-size: 20.412pt;
+          line-height: 30.618pt; }
+    .reveal .slides > section, .reveal .slides .pdf-page > section {
+      padding: 140.94px 64.8px 64.8px 64.8px; }
+      .reveal .slides > section section, .reveal .slides .pdf-page > section section {
+        margin-top: 124.74px; }
+        .reveal .slides > section section.has-dark-background, .reveal .slides > section section.center, .reveal .slides > section section.center-vertical, .reveal .slides .pdf-page > section section.has-dark-background, .reveal .slides .pdf-page > section section.center, .reveal .slides .pdf-page > section section.center-vertical {
+          padding-top: 48.6px;
+          margin-top: 48.6px; }
+      .reveal .slides > section.noveo-title, .reveal .slides .pdf-page > section.noveo-title {
+        font-size: 25.92pt;
+        padding-top: 64.8px; }
+        .reveal .slides > section.noveo-title .title-separator, .reveal .slides .pdf-page > section.noveo-title .title-separator {
+          width: 162px;
+          border-bottom: 1px solid #699f00; }
+        .reveal .slides > section.noveo-title h1, .reveal .slides .pdf-page > section.noveo-title h1 {
+          margin-bottom: 48.6px; }
+        .reveal .slides > section.noveo-title h2, .reveal .slides .pdf-page > section.noveo-title h2 {
+          margin-top: 48.6px; }
+      .reveal .slides > section div.borders, .reveal .slides .pdf-page > section div.borders {
+        padding: 16.2px; }
+    .reveal ul, .reveal ul ul, .reveal ul ul ul {
+      margin: 16.2px 0 0 0; }
+    .reveal ol, .reveal ol ol, .reveal ol ol ol {
+      margin: 16.2px 0 0 0; }
+    .reveal ul ul, .reveal ul ol, .reveal ol ol, .reveal ol ul, .reveal dd {
+      margin-left: 32.4px; }
+    .reveal ul.table-of-content {
+      margin: 16.2px auto !important; }
+      .reveal ul.table-of-content ul {
+        margin: 16.2px 0 16.2px 16.2px !important; }
+  #header-left {
+    top: 48.6px;
+    width: 224.37px;
+    height: 56.7px;
+    background-size: 224.37px 56.7px; }
+  #header-right {
+    top: 43.74px;
+    right: 64.8px;
+    width: 196.02px;
+    height: 76.14px;
+    background-size: 196.02px 76.14px; }
+  #footer-right::after {
+    bottom: 43.74px;
+    right: 64.8px; } }
 
-@media (max-width: 1024px) {
+@media (max-width: 1440px), (max-height: 810px) {
   html {
-    font-size: 10.92pt; }
-  .reveal .slides > section, .reveal .slides .pdf-page > section {
-    padding: 67.86px 31.2px 31.2px 31.2px; }
-    .reveal .slides > section section, .reveal .slides .pdf-page > section section {
-      margin-top: 60.06px; }
-      .reveal .slides > section section.has-dark-background, .reveal .slides > section section.center, .reveal .slides > section section.center-vertical, .reveal .slides .pdf-page > section section.has-dark-background, .reveal .slides .pdf-page > section section.center, .reveal .slides .pdf-page > section section.center-vertical {
-        padding-top: 23.4px;
-        margin-top: 23.4px; }
-    .reveal .slides > section.noveo-title, .reveal .slides .pdf-page > section.noveo-title {
-      font-size: 12.48pt;
-      padding-top: 31.2px; }
-      .reveal .slides > section.noveo-title .title-separator, .reveal .slides .pdf-page > section.noveo-title .title-separator {
-        width: 78px;
-        border-bottom: 1px solid #699f00; }
-      .reveal .slides > section.noveo-title h1, .reveal .slides .pdf-page > section.noveo-title h1 {
-        margin-bottom: 23.4px; }
-      .reveal .slides > section.noveo-title h2, .reveal .slides .pdf-page > section.noveo-title h2 {
-        margin-top: 23.4px; }
-    .reveal .slides > section div.borders, .reveal .slides .pdf-page > section div.borders {
-      padding: 7.8px; }
-  .reveal ul, .reveal ul ul, .reveal ul ul ul {
-    margin: 7.8px 0 0 0; }
-  .reveal ol, .reveal ol ol, .reveal ol ol ol {
-    margin: 7.8px 0 0 0; }
-  .reveal .noveo-image-header {
-    margin-left: -31.2px;
-    padding: 21.06px 31.2px 21.06px 31.2px; }
-  .reveal .slide-number {
-    left: 31.2px;
-    bottom: 21.06px; }
-    .reveal .slide-number span {
-      font-size: 10.92pt; }
-  .reveal pre code {
-    font-size: 6.552pt;
-    line-height: 9.828pt; }
-    .reveal pre code.tiny {
-      font-size: 3.64pt;
-      line-height: 5.46pt; }
-    .reveal pre code.small {
-      font-size: 4.368pt;
-      line-height: 6.552pt; }
-    .reveal pre code.large {
-      font-size: 9.828pt;
-      line-height: 14.742pt; } }
+    font-size: 20.16pt; }
+  .reveal {
+    font-size: 20.16pt; }
+    .reveal .noveo-image-header {
+      margin-left: -57.6px;
+      padding: 38.88px 57.6px 38.88px 57.6px; }
+    .reveal .slide-number {
+      left: 57.6px;
+      bottom: 38.88px; }
+      .reveal .slide-number span {
+        font-size: 20.16pt; }
+    .reveal div.underfloating {
+      padding-top: 14.4px; }
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+      margin: 0 0 14.4px 0; }
+    .reveal p {
+      margin: 14.4px 0; }
+    .reveal blockquote {
+      margin: 14.4px 5%;
+      padding: 3.6px; }
+      .reveal blockquote::before {
+        margin: 14.4px;
+        background-size: 33.552px 33.552px;
+        width: 33.552px;
+        height: 33.552px; }
+    .reveal pre {
+      margin: 14.4px auto; }
+      .reveal pre code {
+        padding: 3.6px;
+        height: 504px;
+        font-size: 12.096pt;
+        line-height: 18.144pt; }
+        .reveal pre code.tiny {
+          font-size: 6.72pt;
+          line-height: 10.08pt; }
+        .reveal pre code.small {
+          font-size: 8.064pt;
+          line-height: 12.096pt; }
+        .reveal pre code.large {
+          font-size: 18.144pt;
+          line-height: 27.216pt; }
+    .reveal .slides > section, .reveal .slides .pdf-page > section {
+      padding: 125.28px 57.6px 57.6px 57.6px; }
+      .reveal .slides > section section, .reveal .slides .pdf-page > section section {
+        margin-top: 110.88px; }
+        .reveal .slides > section section.has-dark-background, .reveal .slides > section section.center, .reveal .slides > section section.center-vertical, .reveal .slides .pdf-page > section section.has-dark-background, .reveal .slides .pdf-page > section section.center, .reveal .slides .pdf-page > section section.center-vertical {
+          padding-top: 43.2px;
+          margin-top: 43.2px; }
+      .reveal .slides > section.noveo-title, .reveal .slides .pdf-page > section.noveo-title {
+        font-size: 23.04pt;
+        padding-top: 57.6px; }
+        .reveal .slides > section.noveo-title .title-separator, .reveal .slides .pdf-page > section.noveo-title .title-separator {
+          width: 144px;
+          border-bottom: 1px solid #699f00; }
+        .reveal .slides > section.noveo-title h1, .reveal .slides .pdf-page > section.noveo-title h1 {
+          margin-bottom: 43.2px; }
+        .reveal .slides > section.noveo-title h2, .reveal .slides .pdf-page > section.noveo-title h2 {
+          margin-top: 43.2px; }
+      .reveal .slides > section div.borders, .reveal .slides .pdf-page > section div.borders {
+        padding: 14.4px; }
+    .reveal ul, .reveal ul ul, .reveal ul ul ul {
+      margin: 14.4px 0 0 0; }
+    .reveal ol, .reveal ol ol, .reveal ol ol ol {
+      margin: 14.4px 0 0 0; }
+    .reveal ul ul, .reveal ul ol, .reveal ol ol, .reveal ol ul, .reveal dd {
+      margin-left: 28.8px; }
+    .reveal ul.table-of-content {
+      margin: 14.4px auto !important; }
+      .reveal ul.table-of-content ul {
+        margin: 14.4px 0 14.4px 14.4px !important; }
+  #header-left {
+    top: 43.2px;
+    width: 199.44px;
+    height: 50.4px;
+    background-size: 199.44px 50.4px; }
+  #header-right {
+    top: 38.88px;
+    right: 57.6px;
+    width: 174.24px;
+    height: 67.68px;
+    background-size: 174.24px 67.68px; }
+  #footer-right::after {
+    bottom: 38.88px;
+    right: 57.6px; } }
 
-@media (max-width: 750px) {
+@media (max-width: 1280px), (max-height: 720px) {
+  html {
+    font-size: 17.64pt; }
+  .reveal {
+    font-size: 17.64pt; }
+    .reveal .noveo-image-header {
+      margin-left: -50.4px;
+      padding: 34.02px 50.4px 34.02px 50.4px; }
+    .reveal .slide-number {
+      left: 50.4px;
+      bottom: 34.02px; }
+      .reveal .slide-number span {
+        font-size: 17.64pt; }
+    .reveal div.underfloating {
+      padding-top: 12.6px; }
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+      margin: 0 0 12.6px 0; }
+    .reveal p {
+      margin: 12.6px 0; }
+    .reveal blockquote {
+      margin: 12.6px 5%;
+      padding: 3.15px; }
+      .reveal blockquote::before {
+        margin: 12.6px;
+        background-size: 29.358px 29.358px;
+        width: 29.358px;
+        height: 29.358px; }
+    .reveal pre {
+      margin: 12.6px auto; }
+      .reveal pre code {
+        padding: 3.15px;
+        height: 441px;
+        font-size: 10.584pt;
+        line-height: 15.876pt; }
+        .reveal pre code.tiny {
+          font-size: 5.88pt;
+          line-height: 8.82pt; }
+        .reveal pre code.small {
+          font-size: 7.056pt;
+          line-height: 10.584pt; }
+        .reveal pre code.large {
+          font-size: 15.876pt;
+          line-height: 23.814pt; }
+    .reveal .slides > section, .reveal .slides .pdf-page > section {
+      padding: 109.62px 50.4px 50.4px 50.4px; }
+      .reveal .slides > section section, .reveal .slides .pdf-page > section section {
+        margin-top: 97.02px; }
+        .reveal .slides > section section.has-dark-background, .reveal .slides > section section.center, .reveal .slides > section section.center-vertical, .reveal .slides .pdf-page > section section.has-dark-background, .reveal .slides .pdf-page > section section.center, .reveal .slides .pdf-page > section section.center-vertical {
+          padding-top: 37.8px;
+          margin-top: 37.8px; }
+      .reveal .slides > section.noveo-title, .reveal .slides .pdf-page > section.noveo-title {
+        font-size: 20.16pt;
+        padding-top: 50.4px; }
+        .reveal .slides > section.noveo-title .title-separator, .reveal .slides .pdf-page > section.noveo-title .title-separator {
+          width: 126px;
+          border-bottom: 1px solid #699f00; }
+        .reveal .slides > section.noveo-title h1, .reveal .slides .pdf-page > section.noveo-title h1 {
+          margin-bottom: 37.8px; }
+        .reveal .slides > section.noveo-title h2, .reveal .slides .pdf-page > section.noveo-title h2 {
+          margin-top: 37.8px; }
+      .reveal .slides > section div.borders, .reveal .slides .pdf-page > section div.borders {
+        padding: 12.6px; }
+    .reveal ul, .reveal ul ul, .reveal ul ul ul {
+      margin: 12.6px 0 0 0; }
+    .reveal ol, .reveal ol ol, .reveal ol ol ol {
+      margin: 12.6px 0 0 0; }
+    .reveal ul ul, .reveal ul ol, .reveal ol ol, .reveal ol ul, .reveal dd {
+      margin-left: 25.2px; }
+    .reveal ul.table-of-content {
+      margin: 12.6px auto !important; }
+      .reveal ul.table-of-content ul {
+        margin: 12.6px 0 12.6px 12.6px !important; }
+  #header-left {
+    top: 37.8px;
+    width: 174.51px;
+    height: 44.1px;
+    background-size: 174.51px 44.1px; }
+  #header-right {
+    top: 34.02px;
+    right: 50.4px;
+    width: 152.46px;
+    height: 59.22px;
+    background-size: 152.46px 59.22px; }
+  #footer-right::after {
+    bottom: 34.02px;
+    right: 50.4px; } }
+
+@media (max-width: 1120px), (max-height: 630px) {
+  html {
+    font-size: 15.12pt; }
+  .reveal {
+    font-size: 15.12pt; }
+    .reveal .noveo-image-header {
+      margin-left: -43.2px;
+      padding: 29.16px 43.2px 29.16px 43.2px; }
+    .reveal .slide-number {
+      left: 43.2px;
+      bottom: 29.16px; }
+      .reveal .slide-number span {
+        font-size: 15.12pt; }
+    .reveal div.underfloating {
+      padding-top: 10.8px; }
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+      margin: 0 0 10.8px 0; }
+    .reveal p {
+      margin: 10.8px 0; }
+    .reveal blockquote {
+      margin: 10.8px 5%;
+      padding: 2.7px; }
+      .reveal blockquote::before {
+        margin: 10.8px;
+        background-size: 25.164px 25.164px;
+        width: 25.164px;
+        height: 25.164px; }
+    .reveal pre {
+      margin: 10.8px auto; }
+      .reveal pre code {
+        padding: 2.7px;
+        height: 378px;
+        font-size: 9.072pt;
+        line-height: 13.608pt; }
+        .reveal pre code.tiny {
+          font-size: 5.04pt;
+          line-height: 7.56pt; }
+        .reveal pre code.small {
+          font-size: 6.048pt;
+          line-height: 9.072pt; }
+        .reveal pre code.large {
+          font-size: 13.608pt;
+          line-height: 20.412pt; }
+    .reveal .slides > section, .reveal .slides .pdf-page > section {
+      padding: 93.96px 43.2px 43.2px 43.2px; }
+      .reveal .slides > section section, .reveal .slides .pdf-page > section section {
+        margin-top: 83.16px; }
+        .reveal .slides > section section.has-dark-background, .reveal .slides > section section.center, .reveal .slides > section section.center-vertical, .reveal .slides .pdf-page > section section.has-dark-background, .reveal .slides .pdf-page > section section.center, .reveal .slides .pdf-page > section section.center-vertical {
+          padding-top: 32.4px;
+          margin-top: 32.4px; }
+      .reveal .slides > section.noveo-title, .reveal .slides .pdf-page > section.noveo-title {
+        font-size: 17.28pt;
+        padding-top: 43.2px; }
+        .reveal .slides > section.noveo-title .title-separator, .reveal .slides .pdf-page > section.noveo-title .title-separator {
+          width: 108px;
+          border-bottom: 1px solid #699f00; }
+        .reveal .slides > section.noveo-title h1, .reveal .slides .pdf-page > section.noveo-title h1 {
+          margin-bottom: 32.4px; }
+        .reveal .slides > section.noveo-title h2, .reveal .slides .pdf-page > section.noveo-title h2 {
+          margin-top: 32.4px; }
+      .reveal .slides > section div.borders, .reveal .slides .pdf-page > section div.borders {
+        padding: 10.8px; }
+    .reveal ul, .reveal ul ul, .reveal ul ul ul {
+      margin: 10.8px 0 0 0; }
+    .reveal ol, .reveal ol ol, .reveal ol ol ol {
+      margin: 10.8px 0 0 0; }
+    .reveal ul ul, .reveal ul ol, .reveal ol ol, .reveal ol ul, .reveal dd {
+      margin-left: 21.6px; }
+    .reveal ul.table-of-content {
+      margin: 10.8px auto !important; }
+      .reveal ul.table-of-content ul {
+        margin: 10.8px 0 10.8px 10.8px !important; }
+  #header-left {
+    top: 32.4px;
+    width: 149.58px;
+    height: 37.8px;
+    background-size: 149.58px 37.8px; }
+  #header-right {
+    top: 29.16px;
+    right: 43.2px;
+    width: 130.68px;
+    height: 50.76px;
+    background-size: 130.68px 50.76px; }
+  #footer-right::after {
+    bottom: 29.16px;
+    right: 43.2px; } }
+
+@media (max-width: 960px), (max-height: 540px) {
+  html {
+    font-size: 12.6pt; }
+  .reveal {
+    font-size: 12.6pt; }
+    .reveal .noveo-image-header {
+      margin-left: -36px;
+      padding: 24.3px 36px 24.3px 36px; }
+    .reveal .slide-number {
+      left: 36px;
+      bottom: 24.3px; }
+      .reveal .slide-number span {
+        font-size: 12.6pt; }
+    .reveal div.underfloating {
+      padding-top: 9px; }
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+      margin: 0 0 9px 0; }
+    .reveal p {
+      margin: 9px 0; }
+    .reveal blockquote {
+      margin: 9px 5%;
+      padding: 2.25px; }
+      .reveal blockquote::before {
+        margin: 9px;
+        background-size: 20.97px 20.97px;
+        width: 20.97px;
+        height: 20.97px; }
+    .reveal pre {
+      margin: 9px auto; }
+      .reveal pre code {
+        padding: 2.25px;
+        height: 315px;
+        font-size: 7.56pt;
+        line-height: 11.34pt; }
+        .reveal pre code.tiny {
+          font-size: 4.2pt;
+          line-height: 6.3pt; }
+        .reveal pre code.small {
+          font-size: 5.04pt;
+          line-height: 7.56pt; }
+        .reveal pre code.large {
+          font-size: 11.34pt;
+          line-height: 17.01pt; }
+    .reveal .slides > section, .reveal .slides .pdf-page > section {
+      padding: 78.3px 36px 36px 36px; }
+      .reveal .slides > section section, .reveal .slides .pdf-page > section section {
+        margin-top: 69.3px; }
+        .reveal .slides > section section.has-dark-background, .reveal .slides > section section.center, .reveal .slides > section section.center-vertical, .reveal .slides .pdf-page > section section.has-dark-background, .reveal .slides .pdf-page > section section.center, .reveal .slides .pdf-page > section section.center-vertical {
+          padding-top: 27px;
+          margin-top: 27px; }
+      .reveal .slides > section.noveo-title, .reveal .slides .pdf-page > section.noveo-title {
+        font-size: 14.4pt;
+        padding-top: 36px; }
+        .reveal .slides > section.noveo-title .title-separator, .reveal .slides .pdf-page > section.noveo-title .title-separator {
+          width: 90px;
+          border-bottom: 1px solid #699f00; }
+        .reveal .slides > section.noveo-title h1, .reveal .slides .pdf-page > section.noveo-title h1 {
+          margin-bottom: 27px; }
+        .reveal .slides > section.noveo-title h2, .reveal .slides .pdf-page > section.noveo-title h2 {
+          margin-top: 27px; }
+      .reveal .slides > section div.borders, .reveal .slides .pdf-page > section div.borders {
+        padding: 9px; }
+    .reveal ul, .reveal ul ul, .reveal ul ul ul {
+      margin: 9px 0 0 0; }
+    .reveal ol, .reveal ol ol, .reveal ol ol ol {
+      margin: 9px 0 0 0; }
+    .reveal ul ul, .reveal ul ol, .reveal ol ol, .reveal ol ul, .reveal dd {
+      margin-left: 18px; }
+    .reveal ul.table-of-content {
+      margin: 9px auto !important; }
+      .reveal ul.table-of-content ul {
+        margin: 9px 0 9px 9px !important; }
+  #header-left {
+    top: 27px;
+    width: 124.65px;
+    height: 31.5px;
+    background-size: 124.65px 31.5px; }
+  #header-right {
+    top: 24.3px;
+    right: 36px;
+    width: 108.9px;
+    height: 42.3px;
+    background-size: 108.9px 42.3px; }
+  #footer-right::after {
+    bottom: 24.3px;
+    right: 36px; } }
+
+@media (max-width: 800px), (max-height: 450px) {
+  html {
+    font-size: 9.52pt; }
+  .reveal {
+    font-size: 9.52pt; }
+    .reveal .noveo-image-header {
+      margin-left: -27.2px;
+      padding: 18.36px 27.2px 18.36px 27.2px; }
+    .reveal .slide-number {
+      left: 27.2px;
+      bottom: 18.36px; }
+      .reveal .slide-number span {
+        font-size: 9.52pt; }
+    .reveal div.underfloating {
+      padding-top: 6.8px; }
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+      margin: 0 0 6.8px 0; }
+    .reveal p {
+      margin: 6.8px 0; }
+    .reveal blockquote {
+      margin: 6.8px 5%;
+      padding: 1.7px; }
+      .reveal blockquote::before {
+        margin: 6.8px;
+        background-size: 15.844px 15.844px;
+        width: 15.844px;
+        height: 15.844px; }
+    .reveal pre {
+      margin: 6.8px auto; }
+      .reveal pre code {
+        padding: 1.7px;
+        height: 238px;
+        font-size: 5.712pt;
+        line-height: 8.568pt; }
+        .reveal pre code.tiny {
+          font-size: 3.1733333333pt;
+          line-height: 4.76pt; }
+        .reveal pre code.small {
+          font-size: 3.808pt;
+          line-height: 5.712pt; }
+        .reveal pre code.large {
+          font-size: 8.568pt;
+          line-height: 12.852pt; }
+    .reveal .slides > section, .reveal .slides .pdf-page > section {
+      padding: 59.16px 27.2px 27.2px 27.2px; }
+      .reveal .slides > section section, .reveal .slides .pdf-page > section section {
+        margin-top: 52.36px; }
+        .reveal .slides > section section.has-dark-background, .reveal .slides > section section.center, .reveal .slides > section section.center-vertical, .reveal .slides .pdf-page > section section.has-dark-background, .reveal .slides .pdf-page > section section.center, .reveal .slides .pdf-page > section section.center-vertical {
+          padding-top: 20.4px;
+          margin-top: 20.4px; }
+      .reveal .slides > section.noveo-title, .reveal .slides .pdf-page > section.noveo-title {
+        font-size: 10.88pt;
+        padding-top: 27.2px; }
+        .reveal .slides > section.noveo-title .title-separator, .reveal .slides .pdf-page > section.noveo-title .title-separator {
+          width: 68px;
+          border-bottom: 1px solid #699f00; }
+        .reveal .slides > section.noveo-title h1, .reveal .slides .pdf-page > section.noveo-title h1 {
+          margin-bottom: 20.4px; }
+        .reveal .slides > section.noveo-title h2, .reveal .slides .pdf-page > section.noveo-title h2 {
+          margin-top: 20.4px; }
+      .reveal .slides > section div.borders, .reveal .slides .pdf-page > section div.borders {
+        padding: 6.8px; }
+    .reveal ul, .reveal ul ul, .reveal ul ul ul {
+      margin: 6.8px 0 0 0; }
+    .reveal ol, .reveal ol ol, .reveal ol ol ol {
+      margin: 6.8px 0 0 0; }
+    .reveal ul ul, .reveal ul ol, .reveal ol ol, .reveal ol ul, .reveal dd {
+      margin-left: 13.6px; }
+    .reveal ul.table-of-content {
+      margin: 6.8px auto !important; }
+      .reveal ul.table-of-content ul {
+        margin: 6.8px 0 6.8px 6.8px !important; }
+  #header-left {
+    top: 20.4px;
+    width: 94.18px;
+    height: 23.8px;
+    background-size: 94.18px 23.8px; }
+  #header-right {
+    top: 18.36px;
+    right: 27.2px;
+    width: 82.28px;
+    height: 31.96px;
+    background-size: 82.28px 31.96px; }
+  #footer-right::after {
+    bottom: 18.36px;
+    right: 27.2px; } }
+
+@media (max-width: 640px), (max-height: 360px) {
   html {
     font-size: 7pt; }
-  .reveal .slides > section, .reveal .slides .pdf-page > section {
-    padding: 43.5px 20px 20px 20px; }
-    .reveal .slides > section section, .reveal .slides .pdf-page > section section {
-      margin-top: 38.5px; }
-      .reveal .slides > section section.has-dark-background, .reveal .slides > section section.center, .reveal .slides > section section.center-vertical, .reveal .slides .pdf-page > section section.has-dark-background, .reveal .slides .pdf-page > section section.center, .reveal .slides .pdf-page > section section.center-vertical {
-        padding-top: 15px;
-        margin-top: 15px; }
-    .reveal .slides > section.noveo-title, .reveal .slides .pdf-page > section.noveo-title {
-      font-size: 8pt;
-      padding-top: 20px; }
-      .reveal .slides > section.noveo-title .title-separator, .reveal .slides .pdf-page > section.noveo-title .title-separator {
-        width: 50px;
-        border-bottom: 1px solid #699f00; }
-      .reveal .slides > section.noveo-title h1, .reveal .slides .pdf-page > section.noveo-title h1 {
-        margin-bottom: 15px; }
-      .reveal .slides > section.noveo-title h2, .reveal .slides .pdf-page > section.noveo-title h2 {
-        margin-top: 15px; }
-    .reveal .slides > section div.borders, .reveal .slides .pdf-page > section div.borders {
-      padding: 5px; }
-  .reveal ul, .reveal ul ul, .reveal ul ul ul {
-    margin: 5px 0 0 0; }
-  .reveal ol, .reveal ol ol, .reveal ol ol ol {
-    margin: 5px 0 0 0; }
-  .reveal .noveo-image-header {
-    margin-left: -20px;
-    padding: 13.5px 20px 13.5px 20px; }
-  .reveal .slide-number {
-    left: 20px;
-    bottom: 13.5px; }
-    .reveal .slide-number span {
-      font-size: 7pt; }
-  .reveal pre code {
-    font-size: 4.2pt;
-    line-height: 6.3pt; }
-    .reveal pre code.tiny {
-      font-size: 2.3333333333pt;
-      line-height: 3.5pt; }
-    .reveal pre code.small {
-      font-size: 2.8pt;
-      line-height: 4.2pt; }
-    .reveal pre code.large {
-      font-size: 6.3pt;
-      line-height: 9.45pt; } }
-
-@media (max-width: 1680px) {
-  #header-left {
-    top: 42.6px;
-    width: 196.67px;
-    height: 49.7px;
-    background-size: 196.67px 49.7px; }
-  #header-right {
-    top: 38.34px;
-    right: 56.8px;
-    width: 171.82px;
-    height: 66.74px;
-    background-size: 171.82px 66.74px; }
-  #footer-right::after {
-    bottom: 38.34px;
-    right: 56.8px; } }
-
-@media (max-width: 1366px) {
-  #header-left {
-    top: 31.8px;
-    width: 146.81px;
-    height: 37.1px;
-    background-size: 146.81px 37.1px; }
-  #header-right {
-    top: 28.62px;
-    right: 42.4px;
-    width: 128.26px;
-    height: 49.82px;
-    background-size: 128.26px 49.82px; }
-  #footer-right::after {
-    bottom: 28.62px;
-    right: 42.4px; } }
-
-@media (max-width: 1024px) {
-  #header-left {
-    top: 23.4px;
-    width: 108.03px;
-    height: 27.3px;
-    background-size: 108.03px 27.3px; }
-  #header-right {
-    top: 21.06px;
-    right: 31.2px;
-    width: 94.38px;
-    height: 36.66px;
-    background-size: 94.38px 36.66px; }
-  #footer-right::after {
-    bottom: 21.06px;
-    right: 31.2px; } }
-
-@media (max-width: 750px) {
+  .reveal {
+    font-size: 7pt; }
+    .reveal .noveo-image-header {
+      margin-left: -20px;
+      padding: 13.5px 20px 13.5px 20px; }
+    .reveal .slide-number {
+      left: 20px;
+      bottom: 13.5px; }
+      .reveal .slide-number span {
+        font-size: 7pt; }
+    .reveal div.underfloating {
+      padding-top: 5px; }
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+      margin: 0 0 5px 0; }
+    .reveal p {
+      margin: 5px 0; }
+    .reveal blockquote {
+      margin: 5px 5%;
+      padding: 1.25px; }
+      .reveal blockquote::before {
+        margin: 5px;
+        background-size: 11.65px 11.65px;
+        width: 11.65px;
+        height: 11.65px; }
+    .reveal pre {
+      margin: 5px auto; }
+      .reveal pre code {
+        padding: 1.25px;
+        height: 175px;
+        font-size: 4.2pt;
+        line-height: 6.3pt; }
+        .reveal pre code.tiny {
+          font-size: 2.3333333333pt;
+          line-height: 3.5pt; }
+        .reveal pre code.small {
+          font-size: 2.8pt;
+          line-height: 4.2pt; }
+        .reveal pre code.large {
+          font-size: 6.3pt;
+          line-height: 9.45pt; }
+    .reveal .slides > section, .reveal .slides .pdf-page > section {
+      padding: 43.5px 20px 20px 20px; }
+      .reveal .slides > section section, .reveal .slides .pdf-page > section section {
+        margin-top: 38.5px; }
+        .reveal .slides > section section.has-dark-background, .reveal .slides > section section.center, .reveal .slides > section section.center-vertical, .reveal .slides .pdf-page > section section.has-dark-background, .reveal .slides .pdf-page > section section.center, .reveal .slides .pdf-page > section section.center-vertical {
+          padding-top: 15px;
+          margin-top: 15px; }
+      .reveal .slides > section.noveo-title, .reveal .slides .pdf-page > section.noveo-title {
+        font-size: 8pt;
+        padding-top: 20px; }
+        .reveal .slides > section.noveo-title .title-separator, .reveal .slides .pdf-page > section.noveo-title .title-separator {
+          width: 50px;
+          border-bottom: 1px solid #699f00; }
+        .reveal .slides > section.noveo-title h1, .reveal .slides .pdf-page > section.noveo-title h1 {
+          margin-bottom: 15px; }
+        .reveal .slides > section.noveo-title h2, .reveal .slides .pdf-page > section.noveo-title h2 {
+          margin-top: 15px; }
+      .reveal .slides > section div.borders, .reveal .slides .pdf-page > section div.borders {
+        padding: 5px; }
+    .reveal ul, .reveal ul ul, .reveal ul ul ul {
+      margin: 5px 0 0 0; }
+    .reveal ol, .reveal ol ol, .reveal ol ol ol {
+      margin: 5px 0 0 0; }
+    .reveal ul ul, .reveal ul ol, .reveal ol ol, .reveal ol ul, .reveal dd {
+      margin-left: 10px; }
+    .reveal ul.table-of-content {
+      margin: 5px auto !important; }
+      .reveal ul.table-of-content ul {
+        margin: 5px 0 5px 5px !important; }
   #header-left {
     top: 15px;
     width: 69.25px;
@@ -844,151 +1288,3 @@ html {
   #footer-right::after {
     bottom: 13.5px;
     right: 20px; } }
-
-@media (max-width: 1680px) {
-  .reveal {
-    font-size: 19.88pt; }
-    .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
-      margin: 0 0 14.2px 0; }
-    .reveal p {
-      margin: 14.2px 0; }
-    .reveal ul ul,
-    .reveal ul ol,
-    .reveal ol ol,
-    .reveal ol ul,
-    .reveal dd {
-      margin-left: 28.4px; }
-    .reveal blockquote {
-      margin: 14.2px auto;
-      padding: 3.55px; }
-    .reveal pre {
-      margin: 14.2px auto; }
-      .reveal pre code {
-        padding: 3.55px;
-        max-height: 497px; } }
-
-@media (max-width: 1366px) {
-  .reveal {
-    font-size: 14.84pt; }
-    .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
-      margin: 0 0 10.6px 0; }
-    .reveal p {
-      margin: 10.6px 0; }
-    .reveal ul ul,
-    .reveal ul ol,
-    .reveal ol ol,
-    .reveal ol ul,
-    .reveal dd {
-      margin-left: 21.2px; }
-    .reveal blockquote {
-      margin: 10.6px auto;
-      padding: 2.65px; }
-    .reveal pre {
-      margin: 10.6px auto; }
-      .reveal pre code {
-        padding: 2.65px;
-        max-height: 371px; } }
-
-@media (max-width: 1024px) {
-  .reveal {
-    font-size: 10.92pt; }
-    .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
-      margin: 0 0 7.8px 0; }
-    .reveal p {
-      margin: 7.8px 0; }
-    .reveal ul ul,
-    .reveal ul ol,
-    .reveal ol ol,
-    .reveal ol ul,
-    .reveal dd {
-      margin-left: 15.6px; }
-    .reveal blockquote {
-      margin: 7.8px auto;
-      padding: 1.95px; }
-    .reveal pre {
-      margin: 7.8px auto; }
-      .reveal pre code {
-        padding: 1.95px;
-        max-height: 273px; } }
-
-@media (max-width: 750px) {
-  .reveal {
-    font-size: 7pt; }
-    .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
-      margin: 0 0 5px 0; }
-    .reveal p {
-      margin: 5px 0; }
-    .reveal ul ul,
-    .reveal ul ol,
-    .reveal ol ol,
-    .reveal ol ul,
-    .reveal dd {
-      margin-left: 10px; }
-    .reveal blockquote {
-      margin: 5px auto;
-      padding: 1.25px; }
-    .reveal pre {
-      margin: 5px auto; }
-      .reveal pre code {
-        padding: 1.25px;
-        max-height: 175px; } }
-
-@media (max-width: 1680px) {
-  .reveal div.underfloating {
-    padding-top: 14.2px; }
-  .reveal blockquote {
-    margin: 14.2px 5%; }
-    .reveal blockquote::before {
-      margin: 14.2px;
-      background-size: 33.086px 33.086px;
-      width: 33.086px;
-      height: 33.086px; }
-  ul.table-of-content {
-    margin: 14.2px auto !important; }
-    ul.table-of-content ul {
-      margin: 14.2px 0 14.2px 14.2px !important; } }
-
-@media (max-width: 1366px) {
-  .reveal div.underfloating {
-    padding-top: 10.6px; }
-  .reveal blockquote {
-    margin: 10.6px 5%; }
-    .reveal blockquote::before {
-      margin: 10.6px;
-      background-size: 24.698px 24.698px;
-      width: 24.698px;
-      height: 24.698px; }
-  ul.table-of-content {
-    margin: 10.6px auto !important; }
-    ul.table-of-content ul {
-      margin: 10.6px 0 10.6px 10.6px !important; } }
-
-@media (max-width: 1024px) {
-  .reveal div.underfloating {
-    padding-top: 7.8px; }
-  .reveal blockquote {
-    margin: 7.8px 5%; }
-    .reveal blockquote::before {
-      margin: 7.8px;
-      background-size: 18.174px 18.174px;
-      width: 18.174px;
-      height: 18.174px; }
-  ul.table-of-content {
-    margin: 7.8px auto !important; }
-    ul.table-of-content ul {
-      margin: 7.8px 0 7.8px 7.8px !important; } }
-
-@media (max-width: 750px) {
-  .reveal div.underfloating {
-    padding-top: 5px; }
-  .reveal blockquote {
-    margin: 5px 5%; }
-    .reveal blockquote::before {
-      margin: 5px;
-      background-size: 11.65px 11.65px;
-      width: 11.65px;
-      height: 11.65px; }
-  ul.table-of-content {
-    margin: 5px auto !important; }
-    ul.table-of-content ul {
-      margin: 5px 0 5px 5px !important; } }
