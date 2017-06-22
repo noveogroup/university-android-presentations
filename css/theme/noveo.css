@@ -294,7 +294,16 @@ body {
 .center-horizontal {
   text-align: center; }
 
-.center-vertical {
+.reveal section table tr td.center-horizontal {
+  text-align: center; }
+
+.reveal section table tr td .center-horizontal {
+  text-align: center; }
+
+.reveal section .center-horizontal {
+  text-align: center; }
+
+.reveal section .center-vertical {
   display: flex;
   align-items: center;
   bottom: 0;
@@ -593,6 +602,15 @@ html {
     font-size: 25.2pt;
     line-height: 37.8pt; }
 
+.bg-red {
+  background-color: #ff2c2d; }
+
+.bg-green {
+  background-color: #17ff2e; }
+
+.bg-blue {
+  background-color: #1b91ff; }
+
 @media (max-width: 1760px), (max-height: 990px) {
   html {
     font-size: 25.2pt; }
@@ -623,8 +641,6 @@ html {
     .reveal pre {
       margin: 18px auto; }
       .reveal pre code {
-        padding: 4.5px;
-        height: 630px;
         font-size: 15.12pt;
         line-height: 22.68pt; }
         .reveal pre code.tiny {
@@ -656,9 +672,9 @@ html {
       .reveal .slides > section div.borders, .reveal .slides .pdf-page > section div.borders {
         padding: 18px; }
     .reveal ul, .reveal ul ul, .reveal ul ul ul {
-      margin: 18px 0 0 0; }
+      margin: 18px 0 18px 0; }
     .reveal ol, .reveal ol ol, .reveal ol ol ol {
-      margin: 18px 0 0 0; }
+      margin: 18px 0 18px 0; }
     .reveal ul ul, .reveal ul ol, .reveal ol ol, .reveal ol ul, .reveal dd {
       margin-left: 36px; }
     .reveal ul.table-of-content {
@@ -710,8 +726,6 @@ html {
     .reveal pre {
       margin: 16.2px auto; }
       .reveal pre code {
-        padding: 4.05px;
-        height: 567px;
         font-size: 13.608pt;
         line-height: 20.412pt; }
         .reveal pre code.tiny {
@@ -743,9 +757,9 @@ html {
       .reveal .slides > section div.borders, .reveal .slides .pdf-page > section div.borders {
         padding: 16.2px; }
     .reveal ul, .reveal ul ul, .reveal ul ul ul {
-      margin: 16.2px 0 0 0; }
+      margin: 16.2px 0 16.2px 0; }
     .reveal ol, .reveal ol ol, .reveal ol ol ol {
-      margin: 16.2px 0 0 0; }
+      margin: 16.2px 0 16.2px 0; }
     .reveal ul ul, .reveal ul ol, .reveal ol ol, .reveal ol ul, .reveal dd {
       margin-left: 32.4px; }
     .reveal ul.table-of-content {
@@ -797,8 +811,6 @@ html {
     .reveal pre {
       margin: 14.4px auto; }
       .reveal pre code {
-        padding: 3.6px;
-        height: 504px;
         font-size: 12.096pt;
         line-height: 18.144pt; }
         .reveal pre code.tiny {
@@ -830,9 +842,9 @@ html {
       .reveal .slides > section div.borders, .reveal .slides .pdf-page > section div.borders {
         padding: 14.4px; }
     .reveal ul, .reveal ul ul, .reveal ul ul ul {
-      margin: 14.4px 0 0 0; }
+      margin: 14.4px 0 14.4px 0; }
     .reveal ol, .reveal ol ol, .reveal ol ol ol {
-      margin: 14.4px 0 0 0; }
+      margin: 14.4px 0 14.4px 0; }
     .reveal ul ul, .reveal ul ol, .reveal ol ol, .reveal ol ul, .reveal dd {
       margin-left: 28.8px; }
     .reveal ul.table-of-content {
@@ -884,8 +896,6 @@ html {
     .reveal pre {
       margin: 12.6px auto; }
       .reveal pre code {
-        padding: 3.15px;
-        height: 441px;
         font-size: 10.584pt;
         line-height: 15.876pt; }
         .reveal pre code.tiny {
@@ -917,9 +927,9 @@ html {
       .reveal .slides > section div.borders, .reveal .slides .pdf-page > section div.borders {
         padding: 12.6px; }
     .reveal ul, .reveal ul ul, .reveal ul ul ul {
-      margin: 12.6px 0 0 0; }
+      margin: 12.6px 0 12.6px 0; }
     .reveal ol, .reveal ol ol, .reveal ol ol ol {
-      margin: 12.6px 0 0 0; }
+      margin: 12.6px 0 12.6px 0; }
     .reveal ul ul, .reveal ul ol, .reveal ol ol, .reveal ol ul, .reveal dd {
       margin-left: 25.2px; }
     .reveal ul.table-of-content {
@@ -971,8 +981,6 @@ html {
     .reveal pre {
       margin: 10.8px auto; }
       .reveal pre code {
-        padding: 2.7px;
-        height: 378px;
         font-size: 9.072pt;
         line-height: 13.608pt; }
         .reveal pre code.tiny {
@@ -1004,9 +1012,9 @@ html {
       .reveal .slides > section div.borders, .reveal .slides .pdf-page > section div.borders {
         padding: 10.8px; }
     .reveal ul, .reveal ul ul, .reveal ul ul ul {
-      margin: 10.8px 0 0 0; }
+      margin: 10.8px 0 10.8px 0; }
     .reveal ol, .reveal ol ol, .reveal ol ol ol {
-      margin: 10.8px 0 0 0; }
+      margin: 10.8px 0 10.8px 0; }
     .reveal ul ul, .reveal ul ol, .reveal ol ol, .reveal ol ul, .reveal dd {
       margin-left: 21.6px; }
     .reveal ul.table-of-content {
@@ -1058,8 +1066,6 @@ html {
     .reveal pre {
       margin: 9px auto; }
       .reveal pre code {
-        padding: 2.25px;
-        height: 315px;
         font-size: 7.56pt;
         line-height: 11.34pt; }
         .reveal pre code.tiny {
@@ -1091,9 +1097,9 @@ html {
       .reveal .slides > section div.borders, .reveal .slides .pdf-page > section div.borders {
         padding: 9px; }
     .reveal ul, .reveal ul ul, .reveal ul ul ul {
-      margin: 9px 0 0 0; }
+      margin: 9px 0 9px 0; }
     .reveal ol, .reveal ol ol, .reveal ol ol ol {
-      margin: 9px 0 0 0; }
+      margin: 9px 0 9px 0; }
     .reveal ul ul, .reveal ul ol, .reveal ol ol, .reveal ol ul, .reveal dd {
       margin-left: 18px; }
     .reveal ul.table-of-content {
@@ -1145,8 +1151,6 @@ html {
     .reveal pre {
       margin: 6.8px auto; }
       .reveal pre code {
-        padding: 1.7px;
-        height: 238px;
         font-size: 5.712pt;
         line-height: 8.568pt; }
         .reveal pre code.tiny {
@@ -1178,9 +1182,9 @@ html {
       .reveal .slides > section div.borders, .reveal .slides .pdf-page > section div.borders {
         padding: 6.8px; }
     .reveal ul, .reveal ul ul, .reveal ul ul ul {
-      margin: 6.8px 0 0 0; }
+      margin: 6.8px 0 6.8px 0; }
     .reveal ol, .reveal ol ol, .reveal ol ol ol {
-      margin: 6.8px 0 0 0; }
+      margin: 6.8px 0 6.8px 0; }
     .reveal ul ul, .reveal ul ol, .reveal ol ol, .reveal ol ul, .reveal dd {
       margin-left: 13.6px; }
     .reveal ul.table-of-content {
@@ -1232,8 +1236,6 @@ html {
     .reveal pre {
       margin: 5px auto; }
       .reveal pre code {
-        padding: 1.25px;
-        height: 175px;
         font-size: 4.2pt;
         line-height: 6.3pt; }
         .reveal pre code.tiny {
@@ -1265,9 +1267,9 @@ html {
       .reveal .slides > section div.borders, .reveal .slides .pdf-page > section div.borders {
         padding: 5px; }
     .reveal ul, .reveal ul ul, .reveal ul ul ul {
-      margin: 5px 0 0 0; }
+      margin: 5px 0 5px 0; }
     .reveal ol, .reveal ol ol, .reveal ol ol ol {
-      margin: 5px 0 0 0; }
+      margin: 5px 0 5px 0; }
     .reveal ul ul, .reveal ul ol, .reveal ol ol, .reveal ol ul, .reveal dd {
       margin-left: 10px; }
     .reveal ul.table-of-content {
