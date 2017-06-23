@@ -2,14 +2,29 @@
   text-align: center;
 }
 
-.center-vertical {
-  display: flex;
-  align-items: center;
-  bottom: 0;
-  top: 0;
-}
-
 .reveal section {
+
+  table tr td {
+    &.center-horizontal {
+      text-align: center;
+    }
+
+    .center-horizontal {
+      text-align: center;
+    }
+  }
+
+  .center-horizontal {
+    text-align: center;
+  }
+
+  .center-vertical {
+    display: flex;
+    align-items: center;
+    bottom: 0;
+    top: 0;
+  }
+
   div, pre, code, img {
     &.overlap-fragment {
       position: absolute !important;
