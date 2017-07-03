@@ -198,10 +198,17 @@
                 <span class="fragment" data-fragment-index="7">Чтобы получить изменения других разработчиков в ветке:</span>
                 <div class="fragment" data-fragment-index="8">
                     <pre><code data-trim data-noescape>
+                        git fetch origin
+                        git merge &lt;branch_name&gt;
+                    </code></pre>
+                </div>
+                <div class="fragment" data-fragment-index="9">
+                    <p>Или:</p>
+                    <pre><code data-trim data-noescape>
                         git pull [--rebase] origin &lt;branch_name&gt;
                     </code></pre>
                 </div>
-                <span class="fragment" data-fragment-index="9">Разрешить <b>конфликты</b> если есть</span>
+                <span class="fragment" data-fragment-index="10">Разрешить <b>конфликты</b> если есть</span>
             </div>
         </section>
         <section>
