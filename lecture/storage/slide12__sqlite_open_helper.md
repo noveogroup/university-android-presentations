@@ -1,15 +1,12 @@
 ## SQLiteOpenHelper
 
 Абстрактный [класс](https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper.html) для создания и обновления БД.
-
-<br>
-
 * <!-- .element: class="fragment" data-fragment-index="1" --> Наследуем `SQLiteOpenHelper`
 * <!-- .element: class="fragment" data-fragment-index="2" --> Нужен конструктор от `Сontext` (!)
 
 <br>
 
-<pre><code data-trim data-noescape>
+<pre><code class = "java large" data-trim data-noescape>
 public class SQLiteHelper extends SQLiteOpenHelper {
 <span class="fragment" data-fragment-index="3">
     private static final String DATABASE_NAME = "database.db";
@@ -18,7 +15,6 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     public SQLiteHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }</span>
-    
 }
 </code></pre>
 
@@ -28,10 +24,10 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
 ## SQLiteOpenHelper
 
-<blockquote class="noveo-warn">
-Обязательно знать SQL :(
-</blockquote/>
-<!-- .element: class="fragment" data-fragment-index="2" -->
+>Обязательно знать SQL
+
+<!-- .element: class="noveo-warn fragment" data-fragment-index="2"-->
+
 
 ```
 @Override

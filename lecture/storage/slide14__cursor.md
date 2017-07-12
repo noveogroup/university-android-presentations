@@ -24,7 +24,7 @@
 ## Работа с Cursor
 
 <pre>
-<code data-trim data-noescape>
+<code class = "java large" data-trim data-noescape>
 <span class="fragment" data-fragment-index="1">String query = "SELECT id, name FROM customers";</span>
 <span class="fragment" data-fragment-index="2">
 Cursor cursor = sqLiteDatabase.rawQuery(query, null);

@@ -6,8 +6,7 @@
 <br>
 
 
-<pre><code data-trim data-noescape>
-
+<pre><code class = "java large" data-trim data-noescape>
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 <span class="fragment" data-fragment-index="3">
     private static final String DATABASE_NAME = "database.db";

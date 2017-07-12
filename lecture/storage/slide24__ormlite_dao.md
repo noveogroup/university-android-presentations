@@ -16,8 +16,7 @@
 
 <!-- .element: class="fragment" data-fragment-index="1" -->
 
-```
-
+<pre><code class = "java large" data-trim data-noescape>
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private Dao<Customer, Long> customerDao;
     
@@ -29,8 +28,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     }
 ...
 }
-
-```
+</code></pre>
 
 <!-- .element: class="fragment" data-fragment-index="1" -->
 
@@ -41,7 +39,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
 Методы RuntimeExceptionDao не бросают SQLException. 
 
-```
+<pre><code class = "java large" data-trim data-noescape>
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private RuntimeExceptionDao<Customer, Long> customerRuntimeDao;
 
@@ -54,7 +52,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 ...
 }
 
-```
+</code></pre>
 
 <!-- .element: class="fragment" data-fragment-index="1" -->
 

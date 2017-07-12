@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <meta charset="UTF-8">
-    <title>Database</title>
+    <title>Storage</title>
 
     <link rel="stylesheet" href="css/reveal.css">                    <!--slide style-->
     <link rel="stylesheet" href="css/theme/noveo.css" id="theme">    <!--noveo theme-->
@@ -13,12 +13,12 @@
 </head>
 <body>
 <div id="hidden" style="display: none">
-    <div id="header">
+    <div id="overlay">
         <div id="header-left"></div>
         <div id="header-right"></div>
+        <div id="footer-right"></div>
     </div>
 </div>
-
 <div class="reveal">
     <div class="slides">
         <section data-markdown="lecture/storage/slide01_0__intro.md" class="center center-horizontal"></section>
@@ -125,27 +125,9 @@
                  id="storage__ormlite_foreign">
         </section>
 
-        <section id="storage__ormlite_entities_foreign">
-
-            <h2>Внешние ключи</h2>
-            <section style="width: 60%">
-                <div class="third-left navigate-left">
-                    <p data-markdown="lecture/storage/slide23_1__column.md"></p>
-                </div>
-
-                <div class="third-center center-horizontal">
-                    <p>
-                        <br>
-                        <br>
-                        +</p>
-                </div>
-
-                <div class="third-right">
-                    <p data-markdown="lecture/storage/slide23_3__column.md"></p>
-                </div>
-            </section>
+        <section data-external="lecture/storage/slide23__foreign_keys.html"
+                 id="storage__ormlite_entities_foreign">
         </section>
-
 
         <section data-markdown="lecture/storage/slide24__ormlite_dao.md"
                  id="storage__ormlite_dao"

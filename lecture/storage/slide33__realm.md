@@ -18,13 +18,12 @@
 Сущности должны наследоваться от `RealmObject`.  
 
 
-```
+<pre><code class = "java large" data-trim data-noescape>
 public class Dog extends RealmObject {
   public String name;
   public int age;
 }
-
-```
+</code></pre>
 
 ------
 

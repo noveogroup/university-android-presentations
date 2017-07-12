@@ -4,8 +4,8 @@
 
 <br>
 
-<blockquote class="noveo-warn">
-```android:allowBackup="true"``` в `AndroidManifest`
-препятствует очистке данных при удалении приложения!
-</blockquote>
+>**`android:allowBackup="true"`** в `AndroidManifest` препятствует очистке данных при удалении приложения!
+
+<!-- .element: class="noveo-warn" -->
+
 

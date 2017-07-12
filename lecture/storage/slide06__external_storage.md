@@ -23,12 +23,12 @@
 Нужны разрешения:
 <!-- .element: class="fragment" data-fragment-index="1" -->
 
-```
+<pre><code class="java large" data-trim data-noescape>
 <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-```
+</code></pre>
 
 <!-- .element: class="fragment" data-fragment-index="1" -->
 

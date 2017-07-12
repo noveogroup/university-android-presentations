@@ -17,7 +17,7 @@ ORM [библиотека](https://developer.android.com/topic/libraries/archite
 
 ## Room. Сущность
 
-```
+<pre><code class = "java large" data-trim data-noescape>
 @Entity(tableName = "customers")
 public class Customer {
     @PrimaryKey
@@ -27,7 +27,7 @@ public class Customer {
     private String name;
 }
 
-```
+</code></pre>
 
 <br>
 
@@ -41,19 +41,20 @@ public class Customer {
 
 <br>
 
-```
+<pre><code class = "java large" data-trim data-noescape>
 @Database(entities = {Customer.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
     public abstract CustomerDao customerDao();
 }
-```
+</code></pre>
 
 <br>
 
-```
+<pre><code class = "java large" data-trim data-noescape>
 AppDatabase db = Room.databaseBuilder(getApplicationContext(),
-        AppDatabase.class, "database-name").build();
-```
+        AppDatabase.class, "database-name")
+        .build();
+</code></pre>
 <!-- .element: class="fragment" data-fragment-index="1" -->
 
 <br>
@@ -68,7 +69,7 @@ AppDatabase db = Room.databaseBuilder(getApplicationContext(),
 `@Insert`, `@Update`, `@Delete` "из коробки"
 <br>
 
-```
+<pre><code class = "java large" data-trim data-noescape>
 @Dao
 public interface CustomerDao {
     @Update(onConflict = ABORT)
@@ -81,7 +82,7 @@ public interface CustomerDao {
     void delete(Customer customer);
 }
 
-```
+</code></pre>
 
 ------
 
@@ -105,13 +106,14 @@ public interface CustomerDao {
 }
 
 ```
+<br>
 
 ```
 List<Customer> customers = db.userModel().getAll();
 ```
 <!-- .element: class="fragment" data-fragment-index="1" -->
 
-Можно возвращать любые POJO.
+Можно возвращать любые POJO*
 <!-- .element: class="fragment" data-fragment-index="2" -->
 
 ------

@@ -1,2 +1,0 @@
-`@ForeignCollectionField`
-* `eager`

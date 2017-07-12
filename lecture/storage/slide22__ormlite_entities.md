@@ -2,8 +2,7 @@
 
 Для создания и описания сущностей используются аннотации.
 
-<pre>
-<code data-trim data-noescape>
+<pre><code class = "java large" data-trim data-noescape>
 <span class="fragment" data-fragment-index="3">@DatabaseTable(tableName = CustomerEntry.TABLE_NAME)</span>
 <span class="fragment" data-fragment-index="1">public class Customer {</span>
 

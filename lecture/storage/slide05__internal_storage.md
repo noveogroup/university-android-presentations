@@ -23,16 +23,16 @@
 
 <!-- .element: class="fragment" data-fragment-index="1" -->  
 
-```
+<pre><code class="java large" data-trim data-noescape>
 File file = new File(context.getFilesDir(), "my_file.txt");
 outputStream = new FileOutputStream(file.getAbsolutePath());
-```
+</code></pre>
 <!-- .element: class="fragment" data-fragment-index="1" -->
 
-```
+<pre><code class="java large" data-trim data-noescape>
 FileOutputStream outputStream =
                 context.openFileOutput("my_file.txt", Context.MODE_PRIVATE);
-```
+</code></pre>
 <!-- .element: class="fragment" data-fragment-index="2" -->
 
 
@@ -42,7 +42,7 @@ FileOutputStream outputStream =
 
 <!-- .element: class="fragment" data-fragment-index="3" -->
 
-```
+<pre><code class="java large" data-trim data-noescape>
 FileInputStream inputStream = context.openFileInput("my_file.txt");
-```
+</code></pre>
 <!-- .element: class="fragment" data-fragment-index="3" -->
