@@ -1,0 +1,35 @@
+<h1 class="center-horizontal"> Слайд с тремя колонками </h1>
+
+<br>
+
+<div class="third-left center-horizontal">
+    <h1>Левый блок</h1>
+    <img src="lecture/template/graph.png" width="100%" height="auto"/>
+</div>
+
+<div class="third-center center-horizontal">
+    <h1>Центральный блок</h1>
+    <ol>
+     <li>Слева картинка</li>
+     <li>Справа кусок кода, мелкий</li>
+    </ol>
+</div>
+
+<div class="third-right center-horizontal">
+    <pre><code data-trim data-noescape class="tiny">
+     static final String API_DESTINATIONS_KEY = "api-destinations";
+     static final String DB_DESTINATIONS_KEY = "db-destinations";
+     static final String FILTER_CONSTRAINT_KEY = "filter-constraint";
+     static final String FILTER_ENABLED_KEY = "filter-enabled";
+
+     @Bind(R.id.destinations_grid)
+     GridView grid;
+
+     DestinationsAdapter adapter;
+     List&lt;Destination> apiDestinations;
+     List&lt;Destination> dbDestinations;
+     DestinationsAdapter.DestinationSource source = null;
+    </code></pre>
+</div>
+
+<a class="how-its-made" href="#howto-layout">Как это сделано?</a>

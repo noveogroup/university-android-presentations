@@ -8,7 +8,7 @@
 		var zoomPadding = 20;
 		var revealScale = Reveal.getScale();
 
-		if( event[ modifier ] && isEnabled ) {
+		if( (event[ modifier ] || event[ 'altKey' ] || event[ 'ctrlKey' ]) && isEnabled ) {
 			event.preventDefault();
 
 			var bounds;

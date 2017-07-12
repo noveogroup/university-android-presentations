@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Template — Android Lecture</title>
+
+    <link rel="stylesheet" href="css/reveal.css">                    <!--slide style-->
+    <link rel="stylesheet" href="css/theme/noveo.css" id="theme">    <!--noveo theme-->
+    <link rel="stylesheet" href="lib/css/magula.css">                <!--code highlight-->
+</head>
+<body>
+<div id="hidden" style="display: none">
+    <div id="overlay">
+        <div id="header-left"></div>
+        <div id="header-right"></div>
+        <div id="footer-right"></div>
+    </div>
+</div>
+<div class="reveal">
+    <div class="slides">
+        <section id="title" data-markdown="lecture/template/01.1-slide__lecture-title.md"></section>
+        <section id="contents" class="center center-horizontal"
+                 data-external="lecture/template/01.2-slide__table-of-contents.html"></section>
+        <section id="section-title" data-markdown="lecture/template/02-slide__section-title.md"></section>
+        <section data-markdown="lecture/template/03-slide__text.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"></section>
+        <section id="images">
+            <section id="image-title" data-markdown="lecture/template/04.1-slide__image-full.md"></section>
+            <section id="image-full" data-markdown="lecture/template/04.2-slide__image-bottom.md"></section>
+            <section id="image-big" data-markdown="lecture/template/04.3-slide__image-big.md"></section>
+            <section id="image-small" data-markdown="lecture/template/04.4-slide__image-normal.md" ></section>
+        </section>
+        <section>
+            <section id="columns" data-markdown="lecture/template/05.1-slide__columns-title.md"></section>
+            <section id="columns-2" data-external="lecture/template/05.2-slide__layout_2.html"></section>
+            <section id="columns-3" data-external="lecture/template/05.3-slide__layout_3.html"></section>
+            <section id="blockquote" data-markdown="lecture/template/05.4-slide__blockquote.md"></section>
+        </section>
+        <section>
+            <section id="code" data-markdown="lecture/template/06.1-slide__code-title.md"></section>
+            <section id="code-size" data-external="lecture/template/06.2-slide__code-sizes.html"></section>
+            <section id="code-frags" data-markdown="lecture/template/06.3-slide__code-frags.md"></section>
+            <section id="code-mark" data-markdown="lecture/template/06.4-slide__code-mark.md"></section>
+            <section data-markdown="lecture/template/06.5-slide__code-zoom.md"></section>
+        </section>
+        <section>
+            <section id="howto" data-markdown="lecture/template/09.1-slide__examples.md"></section>
+            <section id="howto-title" data-markdown="lecture/template/09.2-slide__example-title.md"></section>
+            <section id="howto-section" data-markdown="lecture/template/09.3-slide__example-section.md"></section>
+            <section id="howto-images" data-markdown="lecture/template/09.4-slide__example-images.md"></section>
+            <section id="howto-code" data-markdown="lecture/template/09.5-slide__example-code.md"></section>
+            <section id="howto-layout" data-markdown="lecture/template/09.6-slide__example-layout.md"></section>
+            <section id="howto-blockquote" data-markdown="lecture/template/09.7-slide__example-blockquote.md"></section>
+            <section id="howto-table" data-markdown="lecture/template/09.8-slide__example-contents.md"></section>
+        </section>
+    </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>      <!--HeadJS functions-->
+<script src="js/reveal.js"></script>            <!--RevealJS functions-->
+<script src="js/config.js"></script>            <!--RevealJS config-->
+
+<script src="lib/js/jquery-3.2.1.min.js"></script>
+<script src="js/printpdf.js"></script>
+</body>
+</html>

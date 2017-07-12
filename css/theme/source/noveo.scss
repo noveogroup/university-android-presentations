@@ -6,13 +6,60 @@
 @import url(../../lib/font/roboto/Roboto.css);
 @import url(../../lib/font/roboto-mono/Roboto-mono.css);
 
-// Override theme settings (see ../template/settings.scss)
-$backgroundColor: #fff;
+$screenAspectRation: 1920/1080;
 
+$screen_xxxl: 1760px;
+$scale_xxxl: 0.9;
+
+$screen_xxl: 1600px;
+$scale_xxl: 0.81;
+
+$screen_xl: 1440px;
+$scale_xl: 0.72;
+
+$screen_l: 1280px;
+$scale_l: 0.63;
+
+$screen_n: 1120px;
+$scale_n: 0.54;
+
+$screen_s: 960px;
+$scale_s: 0.45;
+
+$screen_xs: 800px;
+$scale_xs: 0.34;
+
+$screen_xxs: 640px;
+$scale_xxs: 0.25;
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: white;
+
+//Label
+$labelPath: "img/label_android.svg";
+$labelInvertedPath: "img/label_android_inverted.svg";
+$labelWidth: 277px;
+$labelHeight: 70px;
+$labelTopMargin: 60px;
+
+//Logo
+$logoPath: "img/university-logo.svg";
+$logoWhitePath: "img/university-logo-white.svg";
+$logoWidth: 242px;
+$logoHeight: 94px;
+$overlayMargin: 54px;
+$overlaySideMargin: 80px;
+$separatorWidth: 200px;
+
+$webText: "";
+
+$slideTopMargin: $logoHeight;
+
+$androidColor: #699f00;
 $mainColor: #323335;
 $headingColor: #323335;
+$greyColor: #9e9e9e;
 
-$mainFontSize: 30px;
 $mainFont: Roboto, sans-serif;
 $codeFont: 'Roboto Mono', monospace;
 $headingFont: Roboto, sans-serif;
@@ -20,25 +67,30 @@ $headingTextShadow: none;
 $headingLetterSpacing: normal;
 $headingTextTransform: none;
 $headingFontWeight: 500;
-$linkColor: #699f00;
+$linkColor: $androidColor;
 $linkColorHover: lighten($linkColor, 15%);
+$linkColorInverted: lighten($linkColor, 15%);
+$linkColorInvertedHover: lighten($linkColorInverted, 15%);
 $selectionBackgroundColor: $linkColor;
 
-$heading1Size: 3.33em; /* 3.33 * 30px <p> = 100px */
-$heading2Size: 2.00em; /* 2.00 * 30px <p> = 60px  */
-$heading3Size: 1.47em; /* 1.37 * 30px <p> = 44px  */
-$heading4Size: 1.00em; /* 1.00 * 30px <p> = 30px  */
+$titleBlockMargin: 60px;
+$mainFontSize: 28pt;
+$mainCodeSize: 16.8pt;
+$heading1Size: 1.77em;
+$heading2Size: 1.33em;
+$heading3Size: 1.11em;
+$heading4Size: 1.00em;
 
-$triangleSize: 148px;
-$logoWidth: 174px;
-$logoHeight: 70px;
+$titleMainFontSize: 32pt;
+$titleHeader1Size: 2.14em;
+$titleHeader2Size: 0.57em;
 
 $mobileScreenScale: 0.35;
 $codeScale: 1.5;
 
 section.has-dark-background {
   &, h1, h2, h3, h4, h5, h6 {
-    color: #fff;
+    color: white;
   }
 }
 
@@ -49,74 +101,182 @@ section.has-dark-background {
 // ---------------------------------------------
 
 // Custom code sizing --------------------------
+html {
+  font-size: $mainFontSize;
+}
 .reveal {
-  section div.overlap-fragment pre {
+  &.has-dark-background, &.has-light-background {
+    .slide-number {
+      span {
+        color: transparent;
+      }
+    }
+
+    ul, ul ul, ul ul ul {
+      > li {
+        &::before {
+          color: white;
+        }
+      }
+    }
+
+    ol, ol ol, ol ol ol {
+      > li {
+        &::before {
+          color: white;
+        }
+      }
+    }
+  }
+
+  .slides > section, .slides .pdf-page > section {
+    width: 91%;
+    padding: $overlaySideMargin + $slideTopMargin $overlaySideMargin $overlaySideMargin $overlaySideMargin;
+    section {
+      width: 92.5%;
+      margin-top: $overlaySideMargin + $slideTopMargin - $blockMargin;
+      &.has-dark-background, &.center, &.center-vertical {
+        padding-top: $overlaySideMargin - $blockMargin;
+        margin-top: $overlaySideMargin - $blockMargin;
+      }
+    }
+
+    &.noveo-title {
+      font-size: $titleMainFontSize;
+      padding-top: $overlaySideMargin;
+      * {
+        width: 50%;
+      }
+      .title-separator {
+        margin: 0;
+        width: $separatorWidth;
+        border-bottom: 2px solid $androidColor;
+      }
+      h1 {
+        font-size: $titleHeader1Size;
+        font-weight: 700;
+        margin-bottom: $titleBlockMargin;
+      }
+      h2 {
+        font-size: $titleHeader2Size;
+        text-transform: uppercase;
+        color: $greyColor;
+        margin-top: $titleBlockMargin;
+      }
+    }
+
+    li p {
+      display: inline;
+    }
+    div.borders {
+      border: 1px solid $androidColor;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: $blockMargin;
+      img {
+        max-height: 100%;
+        max-width: 100%;
+      }
+    }
+
+    img {
+      border: none;
+      box-shadow: none;
+    }
+  }
+
+  ul, ul ul, ul ul ul {
+    display: block;
+    margin: $blockMargin 0 $blockMargin 0;
+    list-style: none !important;
+    padding: 0;
+    > li {
+      padding-left: 1em;
+      text-indent: -0.7em;
+      &::before {
+        content: "● ";
+        color: $androidColor;
+      }
+    }
+  }
+
+  ol, ol ol, ol ol ol {
+    display: block;
+    margin: $blockMargin 0 $blockMargin 0;
+    list-style: none !important;
+    padding: 0;
+    > li {
+      padding-left: 1em;
+      text-indent: -0.7em;
+      counter-increment: ordered-list;
+      &::before {
+        content: counter(ordered-list) ". ";
+        color: $androidColor;
+      }
+    }
+  }
+
+  .noveo-image-header {
+    max-width: 35%;
+    text-transform: uppercase;
+    color: white;
+    opacity: 0.9;
+    line-height: 1.5;
+    background-color: $androidColor;
+    margin-left: -1 * $overlaySideMargin;
+    padding: $overlayMargin $overlaySideMargin $overlayMargin $overlaySideMargin;
+  }
+
+  .slide-number {
+    left: $overlaySideMargin;
+    bottom: $overlayMargin;
+    right: auto;
+    background: none;
+    span {
+      font-family: "Roboto Mono", monospace;
+      font-size: $mainFontSize;
+      color: $greyColor;
+    }
+  }
+
+  pre {
     min-width: 100%;
   }
 
   pre code {
-    font-size: $mainFontSize;
-    line-height: $mainFontSize * $codeScale;
-
     &.tiny {
-      font-size: $mainFontSize / $codeScale / $codeScale;
-      line-height: $mainFontSize / $codeScale;
+      font-size: $mainCodeSize / $codeScale / 1.2;
+      line-height: $mainCodeSize / 1.2;
     }
 
     &.small {
-      font-size: $mainFontSize / $codeScale;
-      line-height: $mainFontSize;
+      font-size: $mainCodeSize / $codeScale;
+      line-height: $mainCodeSize;
     }
+
+    font-size: $mainCodeSize;
+    line-height: $mainCodeSize * $codeScale;
 
     &.large {
-      font-size: $mainFontSize * $codeScale;
-      line-height: $mainFontSize * $codeScale * $codeScale;
+      font-size: $mainCodeSize * $codeScale;
+      line-height: $mainCodeSize * $codeScale * $codeScale;
     }
   }
 }
 
-@media(max-width: 1024px) {
-  .reveal {
-    font-size: $mainFontSize * $mobileScreenScale;
-
-    pre code {
-      font-size: $mainFontSize * $mobileScreenScale;
-      line-height: $mainFontSize * $codeScale * $mobileScreenScale;
-
-      &.tiny {
-        font-size: $mainFontSize / $codeScale / $codeScale * $mobileScreenScale;
-        line-height: $mainFontSize / $codeScale * $mobileScreenScale;
-      }
-
-      &.small {
-        font-size: $mainFontSize / $codeScale * $mobileScreenScale;
-        line-height: $mainFontSize * $mobileScreenScale;
-      }
-
-      &.large {
-        font-size: $mainFontSize * $codeScale * $mobileScreenScale;
-        line-height: $mainFontSize * $codeScale * $codeScale * $mobileScreenScale;
-      }
-    }
-  }
+.bg-red {
+  background-color: #ff2c2d
+}
+.bg-green {
+  background-color: #17ff2e
+}
+.bg-blue {
+  background-color: #1b91ff
 }
 
-.reveal section img {
-  border: 0 none transparent;
-  box-shadow: none;
-}
 
-.reveal {
-  blockquote {
-    width: 95%;
-    margin: 20px 5%;
 
-    &.noveo-info {
-      background-color: #ecf1ec;
-    }
 
-    &.noveo-warn {
-      background-color: #f4f4f4;
-    }
-  }
-}
+@import "../template/media";

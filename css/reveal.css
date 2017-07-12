@@ -136,6 +136,8 @@ body {
 
 .reveal .slides section .fragment.highlight-red,
 .reveal .slides section .fragment.highlight-current-red,
+.reveal .slides section .fragment.highlight-grey,
+.reveal .slides section .fragment.highlight-current-grey,
 .reveal .slides section .fragment.highlight-green,
 .reveal .slides section .fragment.highlight-current-green,
 .reveal .slides section .fragment.highlight-blue,
@@ -143,23 +145,25 @@ body {
   opacity: 1;
   visibility: inherit; }
 
-.reveal .slides section .fragment.highlight-red.visible {
-  color: #ff2c2d; }
+.reveal .slides section .fragment.highlight-red.visible, .reveal .slides section .fragment.highlight-current-red.current-fragment {
+  color: #d61b10; }
+  .reveal .slides section .fragment.highlight-red.visible span, .reveal .slides section .fragment.highlight-current-red.current-fragment span {
+    color: #d61b10; }
 
-.reveal .slides section .fragment.highlight-green.visible {
-  color: #17ff2e; }
+.reveal .slides section .fragment.highlight-green.visible, .reveal .slides section .fragment.highlight-current-green.current-fragment {
+  color: #17c72d; }
+  .reveal .slides section .fragment.highlight-green.visible span, .reveal .slides section .fragment.highlight-current-green.current-fragment span {
+    color: #17c72d; }
 
-.reveal .slides section .fragment.highlight-blue.visible {
-  color: #1b91ff; }
+.reveal .slides section .fragment.highlight-blue.visible, .reveal .slides section .fragment.highlight-current-blue.current-fragment {
+  color: #1a7be6; }
+  .reveal .slides section .fragment.highlight-blue.visible span, .reveal .slides section .fragment.highlight-current-blue.current-fragment span {
+    color: #1a7be6; }
 
-.reveal .slides section .fragment.highlight-current-red.current-fragment {
-  color: #ff2c2d; }
-
-.reveal .slides section .fragment.highlight-current-green.current-fragment {
-  color: #17ff2e; }
-
-.reveal .slides section .fragment.highlight-current-blue.current-fragment {
-  color: #1b91ff; }
+.reveal .slides section .fragment.highlight-grey.visible, .reveal .slides section .fragment.highlight-current-grey.current-fragment {
+  color: #abaaaa; }
+  .reveal .slides section .fragment.highlight-grey.visible span, .reveal .slides section .fragment.highlight-current-grey.current-fragment span {
+    color: #abaaaa; }
 
 /*********************************************
  * DEFAULT ELEMENT STYLES

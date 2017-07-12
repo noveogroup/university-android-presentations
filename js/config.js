@@ -1,18 +1,22 @@
-
 // More info about config & dependencies:
 // - https://github.com/hakimel/reveal.js#configuration
 // - https://github.com/hakimel/reveal.js#dependencies
 Reveal.initialize({
     width: '100%',
     height: '100%',
-    margin: 0.1,
+    margin: 0, //1920 * 0.083333 / 2 = 80px as in specs for slide margin
     minScale: 0.25,
     maxScale: 1.0,
+
+    markdown: {
+        smartypants: true,
+        sanitize: false
+    },
 
     pdfMaxPagesPerSlide: 3,
 
     // Display controls in the bottom right corner
-    controls: true,
+    controls: false,
 
     // Display a presentation progress bar
     progress: true,
@@ -21,7 +25,7 @@ Reveal.initialize({
     defaultTiming: 600,
 
     // Display the page number of the current slide
-    slideNumber: 'c/t',
+    slideNumber: 'h.v',
 
     // Push each slide change to the browser history
     history: false,
@@ -114,12 +118,32 @@ Reveal.initialize({
     // The display mode that will be used to show slides
     display: 'block',
     dependencies: [
-        { src: 'plugin/markdown/marked.js' },
-        { src: 'plugin/markdown/markdown.js' },
-        { src: 'plugin/notes/notes.js', async: true },
-        { src: 'plugin/zoom-js/zoom.js', async: true },
-        { src: 'plugin/highlight/highlight.js', async: true,
-            callback: function() { hljs.initHighlightingOnLoad(); }
+        {
+            src: 'plugin/markdown/marked.js'
+        },
+        {
+            src: 'plugin/markdown/markdown.js'
+        },
+        {
+            src: 'plugin/notes/notes.js',
+            async: true
+        },
+        {
+            src: 'plugin/zoom-js/zoom.js',
+            async: true
+        },
+        {
+            src: 'plugin/highlight/highlight.js',
+            async: true,
+            callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+        },
+        {
+            src: 'plugin/external/external.js',
+            condition: function () {
+                return !!document.querySelector('[data-external]');
+            }
         }
     ]
 });

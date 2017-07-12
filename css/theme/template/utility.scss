@@ -2,54 +2,207 @@
   text-align: center;
 }
 
-.center-vertical {
-  bottom: 0;
-  top: 0;
-}
+.reveal section {
 
-.overlap-fragment {
-  position: absolute;
-  max-width: 100%;
-  max-height: 100%;
-}
+  table tr td {
+    &.center-horizontal {
+      text-align: center;
+    }
 
-.half-left {
-  width: 50%;
-  float: left;
-  position: relative;
-  padding-right: 0.5rem;
-}
+    .center-horizontal {
+      text-align: center;
+    }
+  }
 
-.half-right {
-  width: 50%;
-  float: right;
-  position: relative;
-  padding-left: 0.5rem;
-}
+  .center-horizontal {
+    text-align: center;
+  }
 
-.third-left {
-  width: 33.3%;
-  float: left;
-  position: relative;
-  padding-right: 0.25rem;
-}
+  .center-vertical {
+    display: flex;
+    align-items: center;
+    bottom: 0;
+    top: 0;
+  }
 
-.third-center {
-  width: 33.3%;
-  float: left;
-  position: relative;
-  padding-right: 0.25rem;
-  padding-left: 0.25rem;
-}
+  div, pre, code, img {
+    &.overlap-fragment {
+      position: absolute !important;
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
 
-.third-right {
-  width: 33.3%;
-  float: right;
-  position: relative;
-  padding-left: 0.25rem;
+  div.half-left {
+    width: 47.5%;
+    min-height: $mainFontSize;
+    float: left;
+    position: relative;
+    padding-right: 0.5rem;
+    margin-left: 0.5%;
+    margin-right: 0.25%;
+  }
+
+  div.half-right {
+    width: 47.5%;
+    min-height: $mainFontSize;
+    float: right;
+    position: relative;
+    padding-left: 0.5rem;
+    margin-left: 0.25%;
+    margin-right: 0.5%;
+  }
+
+  div.third-left {
+    width: 31.5%;
+    float: left;
+    position: relative;
+    padding-right: 0.25rem;
+    margin-left: 0.5%;
+    margin-right: 0.25%;
+  }
+
+  div.third-center {
+    width: 31.5%;
+    float: left;
+    position: relative;
+    padding-right: 0.25rem;
+    padding-left: 0.25rem;
+    margin-left: 0.25%;
+    margin-right: 0.25%;
+  }
+
+  div.third-right {
+    width: 31.5%;
+    float: left;
+    position: relative;
+    padding-left: 0.25rem;
+    margin-left: 0.25%;
+    margin-right: 0.5%;
+  }
 }
 
 .reveal div.underfloating {
   clear: both;
   padding-top: $blockMargin;
+}
+
+$blockquoteIconSize: 2.33 * $blockMargin;
+
+.reveal {
+  blockquote {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    margin: $blockMargin 5%;
+    padding: 0;
+
+    background-color: #f5f5f5;
+
+    &::before {
+      margin: $blockMargin;
+      background-image: url("img/ic_quote.svg");
+      background-color: transparent;
+      background-size: $blockquoteIconSize $blockquoteIconSize;
+      display: inline-block;
+      width: $blockquoteIconSize;
+      height: $blockquoteIconSize;
+      content: "";
+    }
+
+    &.noveo-success {
+      background-color: #dff0d8;
+      &::before {
+        background-image: url(img/ic_check.svg);
+      }
+    }
+
+    &.noveo-info {
+      background-color: #d9edf7;
+      &::before {
+        background-image: url(img/ic_info.svg);
+      }
+    }
+
+    &.noveo-warn, &.noveo-warning {
+      background-color: #f2dede;
+      &::before {
+        background-image: url(img/ic_warn.svg);
+      }
+    }
+  }
+}
+
+div.pdf-page {
+  height: 951px !important;
+  ul.table-of-content {
+    overflow: hidden;
+  }
+}
+
+ul.table-of-content {
+  list-style: none;
+  padding: 0;
+  overflow-x: hidden;
+  width: 70%;
+  margin: $blockMargin auto !important;
+
+  a + span {
+    float: right;
+    padding-left: 1em;
+    background: white
+  }
+
+  ul {
+    margin: $blockMargin 0 $blockMargin $blockMargin !important;
+  }
+
+  li:not(.nested):before {
+    float: left;
+    width: 0;
+    white-space: nowrap;
+    content:". . . . . . . . . . . . . . . . . . . . "". . . . . . . . . . . . . . . . . . . . "". . . . . . . . . . . . . . . . . . . . "". . . . . . . . . . . . . . . . . . . . "
+  }
+
+  li.nested:before {
+    content: none;
+  }
+
+  li {
+    &::before {
+      content: none;
+    }
+    a:first-child {
+      padding-right: 0.33em;
+      background: white
+    }
+  }
+}
+
+.reveal .slides .how-its-made {
+  position: absolute !important;
+  top: $heading4Size !important;
+  right: $heading4Size !important;
+  text-align: right;
+  width: auto !important;
+  background-color: #daffe1;
+}
+
+.reveal .slides #contents .how-its-made {
+  top: 4 * $heading4Size !important;
+}
+
+.pdf-page .how-its-made {
+  display: none;
+}
+
+.reveal {
+  a {
+    &.not-ready {
+      color: #aaaaaa;
+    }
+    &.link-example {
+      color: #1f2484;
+    }
+  }
 }
