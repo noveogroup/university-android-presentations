@@ -48,7 +48,7 @@
 ## Retrofit - описание REST Api
 
 <div>
-<pre><code class="java">
+<pre><code class="java" data-trim data-noescape>
     interface NetworkClient {
         
         @GET("/entities/{id}")
@@ -80,7 +80,7 @@
 ## Retrofit - выполнение запроса
 
 <div>
-<pre><code class="java small">
+<pre><code class="java small" data-trim data-noescape>
     class Sample {
         private NetworkClient rest;
 
@@ -152,7 +152,7 @@
 ## Glide - загрузка изображений
 
 <div>
-<pre><code class="java">
+<pre><code class="java" data-trim data-noescape>
     class Sample {
         private Glide glide;
 
@@ -182,7 +182,8 @@
 ## Glide - трансформация изображений
 Создаем свой класс и используем его, все просто:
 
-    !java
+<div>
+<pre><code class="java" data-trim data-noescape>
     class CropSquareTransformation implements BitmapTransformation  {
       @Override 
       Bitmap transform(BitmapPool pool, Bitmap toTransform, 
@@ -199,6 +200,9 @@
       //just for cache options
       public String getId() { return "square()"; }
     }
+
+</code></pre>
+</div>
 
 ---
 
