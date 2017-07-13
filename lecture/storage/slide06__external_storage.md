@@ -24,9 +24,9 @@
 <!-- .element: class="fragment" data-fragment-index="1" -->
 
 <pre><code class="java large" data-trim data-noescape>
-<uses-permission
+&lt;uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-<uses-permission
+&lt;uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 </code></pre>
 
@@ -34,11 +34,11 @@
 
 <br>
 
-<blockquote class="noveo-warn">
-*Caution!*
-Файлы могут быть перезаписаны, удалены или недоступны!
-</blockquote/>
-<!-- .element: class="fragment" data-fragment-index="2" -->
+
+>*Caution!*
+>Файлы могут быть перезаписаны, удалены или недоступны!
+
+<!-- .element: class="noveo-warn fragment" data-fragment-index="2" -->
 
 <img style="float: right" src="lecture/storage/img/external_storage.png">
 

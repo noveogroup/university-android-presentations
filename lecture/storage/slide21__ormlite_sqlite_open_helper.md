@@ -38,11 +38,10 @@ public void onCreate(SQLiteDatabase database, ConnectionSource connectionSource)
 </code></pre>
 
 
-<blockquote class="noveo-info">
-`TableUtils`: `createTable()`, `clearTable()`, `dropTable()`
-</blockquote>
 
-<!-- .element: class="fragment" data-fragment-index="1" -->
+>`TableUtils`: `createTable()`, `clearTable()`, `dropTable()`
+
+<!-- .element: class="noveo-info fragment" data-fragment-index="1" -->
 
 <br>
 

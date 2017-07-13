@@ -18,9 +18,9 @@
 
 <pre><code class = "java large" data-trim data-noescape>
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
-    private Dao<Customer, Long> customerDao;
+    private Dao&lt;Customer, Long> customerDao;
     
-    public Dao<Customer, Long> getCustomerDao() throws SQLException {
+    public Dao&lt;Customer, Long> getCustomerDao() throws SQLException {
             if (customerDao == null) {
                 customerDao = getDao(Customer.class);
             }
@@ -41,9 +41,9 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
 <pre><code class = "java large" data-trim data-noescape>
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
-    private RuntimeExceptionDao<Customer, Long> customerRuntimeDao;
+    private RuntimeExceptionDao&lt;Customer, Long> customerRuntimeDao;
 
-    public RuntimeExceptionDao<Customer, Long> getCustomerRuntimeDao() {
+    public RuntimeExceptionDao&lt;Customer, Long> getCustomerRuntimeDao() {
         if (customerRuntimeDao == null) {
             customerRuntimeDao = getRuntimeExceptionDao(Customer.class);
         }

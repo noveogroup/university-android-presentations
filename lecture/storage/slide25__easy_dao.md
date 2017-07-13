@@ -28,7 +28,7 @@ cursor.close();
 Теперь всё стало проще!
 
 <pre><code class = "java large" data-trim data-noescape>
-List<Customer> customers = customerDao.queryForAll();
+List&lt;Customer> customers = customerDao.queryForAll();
 </code></pre>
 
 <img style="float: right" src="lecture/storage/img/happy_droid.png">
