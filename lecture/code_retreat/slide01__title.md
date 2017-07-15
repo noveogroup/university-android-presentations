@@ -5,12 +5,8 @@
 <!-- .slide:    class="center noveo-title" -->
 <!-- .slide:    data-transition="convex" -->
 
-# Storage
+# Code Retreat
 
 <!-- .element: style="width: 60%" -->
 
 <hr class="title-separator"/>
-
-## автор:
-
-Варвара Руденко
