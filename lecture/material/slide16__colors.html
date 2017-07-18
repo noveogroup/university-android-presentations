@@ -1,0 +1,60 @@
+<h1>Colors</h1>
+
+<div class="half-left">
+    <p>Material colors — набор рекомендованных к использованию цветов. Для подбора палитры можно использовать <a
+            target="_blank"
+            href="https://material.io/color/#!/?view.left=0&view.right=0">Color Tool</a>.
+    </p>
+</div>
+
+<div class="half-right center-horizontal">
+    <img src="lecture/material/img/color_tool_palette.png">
+</div>
+
+------
+
+
+<h1>Colors</h1>
+
+Задаются в <code>colors.xml</code>
+
+<div>
+<pre>
+    <code class="xml large" data-trim data-noescape>
+        &lt;color name="primary">#009688&lt;/color>
+        &lt;color name="primary_dark">#00796B&lt;/color>
+        &lt;color name="primary_light">#B2DFDB&lt;/color>
+        &lt;color name="accent">#FF7043&lt;/color>
+        &lt;color name="primary_text">#212121&lt;/color>
+        &lt;color name="secondary_text">#757575&lt;/color>
+    </code></pre>
+</div>
+
+------
+
+<h1>Themes</h1>
+
+В <code>styles.xml</code>
+
+<div>
+<pre>
+    <code class="xml large" data-trim data-noescape>
+    &lt;style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        &lt;item name="actionBarStyle">@style/ThemeOverlay.AppCompat.Light&lt;/item>
+        &lt;item name="colorPrimary">@color/primary&lt;/item>
+        &lt;item name="colorPrimaryDark">@color/primary_dark&lt;/item>
+        &lt;item name="colorAccent">@color/accent&lt;/item>
+        &lt;item name="android:textColor">@color/primary_text&lt;/item>
+        &lt;item name="android:textColorSecondary">@color/secondary_text&lt;/item>
+    &lt;/style>
+    </code></pre>
+</div>
+
+------
+
+<h1>Theme Editor</h1>
+
+<div class="center-horizontal">
+    <img src="lecture/material/img/theme_editor.png">
+</div>
+

@@ -53,6 +53,16 @@
     margin-right: 0.5%;
   }
 
+  div.third-center-right {
+    width: 63%;
+    float: right;
+    position: relative;
+    padding-right: 0.25rem;
+    padding-left: 0.25rem;
+    margin-left: 0.25%;
+    margin-right: 0.5%;
+  }
+
   div.third-left {
     width: 31.5%;
     float: left;
@@ -161,7 +171,7 @@ ul.table-of-content {
     float: left;
     width: 0;
     white-space: nowrap;
-    content:". . . . . . . . . . . . . . . . . . . . "". . . . . . . . . . . . . . . . . . . . "". . . . . . . . . . . . . . . . . . . . "". . . . . . . . . . . . . . . . . . . . "
+    content: ". . . . . . . . . . . . . . . . . . . . "". . . . . . . . . . . . . . . . . . . . "". . . . . . . . . . . . . . . . . . . . "". . . . . . . . . . . . . . . . . . . . "
   }
 
   li.nested:before {
