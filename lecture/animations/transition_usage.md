@@ -5,7 +5,7 @@
 
     TransitionManager.go(mEndingScene, mFadeTransition);
 
-1. Вне сцен
+2. Вне сцен
     
 
     TransitionManager.beginDelayedTransition(mRootView, mFade); 

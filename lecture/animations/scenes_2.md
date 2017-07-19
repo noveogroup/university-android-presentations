@@ -7,10 +7,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
         
-        <View
-        android:width="10dp"
-            android:height="10dp"
-            android:id="@+id/view1 />
+        <View 
+            android:id="@+id/view1
+            android:width="10dp"
+            android:height="10dp" />
     </RelativeLayout>
 
 сцена 2
@@ -20,5 +20,4 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
         android:width="100dp"
-        android:height="100dp"
-        android:id="@+id/view1 />
+        android:height="100dp" />

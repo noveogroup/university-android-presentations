@@ -9,4 +9,4 @@
     Transition mFadeTransition = TransitionInflater.from(this).
         inflateTransition(R.transition.fade_transition);
 
-1. Создать из кода Transition mFadeTransition = new Fade();
+3. Создать из кода Transition mFadeTransition = new Fade();
