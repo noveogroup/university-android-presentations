@@ -1,0 +1,450 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+      <title>Geolocation</title>
+      <link rel="stylesheet" href="css/reveal.css">
+      <!--slide style-->
+      <link rel="stylesheet" href="css/theme/noveo.css" id="theme">
+      <!--noveo theme-->
+      <link rel="stylesheet" href="lib/css/magula.css">
+      <!--code highlight-->
+   </head>
+   <body>
+      <div id="hidden" style="display: none">
+         <div id="overlay">
+            <div id="header-left"></div>
+            <div id="header-right"></div>
+            <div id="footer-right"></div>
+         </div>
+      </div>
+      <div class="reveal">
+         <div class="slides">
+            <!--positioning content-->
+            <section data-background-color="#fff"
+               data-background-image="css/theme/img/background_title.svg"
+               data-background-position="right bottom"
+               data-background-size="16.2em 15.5em"
+               class="center noveo-title"
+               data-transition="convex">
+               <h1>Geolocation</h1>
+               <div class="title-separator"></div>
+               <h2>автор:</h2>
+               <p>Алексей Литвинов</p>
+            </section>
+            <section class="center center-horizontal">
+               <h2>Location providers</h2>
+            </section>
+            <section class="center center-horizontal">
+               <h2>Location providers</h2>
+               <ul>
+                  <li class="fragment" data-fragment-index="1">Network provider</li>
+                  <li class="fragment" data-fragment-index="2">GPS provider</li>
+                  <li class="fragment" data-fragment-index="3">Fused location provider</li>
+               </ul>
+            </section>
+            <section class="center center-horizontal">
+               <h2>Basic location providers</h2>
+            </section>
+            <section class="center center-horizontal">
+               <h2>AndroidManifest.xml</h2>
+               <pre class="fragment" data-fragment-index="1"><code data-trim data-noescape>
+				&lt;manifest...&gt;
+					&lt;!-- For network provider --&gt;
+					&lt;uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /&gt;
+					&lt;uses-permission android:name="android.permission.INTERNET" /&gt;
+					
+					&lt;!-- For GPS provider --&gt;
+					&lt;uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /&gt; 				   
+				&lt;/manifest&gt;
+			</code></pre>
+            </section>
+            <section class="center center-horizontal">
+               <h2>Somewhere in your app</h2>
+               <pre class="fragment" ><code class="normal" data-trim data-noescape>
+				locationManager = (LocationManager) context
+                    .getSystemService(Context.LOCATION_SERVICE);
+					
+				isGPSEnabled = locationManager
+                    .isProviderEnabled(LocationManager.GPS_PROVIDER);
+                </code></pre>
+            </section>
+            <section class="center center-horizontal">
+               <h2>Somewhere in your app</h2>
+               <pre class="fragment" data-fragment-index="1"><code class="normal" data-trim data-noescape>
+				locationManager.requestLocationUpdates(
+                                LocationManager.GPS_PROVIDER,
+                                MIN_TIME_BETWEEN_UPDATES,
+                                MIN_DISTANCE_CHANGE_FOR_UPDATES,
+                                locationListener);
+				...
+				
+				locationManager.removeLocationUpdates(locationListener);
+                </code></pre>
+            </section>
+            <section class="center center-horizontal">
+               <h2>Somewhere in your app</h2>
+               <pre class="fragment" data-fragment-index="1"><code class="normal" data-trim data-noescape>
+				String getProviderName() {
+				    LocationManager locationManager = (LocationManager) this
+						.getSystemService(Context.LOCATION_SERVICE);
+ 
+					Criteria criteria = new Criteria();
+					criteria.setPowerRequirement(Criteria.POWER_LOW);
+					criteria.setAccuracy(Criteria.ACCURACY_FINE);
+					criteria.setSpeedRequired(true);
+					criteria.setAltitudeRequired(false);
+					criteria.setBearingRequired(false); 
+					criteria.setCostAllowed(false);
+				 
+					return locationManager.getBestProvider(criteria, true);
+				}
+                </code></pre>
+            </section>
+            <section class="center center-horizontal">
+               <h2>LocationListener</h2>
+               <pre class="fragment"><code class="normal" data-trim data-noescape>			 
+				@Override
+				public void onProviderDisabled(String provider) {
+				}
+			 
+				@Override
+				public void onProviderEnabled(String provider) {
+				}
+			 
+				@Override
+				public void onStatusChanged(String provider, int status, Bundle extras) {
+				}
+				
+				@Override
+				public void onLocationChanged(Location location) {
+				}
+                </code></pre>
+            </section>
+            <section class="center center-horizontal">
+               <h2>Location class</h2>
+               <ul>
+                  <li class="fragment" data-fragment-index="1">getProvider()</li>
+                  <li class="fragment" data-fragment-index="2">getLatitude()</li>
+                  <li class="fragment" data-fragment-index="3">getTime()</li>
+                  <li class="fragment" data-fragment-index="4">hasAltitude()/getAltitude()</li>
+                  <li class="fragment" data-fragment-index="5">getAccuracy()</li>
+               </ul>
+            </section>
+            <section class="center center-horizontal">
+               <h2>Location accuracy</h2>
+               <div class="half-left"  class="fragment">
+                  <ul>
+                     <li class="fragment" data-fragment-index="1">240</li>
+                     <li class="fragment" data-fragment-index="2">10</li>
+                     <li class="fragment" data-fragment-index="3">260</li>
+                     <li class="fragment" data-fragment-index="4">50</li>
+                  </ul>
+               </div>
+               <div class="half-left">
+                  <img src="https://typingzandi.files.wordpress.com/2009/11/blue-circle.png" width="70%" height="auto" class="fragment" data-fragment-index="5">
+               </div>
+            </section>
+            <section class="center center-horizontal">
+               <h2>Fused location provider</h2>
+            </section>
+            <section class="center center-horizontal">
+               <h2>build.gradle</h2>
+               <pre><code data-trim data-noescape>
+				dependencies {
+					compile 'com.google.android.gms:play-services:9.2.0'
+					compile 'com.google.android.gms:play-services-location:9.2.0'
+				}
+			</code></pre>
+            </section>
+            <section class="center center-horizontal">
+               <h2>Somewhere in the app</h2>
+               <pre><code class="normal" data-trim data-noescape>			 
+					GoogleApiClient googleApiClient  = new GoogleApiClient.Builder(context)
+						.addConnectionCallbacks(connectionCallbacks)
+						.addOnConnectionFailedListener(connectionFailedListener)
+						.addApi(LocationServices.API)
+						.build();
+						
+					googleApiClient.connect();
+			</code></pre>
+            </section>
+            <section class="center center-horizontal">
+               <h2>GoogleApiClient.OnConnectionFailedListener</h2>
+               <pre><code class="normal" data-trim data-noescape>			 
+					connectionFailedListener = new GoogleApiClient.OnConnectionFailedListener() {
+					
+						@Override
+						public void onConnectionFailed(ConnectionResult connectionResult) {
+							if (connectionResult.hasResolution()) {
+								try {
+									connectionResult.startResolutionForResult(context, CONNECTION_FAILURE_RESOLUTION_REQUEST);
+								} catch (IntentSender.SendIntentException e) {
+									e.printStackTrace();
+								}
+							} else {
+								log.error("sadness =(")
+							}
+						}
+					}
+			</code></pre>
+            </section>
+            <section class="center center-horizontal">
+               <h2>GoogleApiClient.ConnectionCallbacks</h2>
+               <pre><code class="normal" data-trim data-noescape>			 
+					connectionCallbacks = new GoogleApiClient.ConnectionCallbacks() {
+						public void onConnected (Bundle connectionHint) {
+							LocationServices.FusedLocationApi.requestLocationUpdates(googleApiClient, getLocationRequest(), this);							
+						}
+						
+						public abstract void onConnectionSuspended (int cause) {
+						
+						}
+					}
+			</code></pre>
+            </section>
+            <section class="center center-horizontal">
+               <h2>Location Request</h2>
+               <pre><code class="normal" data-trim data-noescape>			 
+					private LocationRequest getLocationRequest() {
+						LocationRequest locationRequest = new LocationRequest();
+
+						locationRequest.setInterval(UPDATE_INTERVAL_IN_MILLISECONDS);
+						locationRequest.setFastestInterval(FASTEST_UPDATE_INTERVAL_IN_MILLISECONDS);
+						locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+						
+						return locationRequest;
+					}
+			</code></pre>
+            </section>
+            <section class="center center-horizontal">
+               <h2>Google maps</h2>
+            </section>
+            <section class="center center-horizontal">
+               <h2>build.gradle</h2>
+               <pre><code data-trim data-noescape>
+				dependencies {
+					compile com.google.android.gms:play-services-maps:11.0.2
+				}
+			</code></pre>
+            </section>
+            <section class="center center-horizontal">
+               <h2>AndroidManifest.xml</h2>
+               <pre><code data-trim data-noescape>
+				&lt;manifest...&gt;
+					&lt;meta-data
+					   android:name="com.google.android.maps.v2.API_KEY"
+					   android:value="AIzaSyDKymeBXNeiFWY5jRUejv6zItpmr2MVyQ0" /&gt;			   
+				&lt;/manifest&gt;
+			</code></pre>
+            </section>
+            <section class="center center-horizontal">
+               <h2>layout.xml</h2>
+               <pre><code data-trim data-noescape>
+				&lt;fragment
+					android:id="@+id/map"
+					android:name="com.google.android.gms.maps.MapFragment"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"/&gt;
+			</code></pre>
+            </section>
+            <section class="center center-horizontal">
+               <h2>MyActivity.java</h2>
+               <pre><code data-trim data-noescape>
+				private GoogleMap map;
+			
+				@Override
+				protected void onCreate(Bundle savedInstanceState) {
+					super.onCreate(savedInstanceState);
+					setContentView(R.layout.layout);
+					SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+							.findFragmentById(R.id.map);
+					mapFragment.getMapAsync(new OnMapReadyCallback() {
+					
+						@Override
+						onMapReady(GoogleMap googleMap) {
+							map = googleMap;
+						}
+					});
+				}
+			</code></pre>
+            </section>
+            <section class="center center-horizontal">
+               <img src="https://www.androidhive.info/wp-content/uploads/2013/08/android-google-maps.jpg" width="30%" height="auto">
+            </section>
+            <section class="center center-horizontal">
+               <h2>Map types</h2>
+               <pre><code data-trim data-noescape>
+				map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+				map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+				map.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+				map.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+			</code></pre>
+            </section>
+            <section class="center center-horizontal">
+               <img src="https://www.androidhive.info/wp-content/uploads/2013/08/androd-google-maps-changing-map-type.jpg" width="30%" height="auto">
+            </section>
+            <section class="center center-horizontal">
+               <h2>Other tweaks</h2>
+               <pre><code data-trim data-noescape>
+				map.setMyLocationEnabled(true); 
+				
+				map.getUiSettings().setZoomControlsEnabled(false); 
+				map.getUiSettings().setZoomGesturesEnabled(false);
+				map.getUiSettings().setCompassEnabled(true);
+				map.getUiSettings().setMyLocationButtonEnabled(true);
+				map.getUiSettings().setRotateGesturesEnabled(true);
+			</code></pre>
+            </section>
+            <section class="center center-horizontal">
+               <h2>Camera animation</h2>
+               <pre><code data-trim data-noescape>
+				private void animateToLocation(Location location) {
+					CameraPosition cameraPosition = new CameraPosition.Builder()
+					.target(new LatLng(location.getAltitude(), location.getLongitude()))
+					.zoom(12)//0 == 256dp
+					.build();
+	 
+					map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+				}
+			</code></pre>
+            </section>
+            <section class="center center-horizontal">
+               <h2>Adding a marker</h2>
+               <pre><code data-trim data-noescape>
+				private Marker addMarker(Location location) {		
+					MarkerOptions marker = new MarkerOptions()
+						.position(new LatLng(location.getLatitude(), location.getLongitude()))
+						.title("Marker");
+					
+					marker.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ROSE));
+					//marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.my_marker_icon)));
+					//marker.icon(BitmapDescriptorFactory.fromAsset(R.drawable.my_marker_icon)));
+					//marker.icon(BitmapDescriptorFactory.fromBitmap R.drawable.my_marker_icon)));
+					//marker.icon(BitmapDescriptorFactory.fromFile (R.drawable.my_marker_icon)));
+										 
+					return googleMap.addMarker(marker);
+				}
+			</code></pre>
+            </section>
+            <section class="center center-horizontal">
+               <img src="https://www.androidhive.info/wp-content/uploads/2013/08/google-maps-v2-placing-a-marker.jpg" width="30%" height="auto">
+            </section>
+            <section class="center center-horizontal">
+               <h2>Dragging a marker</h2>
+               <pre><code data-trim data-noescape>
+				map.setOnMarkerDragListener(new GoogleMap.OnMarkerDragListener() {
+
+					@Override
+					public void onMarkerDragStart(Marker marker) {
+					}
+
+					@Override
+					public void onMarkerDragEnd(Marker marker) {
+						map.animateCamera(CameraUpdateFactory.newLatLng(marker.getPosition()));
+
+					}
+
+					@Override
+					public void onMarkerDrag(Marker marker) {
+					}
+
+				});
+			</code></pre>
+            </section>
+            <section class="center center-horizontal">
+               <h2>Adding a polyline</h2>
+               <pre><code data-trim data-noescape>
+				private Polyline addPolyline() {
+					PolylineOptions options = new PolylineOptions()
+						.clickable(true)
+						.add(
+						new LatLng(-35.016, 143.321),
+						new LatLng(-34.747, 145.592),
+						new LatLng(-34.364, 147.891),
+						new LatLng(-33.501, 150.217),
+						new LatLng(-32.306, 149.248),
+						new LatLng(-32.491, 147.309)));
+						
+					map.addPolyline(options);
+				}
+			</code></pre>
+            </section>
+            <section class="center center-horizontal">
+               <h2>Google maps APIs</h2>
+            </section>
+            <section class="center center-horizontal">
+               <h2>Google directions API</h2>
+               <p>http://maps.googleapis.com/maps/api/directions/outputFormat?parameters</p>
+               <div class="half-left"  class="fragment" data-fragment-index="1">
+                  <p>outputFormat: [json|xml]</p>
+               </div>
+               <div class="half-right"  class="fragment" data-fragment-index="2">
+				  <p>Parameters</p>
+                  <ul>
+                     <li class="fragment" data-fragment-index="3">origin</li>
+                     <li class="fragment" data-fragment-index="3">destination</li>
+                     <li class="fragment" data-fragment-index="3">key</li>
+                     <li class="fragment" data-fragment-index="4">mode: [driving|walking|bicycling|transit]</li>
+                     <li class="fragment" data-fragment-index="5">waypoints</li>
+                     <li class="fragment" data-fragment-index="6">alternatives </li>
+                     <li class="fragment" data-fragment-index="7">avoid: [tolls|highways|ferries|indoor]</li>
+                     <li class="fragment" data-fragment-index="8">arrivalTime</li>
+                     <li class="fragment" data-fragment-index="9">departureTime</li>
+                  </ul>
+               </div>
+            </section>
+            <section class="center center-horizontal">
+               <h2>Other APIs</h2>
+               <ul>
+                  <li class="fragment" data-fragment-index="1">Google Maps Geocoding API - преобразование адресов и географических координат.</li>
+                  <li class="fragment" data-fragment-index="2">Google Places API Web Service - подсказки заведений/мест.</li>
+                  <li class="fragment" data-fragment-index="3">Google Maps Elevation API - данные о высоте для любой точки мира.</li>
+                  <li class="fragment" data-fragment-index="4">Google Maps Directions API - расчет маршрутов между различными точками.</li>
+                  <li class="fragment" data-fragment-index="5">Google Maps Directions API - расчет маршрутов между различными точками.</li>
+                  <li class="fragment" data-fragment-index="6">Google Maps Roads API - функция привязки к дорогам для точного отслеживания пути по GPS. </li>
+                  <li class="fragment" data-fragment-index="7">Google Maps Time Zone API - информация о часовом поясе для любой точки мира.</li>
+                  <li class="fragment" data-fragment-index="8">Google Maps Geolocation API - поиск местоположения на основе информации, передаваемой по сотовой связи и Wi-Fi.</li>
+                  <li class="fragment" data-fragment-index="9">Google Maps Distance Matrix API - время в пути и расстояния между разными точками.</li>
+               </ul>
+            </section>
+            <section>
+               <h2>Дополнительные ссылки</h2>
+               <h4>Location retrieval</h4>
+               <ul>
+                  <li>
+                     <p><a href="https://developer.android.com/training/location/index.html">Making Your App Location-Aware</a></p>
+                  </li>
+                  <li>
+                     <p><a href="https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderApi">FusedLocationProviderApi</a></p>
+                  </li>
+               </ul>
+               <h4>Maps</h4>
+               <ul>
+                  <li>
+                     <p><a href="https://developer.android.com/training/maps/index.html">Adding maps</a></p>
+                  </li>
+                  <li>
+                     <p><a href="https://developers.google.com/maps/documentation/android-api/">Google Maps Android API v2 </a></p>
+                  </li>
+               </ul>
+               <h4>Map APIs</h4>
+               <ul>
+                  <li>
+                     <p><a href="https://developers.google.com/maps/web-services/">Google maps API: Web services</a></p>
+                  </li>
+               </ul>
+            </section>
+         </div>
+      </div>
+      <script src="lib/js/head.min.js"></script>      <!--HeadJS functions-->
+      <script src="js/reveal.js"></script>            <!--RevealJS functions-->
+      <script src="js/config.js"></script>            <!--RevealJS config-->
+      <script src="lib/js/jquery-3.2.1.min.js"></script>
+      <script src="js/printpdf.js"></script>
+   </body>
+</html>
+Reveal.initialize({
+	center: true
+})
