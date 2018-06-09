@@ -71,39 +71,21 @@
         </section>
         <section class="center center-horizontal">
             <h2>RecyclerView.ViewHolder</h2>
-            <div class="half-left">
-                <pre class="fragment" data-fragment-index="1"><code class="normal" data-trim data-noescape>
-                    class ViewHolder extends RecyclerView.ViewHolder {
-                        ImageView avatar;
-                        TextView userName;
-                        RatingBar userRating;
-
-                        public ViewHolder(View itemView) {
-                            super(itemView);
-                            avatar = (ImageView) 
-                                itemView.findViewById(R.id.avatar);
-                            ...
+            <pre><code class="normal" data-trim data-noescape>
+                class DemoViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+    
+                    fun bind (item: SomeModel) {
+                        view.apply {
+                            titleView.text = item.title
+                            Glide.with(context)
+                                .load(item.userPhoto)
+                                .into(photoView)
+                            someView.visibility = if (item.shouldBeVisible) View.VISIBLE else View.GONE
                         }
                     }
-                </code></pre>
-            </div>
-            <div class="half-right">
-                <pre class="fragment" data-fragment-index="2"><code class="normal" data-trim data-noescape>
-                    class ViewHolder extends RecyclerView.ViewHolder {
-                        @BindView(R.id.avatar)
-                        ImageView avatar;
-                        @BindView(R.id.user_name)
-                        TextView userName;
-                        @BindView(R.id.user_rating)
-                        RatingBar userRating;
-
-                        public ViewHolder(View itemView) {
-                            super(itemView);
-                            ButterKnife.bind(this, itemView);
-                        }
-                    }
-                </code></pre>
-            </div>
+                    
+                }
+            </code></pre>
         </section>
         <section class="center center-horizontal">
             <h2>RecyclerView. Refresh data</h2>
@@ -132,15 +114,15 @@
         <section class="center center-horizontal">
             <h2>RecyclerView. DiffUtil</h2>
             <pre><code class="normal" data-trim data-noescape>
-                DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new DiffUtil.Callback() {
-                    public int getOldListSize();
-                    public int getNewListSize();
-                    public boolean areItemsTheSame(int oldItemPosition, int newItemPosition);
-                    public boolean areContentsTheSame(int oldItemPosition, int newItemPosition);
+                DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(object : DiffUtil.Callback() {
+                    override fun getOldListSize(): Int
+                    override fun getNewListSize(): Int
+                    override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean
+                    override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean
                 }
 
-                adapter.setItems(spotDatas);
-                diffResult.dispatchUpdatesTo(adapter);
+                adapter.items = newItems
+                diffResult.dispatchUpdatesTo(adapter)
             </code></pre>
         </section>
         <section class="center center-horizontal">
@@ -167,8 +149,7 @@
             <p>In Kotlin:</p>
             <pre><code class="normal" data-trim data-noescape>
                 class DemoViewHolder(val view: View,
-                                    private val clickListener: (Int) -> Unit) : 
-                                RecyclerView.ViewHolder(view) {
+                                    private val clickListener: (Int) -> Unit) : RecyclerView.ViewHolder(view) {
     
                     fun bind (item: String) {
                         //do some bindings
@@ -192,20 +173,17 @@
             <h2>RecyclerView</h2>
             <p>Использование RecyclerView</p>
             <pre><code class="normal" data-trim data-noescape>
-                final RecyclerView recycler; //init it
-                final MyAwesomeAdapter adapter = new MyAwesomeAdapter(getItems());
+                override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+                    super.onViewCreated(view, savedInstanceState)
 
-                recycler.setLayoutManager(new LinearLayoutManager(getContext()));
-
-                recycler.addItemDecoration(new ImageDecorator());
-                recycler.addItemDecoration(new TextDecorator());
-                recycler.addItemDecoration(new VerticalSpaceDecorator(20));
-
-                recycler.setAdapter(adapter);
-
-                ItemClickSupport.addTo(recycler)
-                    .setOnItemClickListener((recyclerView, position, v) -> 
-                        Log.d("OnItemClick", "Item click: " + position));
+                    recyclerView.apply {
+                        layoutManager = LinearLayoutManager(context)
+                        addItemDecoration(ImageDecorator())
+                        addItemDecoration(TextDecorator())
+                        addItemDecoration(VerticalSpaceDecorator(20))
+                        adapter = MyAwesomeAdapter(items) { handleItemClick(it) }
+                    }
+                }
             </code></pre>
         </section>
         <section>
