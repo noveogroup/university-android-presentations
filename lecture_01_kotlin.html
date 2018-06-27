@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Java Lecture</title>
+    <title>Kotlin Lecture</title>
 
     <link rel="stylesheet" href="css/reveal.css">                    <!--slide style-->
     <link rel="stylesheet" href="css/theme/noveo.css" id="theme">    <!--noveo theme-->
@@ -36,26 +36,30 @@
 </div>
 <div class="reveal">
     <div class="slides">
-        <section data-background-color="#fff"
+        <section data-background-size="16.2em 15.5em"
+                 data-background-color="#fff"
                  data-background-image="css/theme/img/background_title.svg"
                  data-background-position="right bottom"
-                 data-background-size="16.2em 15.5em"
                  class="center noveo-title"
                  data-transition="convex">
-            <h1>Java</h1>
-            <div class="title-separator"></div>
-            <h3>Маличенко Сергей</h3>
+            <h1>Kotlin — часть 1, синтаксис</h1>
+            <hr class="title-separator"/>
+
+            <h2>автор:</h2>
+
+            Александр Вайцеховский
         </section>
         <section>
             <div>
                 <h1 style="text-align:center">Введение</h1>
-                <b>Java – </b> объектно-ориентированный язык программирования,
-                разработанный компанией Sun Microsystems (в последующем приобретённой
-                компанией Oracle).
-                <p class="fragment" data-fragment-index="1">Как используется Java у нас:</p>
+                <b>Kotlin – </b> Статически типизированный объектно-ориентированный язык программирования.
                 <ul>
-                    <li class="fragment" data-fragment-index="1">Java Enterprise Edition</li>
-                    <li class="fragment" data-fragment-index="2">Android</li>
+                    <li>язык общего назначения</li>
+                    <li>работает поверх JVM</li>
+                    <li>совместим с Java</li>
+                    <li>может компилироваться в другие языки</li>
+                    <li>позиционируется как замена Java</li>
+                    <li>разрабатывается JetBrains и хорошо поддерживается в IDE</li>
                 </ul>
             </div>
         </section>
@@ -63,10 +67,26 @@
             <div>
                 <h2>Что необходимо для старта</h2>
                 <ul>
+                    <li class="fragment" data-fragment-index="2"><a href="https://www.jetbrains.com/idea/" target="_blank">Intelij Idea IDE</a></li>
                     <li class="fragment" data-fragment-index="1"><a
                             href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank">JDK 8</a></li>
-                    <li class="fragment" data-fragment-index="2"><a href="https://www.jetbrains.com/idea/" target="_blank">Intelij Idea IDE</a></li>
                 </ul>
+            </div>
+        </section>
+        <section>
+            <div>
+                <h1>План</h1>
+                <ol>
+                    <li>Синтаксис языка</li>
+                    <li>Строки</li>
+                    <li>Null safety</li>
+                    <li>Функции и методы</li>
+                    <li>Классы</li>
+                    <li>Наследование</li>
+                    <li>Лямбды</li>
+                    <li>Коллекции</li>
+                    <li>Циклы</li>
+                </ol>
             </div>
         </section>
         <section>
