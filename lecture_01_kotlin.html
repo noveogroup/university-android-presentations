@@ -66,41 +66,93 @@
         <section>
             <div>
                 <h2>Что необходимо для старта</h2>
-                <ul>
-                    <li class="fragment" data-fragment-index="1">
+                <ul class="fragment" data-fragment-index="1">
+                    <li>
                         <a href="https://www.jetbrains.com/idea/" target="_blank">Intelij Idea IDE</a>
-                        <ul class="fragment" data-fragment-index="2">
+                        <ul>
                             <li>или <a href="" target="_blank">Android Studio</a></li>
                         </ul>
                     </li>
-                    <li class="fragment" data-fragment-index="3">
+                    <li>
                         <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank">JDK 8</a>
                     </li>
                 </ul>
 
                 <br><br><br>
 
-                <p class="fragment" data-fragment-index="4">Прописать переменную окружения <code>JAVA_HOME</code></p>
-                <p class="fragment" data-fragment-index="5">И добавить в PATH<code>=%JAVA_HOME%\bin</code></p>
-                <a class="fragment" data-fragment-index="6" href="https://www.java.com/ru/download/help/path.xml" target="_blank">Как настроить PATH</a>
+                <div class="fragment" data-fragment-index="2">
+                    <p>Прописать переменную окружения <code>JAVA_HOME</code></p>
+                    <p>И добавить в PATH<code>=%JAVA_HOME%\bin</code></p>
+                    <a href="https://www.java.com/ru/download/help/path.xml" target="_blank">Как настроить PATH</a>
+                </div>
             </div>
         </section>
         <section>
             <div>
                 <h1>План</h1>
                 <a href="https://kotlinlang.org/docs/reference/basic-syntax.html">kotlinlang.org/docs/</a>
-                <ol>
-                    <li class="fragment" data-fragment-index="1"><a href="https://kotlinlang.org/docs/reference/basic-syntax.html" target="_blank">Синтаксис языка</a></li>
-                    <li class="fragment" data-fragment-index="2"><a href="https://kotlinlang.org/docs/reference/classes.html" target="_blank">Классы и наследование</a></li>
-                    <li class="fragment" data-fragment-index="3"><a href="https://kotlinlang.org/docs/reference/properties.html" target="_blank">Свойства и поля</a></li>
-                    <li class="fragment" data-fragment-index="4"><a href="https://kotlinlang.org/docs/reference/functions.html" target="_blank">Функции и методы</a></li>
-                    <li class="fragment" data-fragment-index="5"><a href="https://kotlinlang.org/docs/reference/null-safety.html" target="_blank">Null safety</a></li>
-                    <li class="fragment" data-fragment-index="6"><a href="https://kotlinlang.org/docs/reference/basic-types.html#strings" target="_blank">Строки</a></li>
-                    <li class="fragment" data-fragment-index="7"><a href="https://kotlinlang.org/docs/reference/lambdas.html" target="_blank">Лямбды</a></li>
-                    <li class="fragment" data-fragment-index="8"><a href="https://kotlinlang.org/docs/reference/collections.html" target="_blank">Коллекции</a></li>
-                    <li class="fragment" data-fragment-index="9"><a href="https://kotlinlang.org/docs/reference/control-flow.html" target="_blank">Control Flow (циклы, выражения)</a></li>
+                <ol class="fragment" data-fragment-index="1">
+                    <li><a href="https://kotlinlang.org/docs/reference/basic-syntax.html" target="_blank">Синтаксис языка</a></li>
+                    <li><a href="https://kotlinlang.org/docs/reference/classes.html" target="_blank">Классы и наследование</a></li>
+                    <li><a href="https://kotlinlang.org/docs/reference/properties.html" target="_blank">Свойства и поля</a></li>
+                    <li><a href="https://kotlinlang.org/docs/reference/functions.html" target="_blank">Функции и методы</a></li>
+                    <li><a href="https://kotlinlang.org/docs/reference/null-safety.html" target="_blank">Null safety</a></li>
+                    <li><a href="https://kotlinlang.org/docs/reference/basic-types.html#strings" target="_blank">Строки</a></li>
+                    <li><a href="https://kotlinlang.org/docs/reference/lambdas.html" target="_blank">Лямбды</a></li>
+                    <li><a href="https://kotlinlang.org/docs/reference/collections.html" target="_blank">Коллекции</a></li>
+                    <li><a href="https://kotlinlang.org/docs/reference/control-flow.html" target="_blank">Control Flow (циклы, выражения)</a></li>
                 </ol>
             </div>
+        </section>
+        <section data-background-size="30em 15em"
+                 data-background-color="#fff"
+                data-background-image="lecture/java/messy-code.gif"
+                data-background-position="right bottom">
+            <h2>Code Style</h2>
+
+            <h3><a href="http://www.oracle.com/technetwork/java/codeconvtoc-136057.html" target="_blank">Java Code Conventions</a></h3>
+            <h3><a href="https://google.github.io/styleguide/javaguide.html" target="_blank">Google Java Style Guide</a></h3>
+            <h3><a href="https://android.github.io/kotlin-guides/style.html" target="_blank">Kotlin Style Guide</a></h3>
+        </section>
+        <section>
+            <h2>Keymap</h2>
+
+            <h3><a href="https://resources.jetbrains.com/storage/products/intellij-idea/docs/IntelliJIDEA_ReferenceCard.pdf" target="_blank">Intellij IDEA Cheat sheet</a></h3>
+            <h3><a href="https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html" target="_blank">Инструкции для изучения</a></h3>
+            <br><br>
+            <div class="fragment half-left" data-fragment-index="1">
+                <h4>Больше информации об элементе</h4>
+                <ul>
+                    <li><code>Ctrl</code> + <code>P</code> - сигнатура метода</li>
+                    <li><code>Ctrl</code> + <code>Q</code> - документация</li>
+                </ul>
+                <h4 class="fragment" data-fragment-index="2">Перемещение строчек</h4>
+                <ul class="fragment" data-fragment-index="2">
+                    <li><code>Ctrl</code> + <code>Shift</code> + <code>UP/DOWN</code> - смещение строки</li>
+                    <li><code>Ctrl</code> + <code>Shift</code> + <code>J</code> - склеивание строк</li>
+                </ul>
+                <h4 class="fragment half-right" data-fragment-index="3">Меню действий</h4>
+                <ul class="fragment half-right" data-fragment-index="3">
+                    <li><code>Alt</code> + <code>Enter</code> - исправление инспекций</li>
+                    <li><code>Alt</code> + <code>`</code> - VCS</li>
+                </ul>
+            </div>
+            <div class="fragment half-right" data-fragment-index="4">
+                <h4>Рефакторинг</h4>
+                <ul>
+                    <li><code>Ctrl</code> + <code>Alt</code> + <code>V</code><span class="fragment highlight-grey" data-fragment-index="3">(ariable)</span> - вынести переменную</li>
+                    <li><code>Ctrl</code> + <code>Alt</code> + <code>F</code><span class="fragment highlight-grey" data-fragment-index="3">(ield)</span> - вынести поле/свойство</li>
+                    <li><code>Ctrl</code> + <code>Alt</code> + <code>M</code><span class="fragment highlight-grey" data-fragment-index="3">(ethod)</span> - вынести метод</li>
+                </ul>
+                <ul>
+                    <li><code>Shift</code> + <code>F6</code> - переименовать</li>
+                    <li><code>F6</code> - переместить по пакетам - особенно важно для Kotlin</li>
+                </ul>
+            </div>
+        </section>
+        <section class="center">
+            <h1>Лабораторная</h1>
+            <h2><a href="https://github.com/noveogroup/university-android-kotlin-01" target="_blank">Kotlin Task: Сортировка</a></h2>
         </section>
     </div>
 </div>
