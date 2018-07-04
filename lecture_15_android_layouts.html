@@ -32,12 +32,7 @@
             <h2>автор:</h2>
             <p>Распутина Татьяна</p>
         </section>
-        <section data-background-color="#204C71"
-                 data-background-image="lecture/layouts/walls_04.png"
-                 data-background-position="right bottom"
-                 data-background-size="60%"
-                 class="center center-horizontal"
-                 data-transition="slide">
+        <section class="center center-horizontal">
             <h1 class="center-horizontal">План занятия</h1>
             <div class="title-separator"></div>
             <div class="center-horizontal">
@@ -47,7 +42,6 @@
                     <li>Основные View, ViewGroup и их атрибуты</li>
                     <li>Создание View в Runtime</li>
                     <li>Жизненный цикл View</li>
-                    <li>Проблемы неконсистентности и оптимизация UI</li>
                 </ul>
             </div>
         </section>
@@ -174,29 +168,36 @@ android:digits - список допустимых символов</code></pre>
     &lt;item name="android:textColorPrimary">@color/grey&lt;/item>
     &lt;item name="android:textColorHighlight">@color/accent&lt;/item>
 &lt;/style></code></pre>
-                <div class="borders" style="border-color: transparent;">
-                    <div>
-                        <img src="lecture/layouts/theme_vs_style_example_1.png"/>
-                    </div>
-                    <div class="overlap-fragment">
-                        <img src="lecture/layouts/theme_vs_style_example_1.png"/>
-                    </div>
-                    <div class="fragment overlap-fragment" data-fragment-index="1">
-                        <img src="lecture/layouts/theme_vs_style_example_2.png"/>
-                    </div>
-                    <div class="fragment overlap-fragment" data-fragment-index="2">
-                        <img src="lecture/layouts/theme_vs_style_example_3.png"/>
-                    </div>
-                    <div class="fragment overlap-fragment" data-fragment-index="3">
-                        <img src="lecture/layouts/theme_vs_style_example_4.png"/>
-                    </div>
-                </div>
             </div>
             <div class="third-center center-horizontal">
                 <img src="lecture/layouts/theme_example_1.png" width="70%"/>
             </div>
             <div class="third-right center-horizontal">
                 <img src="lecture/layouts/theme_example_2.png" width="70%"/>
+            </div>
+        </section>
+        <section class="center center-horizontal" data-transition="fade">
+            <h1>Themes & Styles</h1>
+            <div class="center-horizontal borders" data-transition="fade">
+                <img src="lecture/layouts/theme_vs_style_example_1.png"/>
+            </div>
+        </section>
+        <section class="center center-horizontal" data-transition="fade">
+            <h1>Themes & Styles</h1>
+            <div class="center-horizontal borders" data-transition="fade">
+                <img src="lecture/layouts/theme_vs_style_example_2.png"/>
+            </div>
+        </section>
+        <section class="center center-horizontal" data-transition="fade">
+            <h1>Themes & Styles</h1>
+            <div class="center-horizontal borders" data-transition="fade">
+                <img src="lecture/layouts/theme_vs_style_example_3.png"/>
+            </div>
+        </section>
+        <section class="center center-horizontal" data-transition="fade">
+            <h1>Themes & Styles</h1>
+            <div class="center-horizontal borders" data-transition="fade">
+                <img src="lecture/layouts/theme_vs_style_example_4.png"/>
             </div>
         </section>
         <section class="center center-horizontal">
@@ -280,7 +281,8 @@ app:layout_constraintCircleRadius="100dp"</code></pre>
             <div class="third-right">
                 <img src="lecture/layouts/positioning_constraints.png" width="100%"/>
             </div>
-            <p><a href="https://developer.android.com/reference/android/support/constraint/ConstraintLayout">ConstraintLayout docs</a></p>
+            <p><a href="https://developer.android.com/reference/android/support/constraint/ConstraintLayout">ConstraintLayout
+                docs</a></p>
         </section>
         <section class="center center-horizontal">
             <h1>Chains & Virtual Helpers objects</h1>
@@ -307,6 +309,63 @@ app:constraint_referenced_ids="button,text_view"</code></pre>
                 <img src="lecture/layouts/chain_types.png" width="100%"/>
                 <img class="fragment" data-fragment-index="2" src="lecture/layouts/barrier_start.png" width="40%"/>
                 <img class="fragment" data-fragment-index="2" src="lecture/layouts/barrier_end.png" width="40%"/>
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1>Переиспользование разметки: &lt;include/> vs &lt;merge/></h1>
+            <div class="half-left">
+                <pre><code class="xml small">&lt;RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+&lt;ImageView
+    android:id="@+id/image_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"/>
+&lt;TextView
+    android:id="@+id/text_view"
+    style="@style/AppTheme.Text.CustomStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_toEndOf="@+id/image_view"/>
+&lt;/RelativeLayout>
+
+&lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:orientation="vertical">
+&lt;TextView
+    android:id="@+id/text_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="TextView"/>
+&lt;include
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    layout="@layout/complex_layout"/>
+&lt;/LinearLayout></code></pre>
+            </div>
+            <div class="half-right center-horizontal">
+                <pre><code class="xml small">&lt;merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:gravity="center"
+    tools:orientation="vertical"
+    tools:parentTag="android.widget.LinearLayout">
+
+    &lt;Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/start"/>
+
+    &lt;Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/stop"/>
+
+&lt;/merge></code></pre>
             </div>
         </section>
         <section class="center center-horizontal">
@@ -381,7 +440,6 @@ app:constraint_referenced_ids="button,text_view"</code></pre>
         </section>
         <section class="center center-horizontal">
             <h1 class="center-horizontal">Жизненный цикл View</h1>
-            <br>
             <div class="half-left">
                 <h2>Measure Pass</h2>
                 <ul>
@@ -440,44 +498,56 @@ app:constraint_referenced_ids="button,text_view"</code></pre>
                     <li>invalidate() - "перерисовывает" View без изменения размеров.</li>
                     <li>requestLayout() - вызов Measure Pass и Layout Pass для всего дерева View.</li>
                     <li>forceLayout() - указывает, что дочернее View обязательно должно быть remeasure и relayout.
-forceLayout() работает только с дочерним View, если он встречается вместе с requestLayout() для его прямого родителя.
-Вызов forceLayout() сам по себе не будет иметь эффекта, поскольку он не вызывает requestLayout().</li>
+                        forceLayout() работает только с дочерним View, если он встречается вместе с requestLayout() для
+                        его прямого родителя.
+                        Вызов forceLayout() сам по себе не будет иметь эффекта, поскольку он не вызывает
+                        requestLayout().
+                    </li>
                 </ul>
-                <p><a href="https://developer.android.com/guide/topics/ui/how-android-draws">How Android Draws Views</a></p>
+                <p><a href="https://developer.android.com/guide/topics/ui/how-android-draws">How Android Draws Views</a>
+                </p>
             </div>
         </section>
         <section class="center center-horizontal">
-            <h1>Проблемы неконсистентности и оптимизация UI</h1>
+            <h1>Summary</h1>
             <br>
             <div class="center-horizontal">
-                <p>TODO: обсуждение, чем опасны кастомные View - потеря состояния</p>
-                <p>TODO: обсуждение, что xml можно переиспользовать через &lt;include/></p>
-                <p>TODO: обсуждение, что вложенных ViewGroup лучше избегать, напоминание о measure pass и layout
-                    pass</p>
+                <h2>Когда создавать Custom View или Compound View?</h2>
+                <ul>
+                    <li>Для создания View с новой, особой функциональностью</li>
+                    <li>Для расширения функциональности системных View/ViewGroup</li>
+                </ul>
+                <h2>Custom View Pitfalls</h2>
+                <ul>
+                    <li>Не создавайте Compound View для реализации своих алгоритмов measure и layout в ViewGroup</li>
+                    <li>Сохранение и восстановление состояния</li>
+                    <li>Каскадный вызов конструкторов View</li>
+                    <li>Освобождение TypedArray после инициализации View</li>
+                </ul>
             </div>
         </section>
         <section>
             <h1>Дополнительные ссылки</h1>
             <br>
             <ul>
-                <li><p><a href="http://developer.android.com/guide/topics/ui/index.html">User Interface</a></p></li>
+                <li><p><a href="http://developer.android.com/reference/android/view/View.html">View</a></p></li>
+                <li><p><a href="https://developer.android.com/guide/topics/ui/how-android-draws">How Android Draws
+                    Views</a></p></li>
+                <li><p><a href="https://developer.android.com/guide/topics/ui/declaring-layout">Layouts</a></p></li>
+                <li><p><a href="https://developer.android.com/reference/android/support/constraint/ConstraintLayout">ConstraintLayout
+                    docs</a></p></li>
                 <li><p><a href="http://developer.android.com/training/best-ui.html">Best Practices for User
                     Interface</a></p></li>
                 <li><p><a href="http://developer.android.com/training/improving-layouts/index.html">Improving Layout
                     Performance</a></p></li>
+                <li><p><a href="http://developer.android.com/training/improving-layouts/optimizing-layout.html">Optimizing
+                    Layout Hierarchies</a></p></li>
                 <li><p><a href="http://developer.android.com/training/custom-views/index.html">Creating Custom Views</a>
                 </p></li>
-                <li><p><a href="http://developer.android.com/reference/android/view/View.html">View</a></p></li>
                 <li><p><a href="http://developer.android.com/guide/topics/ui/custom-components.html">Custom
                     Components</a></p></li>
                 <li><p><a href="http://developer.android.com/guide/topics/resources/drawable-resource.html">Drawable
                     Resources</a></p></li>
-                <li><p><a href="http://developer.android.com/training/improving-layouts/optimizing-layout.html">Optimizing
-                    Layout Hierarchies</a></p></li>
-                <li><p><a href="https://developer.android.com/training/material/lists-cards.html">Creating Lists and
-                    Cards</a></p></li>
-                <li><p><a href="https://www.littlerobots.nl/blog/Handle-Android-RecyclerView-Clicks/">Getting your
-                    clicks on RecyclerView</a></p></li>
             </ul>
         </section>
     </div>
