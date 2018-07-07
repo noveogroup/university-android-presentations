@@ -21,59 +21,82 @@
 </div>
 <div class="reveal">
     <div class="slides">
-        <section data-background-color="#fff"
+        <section data-background-size="16.2em 15.5em"
+                 data-background-color="#fff"
                  data-background-image="css/theme/img/background_title.svg"
                  data-background-position="right bottom"
-                 data-background-size="16.2em 15.5em"
                  class="center noveo-title"
                  data-transition="convex">
-            <h1>Системы управления версиями исходных кодов и начала Git</h1>
-            <div class="title-separator"></div>
-            <h3>Маличенко Сергей</h3>
+            <h1>Git</h1>
+            <hr class="title-separator"/>
+
+            <h2>автор:</h2>
+
+            Александр Вайцеховский
+        </section>
+        <section class="center center-horizontal">
+            <img src="lecture/git/is_this_vcs.jpg" width="45%">
         </section>
         <section>
             <h2>Определения</h2>
-            <span class="fragment" data-fragment-index="1"><b>Система управления версиями (Version Control System, VCS)</b> – система,
-                которая сохраняет изменения файла или файлов во времени. Система управления версиями позволяет хранить несколько версий одного и того
-                же документа, при необходимости возвращаться к более ранним версиям, определять, кто и когда сделал то или иное изменение, и многое
-                другое.</span>
-            <br/>
-            <div class="fragment half-left" data-fragment-index="2">
-                <p><b>Commit ("Коммит")</b> – структура данных, хранящая некоторое фиксированное состояние файлов и дополнительные сведения: дата,
-                    автор, email автора, сообщение и идентификатор коммита, указатели на родителей.</p>
+            <p class="fragment" data-fragment-index="1">
+                <b>Система управления версиями (VCS)</b> – система, которая сохраняет изменения файлов.
+            </p>
+            <div class="fragment highlight-grey" data-fragment-index="7">
+                <ul class="fragment" data-fragment-index="2">Позволяет:
+                    <li>хранить несколько версий одного документа</li>
+                    <li>возвращаться к более ранним версиям</li>
+                    <li>определять, кто и когда внес изменения</li>
+                </ul>
             </div>
-            <div class="fragment half-right" data-fragment-index="3">
-                <p>Что собираемся хранить? <b>Исходный код</b>, т.е. файлы и папки.</p>
+            <br/>
+            <div class="fragment half-left" data-fragment-index="4">
+                <p>
+                    <b>Коммит (Commit)</b> – <span class="fragment highlight-grey" data-fragment-index="7">структура данных, хранящая</span> фиксированное состояние файлов <span class="fragment highlight-grey" data-fragment-index="7">и дополнительные сведения: дата, автор, email автора, сообщение и идентификатор коммита, указатели на родителей.</span>
+                </p>
             </div>
         </section>
         <section>
-            <h2>Типы и примеры VCS</h2>
             <div class="fragment half-left" data-fragment-index="1">
                 <div class="center center-horizontal">
                     <span><b>Централизованные</b> (CVS, Subversion)</span>
+                    <p><br></p>
                     <img src="lecture/git/centralized.png"/>
                 </div>
             </div>
             <div class="fragment half-right" data-fragment-index="2">
                 <div class="center center-horizontal">
                     <span><b>Распределенные</b> (Git, Mercurial, Bazaar)</span>
-                    <img height="auto" width="70%" src="lecture/git/distributed.png"/>
+                    <p><br></p>
+                    <img height="auto" width="65%" src="lecture/git/distributed.png"/>
                 </div>
             </div>
         </section>
         <section>
             <h2>Git</h2>
-            <span>Первая версия вышла 7 апреля 2005 года</span>
-            <br/>
-            <span>Текущая версия 2.13.1 (5 июня 2017)</span>
-            <p class="fragment" data-fragment-index="1"><b>Отличительные черты:</b></p>
-            <ul>
-                <li class="fragment" data-fragment-index="2">Высокая производительность</li>
-                <li class="fragment" data-fragment-index="3">Значительная гибкость использования</li>
-                <li class="fragment" data-fragment-index="4">Полностью распределенный</li>
-                <li class="fragment" data-fragment-index="5">Интеграция со всем, чем можно (Android Studio)</li>
-                <li class="fragment" data-fragment-index="6">OpenSource</li>
-            </ul>
+            <div>
+                <span>Первая версия вышла 7 апреля 2005 года</span>
+                <br/>
+                <span>Текущая версия 2.17 (5 мая 2018)</span>
+            </div>
+            <div class="half-left">
+                <ul>
+                    <li class="fragment" data-fragment-index="1">Высокая производительность</li>
+                    <li class="fragment" data-fragment-index="2">Значительная гибкость использования</li>
+                    <li class="fragment" data-fragment-index="3">Полностью распределенный</li>
+                    <li class="fragment" data-fragment-index="4">Интеграция со всем, чем можно (Android Studio)</li>
+                    <li class="fragment" data-fragment-index="5">OpenSource</li>
+                </ul>
+            </div>
+            <div class="half-right\">
+                <ul>
+                    <li class="fragment" data-fragment-index="6">Низкоуровневый движок</li>
+                    <li class="fragment" data-fragment-index="7">Набор программ на C и sh-скриптов</li>
+                    <li class="fragment" data-fragment-index="8">Diff алгоритм и Merge стратегии</li>
+                    <li class="fragment" data-fragment-index="9">Хранит snapshot всего дерева</li>
+                    <li class="fragment" data-fragment-index="10">OpenSource</li>
+                </ul>
+            </div>
         </section>
         <section>
             <h2>Инициализация репозитория</h2>
@@ -97,7 +120,7 @@
                 <div class="fragment" data-fragment-index="5">
                     <p>Чтобы получить копию удаленного репозитория:</p>
                     <pre><code data-trim data-noescape>
-                        git clone username@host:/path/to/repository
+                        git clone https://{username{:password}}@host/path.git
                     </code></pre>
                 </div>
             </div>
