@@ -291,9 +291,8 @@
 			</code></pre>
             <h4 class="fragment" data-fragment-index="1">Code</h4>
 			<pre class="fragment" data-fragment-index="1"><code data-trim data-noescape>
-				ImageView imageView = ...;
-				imageView.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_cool_icon));//src
-				imageView.setBackgroundResource(R.drawable.ic_cool_icon);//background
+				imageView.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_cool_icon))//src
+				imageView.setBackgroundResource(R.drawable.ic_cool_icon) //background
 			</code></pre>
         </section>
 		<section class="center center-horizontal">
@@ -308,13 +307,7 @@
 			</code></pre>
             <h4  class="fragment" data-fragment-index="1">Code</h4>
 			<pre class="fragment" data-fragment-index="1"><code data-trim data-noescape>
-				View view = ...;
-				view.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.cool_color));
-			</code></pre>
-			<pre class="fragment" data-fragment-index="2"><code data-trim data-noescape>
-				View view = ...;
-				view.setBackgroundColor(Color.RED);
-				view.setBackgroundColor(ContextCompat.getColor(getContext(), android.R.color.red));
+				imageView.setImageDrawable(ColorDrawable(R.color.black))
 			</code></pre>
         </section>
 		<section class="center center-horizontal">
@@ -330,13 +323,12 @@
 			</code></pre>
             <h4  class="fragment" data-fragment-index="2">Code</h4>
 			<pre class="fragment" data-fragment-index="2"><code data-trim data-noescape>
-StateListDrawable stateListDrawable = new StateListDrawable();
+val stateListDrawable = StateListDrawable()
 
-stateListDrawable.addState(new int[]{-android.R.attr.enabled}, ContextCompat.getDrawable(getActivity(), R.drawable.bttn_grey_disabled));
-stateListDrawable.addState(new int[]{android.R.attr.state_pressed}, ContextCompat.getDrawable(getActivity(), R.drawable.bttn_orange_selected));
-stateListDrawable.addState(StateSet.WILD_CARD, ContextCompat.getDrawable(getActivity(), R.drawable.bttn_orange_normal));
+stateListDrawable.addState(intArrayOf(android.R.attr.state_pressed), ContextCompat.getDrawable(context, R.drawable.bttn_orange_selected))
+stateListDrawable.addState(StateSet.WILD_CARD, ContextCompat.getDrawable(context, R.drawable.bttn_orange_normal))
 
-view.setBackground(stateListDrawable);
+view.setBackground(stateListDrawable)
 			</code></pre>
         </section>
 		<section class="center center-horizontal">
@@ -354,10 +346,10 @@ view.setBackground(stateListDrawable);
 			</code></pre>
             <h4  class="fragment" data-fragment-index="2">Code</h4>
 			<pre class="fragment" data-fragment-index="2"><code data-trim data-noescape>
-ShapeDrawable shapeDrawable = new ShapeDrawable(new OvalShape());
+val shapeDrawable = ShapeDrawable(OvalShape())
 
-shapeDrawable.setStroke(context.getResources().getDimension(R.dimen.stroke_width), ContextCompat.getColor(сontext, R.color.stoke_color));
-shapeDrawable.setColor(ContextCompat.getColor(context, R.color.fill_color));
+shapeDrawable.paint.strokeWidth = context.getResources().getDimension(R.dimen.stroke_width)
+shapeDrawable.paint.style = Paint.Style.FILL
 
 view.setBackground(shapeDrawable);
 			</code></pre>
@@ -412,7 +404,6 @@ view.setBackground(shapeDrawable);
 Glide
 	.with(context)
     .load(url)
-    .centerCrop()
     .placeholder(R.drawable.loading_spinner)
     .into(imageView);
 				</code></pre>
@@ -434,7 +425,7 @@ Glide
 		<section class="center center-horizontal">
             <h2>Canvas howto</h2>
             <ul>
-                <li class="fragment" data-fragment-index="1">.moveTo(), .lineTo() — и мы рисуем линии.</li>
+                <li class="fragment" data-fragment-index="1">.drawLine — и мы рисуем линии.</li>
                 <li class="fragment" data-fragment-index="2">.drawBitmap(), drawRect(), drawText()</li>
                 <li class="fragment" data-fragment-index="3">Drawable.draw(Canvas)</li>
                 <li class="fragment" data-fragment-index="4">Используем класс Path, если нам надо нарисовать сложную ломаную или много примитивов, тогда отрисовка будет проходить быстрее.</li>
@@ -447,22 +438,21 @@ Glide
 		<section class="center center-horizontal">
             <h2>onDraw Example</h2>
 			<pre class="fragment" data-fragment-index="1"><code data-trim data-noescape>
-private void init() {
-	redLinePaint = new Paint();
-	redLinePaint.setColor(Color.RED);
-
-	blueCirclePaint = new Paint();
-	blueCirclePaint.setColor(Color.BLUE);
+private val redLinePaint = Paint().apply {
+   color = Color.RED
 }
 
-public void onDraw(Canvas canvas) {	
-	//super.onDraw(canvas);
-	canvas.drawCircle(getWidth()/2, getWidth(), Math.min(getWidth()/2, getHeight()/2, blueCirclePaint);
-	
-	
-	canvas.moveTo(0, 0);
-	canvas.lineTo(getWidth(), getHeight(), redLinePaint);
-	//super.onDraw(canvas);
+private val blueCirclePaint = Paint().apply {
+   color = Color.BLUE
+}
+
+override fun onDraw(canvas: Canvas) {
+   //super.onDraw(canvas)
+
+   canvas.drawCircle(width / 2.0f, width.toFloat(), Math.min(width / 2.0f, height / 2.0f), blueCirclePaint)
+   canvas.drawLine(0.0f,0.0f, width.toFloat(), height.toFloat(), redLinePaint)
+        
+   //super.onDraw(canvas)
 }
 			</code></pre>
         </section>
