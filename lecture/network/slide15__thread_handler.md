@@ -14,3 +14,21 @@ val thread = Thread(Runnable {
 thread.start()
 
 </code></pre>
+
+------
+
+# Thread with Handler
+
+Kotlin-style
+
+<br>
+
+<pre><code class="Kotlin large">
+thread(start = true) {
+    val result = executeSomeFun()
+
+    // Run the result on Main UI Thread
+    Handler(Looper.getMainLooper()).post { showResult(result) }
+}
+
+</code></pre>

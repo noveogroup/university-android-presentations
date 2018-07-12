@@ -11,5 +11,6 @@
 
 <h3 class="center center-horizontal">Multithreading</h3>
 <ul class="table-of-content">
-    <li><a href="#rest">ReST API</a></li>
+    <li><a href="#processes">Процессы</a></li>
+    <li><a href="#threads">Потоки</a></li>
 </ul>   
