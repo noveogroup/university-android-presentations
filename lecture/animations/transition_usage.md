@@ -1,12 +1,12 @@
 ## Использование Transition
 
-1. Сцены
+* Сцены
 
 
-    TransitionManager.go(mEndingScene, mFadeTransition);
+    TransitionManager.go(mEndingScene, mFadeTransition)
 
-2. Вне сцен
+* Вне сцен
     
 
-    TransitionManager.beginDelayedTransition(mRootView, mFade); 
-    mRootView.addView(mLabelText);
+    TransitionManager.beginDelayedTransition(mRootView, mFade) 
+    mRootView.addView(mLabelText)

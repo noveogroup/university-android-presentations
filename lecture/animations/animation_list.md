@@ -8,11 +8,11 @@
 
 ## Код:
 
-    AnimationDrawable mAnimation = new AnimationDrawable(); 
+    val mAnimation: AnimationDrawable = AnimationDrawable()
     // устанавливаем циклическое повторение анимации 
-    mAnimation.setOneShot(false); 
-    mAnimation.addFrame(smile1, 250); 
-    mAnimation.addFrame(smile1, 250);
+    mAnimation.setOneShot(false)
+    mAnimation.addFrame(smile1, 250) 
+    mAnimation.addFrame(smile1, 250)
     
-    AnimationDrawable animation = (AnimationDrawable)image.getBackground(); 
+    AnimationDrawable animation = (AnimationDrawable)image.getBackground()
     animation.start()

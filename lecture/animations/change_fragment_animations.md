@@ -1,5 +1,5 @@
 ## Change Fragment animation
-    ft.setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out);
+    ft.setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out)
 
     <objectAnimator xmlns:android="http://schemas.android.com/apk/res/android"
         android:interpolator="@android:interpolator/accelerate_quad"

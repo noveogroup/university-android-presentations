@@ -12,5 +12,5 @@
 
 ## Код:
 
-    Animation anim = AnimationUtils.loadAnimation(this, R.anim.test);
-    view.startAnimation(anim);
+    val anim: Animation = AnimationUtils.loadAnimation(this, R.anim.test)
+    view.startAnimation(anim)
