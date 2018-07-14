@@ -5,7 +5,7 @@
 <!-- .slide:    class="center noveo-title" -->
 <!-- .slide:    data-transition="convex" -->
 
-# RxJava <span class="fragment" data-fragment-index="1"><span class="fragment highlight-grey" data-fragment-index="1">(RxKotlin)</span></span>
+# Network. Multithreading
 
 <!-- .element: style="width: 60%" -->
 
@@ -13,4 +13,4 @@
 
 ## автор:
 
-Александр Вайцеховский
+Варвара Руденко
