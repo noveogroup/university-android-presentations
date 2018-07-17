@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <meta charset="UTF-8">
+    <title>Storage</title>
+
+    <link rel="stylesheet" href="css/reveal.css">                    <!--slide style-->
+    <link rel="stylesheet" href="css/theme/noveo.css" id="theme">    <!--noveo theme-->
+    <link rel="stylesheet" href="lib/css/magula.css">                <!--code highlight-->
+</head>
+<body>
+<div id="hidden" style="display: none">
+    <div id="overlay">
+        <div id="header-left"></div>
+        <div id="header-right"></div>
+        <div id="footer-right"></div>
+    </div>
+</div>
+<div class="reveal">
+    <div class="slides">
+        <section data-markdown="lecture/storage/slide01_0__intro.md" class="center center-horizontal"></section>
+
+        <section data-markdown="lecture/storage/slide01_1__why.md" class="center center-horizontal"
+                 data-separator-vertical="^\r?\n------\r?\n$"></section>
+
+        <section data-markdown="lecture/storage/slide02__what_to_store.md"></section>
+
+        <section data-markdown="lecture/storage/slide03__storage_options.md"></section>
+
+        <section data-background-color="#699f00" class="center center-horizontal">
+            <h1 class="fragment" data-fragment-index="1">Preferences</h1>
+        </section>
+
+        <section data-markdown="lecture/storage/slide04__shared_prefs.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"
+                 id="storage__shared_preferences"></section>
+
+        <section data-background-color="#699f00" class="center center-horizontal" id="storage__filesystem">
+            <h1 class="fragment" data-fragment-index="1">File Storage</h1>
+        </section>
+
+        <section data-markdown="lecture/storage/slide05__internal_storage.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"
+                 id="storage__filesystem_internal"></section>
+
+        <section data-markdown="lecture/storage/slide06__external_storage.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"
+                 id="storage__filesystem_external">
+
+        </section>
+
+        <section data-background-color="#699f00" class="center center-horizontal">
+            <h1 class="fragment" data-fragment-index="1">Database</h1>
+        </section>
+
+        <section data-markdown="lecture/storage/slide07__database_general.md"
+                 data-separator-vertical="^\r?\n------\r?\n$">
+        </section>
+
+        <section data-external="lecture/storage/slide07__database_systems.html" id="storage__database">
+        </section>
+
+        <section data-markdown="lecture/storage/slide08__sql.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"
+                 id="storage__sql"></section>
+
+        <section data-markdown="lecture/storage/slide09__sqlite.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"
+                 id="storage__sqlite">
+
+        </section>
+
+        <section data-markdown="lecture/storage/slide10__sqlite_android.md"></section>
+
+        <section data-markdown="lecture/storage/slide11__work_with_sqlite.md"></section>
+
+        <section data-markdown="lecture/storage/slide12__sqlite_open_helper.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"></section>
+
+        <section data-markdown="lecture/storage/slide13__sqlite_database.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"
+                 id="storage__sqlite_database"></section>
+
+        <section data-markdown="lecture/storage/slide14__cursor.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"
+                 id="cursor"></section>
+
+        <section data-markdown="lecture/storage/slide15__contract_class.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"
+                 id="contract"></section>
+
+        <section data-markdown="lecture/storage/slide16__cursor_resumption.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"></section>
+
+
+        <section data-background-color="#699f00" class="center center-horizontal" id="storage__orm">
+            <h1 class="fragment" data-fragment-index="1">ORM</h1>
+            <h3 class="fragment" data-fragment-index="1">Object-Relational Mapping</h3>
+        </section>
+
+        <section data-markdown="lecture/storage/slide18__orm.md"></section>
+
+        <section data-markdown="lecture/storage/slide19__ormlite.md" id="storage__ormlite"></section>
+
+        <section data-markdown="lecture/storage/slide20__work_with_ormlite.md"></section>
+
+        <section data-markdown="lecture/storage/slide21__ormlite_sqlite_open_helper.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"
+                 id="storage__ormlite_helper"></section>
+
+        <section data-markdown="lecture/storage/slide22__ormlite_entities.md" id="storage__ormlite_entities"
+                 data-separator-vertical="^\r?\n------\r?\n$"></section>
+
+        <section data-markdown="lecture/storage/slide23__ormlite_entities_foreign.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"
+                 id="storage__ormlite_foreign">
+        </section>
+
+        <section data-external="lecture/storage/slide23__foreign_keys.html"
+                 id="storage__ormlite_entities_foreign">
+        </section>
+
+        <section data-markdown="lecture/storage/slide24__ormlite_dao.md"
+                 id="storage__ormlite_dao"
+                 data-separator-vertical="^\r?\n------\r?\n$"></section>
+
+        <section data-markdown="lecture/storage/slide25__easy_dao.md"
+                 id="storage__easy_dao"
+                 data-separator-vertical="^\r?\n------\r?\n$">
+        </section>
+
+        <section data-background-color="#699f00" class="center center-horizontal">
+            <h1 class="fragment" data-fragment-index="1">More info</h1>
+        </section>
+
+        <section data-markdown="lecture/storage/slide26__content_provider.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"
+                 id="content_provider"></section>
+
+        <section data-markdown="lecture/storage/slide27__content_provider_uri.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"></section>
+
+        <section data-background-color="#699f00" class="center center-horizontal">
+            <h1 class="fragment" data-fragment-index="1">Handy Tips</h1>
+        </section>
+
+        <section data-markdown="lecture/storage/slide28__debug.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"
+                 id="debug"></section>
+
+        <section data-markdown="lecture/storage/slide29__debug_stetho.md"
+                 id="stetho"></section>
+
+        <section data-markdown="lecture/storage/slide30__clear_data.md"
+                 id="clear_data"></section>
+
+        <section data-markdown="lecture/storage/slide31__respect_the_main_thread.md"></section>
+
+        <section data-background-color="#699f00"
+                 data-markdown="lecture/storage/slide32__list_of_contents.md"
+                 id="list_of_contents"></section>
+
+        <section data-background-color="#699f00" class="center center-horizontal">
+            <h1 class="fragment" data-fragment-index="1">Advanced</h1>
+        </section>
+
+        <section data-markdown="lecture/storage/slide33__realm.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"
+                 id="realm"></section>
+
+        <section data-markdown="lecture/storage/slide34__room.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"
+                 id="room"></section>
+
+        <section data-background-color="#699f00" class="center">
+            <h1>Storage</h1>
+            <h4>лекцию подготовила Варвара Руденко</h4>
+            <h4>@iamworkingasrudenko</h4>
+            <br>
+            <br>
+
+            <h2>Contacts:</h2>
+            <h4>Slack: @vrudenko</h4>
+            <h4>mail: Varvara.Rudenko@noveogroup.com</h4>
+        </section>
+
+    </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>      <!--HeadJS functions-->
+<script src="js/reveal.js"></script>            <!--RevealJS functions-->
+<script src="js/config.js"></script>            <!--RevealJS config-->
+
+<script src="lib/js/jquery-3.2.1.min.js"></script>
+<script src="js/printpdf.js"></script>
+
+</body>
+</html>
