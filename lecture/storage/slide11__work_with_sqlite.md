@@ -1,7 +1,6 @@
-## Работа с SQLite
+## Legacy: Работа с SQLite
 
-Для [работы с базой данных](https://developer.android.com/training/basics/data-storage/databases.html)
-нам понадобятся:
+Нам понадобятся:
 
 <br>
 
