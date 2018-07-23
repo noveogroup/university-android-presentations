@@ -1,6 +1,44 @@
-## Используем каждый день
-- Logging
-- IntelliJ IDEA debugger
+<!-- .slide:    data-background-color="#699f00" -->
+<!-- .slide:    class="center center-horizontal" -->
+<!-- .slide:    data-transition="convex" -->    
+
+## Инструменты для отладки
+
+---
+
+## Systrace
+
+<a href="https://developer.android.com/studio/command-line/systrace" target="_blank"><img src="lecture/debug/img/systrace.png"></a>
+
+---
+
+<!--  .slide: class="center center-horizontal" -->
+
+## Стань разработчиком
+
+<img src="lecture/debug/img/enable_options.jpg" width="60%">
+
+---
+
+<!--  .slide: class="center center-horizontal" -->
+
+## Стань разработчиком
+
+<div class="third-left">
+<img src="lecture/debug/img/bounds.png" width="75%"> 
+</div>
+<div class="third-center">
+<img src="lecture/debug/img/overdraw_large.png" width="75%">
+</div>
+<div class="third-right">
+<img src="lecture/debug/img/profile_gpu.png" width="75%">
+</div>
+
+---
+
+<!--  .slide: class="center center-horizontal" -->
+
+<iframe width="840" height="472" src="https://www.youtube.com/embed/9HtTL_RO2wI" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
 
 ---
 
