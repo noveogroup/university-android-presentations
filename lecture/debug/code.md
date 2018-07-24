@@ -197,8 +197,9 @@ RxJavaPlugins.setErrorHandler { error ->
         if (shouldCrash) it.uncaughtExceptionHandler.uncaughtException(it, cause)
     }
 }
-
 ```
+
+<!-- .element: data-trim -->
 
 ---
 
