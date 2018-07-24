@@ -6,6 +6,14 @@
 
 ---
 
+<!-- .slide:    data-background-color="#699f00" -->
+<!-- .slide:    class="center center-horizontal" -->
+<!-- .slide:    data-transition="convex" -->    
+   
+## Режим разработчика
+
+---
+
 <!--  .slide: class="center center-horizontal" -->
 
 ## Режим разработчика
@@ -27,6 +35,14 @@
 <div class="third-right">
 <img src="lecture/debug/img/profile_gpu.png" width="75%">
 </div>
+
+---
+
+<!-- .slide:    data-background-color="#699f00" -->
+<!-- .slide:    class="center center-horizontal" -->
+<!-- .slide:    data-transition="convex" -->    
+
+## Как работает отладчик?
 
 ---
 
@@ -102,11 +118,19 @@
 
 ---
 
+<!-- .slide:    data-background-color="#699f00" -->
+<!-- .slide:    class="center center-horizontal" -->
+<!-- .slide:    data-transition="convex" -->    
+   
+## Как отладить верстку?
+
+---
+
 <!-- .slide:    class="center center-horizontal" -->
 
 ## Layout Inspector
 
-![](lecture/debug/img/layout-inspector.png)
+<img src="lecture/debug/img/layout-inspector.png">
 
 ---
 
@@ -114,7 +138,51 @@
 
 ## Stetho - Elements
 
-![](lecture/debug/img/stetho_layout.png)
+<img src="lecture/debug/img/stetho_layout.png">
+
+---
+
+<!-- .slide:    data-background-color="#699f00" -->
+<!-- .slide:    class="center center-horizontal" -->
+<!-- .slide:    data-transition="convex" -->    
+   
+## Как проверять файловую систему?
+
+---
+
+<!-- .slide:    class="center center-horizontal" -->
+
+## Device File Explorer
+
+<img src="lecture/debug/img/device_fe.png">
+
+---
+
+<!-- .slide:    class="center center-horizontal" -->
+
+## ADB & abe.jar
+
+```
+adb backup -f backup.ab com.you.package.app
+```
+
+<img src="lecture/debug/img/abe.png">
+
+---
+
+<!-- .slide:    data-background-color="#699f00" -->
+<!-- .slide:    class="center center-horizontal" -->
+<!-- .slide:    data-transition="convex" -->    
+   
+## Как проанализировать сборку?
+
+---
+
+<!-- .slide:    class="center center-horizontal" -->
+
+## Apk analyzer
+
+<img src="lecture/debug/img/apk_analyzer.png">
 
 ---
 
@@ -125,6 +193,7 @@
 ---
 
 ## Ссылки
+
 - [Slf4j](https://www.slf4j.org/docs.html)
 - [Logback](https://github.com/tony19/logback-android)
 - [Debugger](https://developer.android.com/studio/debug/)
