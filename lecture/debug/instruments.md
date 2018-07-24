@@ -18,7 +18,7 @@
 
 ## Режим разработчика
 
-<img src="lecture/debug/img/enable_options.jpg" width="60%">
+<img src="lecture/debug/img/enable_options.jpg" width="50%">
 
 ---
 
@@ -27,13 +27,13 @@
 ## Режим разработчика
 
 <div class="third-left">
-<img src="lecture/debug/img/bounds.png" width="75%"> 
+<img src="lecture/debug/img/bounds.png" width="60%"> 
 </div>
 <div class="third-center">
-<img src="lecture/debug/img/overdraw_large.png" width="75%">
+<img src="lecture/debug/img/overdraw_large.png" width="60%">
 </div>
 <div class="third-right">
-<img src="lecture/debug/img/profile_gpu.png" width="75%">
+<img src="lecture/debug/img/profile_gpu.png" width="60%">
 </div>
 
 ---
@@ -50,7 +50,7 @@
 
 ## ADB
 
-![](lecture/debug/img/adb_struct.png)
+<img src="lecture/debug/img/adb_struct.png" width="75%">
 
 ---
 
@@ -64,6 +64,7 @@
 <li><code>adb usb</code></li>
 <li><code>adb tcpip 5555</code></li>
 <li><code>adb connect 192.168.1.125</code></li>
+<li><code>adb devices</code></li>
 </ul>
 </div> 
 
@@ -130,7 +131,7 @@
 
 ## Layout Inspector
 
-<img src="lecture/debug/img/layout-inspector.png">
+<img src="lecture/debug/img/layout_inspector.png">
 
 ---
 
@@ -145,6 +146,14 @@
 <!-- .slide:    data-background-color="#699f00" -->
 <!-- .slide:    class="center center-horizontal" -->
 <!-- .slide:    data-transition="convex" -->    
+
+---
+
+## Systrace
+
+<a href="https://developer.android.com/studio/command-line/systrace" target="_blank"><img src="lecture/debug/img/systrace.png"></a>
+
+---
    
 ## Как проверять файловую систему?
 
@@ -183,12 +192,6 @@ adb backup -f backup.ab com.you.package.app
 ## Apk analyzer
 
 <img src="lecture/debug/img/apk_analyzer.png">
-
----
-
-## Systrace
-
-<a href="https://developer.android.com/studio/command-line/systrace" target="_blank"><img src="lecture/debug/img/systrace.png"></a>
 
 ---
 

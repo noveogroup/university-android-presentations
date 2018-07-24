@@ -126,10 +126,10 @@
 
 
 <div class="half-left">
-<img src="lecture/debug/img/debugger_panel.png">
+<img src="lecture/debug/img/debugger_panel.png" width="60%">
 </div>
 <div class="half-right fragment" data-fragment-index="1">
-<img src="lecture/debug/img/debugger_run.png">
+<img src="lecture/debug/img/debugger_run.png" width="40%">
 </div>
 
 ---

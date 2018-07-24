@@ -55,7 +55,7 @@ I/Choreographer(691): Skipped 647 frames!
 
 ## Overdraw 
 
-<img src="lecture/debug/img/overdraw_bad.png" width="50%">
+<img src="lecture/debug/img/overdraw_bad.png" width="40%">
 
 ---
 
@@ -64,7 +64,7 @@ I/Choreographer(691): Skipped 647 frames!
 
 ## Overdraw 
 
-<img src="lecture/debug/img/overdraw_good.png" width="50%">
+<img src="lecture/debug/img/overdraw_good.png" width="40%">
 
 ---
 
@@ -92,7 +92,7 @@ I/Choreographer(691): Skipped 647 frames!
 ## Measure & Layout
 
 <div class="half-left">
-<img src="lecture/debug/img/android_view_lifecycle_2.png" width="50%">
+<img src="lecture/debug/img/android_view_lifecycle_2.png" width="40%">
 </div>
 <div class="half-right">
 <br><br>
