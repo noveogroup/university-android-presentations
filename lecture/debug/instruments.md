@@ -87,21 +87,6 @@
 
 ---
 
-## Android Debug Drawer
-
-<div class="half-left center-horizontal">
-    <a href="https://github.com/palaima/DebugDrawer" target="_blank"><img src="lecture/debug/img/debug_drawer.png" width="45%"></a>
-</div>
-<div class="half-left">
-    <li>Отображает состояние</li>
-    <li>Интерфейс прямо в приложении</li>
-    <li>для разработчика и для тест-инженера </li>
-    <li>готовые модули для библиотек: OkHttp, Glide </li>
-    <li>Можно делать свои модули</li> 
-</div>
-
----
-
 ## Stetho
 
 <div class="fragment half-left" data-fragment-index="1">
@@ -209,5 +194,4 @@ adb backup -f backup.ab com.you.package.app
 - [APK analyzer](https://developer.android.com/studio/build/apk-analyzer)
 - [Stetho](http://facebook.github.io/stetho/)
 - [Systrace](https://developer.android.com/studio/command-line/systrace)
-- [Debug drawer library](https://github.com/palaima/DebugDrawer)
 
