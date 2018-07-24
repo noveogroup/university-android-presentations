@@ -6,15 +6,9 @@
 
 ---
 
-## Systrace
-
-<a href="https://developer.android.com/studio/command-line/systrace" target="_blank"><img src="lecture/debug/img/systrace.png"></a>
-
----
-
 <!--  .slide: class="center center-horizontal" -->
 
-## Стань разработчиком
+## Режим разработчика
 
 <img src="lecture/debug/img/enable_options.jpg" width="60%">
 
@@ -22,7 +16,7 @@
 
 <!--  .slide: class="center center-horizontal" -->
 
-## Стань разработчиком
+## Режим разработчика
 
 <div class="third-left">
 <img src="lecture/debug/img/bounds.png" width="75%"> 
@@ -36,45 +30,56 @@
 
 ---
 
-<!--  .slide: class="center center-horizontal" -->
-
-<iframe width="840" height="472" src="https://www.youtube.com/embed/9HtTL_RO2wI" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
-
----
-
-## Логи 
-
----
+<!-- .slide:    class="center center-horizontal" -->
 
 ## ADB
 
-- Считать логи
-- Выдать permission'ы
-- Установить, удалить приложение, почистить его данные
-- и многое другое
+![](lecture/debug/img/adb_struct.png)
 
 ---
 
+<!-- .slide:    class="center center-horizontal" -->
+<!-- .slide:    data-transition="fade-in slide-out" -->    
+
+## ADB
+
+<div class="half-left">
+<ul>
+<li><code>adb usb</code></li>
+<li><code>adb tcpip 5555</code></li>
+<li><code>adb connect 192.168.1.125</code></li>
+</ul>
+</div> 
+
+<div class="half-right fragment" data-fragment-index="2">
+<ul>
+<li>Устанавливать apk</li>
+<li>Запускать приложения</li>
+<li>Отправлять пуши</li>
+<li>Выдавать разрешения</li>
+</ul>
+</div> 
+
+---
+
+<!-- .slide:    class="center center-horizontal" -->
+
 ## ADB Idea plugin
 
-- Uninstall App
-- Kill App
-- Start App
-- Restart App
-- Clear App Data
-- Clear App Data and Restart
+![](lecture/debug/img/adb_plugin.png)
 
 ---
 
 ## Android Debug Drawer
+
 <div class="half-left center-horizontal">
-    <img src="lecture/debug/img/debug_drawer.png" width="50%">
+    <a href="https://github.com/palaima/DebugDrawer" target="_blank"><img src="lecture/debug/img/debug_drawer.png" width="45%"></a>
 </div>
 <div class="half-left">
-    <li> Отображает и изменяет состояние приложения </li>
-    <li> Интерфейс прямо в приложении </li>
-    <li> Подходит не только для разработчика, но и для тест-инженера </li>
-    <li> Есть готовые модули для популярных библиотек: OkHttp, Glide </li>
+    <li>Отображает состояние</li>
+    <li>Интерфейс прямо в приложении</li>
+    <li>для разработчика и для тест-инженера </li>
+    <li>готовые модули для библиотек: OkHttp, Glide </li>
     <li>Можно делать свои модули</li> 
 </div>
 
@@ -82,51 +87,53 @@
 
 ## Stetho
 
-- Database Inspection
-- Shared Preferences Inspection
-- Network Inspection
-- View Hierarchy
-- Dumpapp Plugins, свои интерфейсы командной строки(CLI)
-
-В качестве интерфейса - Chrome Dev Tools, то есть отладка прямо из Chrome
-
----
-
-## Stetho - Database Inspection
-
-- Доступ ко всем sql-базам в приложении
-- Вся мощь SQL через консоль
-- Не работает с Realm, Couchbase и подобными
+<div class="fragment half-left" data-fragment-index="1">
+<img src="lecture/debug/img/stetho_network.png">
+</div>
+<div class="fragment half-right" data-fragment-index="2">
+<ul>
+<li>Database Inspection</li>
+<li>Shared Preferences Inspection</li>
+<li>Network Inspection</li>
+<li>View Hierarchy</li>
+<li>Dumpapp Plugins, свои интерфейсы командной строки(CLI)</li>
+</ul>
+</div>
 
 ---
 
-## Stetho - Shared preferences
+<!-- .slide:    class="center center-horizontal" -->
 
-- Просмотр и редактирование
+## Layout Inspector
 
----
-
-## Stetho - View hierarchy
-
-- Отображение иерархии View
-- Изменения в реальном времени
-- Доступ к свойствам View
-- Подсветка выделенных элементов
+![](lecture/debug/img/layout-inspector.png)
 
 ---
 
-## Stetho - Dumper plugins
+<!-- .slide:    class="center center-horizontal" -->
 
-- Позволяет запускать Java-код прямо из консоли на десктопе <br>
-- Основной плюс: нет привязки к UI приложения
+## Stetho - Elements
+
+![](lecture/debug/img/stetho_layout.png)
+
+---
+
+## Systrace
+
+<a href="https://developer.android.com/studio/command-line/systrace" target="_blank"><img src="lecture/debug/img/systrace.png"></a>
 
 ---
 
 ## Ссылки
+- [Slf4j](https://www.slf4j.org/docs.html)
 - [Logback](https://github.com/tony19/logback-android)
+- [Debugger](https://developer.android.com/studio/debug/)
 - [ADB](https://developer.android.com/studio/command-line/adb.html)
 - [ADB Idea plugin](https://plugins.jetbrains.com/plugin/7380-adb-idea)
-- [Debug drawer library](https://github.com/palaima/DebugDrawer)
+- [Layout Inspector](https://developer.android.com/studio/debug/layout-inspector)
+- [Device File Explorer](https://developer.android.com/studio/debug/device-file-explorer)
+- [APK analyzer](https://developer.android.com/studio/build/apk-analyzer)
 - [Stetho](http://facebook.github.io/stetho/)
-- [Stetho Dumpapp example](https://code.tutsplus.com/tutorials/debugging-android-apps-with-facebooks-stetho--cms-24205)
+- [Systrace](https://developer.android.com/studio/command-line/systrace)
+- [Debug drawer library](https://github.com/palaima/DebugDrawer)
 
