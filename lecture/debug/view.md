@@ -110,3 +110,72 @@ I/Choreographer(691): Skipped 647 frames!
 <li>реже вызывать `invalidate()` </li>
 </ul>
 </div>
+
+---
+
+<!-- .slide:    data-background-color="#699f00" -->
+<!-- .slide:    class="center center-horizontal" -->
+<!-- .slide:    data-transition="convex" -->    
+
+## Утечки памяти
+
+---
+
+<!-- .slide:    class="center center-horizontal" -->
+<!-- .slide:    data-transition="slide-in fade-out" -->   
+
+## Profiler
+
+![](lecture/debug/img/debugger_profiler.png)
+
+---
+
+<!-- .slide:    class="center center-horizontal" -->
+<!-- .slide:    data-transition="fade-in slide-out" -->   
+
+## Profiler - Memory
+
+<video controls name="media" width="50%"><source src="https://storage.googleapis.com/androiddevelopers/videos/studio/memory-profiler-allocations-jvmti.mp4" type="video/mp4"></video>
+
+---
+
+<!-- .slide:    class="center center-horizontal" -->
+<!-- .slide:    data-transition="slide-in fade-out" -->   
+
+## LeakCanary
+
+```kotlin
+
+class MyApplication {
+    val refWatcher by lazy { LeakCanary.install(this) }
+}
+
+class BaseFragment: Fragment {
+
+    val refWatcher: RefWatcher? 
+        get() = (activity?.applicationContext as? MyApplication).refWatcher
+
+    override fun onDestroy() {
+        super.onDestroy()
+        refWatcher?.watch(this);
+    }
+    
+}
+```
+
+---
+
+<!-- .slide:    class="center center-horizontal" -->
+<!-- .slide:    data-transition="fade-in slide-out" -->    
+
+## LeakCanary
+
+![](lecture/debug/img/leakcanary_info.png)
+
+---
+
+## Утечки памяти
+
+* Нужно следить за ссылками
+* Можно использовать `WeakReference<T>`
+* Нужно отписываться от долгих операций из Lifecycle

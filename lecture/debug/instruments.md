@@ -143,17 +143,17 @@
 
 ---
 
-<!-- .slide:    data-background-color="#699f00" -->
 <!-- .slide:    class="center center-horizontal" -->
-<!-- .slide:    data-transition="convex" -->    
-
----
 
 ## Systrace
 
 <a href="https://developer.android.com/studio/command-line/systrace" target="_blank"><img src="lecture/debug/img/systrace.png"></a>
 
 ---
+
+<!-- .slide:    data-background-color="#699f00" -->
+<!-- .slide:    class="center center-horizontal" -->
+<!-- .slide:    data-transition="convex" -->
    
 ## Как проверять файловую систему?
 
@@ -200,8 +200,10 @@ adb backup -f backup.ab com.you.package.app
 - [Slf4j](https://www.slf4j.org/docs.html)
 - [Logback](https://github.com/tony19/logback-android)
 - [Debugger](https://developer.android.com/studio/debug/)
+- [RxJavaPlugins](http://reactivex.io/RxJava/2.x/javadoc/io/reactivex/plugins/RxJavaPlugins.html)
 - [ADB](https://developer.android.com/studio/command-line/adb.html)
 - [ADB Idea plugin](https://plugins.jetbrains.com/plugin/7380-adb-idea)
+- [Profiler](https://developer.android.com/studio/profile/memory-profiler)
 - [Layout Inspector](https://developer.android.com/studio/debug/layout-inspector)
 - [Device File Explorer](https://developer.android.com/studio/debug/device-file-explorer)
 - [APK analyzer](https://developer.android.com/studio/build/apk-analyzer)

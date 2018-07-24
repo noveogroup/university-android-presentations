@@ -148,3 +148,84 @@ override fun onCreate() {
     }
 }
 ```
+
+---
+
+<!-- .slide:    data-background-color="#699f00" -->
+<!-- .slide:    class="center center-horizontal" -->
+<!-- .slide:    data-transition="convex" -->    
+
+## А как дебажить Rx?
+
+---
+
+## Rx Logging 
+
+```kotlin
+fun <T> Observable<T>.applyLogger(log: Logger, name: String): Observable<T> = compose { source ->
+    source
+            .doOnSubscribe { log.debug("$name started") }
+            .doOnError { log.debug("$name failed with ${it.javaClass.simpleName}") }
+            .doOnNext { log.debug("$name next item $it") }
+            .doOnComplete { log.debug("$name completed") }
+            .doOnDispose { log.debug("$name disposed") }
+}
+
+fun test() {
+    api.request()
+        .applyLogger()
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribe()
+}
+```
+
+---
+
+## Rx General Error Handler
+
+```kotlin
+RxJavaPlugins.setErrorHandler { error ->
+    //Analyze error
+    val shouldCrash = when (error) {
+        is OnErrorNotImplementedException -> {}
+        is CompositeException -> {}
+        is UndeliverableException -> {}
+        else -> {}
+    }
+
+    Thread.currentThread().let {
+        if (shouldCrash) it.uncaughtExceptionHandler.uncaughtException(it, cause)
+    }
+}
+
+```
+
+---
+
+## Thread Error Handler 
+
+```kotlin
+Thread.getDefaultUncaughtExceptionHandler().let { handler ->
+    Thread.setDefaultUncaughtExceptionHandler { thread, error ->
+        log.error("uncaught error", error)
+        
+        var tmp = error
+        while (tmp.cause != null) {
+            tmp = tmp.cause
+            log.error("${tmp::class.java.simpleName} cause ", tmp as Throwable)
+        }
+
+        handler.uncaughtException(thread, error)
+    }
+}
+```
+
+## Прямой крэш
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+```kotlin
+Thread.getDefaultUncaughtExceptionHandler().uncaughtException(Thread.currentThread(), error)
+``` 
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
