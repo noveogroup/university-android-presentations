@@ -63,11 +63,11 @@
             <section class="center center-horizontal">
                <h2>Somewhere in your app</h2>
                <pre class="fragment" ><code class="normal" data-trim data-noescape>
-				locationManager = (LocationManager) context
-                    .getSystemService(Context.LOCATION_SERVICE);
-					
-				isGPSEnabled = locationManager
-                    .isProviderEnabled(LocationManager.GPS_PROVIDER);
+				val locationManager = context
+                    .getSystemService(Context.LOCATION_SERVICE) as LocationManager
+
+                val isGPSEnabled = locationManager
+                    .isProviderEnabled(LocationManager.GPS_PROVIDER)
                 </code></pre>
             </section>
             <section class="center center-horizontal">
@@ -86,40 +86,38 @@
             <section class="center center-horizontal">
                <h2>Somewhere in your app</h2>
                <pre class="fragment" data-fragment-index="1"><code class="normal" data-trim data-noescape>
-				String getProviderName() {
-				    LocationManager locationManager = (LocationManager) this
-						.getSystemService(Context.LOCATION_SERVICE);
- 
-					Criteria criteria = new Criteria();
-					criteria.setPowerRequirement(Criteria.POWER_LOW);
-					criteria.setAccuracy(Criteria.ACCURACY_FINE);
-					criteria.setSpeedRequired(true);
-					criteria.setAltitudeRequired(false);
-					criteria.setBearingRequired(false); 
-					criteria.setCostAllowed(false);
-				 
-					return locationManager.getBestProvider(criteria, true);
-				}
+				fun getProviderName(): String {
+        val locationManager = this
+            .getSystemService(Context.LOCATION_SERVICE) as LocationManager
+
+        val criteria = Criteria()
+        criteria.powerRequirement = Criteria.POWER_LOW
+        criteria.accuracy = Criteria.ACCURACY_FINE
+        criteria.isSpeedRequired = true
+        criteria.isAltitudeRequired = false
+        criteria.isBearingRequired = false
+        criteria.isCostAllowed = false
+
+        return locationManager.getBestProvider(criteria, true)
+    }
                 </code></pre>
             </section>
             <section class="center center-horizontal">
                <h2>LocationListener</h2>
                <pre class="fragment"><code class="normal" data-trim data-noescape>			 
-				@Override
-				public void onProviderDisabled(String provider) {
-				}
-			 
-				@Override
-				public void onProviderEnabled(String provider) {
-				}
-			 
-				@Override
-				public void onStatusChanged(String provider, int status, Bundle extras) {
-				}
-				
-				@Override
-				public void onLocationChanged(Location location) {
-				}
+				val locationListener = object: LocationListener {
+        	override fun onLocationChanged(location: Location) {
+        	}
+
+        	override fun onStatusChanged(provider: String, status: Int, extras: Bundle) {
+        	}
+
+        	override fun onProviderEnabled(provider: String) {
+        	}
+
+        	override fun onProviderDisabled(provider: String) {
+        	}
+    }
                 </code></pre>
             </section>
             <section class="center center-horizontal">
@@ -161,11 +159,11 @@
             <section class="center center-horizontal">
                <h2>Somewhere in the app</h2>
                <pre><code class="normal" data-trim data-noescape>			 
-					GoogleApiClient googleApiClient  = new GoogleApiClient.Builder(context)
-						.addConnectionCallbacks(connectionCallbacks)
-						.addOnConnectionFailedListener(connectionFailedListener)
-						.addApi(LocationServices.API)
-						.build();
+					val googleApiClient = GoogleApiClient.Builder(context)
+            			.addConnectionCallbacks(connectionCallbacks)
+            			.addOnConnectionFailedListener(connectionFailedListener)
+            			.addApi(LocationServices.API)
+            			.build()
 						
 					googleApiClient.connect();
 			</code></pre>
@@ -173,18 +171,17 @@
             <section class="center center-horizontal">
                <h2>GoogleApiClient.OnConnectionFailedListener</h2>
                <pre><code class="normal" data-trim data-noescape>			 
-					connectionFailedListener = new GoogleApiClient.OnConnectionFailedListener() {
-					
-						@Override
-						public void onConnectionFailed(ConnectionResult connectionResult) {
+					val connectionFailedListener = object: GoogleApiClient.OnConnectionFailedListener {
+
+						override fun onConnectionFailed(connectionResult: ConnectionResult) {
 							if (connectionResult.hasResolution()) {
 								try {
-									connectionResult.startResolutionForResult(context, CONNECTION_FAILURE_RESOLUTION_REQUEST);
-								} catch (IntentSender.SendIntentException e) {
-									e.printStackTrace();
+									connectionResult.startResolutionForResult(context, CONNECTION_FAILURE_RESOLUTION_REQUEST)
+								} catch (e: IntentSender.SendIntentException) {
+									Log.e("TAG", "resolution failed")
 								}
 							} else {
-								log.error("sadness =(")
+								Log.e("TAG", "sadness =(")
 							}
 						}
 					}
@@ -193,13 +190,14 @@
             <section class="center center-horizontal">
                <h2>GoogleApiClient.ConnectionCallbacks</h2>
                <pre><code class="normal" data-trim data-noescape>			 
-					connectionCallbacks = new GoogleApiClient.ConnectionCallbacks() {
-						public void onConnected (Bundle connectionHint) {
-							LocationServices.FusedLocationApi.requestLocationUpdates(googleApiClient, getLocationRequest(), this);							
+					val connectionCallbacks = object: GoogleApiClient.ConnectionCallbacks {
+
+						override fun onConnected(connectionHint: Bundle) {
+							LocationServices.FusedLocationApi.requestLocationUpdates(googleApiClient, getLocationRequest(), { location -> })
 						}
-						
-						public abstract void onConnectionSuspended (int cause) {
-						
+
+						override fun onConnectionSuspended (cause: Int) {
+
 						}
 					}
 			</code></pre>
@@ -207,14 +205,14 @@
             <section class="center center-horizontal">
                <h2>Location Request</h2>
                <pre><code class="normal" data-trim data-noescape>			 
-					private LocationRequest getLocationRequest() {
-						LocationRequest locationRequest = new LocationRequest();
+					fun getLocationRequest(): LocationRequest {
+						val locationRequest = LocationRequest()
 
-						locationRequest.setInterval(UPDATE_INTERVAL_IN_MILLISECONDS);
-						locationRequest.setFastestInterval(FASTEST_UPDATE_INTERVAL_IN_MILLISECONDS);
-						locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-						
-						return locationRequest;
+						locationRequest.interval = UPDATE_INTERVAL_IN_MILLISECONDS
+						locationRequest.fastestInterval = FASTEST_UPDATE_INTERVAL_IN_MILLISECONDS
+						locationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
+
+						return locationRequest
 					}
 			</code></pre>
             </section>
@@ -250,23 +248,20 @@
 			</code></pre>
             </section>
             <section class="center center-horizontal">
-               <h2>MyActivity.java</h2>
+               <h2>MyActivity.kt</h2>
                <pre><code data-trim data-noescape>
-				private GoogleMap map;
-			
-				@Override
-				protected void onCreate(Bundle savedInstanceState) {
-					super.onCreate(savedInstanceState);
-					setContentView(R.layout.layout);
-					SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-							.findFragmentById(R.id.map);
-					mapFragment.getMapAsync(new OnMapReadyCallback() {
-					
-						@Override
-						onMapReady(GoogleMap googleMap) {
-							map = googleMap;
+				private lateinit var map: GoogleMap
+
+		        override fun onCreate(savedInstanceState: Bundle?) {
+					super.onCreate(savedInstanceState)
+					setContentView(R.layout.layout)
+					val mapFragment = getSupportFragmentManager()
+						.findFragmentById(R.id.map) as SupportMapFragment
+					mapFragment.getMapAsync(object : OnMapReadyCallback {
+						override fun onMapReady(map: GoogleMap) {
+							this@MyActivity.map = map
 						}
-					});
+					})
 				}
 			</code></pre>
             </section>
@@ -300,31 +295,31 @@
             <section class="center center-horizontal">
                <h2>Camera animation</h2>
                <pre><code data-trim data-noescape>
-				private void animateToLocation(Location location) {
-					CameraPosition cameraPosition = new CameraPosition.Builder()
-					.target(new LatLng(location.getAltitude(), location.getLongitude()))
-					.zoom(12)//0 == 256dp
-					.build();
-	 
-					map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+				fun animateToLocation(location: Location) {
+					val cameraPosition = CameraPosition.Builder()
+			        	.target(LatLng(location.altitude, location.longitude))
+						.zoom(12f)//0 == 256dp
+						.build()
+
+					map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition))
 				}
 			</code></pre>
             </section>
             <section class="center center-horizontal">
                <h2>Adding a marker</h2>
                <pre><code data-trim data-noescape>
-				private Marker addMarker(Location location) {		
-					MarkerOptions marker = new MarkerOptions()
-						.position(new LatLng(location.getLatitude(), location.getLongitude()))
-						.title("Marker");
-					
-					marker.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ROSE));
+				fun addMarker(location: Location): Marker {
+					val marker = MarkerOptions()
+						.position(LatLng(location.latitude, location.longitude))
+						.title("Marker")
+
+					marker.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ROSE))
 					//marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.my_marker_icon)));
-					//marker.icon(BitmapDescriptorFactory.fromAsset(R.drawable.my_marker_icon)));
-					//marker.icon(BitmapDescriptorFactory.fromBitmap R.drawable.my_marker_icon)));
-					//marker.icon(BitmapDescriptorFactory.fromFile (R.drawable.my_marker_icon)));
-										 
-					return googleMap.addMarker(marker);
+					//marker.icon(BitmapDescriptorFactory.fromAsset(...)));
+					//marker.icon(BitmapDescriptorFactory.fromBitmap(...)));
+					//marker.icon(BitmapDescriptorFactory.fromFile(...)));
+
+					return googleMap.addMarker(marker)
 				}
 			</code></pre>
             </section>
@@ -334,41 +329,37 @@
             <section class="center center-horizontal">
                <h2>Dragging a marker</h2>
                <pre><code data-trim data-noescape>
-				map.setOnMarkerDragListener(new GoogleMap.OnMarkerDragListener() {
+				map.setOnMarkerDragListener(val dragListener = object: GoogleMap.OnMarkerDragListener {
 
-					@Override
-					public void onMarkerDragStart(Marker marker) {
+					override fun onMarkerDragStart(marker: Marker?) {
 					}
 
-					@Override
-					public void onMarkerDragEnd(Marker marker) {
+					override fun onMarkerDrag(maker: Marker?) {
+
+					}
+
+					override fun onMarkerDragEnd(marker: Marker) {
 						map.animateCamera(CameraUpdateFactory.newLatLng(marker.getPosition()));
-
 					}
 
-					@Override
-					public void onMarkerDrag(Marker marker) {
-					}
-
-				});
+			    })
 			</code></pre>
             </section>
             <section class="center center-horizontal">
                <h2>Adding a polyline</h2>
                <pre><code data-trim data-noescape>
-				private Polyline addPolyline() {
-					PolylineOptions options = new PolylineOptions()
-						.clickable(true)
-						.add(
-						new LatLng(-35.016, 143.321),
-						new LatLng(-34.747, 145.592),
-						new LatLng(-34.364, 147.891),
-						new LatLng(-33.501, 150.217),
-						new LatLng(-32.306, 149.248),
-						new LatLng(-32.491, 147.309)));
-						
-					map.addPolyline(options);
-				}
+				fun addPolyline() {
+					val polylineOptions = PolylineOptions()
+							.clickable(true)
+							.add(LatLng(-35.016, 143.321),
+									LatLng(-34.747, 145.592),
+									LatLng(-34.364, 147.891),
+									LatLng(-33.501, 150.217),
+									LatLng(-32.306, 149.248),
+					    			LatLng(-32.491, 147.309))
+			        
+					map.addPolyline(polylineOptions)
+			    }
 			</code></pre>
             </section>
             <section class="center center-horizontal">
@@ -402,7 +393,6 @@
                   <li class="fragment" data-fragment-index="2">Google Places API Web Service - подсказки заведений/мест.</li>
                   <li class="fragment" data-fragment-index="3">Google Maps Elevation API - данные о высоте для любой точки мира.</li>
                   <li class="fragment" data-fragment-index="4">Google Maps Directions API - расчет маршрутов между различными точками.</li>
-                  <li class="fragment" data-fragment-index="5">Google Maps Directions API - расчет маршрутов между различными точками.</li>
                   <li class="fragment" data-fragment-index="6">Google Maps Roads API - функция привязки к дорогам для точного отслеживания пути по GPS. </li>
                   <li class="fragment" data-fragment-index="7">Google Maps Time Zone API - информация о часовом поясе для любой точки мира.</li>
                   <li class="fragment" data-fragment-index="8">Google Maps Geolocation API - поиск местоположения на основе информации, передаваемой по сотовой связи и Wi-Fi.</li>

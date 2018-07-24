@@ -11,5 +11,3 @@
                 <include layout="@layout/a_scene" />
             </FrameLayout>
     </LinearLayout>
-    
-    mSceneRoot = (ViewGroup) findViewById(R.id.scene_root);

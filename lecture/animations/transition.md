@@ -1,12 +1,17 @@
 ## Создание Transition
 
-1. Добавить директорию res/transition/
-1. Добавить xml файл (res/transition/fade_transition.xml)
-    
-    
-    <fade xmlns:android="http://schemas.android.com/apk/res/android" />
+* Добавить директорию res/transition/
+* Добавить xml файл (res/transition/fade_transition.xml)
 
-    Transition mFadeTransition = TransitionInflater.from(this).
-        inflateTransition(R.transition.fade_transition);
+```
+	<fade xmlns:android="http://schemas.android.com/apk/res/android" />
 
-3. Создать из кода Transition mFadeTransition = new Fade();
+	val mFadeTransition: Transition = TransitionInflater.from(this).
+	    inflateTransition(R.transition.fade_transition)
+```
+
+* Создать из кода 
+
+```
+	mFadeTransition: Transition = new Fade()
+```

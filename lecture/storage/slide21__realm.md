@@ -18,10 +18,9 @@
 Сущности должны наследоваться от `RealmObject`.  
 
 
-<pre><code class = "java large" data-trim data-noescape>
-public class Dog extends RealmObject {
-  public String name;
-  public int age;
+<pre><code class = "kotlin large" data-trim data-noescape>
+open class Dog : RealmObject() {
+    var name: String? = null
 }
 </code></pre>
 
