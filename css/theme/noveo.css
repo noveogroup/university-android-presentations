@@ -388,17 +388,20 @@ body {
   background-color: #f5f5f5; }
   .reveal blockquote::before {
     margin: 20px;
-    background-image: url("img/ic_quote.svg");
+    background-image: url("img");
     background-color: transparent;
     background-size: 46.6px 46.6px;
     display: inline-block;
     width: 46.6px;
     height: 46.6px;
     content: ""; }
-  .reveal blockquote.noveo-success {
-    background-color: #dff0d8; }
-    .reveal blockquote.noveo-success::before {
-      background-image: url(img/ic_check.svg); }
+  .reveal blockquote.noveo-quote {  }
+    .reveal blockquote.noveo-quote::before {
+      background-image: url(img/ic_quote.svg); }
+  .reveal blockquote.noveo-info {
+    background-color: #d9edf7; }
+    .reveal blockquote.noveo-info::before {
+      background-image: url(img/ic_info.svg); }
   .reveal blockquote.noveo-info {
     background-color: #d9edf7; }
     .reveal blockquote.noveo-info::before {
