@@ -1,13 +1,13 @@
-## eXtensible Markup Language
+## <a href="https://www.w3.org/TR/1998/REC-xml-19980210" target="_blank">e<span class="fragment highlight-green" data-fragment-index="1">X</span>tensible <span class="fragment highlight-green" data-fragment-index="1">M</span>arkup <span class="fragment highlight-green" data-fragment-index="1">L</span>anguage</a>
 
-<div>Xml - расширяемый язык разметки</div>
-<li>Хранение структурированных данных</li>
-<li>Передача данных между программами</li>
-<li>Создание диалектов на основе xml</li>
+<div class="fragment" data-fragment-index="1"><span class="fragment highlight-green" data-fragment-index="1">XML</span> - расширяемый язык разметки</div>
+<li>Хранение данных</li>
+<li>Передача данных</li>
+<li>Создание диалектов</li>
 
 ---
 
-### Синтаксис
+### Синтаксис XML
 
 <div class="half-left">
     <pre><code class="xml small">
@@ -18,7 +18,7 @@
               &lt;city&gt;>Novosibirsk&lt;/city&gt;
               &lt;street&gt;Demakova&lt;/street&gt;
               &lt;phone type="mobile">+79139130000&lt;/phone&gt;
-              &lt;webcontent&gt;<![CDATA[<html>...<html>]]>&lt;/webcontent&gt;
+              &lt;webcontent&gt;<![CDATA[<html>...</html>]]>&lt;/webcontent&gt;
               &lt;documents&gt;
                  &lt;document type="driving permit">9045798749&lt;/document&gt;
               &lt;/documents&gt;
@@ -38,26 +38,32 @@
 </div>
 
 <div class="half-right">
-    <li>Всегда есть единственный корневой элемент</li>
-    <li>Элемент может содержать другие элементы и символьную последовательность</li>
-    <li>Элемент может содержать аттрибуты</li>
-    <li>Могут быть пустые элементы</li>
+    <h3>Что тут?</h3>
+    <ul>
+        <li>Тэги</li>
+        <li class="fragment" data-fragment-index="1">Элементы <span class="fragment highlight-grey" data-fragment-index="2">в т.ч. корневой</span></li>
+        <li class="fragment" data-fragment-index="3">Значение <span class="fragment highlight-grey" data-fragment-index="4">(может быть пустым)</span></li>
+        <li class="fragment" data-fragment-index="5">Атрибуты</li>
+        <li>XML объявление (declaration)</li>
+    </ul>
 </div>
 
 ---
 
 ### Применения
 
-<li class="fragment" data-fragment-index="1">SVG - формат векторной графики</li>
-<li class="fragment" data-fragment-index="2">XAML</li>
-<li class="fragment" data-fragment-index="3">Файлы конфигурации Ant, Maven</li>
+<li class="fragment" data-fragment-index="1">SVG</li>
+<li class="fragment" data-fragment-index="2">HTML</li>
+<li class="fragment" data-fragment-index="3">Конфиги для Ant, Maven</li>
 <li class="fragment" data-fragment-index="4">Android resources</li>
-<li class="fragment" data-fragment-index="5">Передача данных. Например, с бэкенда</li>
+<li class="fragment" data-fragment-index="5">Сериализация данных</li>
 
 ---
 
+### XML
+
 <div class="half-left fragment" data-fragment-index="1">
-    <font color="green">Плюсы</font>
+    <h3 style="color: green">Плюсы</h3>
     <li>Читаемость</li>
     <li>Стандарт W3C</li>
     <li>Подходит для классических структур данных</li>
@@ -65,17 +71,19 @@
 </div>
 
 <div class="half-right fragment" data-fragment-index="2">
-    <font color="red">Минусы</font>
-    <li>Многословность</li>
-    <li>Неоднозначность моделирования объектов</li>
-    <li>Отсутствует строгая типизация</li>
+    <h3 style="color: red">Минусы</h3>
+    <li class="fragment" data-fragment-index="3">Многословность</li>
+    <li class="fragment" data-fragment-index="4">Неоднозначность</li>
+    <li class="fragment" data-fragment-index="5">Отсутствует строгая типизация</li>
 </div>
 
 ---
 
-## JavaScript Object Notation - JSON
+## <span class="fragment highlight-red" data-fragment-index="1">J</span>ava<span class="fragment highlight-red" data-fragment-index="1">S</span>cript <span class="fragment highlight-red" data-fragment-index="1">O</span>bject <span class="fragment highlight-red" data-fragment-index="1">N</span>otation - JSON
 
-<li>Хранение структурированных данных</li>
+<li>Хранение данных</li>
+<li>Передача данных</li>
+<li></li>
 <li>Менее многословный(чем XML)</li>
 <li>Соответственно, меньше весит</li>
 <li>Более распространен в качестве формата передачи данных веб-сервисов</li>
