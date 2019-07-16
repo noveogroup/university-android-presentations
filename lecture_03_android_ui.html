@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Android User Interface</title>
+    <title>Android User Interface (Part 2)</title>
 
     <link rel="stylesheet" href="css/reveal.css">                    <!--slide style-->
     <link rel="stylesheet" href="css/theme/noveo.css" id="theme">    <!--noveo theme-->
@@ -27,196 +27,373 @@
                  data-background-size="16.2em 15.5em"
                  class="center noveo-title"
                  data-transition="convex">
-            <h1>Android User Interface</h1>
+            <h1>Android User Interface (Part 2)</h1>
             <div class="title-separator"></div>
             <h2>автор:</h2>
-            <p>Клещев Денис</p>
+            <p>Татьяна Распутина</p>
         </section>
         <section class="center center-horizontal">
-            <h2>UI Overview</h2>
-            <ul>
-                <li>Весь графический интерфейс строится из объектов классов View и ViewGroup</li>
-                <li>View - нечто, что может быть нарисованно на экране и с чем пользователь может взаимодействовать</li>
-                <li>ViewGroup - наследник View, содержит в себе другие View и определяет как они будут расположенны относительно друг друга</li>
-                <li>AdapterView - особый наследник ViewGroup, дочерние элементы которого задаются с помощью Adapter’a</li>
-            </ul>
+            <h1 class="center-horizontal">Содержание</h1>
+            <div class="title-separator"></div>
+            <div class="center-horizontal">
+                <ul>
+                    <li>Переиспользование тем и стилей</li>
+                    <li>Touch Framework</li>
+                    <li>Реализация Custom View</li>
+                    <li>Жизненный цикл View</li>
+                </ul>
+            </div>
         </section>
         <section class="center center-horizontal">
-            <h2>UI Overview</h2>
-            <img src="http://i.stack.imgur.com/vYsMp.png" height="90%" width="50%">
+            <h1>Themes & Styles</h1>
+            <div class="third-left center-horizontal">
+                <pre><code class="tiny" data-trim data-noescape>
+                    &lt;style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+                        &lt;item name="colorPrimary">@color/colorPrimary&lt;/item>
+                        &lt;item name="colorPrimaryDark">@color/colorPrimaryDark&lt;/item>
+                        &lt;item name="colorAccent">@color/colorAccent&lt;/item>
+                        &lt;item name="android:windowBackground">@color/white&lt;/item>
+                        &lt;item name="android:colorControlNormal">@color/colorPrimary&lt;/item>
+                        &lt;item name="android:colorControlActivated">@color/colorAccent&lt;/item>
+                        &lt;item name="android:colorControlHighlight">@color/colorAccent&lt;/item>
+                        &lt;item name="android:textColorPrimary">@color/grey&lt;/item>
+                        &lt;item name="android:textColorHighlight">@color/accent&lt;/item>
+                    &lt;/style></code></pre>
+            </div>
+            <div class="third-center center-horizontal">
+                <img src="lecture/layouts_ui/theme_example_1.png" width="70%"/>
+            </div>
+            <div class="third-right center-horizontal">
+                <img src="lecture/layouts_ui/theme_example_2.png" width="70%"/>
+            </div>
+        </section>
+        <section class="center center-horizontal" data-transition="fade">
+            <h1>Themes & Styles</h1>
+            <div class="center-horizontal borders" data-transition="fade">
+                <img src="lecture/layouts_ui/theme_vs_style_example_1.png"/>
+            </div>
+        </section>
+        <section class="center center-horizontal" data-transition="fade">
+            <h1>Themes & Styles</h1>
+            <div class="center-horizontal borders" data-transition="fade">
+                <img src="lecture/layouts_ui/theme_vs_style_example_2.png"/>
+            </div>
+        </section>
+        <section class="center center-horizontal" data-transition="fade">
+            <h1>Themes & Styles</h1>
+            <div class="center-horizontal borders" data-transition="fade">
+                <img src="lecture/layouts_ui/theme_vs_style_example_3.png"/>
+            </div>
+        </section>
+        <section class="center center-horizontal" data-transition="fade">
+            <h1>Themes & Styles</h1>
+            <div class="center-horizontal borders" data-transition="fade">
+                <img src="lecture/layouts_ui/theme_vs_style_example_4.png"/>
+            </div>
         </section>
         <section class="center center-horizontal">
-            <h2>Declaring Views</h2>
-            <ul>
-                <li>Дерево View может быть создано прямо в коде</li>
-                <li>Более простой и предпочтительный способ - использовать XML</li>
-                <li>Это декларативно (говорим что делать, а не как)</li>
-                <li>Позволяет отделить графический интерфейс и логику</li>
-                <li>Меньше усилий и более читабельно</li>
-                <li>Переиспользуемо</li>
-                <li>Для разных конфигураций могут быть созданы разные XML файлы, при этом коду знать об этом не обязательно</li>
-            </ul>
-        </section>
-        <section class="center center-horizontal">
-            <h2>Common Views</h2>
-            <ul>
-                <li class="fragment" data-fragment-index="1">TextView - нередактируемое текстовое поле</li>
-                <li class="fragment" data-fragment-index="2">EditText - редактируемое текстовое поле</li>
-                <li class="fragment" data-fragment-index="3">ImageView – картинка</li>
-                <li class="fragment" data-fragment-index="4">Button – кнопочка</li>
-                <li class="fragment" data-fragment-index="5">CheckBox - галочка</li>
-            </ul>
-        </section>
-                <section data-markdown="lecture/ui/attr.md"
-                 data-separator-vertical="^\r?\n------\r?\n$"></section>
-        <section class="center center-horizontal">
-            <h2>Dimension Units</h2>
-            <ul>
-                <li>px - реальные пиксели на экране</li>
-                <li>pt - points, 1/72 дюйма</li>
-                <li>mm – миллиметры</li>
-                <li>in – дюймы</li>
-                <li>dp - density independent pixels. Количество пикселей одном dp зависит от плотности экрана</li>
-                <li>sp - scaled pixels. Аналогичны dp + размер зависит от выбранного размера шрифта пользователем</li>
-                <li>процентов нет*</li>
-            </ul>
-        </section>
-        <section class="center center-horizontal">
-            <h2>Dimension Units</h2>
-            <h4>Bad practice</h4>
-            <img src="http://developer.android.com/images/screens_support/density-test-bad.png" width="60%" height="40%">
-            <h4>Good practice</h4>
-            <img src="http://developer.android.com/images/screens_support/density-test-good.png" width="60%" height="40%">            
-        </section>
-        </section>
-                <section data-markdown="lecture/ui/drawable.md"
-                 data-separator-vertical="^\r?\n------\r?\n$"></section>
-        <section class="center center-horizontal">
-            <h2>Input Handling</h2>
-            <ul>
-                <li>View.setOnClickListener</li>
-                <li>View.setOnLongClickListener</li>
-                <li>View.setOnFocusChangeListener</li>
-                <li>View.setOnTouchListener</li>
-                <li>TextView.addTextChangedListener</li>
-                <li>CompoundButton.setOnCheckedChangeListener</li>
-                <li>AdapterView.setOnItemClickListener</li>
-            </ul>
-        </section>
-        <section class="center center-horizontal">
-            <h2>Common Layouts</h2>
-            <ul>
-                <li>FrameLayout - рисует дочерние View поверх друг друга</li>
-                <li>LinearLayout - выстраивает свои элементы в одну линию</li>
-                <li>RelativeLayout - хитро располагает элементы относительно друг друга</li>
-                <li>ListView - список</li>
-                <li>GridLayout - дочерние View располагаются по сеточке</li>
-                <li>RecyclerView - современная замена ListView и GridLayout</li>
-                <li>ScrollView - добавляет скролл, если контент слишком большой</li>
-                <li>TableLayout - таблица для статичных данных</li>
-            </ul>
-        </section>
-        <section class="center center-horizontal">
-            <h2>ListView, GridView</h2>
-            <ul>
-                <li>Отображение вертикального (ListView) или в виде таблицы (GridView) списка однотипных данных</li>
-                <li>Переиспользует созданные вьюхи</li>
-                <li>Можно добавлять хедеры и футеры</li>
-                <li>Необходимо использовать класс Adapter</li>
-            </ul>
-        </section>
-        <section data-markdown="lecture/ui/xml_example.md"></section>
-        <section class="center center-horizontal">
-            <h2>CardView</h2>
-            <img src="lecture/ui/card_view.png" width="20%" height="40%"/>
-        </section>
-        <section class="center center-horizontal">
-            <h2>Custom View</h2>
-            <ul>
-                <li>Позволяет задавать свои аттрибуты</li>
-                <li>Расширение существующей View (например TextView)</li>
-                <li>Не занимается ничем, кроме отображения данных и взаимодействия с юзером</li>
-                <li>Не выполняет лишнюю работу по отрисовке</li>
-                <li>Корректно отрисовывается в превью студии</li>
-                <li>Действительно необходима и ее функционал не может быть реализован стандартными средствами</li>
-            </ul>
-        </section>
-        <section class="center center-horizontal">
-            <h2>Custom View: аттрибуты</h2>
-            <p>Описание атрибутов в res/values/attrs.xml</p>
-            <ul>
-                <li>declare-styleable 
-                    <ul>
-                        <li>name - имя класса</li>
-                    </ul>
-                </li>
-                <li>attr
-                    <ul>
-                        <li>name - имя атрибута, который будет использоваться в разметке</li>
-                        <li>format - тип атрибута
-                            <ul>
-                                <li>integer</li>
-                                <li>float</li>
-                                <li>string</li>
-                                <li>color</li>
-                                <li>dimension</li>
-                                <li>reference</li>
-                                <li>...</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </section>
-        <section data-markdown="lecture/ui/card.md"></section>
-        <section class="center center-horizontal">
-            <h2>Custom Views: Наследование</h2>
-            <ol type="1">
-                <li>Получить атрибуты в конструкторе
-                    <pre><code class="normal" data-trim data-noescape>
-                        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CustomImageView);
-                    </code></pre>
-                </li>
-                <li>Получить нужные значения
-                    <pre><code class="normal" data-trim data-noescape>
-                        Drawable foregroundDrawable = 
-                            a.getDrawable(R.styleable.CustomImageView_param);
+            <h1>Переиспользование разметки: &lt;include/> vs &lt;merge/></h1>
+            <div class="half-left">
+                <pre><code class="xml small" data-trim data-noescape>
+                    &lt;RelativeLayout
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    &lt;ImageView
+                        android:id="@+id/image_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"/>
+                    &lt;TextView
+                        android:id="@+id/text_view"
+                        style="@style/AppTheme.Text.CustomStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@+id/image_view"/>
+                    &lt;/RelativeLayout>
 
-                        float margin = 
-                            a.getDimension(R.styleable.CustomImageView_param, 0);
-                    </code></pre>
-                </li>
-                <li>Не забыть освободить ресуры обратно
-                    <pre><code class="big" data-trim data-noescape>
-                        a.recycle();
-                    </code></pre>
-                </li>
-            </ol>
+                    &lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                         android:layout_width="match_parent"
+                         android:layout_height="match_parent"
+                         android:orientation="vertical">
+                    &lt;TextView
+                        android:id="@+id/text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"/>
+                    &lt;include
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        layout="@layout/complex_layout"/>
+                    &lt;/LinearLayout></code></pre>
+            </div>
+            <div class="half-right center-horizontal">
+                <pre><code class="xml small" data-trim data-noescape>
+                    &lt;merge xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:tools="http://schemas.android.com/tools"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:gravity="center"
+                        tools:orientation="vertical"
+                        tools:parentTag="android.widget.LinearLayout">
+
+                        &lt;Button
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/start"/>
+
+                        &lt;Button
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/stop"/>
+
+                    &lt;/merge></code></pre>
+            </div>
         </section>
         <section class="center center-horizontal">
-            <h2>Custom Views: Наследование</h2>
-            <ul>
-                <li>onDraw</li>
-                <li>onTouchEvent</li>
-                <li>onMeasure</li>
-                <li>onSizeChanged</li>
-                <li>...</li>
-            </ul>
+            <h1 class="center-horizontal">Touch Framework Overview</h1>
+            <div class="half-left">
+                <h2>MotionEvent</h2>
+                <ul>
+                    <li>Интерпретация зависит от устройства ввода: палец, стилус, мышь</li>
+                    <li>Содержит данные только об одном событии</li>
+                    <li>Все MotionEvent хранятся в пуле</li>
+                </ul>
+                <h2 class="fragment" data-fragment-index="1">Touch Actions</h2>
+                <ul class="fragment" data-fragment-index="1">
+                    <li>DOWN - касание экрана</li>
+                    <li>MOVE - перемещение</li>
+                    <li>UP - завершение касания (правильный жест пользователя)</li>
+                    <li>CANCEL - отмена касания</li>
+                </ul>
+            </div>
+            <div class="half-right center-horizontal">
+                <h2>MotionEvent Cycle</h2>
+                <img src="lecture/layouts_ui/motion_event_lifecycle.png" width="75%"/>
+            </div>
         </section>
-        <section data-markdown="lecture/ui/custom_view_usage.md"></section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">Touch Processing</h1>
+            <div class="center center-horizontal">
+                <img src="lecture/layouts_ui/touch_events_interception.png" width="35%"/>
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">Multi-touch handling</h1>
+            <div class="center">
+                <h2>Дополнительные события:</h2>
+                <ul>
+                    <li>POINTER_DOWN</li>
+                    <li>POINTER_UP</li>
+                </ul>
+                <h2>У пальца есть две характеристики:</h2>
+                <ul>
+                    <li><b>Индекс</b> - порядковый номер пальца (палец может иметь разные индексы)</li>
+                    <li><b>ID</b> - уникальный идентификатор пальца</li>
+                </ul>
+                <img src="lecture/layouts_ui/multitouch.png"/>
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">Support touch handling</h1>
+            <div class="center">
+                <ul>
+                    <li><b>VelocityTracker</b> - отслеживание скорости (похож на MotionEvent - тоже находится в пуле)
+                    </li>
+                    <li><b>GestureDetector</b> - обрабатывает входящие MotionEvent в готовые события, которые могут быть
+                        получены через OnGestureListener. Обрабатывает onScroll, onFling, onDoubleTap, onContextClick.
+                    </li>
+                    <li><b>ScaleGestureDetector</b> - обрабатывает Pinch-to-zoom</li>
+                    <li><span style="color: red;">RotationGestureDetector</span> - нет в Support Library! 2-finger
+                        rotation: open source solutions.
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1>Создание View в Runtime</h1>
+            <div class="center-horizontal">
+                <pre><code class="kotlin small" data-trim data-noescape>
+                    class CustomView : View {
+                        companion object { const val DEFAULT_ANIMATION_TIME = 300 }
+                        private var title: String = ""
+                        private var animationTime: Int = DEFAULT_ANIMATION_TIME
+                        constructor(context: Context) : this(context, null)
+                        constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
+                        constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : this(context, attrs, defStyleAttr, 0)
+                        constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) : super(context, attrs, defStyleAttr, defStyleRes) {
+                            var titleRes: Int = R.string.title_default
+                            attrs?.let {
+                                val typedArray = context.obtainStyledAttributes(it, R.styleable.CustomView, defStyleAttr, defStyleRes)
+                                titleRes = typedArray.getResourceId(R.styleable.CustomView_title, titleRes)
+                                animationTime = typedArray.getInt(R.styleable.CustomView_animation_time, DEFAULT_ANIMATION_TIME)
+                                typedArray.recycle()
+                            }
+                            title = resources.getString(titleRes)
+                        }
+                    }</code></pre>
+            </div>
+            <p>в файле /res/values/attrs.xml</p>
+            <div class="center-horizontal">
+                <pre><code class="xml small" data-trim data-noescape>
+                    &lt;resources>
+                        &lt;declare-styleable name="CustomView">
+                            &lt;attr name="title" format="string" />
+                            &lt;attr name="animation_time" format="integer" />
+                        &lt;/declare-styleable>
+                    &lt;/resources></code></pre>
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1>Использование кастомного View</h1>
+            <br>
+            <div class="half-left">
+                <pre><code class="kotlin small" data-trim data-noescape>
+                    class MainActivity : AppCompatActivity() {
+                        override fun onCreate(savedInstanceState: Bundle?) {
+                            super.onCreate(savedInstanceState)
+                            setContentView(R.layout.activity_main)
+
+                            rootLayout.addView(
+                                    CustomView(this).apply {
+                                        layoutParams = FrameLayout.LayoutParams(
+                                                FrameLayout.LayoutParams.MATCH_PARENT,
+                                                FrameLayout.LayoutParams.WRAP_CONTENT
+                                        ).apply {
+                                            setMargins(10, 10, 10, 10)
+                                        }
+                                    }
+                            )
+                        }
+                    }</code></pre>
+            </div>
+            <div class="half-right center-horizontal">
+                <pre><code class="xml small" data-trim data-noescape>
+                    &lt;FrameLayout
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:custom="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/rootLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        &lt;com.intership.layoutexample.CustomView
+                            android:id="@+id/customView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            custom:title="@string/title"
+                            custom:animation_time="300"
+                            android:background="@color/white" />
+
+                    &lt;/FrameLayout></code></pre>
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">Жизненный цикл View</h1>
+            <div class="half-left">
+                <h2>Measure Pass</h2>
+                <ul>
+                    <li>Обход дерева View сверху вниз</li>
+                    <li>Каждый ViewGroup устанавливает требования к размерам</li>
+                    <li>Каждый View вычисляет свои размеры и сохраняет</li>
+                </ul>
+                <ul class="fragment" data-fragment-index="1">
+                    <li><span style="color: red;">Важно:</span> окончательные размеры и местоположения View еще не
+                        определены
+                    </li>
+                    <li><span style="color: red;">Важно:</span> этап measure может быть вызван несколько раз</li>
+                </ul>
+                <ul class="fragment" data-fragment-index="2">
+                    <li>FrameLayout - 1</li>
+                    <li>LinearLayout - 1 (weights - 2)</li>
+                    <li>RelativeLayout - 2</li>
+                </ul>
+            </div>
+            <div class="half-right center-horizontal">
+                <img src="lecture/layouts_ui/view_lifecycle.png" width="50%"/>
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">Жизненный цикл View</h1>
+            <div class="half-left">
+                <h2>MeasureSpec - размер и режим</h2>
+                <ul>
+                    <li>UNSPECIFIED</li>
+                    <li>EXACTLY</li>
+                    <li>AT_MOST</li>
+                </ul>
+                <h2 class="fragment" data-fragment-index="1">MeasureState - ответ дочернего View</h2>
+                <ul class="fragment" data-fragment-index="1">
+                    <li>0 - размер подходит</li>
+                    <li>MEASURED_STATE_TOO_SMALL - View требуется больше места, чем позволяет родительский элемент</li>
+                </ul>
+            </div>
+            <div class="half-right center-horizontal">
+                <img src="lecture/layouts_ui/view_lifecycle.png" width="50%"/>
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">Жизненный цикл View</h1>
+            <div>
+                <h2>Layout Pass</h2>
+                <ul>
+                    <li>Обход дерева View сверху вниз</li>
+                    <li>Каждый ViewGroup устанавливает окончательные размеры и местоположения</li>
+                    <li>Выполняется один раз</li>
+                    <li>width и measuredWidth могут не совпадать</li>
+                </ul>
+                <pre class="fragment" data-fragment-index="1"><code class="kotlin small" data-trim data-noescape>
+                    viewGroup.layout(parentLeft, parentTop, parentRight, parentBottom)
+                        viewGroup.onLayout(changed, parentLeft, parentTop, parentRight, parentBottom)
+                            view.layout(left, top, right, bottom)
+                                view.onLayout(changed, left, top, right, bottom)</code></pre>
+                <ul class="fragment" data-fragment-index="2">
+                    <li>invalidate() - "перерисовывает" View без изменения размеров.</li>
+                    <li>requestLayout() - вызов Measure Pass и Layout Pass для всего дерева View.</li>
+                    <li>forceLayout() - указывает, что дочернее View обязательно должно быть remeasure и relayout.
+                        forceLayout() работает только с дочерним View, если он встречается вместе с requestLayout() для
+                        его прямого родителя.
+                        Вызов forceLayout() сам по себе не будет иметь эффекта, поскольку он не вызывает
+                        requestLayout().
+                    </li>
+                </ul>
+                <p><a href="https://developer.android.com/guide/topics/ui/how-android-draws">How Android Draws Views</a>
+                </p>
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1>Summary</h1>
+            <br>
+            <div class="center-horizontal">
+                <h2>Когда создавать Custom View или Compound View?</h2>
+                <ul>
+                    <li>Для создания View с новой, особой функциональностью</li>
+                    <li>Для расширения функциональности системных View/ViewGroup</li>
+                </ul>
+                <h2>Custom View Pitfalls</h2>
+                <ul>
+                    <li>Не создавайте Compound View для реализации своих алгоритмов measure и layout в ViewGroup</li>
+                    <li>Сохранение и восстановление состояния</li>
+                    <li>Каскадный вызов конструкторов View</li>
+                    <li>Освобождение TypedArray после инициализации View</li>
+                </ul>
+            </div>
+        </section>
         <section>
-            <h2>Дополнительные ссылки</h2>
+            <h1>Дополнительные ссылки</h1>
+            <br>
             <ul>
-                <li><p><a href="http://developer.android.com/guide/topics/ui/index.html">User Interface</a></p></li>
-                <li><p><a href="http://developer.android.com/training/best-ui.html">Best Practices for User Interface</a></p></li>
-                <li><p><a href="http://developer.android.com/training/improving-layouts/index.html">Improving Layout Performance</a></p></li>
-                <li><p><a href="http://developer.android.com/training/custom-views/index.html">Creating Custom Views</a></p></li>
-                <li><p><a href="http://developer.android.com/reference/android/view/View.html">View</a></p></li>
-                <li><p><a href="http://developer.android.com/guide/topics/ui/custom-components.html">Custom Components</a></p></li>
-                <li><p><a href="http://developer.android.com/guide/topics/resources/drawable-resource.html">Drawable Resources</a></p></li>
-                <li><p><a href="http://developer.android.com/training/improving-layouts/optimizing-layout.html">Optimizing Layout Hierarchies</a></p></li>
-                <li><p><a href="https://developer.android.com/training/material/lists-cards.html">Creating Lists and Cards</a></p></li>
-                <li><p><a href="https://www.littlerobots.nl/blog/Handle-Android-RecyclerView-Clicks/">Getting your clicks on RecyclerView</a></p></li>
+                <li><p><a href="https://developer.android.com/guide/topics/ui/how-android-draws">How Android Draws
+                    Views</a></p></li>
+                <li><p><a href="http://developer.android.com/training/best-ui.html">Best Practices for User
+                    Interface</a></p></li>
+                <li><p><a href="http://developer.android.com/training/improving-layouts/index.html">Improving Layout
+                    Performance</a></p></li>
+                <li><p><a href="http://developer.android.com/training/improving-layouts/optimizing-layout.html">Optimizing
+                    Layout Hierarchies</a></p></li>
+                <li><p><a href="http://developer.android.com/training/custom-views/index.html">Creating Custom Views</a>
+                </p></li>
+                <li><p><a href="http://developer.android.com/guide/topics/ui/custom-components.html">Custom
+                    Components</a></p></li>
             </ul>
         </section>
     </div>
@@ -232,5 +409,5 @@
 </html>
 
 Reveal.initialize({
-    center: true
+center: true
 })
