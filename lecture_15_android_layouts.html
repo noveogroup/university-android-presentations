@@ -98,7 +98,7 @@
                 <li>RelativeLayout</li>
                 <li>ConstraintLayout</li>
                 <li class="fragment" data-fragment-index="1">FlexboxLayout</li>
-                <li class="fragment" data-fragment-index="2">Specific: WebView</li>
+                <li class="fragment" data-fragment-index="2">Specific: WebView, SearchView</li>
                 <li class="fragment" data-fragment-index="3">Scroll containers: ScrollView, NestedScrollView,
                     HorizontalScrollView
                 </li>
@@ -106,7 +106,7 @@
                 <li class="fragment" data-fragment-index="5">Animations: MotionLayout, DrawerLayout, CoordinatorLayout
                 </li>
                 <li class="fragment" data-fragment-index="6">Outdated: TableLayout, GridLayout, ListView, GridView,
-                    SearchView, AbsoluteLayout
+                    AbsoluteLayout
                 </li>
             </ul>
         </section>
@@ -224,6 +224,52 @@
                             setContentView(R.layout.activity_splash)
                         }
                     }</code></pre>
+            </div>
+        </section>
+
+        <section class="center center-horizontal">
+            <h1>TextView & Spannable</h1>
+            <p>Spannable - это интерфейс, который позволяет задать разное форматирование выделенным частям текста</p>
+            <div class="half-left">
+                <pre class="small">Стиль задается экземплярами классов, которые реализуют ParcelableSpan</pre>
+                <ul>
+                    <li>AbsoluteSizeSpan - размер текста</li>
+                    <li>RelativeSizeSpan - размер текста относительно текста строки</li>
+                    <li>BackgroundColorSpan - цвет фона</li>
+                    <li>ForegroundColorSpan - цвет текста</li>
+                    <li>LocaleSpan - Locale текста</li>
+                    <li>StyleSpan - Typeface текста (bold, italic)</li>
+                    <li>TypefaceSpan - Typeface текста (font)</li>
+                    <li>URLSpan (: ClickableSpan) - реакция на нажатие</li>
+                    <li>UnderlineSpan - нижнее подчеркивание</li>
+                    <li>...</li>
+                </ul>
+            </div>
+            <div class="half-right center-horizontal">
+                <pre><code class="kotlin small" data-trim data-noescape>
+                    abstract fun setSpan(what: Any!, start: Int, end: Int, flags: Int): Unit
+                    abstract fun removeSpan(what: Any!): Unit
+                </code></pre>
+                <pre><code class="kotlin small" data-trim data-noescape>
+                    val text = SpannableString("This is underline and bold text.")
+                    text.setSpan(UnderlineSpan(), 8, 17, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                    text.setSpan(StyleSpan(Typeface.BOLD), 22, 26, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                </code></pre>
+                <pre><code class="kotlin small" data-trim data-noescape>
+                    val text = SpannableString("This is red monospace text.")
+                    text.setSpan(TypefaceSpan("monospace"), 7, 20, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                    text.setSpan(ForegroundColorSpan(Color.RED), 7, 20, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                </code></pre>
+                <pre><code class="kotlin small" data-trim data-noescape>
+                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE - xx<span style="color: red;">XXX</span>xx - xxN<span
+                        style="color: red;">XXX</span>Nxx
+                    Spanned.SPAN_EXCLUSIVE_INCLUSIVE - xx<span style="color: red;">XXX</span>xx - xxN<span
+                        style="color: red;">XXXN</span>xx
+                    Spanned.SPAN_INCLUSIVE_EXCLUSIVE - xx<span style="color: red;">XXX</span>xx - xx<span
+                        style="color: red;">NXXX</span>Nxx
+                    Spanned.SPAN_INCLUSIVE_INCLUSIVE - xx<span style="color: red;">XXX</span>xx - xx<span
+                        style="color: red;">NXXXN</span>xx
+                </code></pre>
             </div>
         </section>
         <section class="center center-horizontal">
