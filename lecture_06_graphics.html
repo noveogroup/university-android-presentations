@@ -335,7 +335,7 @@
                     <li>Нет данных о цвете</li>
                     <li>8 bits/px</li>
                 </ul>
-                <p><b>RGB_565</b>/p>
+                <p><b>RGB_565</b></p>
                 <ul>
                     <li><span style="color: red;">Red</span> & <span style="color: blue;">Blue</span> - 5 bits (32)</li>
                     <li><span style="color: green;">Green</span> - 6 bits (64)</li>
@@ -613,6 +613,60 @@
 				</code></pre>
             </div>
         </section>
+        <section class="center center-horizontal">
+            <h2>Glide.with(?)</h2>
+            <p class="fragment" data-fragment-index="1">Загрузка вместе с жизненным циклом Activity:</p>
+            <pre><code class="kotlin" data-trim
+                       data-noescape>fun with(android.app.Activity activity): RequestManager</code></pre>
+            <p class="fragment" data-fragment-index="1">Загрузка вместе с жизненным циклом Fragment:</p>
+            <pre><code class="kotlin" data-trim data-noescape>fun with(android.support.v4.app.Fragment fragment): RequestManager</code></pre>
+            <p class="fragment" data-fragment-index="1">Context - это контекст приложения:</p>
+            <pre><code class="kotlin" data-trim
+                       data-noescape>fun with(android.content.Context context): RequestManager</code></pre>
+            <p class="fragment" data-fragment-index="1">Загрузка вместе с жизненным циклом Activity или Fragment,
+                которые содержат View:</p>
+            <pre><code class="kotlin" data-trim
+                       data-noescape>fun with(android.view.View view): RequestManager</code></pre>
+            <p class="fragment" data-fragment-index="1"><span style="color: red;">Важно:</span> запросы должны быть
+                вызваны от контекста, на котором результат будет использоваться.</p>
+        </section>
+        <section class="center center-horizontal">
+            <h2>Glide Transformations</h2>
+            <div class="third-left">
+                <p>Built in types:</p>
+                <ul>
+                    <li>CenterCrop</li>
+                    <li>FitCenter</li>
+                    <li>CircleCrop</li>
+                </ul>
+                <p>Using default transformations:</p>
+                <pre><code class="kotlin" data-trim data-noescape>
+                    Glide
+                        .with(fragment)
+                        .load(url)
+                        .fitCenter()
+                        .into(imageView)
+				</code></pre>
+            </div>
+            <div class="third-center-right">
+                <p>Using RequestOptions:</p>
+				<pre><code class="kotlin" data-trim data-noescape>
+                    Glide
+                        .with(context)
+                        .load(url)
+                        .apply(RequestOptions().centerCrop())
+                        .into(imageView)
+				</code></pre>
+                <p>Using MultiTransformation:</p>
+                <pre><code class="kotlin" data-trim data-noescape>
+                    Glide
+                        .with(context)
+                        .load(url)
+                        .transform(MultiTransformation(FitCenter(), CustomTransformation()))
+                        .into(imageView)
+				</code></pre>
+            </div>
+        </section>
         <section>
             <h2>Дополнительные ссылки</h2>
             <div class="half-left">
@@ -645,6 +699,7 @@
             <div class="half-right">
                 <h4>Glide</h4>
                 <ul>
+                    <li><p><a href="https://bumptech.github.io/glide/">About Glide</a></p></li>
                     <li><p><a href="https://github.com/bumptech/glide">Glide library</a></p></li>
                     <li><p><a href="https://futurestud.io/tutorials/glide-getting-started">Glide: getting started</a>
                     </p></li>
