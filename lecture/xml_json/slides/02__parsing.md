@@ -13,99 +13,71 @@
 <img src="/lecture/xml_json/img/dom.png" width="100%">
 </div>
 <div class="third-center-right">
-<strong class="fragment" data-fragment-index="2">Document Object Model</strong>
-<p><span class="fragment" data-fragment-index="2">это не зависящий от платформы и языка интерфейс</span><span  class="fragment" data-fragment-index="3">, позволяющий получить доступ к содержимому XML-документов</span><span class="fragment" data-fragment-index="4">, а также изменять содержимое, структуру и оформление таких документов.</span></p>
-<br><br>
-<p class="fragment" data-fragment-index="5">В памяти строится полное дерево, представляющее документ</p>
+    <strong class="fragment" data-fragment-index="2">Document Object Model</strong>
+    
+    <p>
+        <span class="fragment" data-fragment-index="2">это не зависящий от платформы и языка интерфейс</span><span  class="fragment" data-fragment-index="3">, позволяющий получить доступ к содержимому XML-документов</span><span class="fragment" data-fragment-index="4">, а также изменять содержимое, структуру и оформление таких документов.</span>
+    </p>
+    
+    <p class="fragment" data-fragment-index="5">В памяти строится полное дерево, представляющее документ</p>
+    
+    <ul class="fragment" data-fragment-index="6">
+        <li>Работает только если документ валидный</li>
+        <li>Можно производить in-memory "манипуляции"</li>
+    </ul>
 </div>
-
-* Все в памяти
-* Работает только если документ валидный
-* Можно производить in-memory "манипуляции"
 
 ---
 
 ### SAX-парсер
 
 <br>
-SAX (англ. «Simple API for XML») — способ последовательного чтения XML-файлов (существуют аналоги и для JSON). Push-парсер — мы обрабатываем события вида «начало элемента», «начало атрибута». Требуют фиксированного количества памяти для своей работы. Не позволяют изменять содержимое документа. Валидируют документ по ходу чтения. Можно прочесть часть «испорченного» документа. Обычно быстрее, чем DOM-парсеры
+
+<p>SAX (англ. «Simple API for XML») — способ последовательного чтения XML-файлов (существуют аналоги и для JSON).</p> 
+
+<br>
+
+<p class="fragment" data-fragment-index="1"><strong>Push-парсер</strong> — обрабатываем события вида «начало элемента», «начало атрибута».</p> 
+
+<ul>
+    <li class="fragment" data-fragment-index="2">Требуют фиксированного количества памяти для своей работы.</li> 
+    <li class="fragment" data-fragment-index="3">Не позволяют изменять содержимое документа.</li>
+    <li class="fragment" data-fragment-index="4">Валидируют документ по ходу чтения.</li> 
+    <li class="fragment" data-fragment-index="5">Можно прочесть часть «испорченного» документа.</li> 
+    <li class="fragment" data-fragment-index="6">Обычно быстрее, чем DOM-парсеры</li>
+</ul>
+
+------
+
+<!-- .slide:    class="center center-horizontal" -->
+
+### SAX-парсер
+
+<img src="/lecture/xml_json/img/sax.png" width="50%">
 
 ---
 
 ### StAX-парсер
 
 <br>
-StAX (англ. «Streaming API for XML») — способ последовательного чтения/записи XML-файлов (существуют аналоги и для JSON) Pull-парсер — мы не обрабатываем события, приходящие от парсера, а сами инициируем обработку, вытягивая токены. Нам предоставляется курсор, с которым мы можем перемещаться по токенам документа.
 
----
+<p>StAX (англ. «Streaming API for XML») — способ последовательного чтения/записи XML-файлов (существуют аналоги и для JSON)</p> 
 
-### Фреймворки
+<br>
+
+<p class="fragment" data-fragment-index="1"><strong>Pull-парсер</strong> — <span class="fragment" data-fragment-index="2">мы не обрабатываем события, приходящие от парсера, а сами инициируем обработку, вытягивая токены. </span><span class="fragment" data-fragment-index="3">Нам предоставляется курсор, с которым мы можем перемещаться по токенам документа.</span></p>
+
+------
+
+### StAX-парсер
+
+<br>
+
+<p>Очень похож на итератор по событиям</p>
+
 
 <ul>
-<li>Позволяют делать парсинг автоматически, не задумываясь о деталях.</li>
-<li>Можно просто подавать класс с соответствующим именованием полей.</li>
-<li>Можно аннотациями задавать, что и как сериализовать/десериализовать.</li>
-<li>Могут возникнуть проблемы с «плохим» файлом или с преобразованием структуры.</li>
-<li>В основном они базируются на существующих DOM- (изредка Stream-) парсерах</li>
+    <li class="fragment" data-fragment-index="1">Обладает всем, что есть у SAX парсера.</li> 
+    <li class="fragment" data-fragment-index="2">Не поддерживает валидацию по схеме.</li>
+    <li class="fragment" data-fragment-index="3"><span class="highlight-blue fragment" data-fragment-index="4">Позволяет делегировать парсеры по сущностям.</span></li>
 </ul>
-
----
-
-### Simple XML
-
-<div class="half-left">
-<pre><code class="xml">
-&lt;example index="123"&gt;
-   &lt;text&gt;Example message&lt;/text&gt;
-&lt;/example&gt;
-</code></pre>  
-</div>
-
-<div class="half-right">
-<pre><code class="java">
-@Root
-public class Example {
-
-   @Element
-   private String text;
-
-   @Attribute
-   private int index;
-}
-</code></pre>  
-</div>
-
----
-
-### GSON
-
-<div class="half-left">
-<pre><code class="JavaScript">
-{
-  "user_id"="id342",
-  "age"=25
-}
-</code></pre>
-</div>
-<div class="half-right">
-<pre><code class="java">
-public class User {
-
-   @SerializedName("user_id")
-   private String text;
-
-   private int index;
-}
-</code></pre>
-</div>
-
----
-
-### Ссылки
-
-- [W3C XML Tutorial](http://www.w3schools.com/xml/)
-- [JSON docs](http://www.json.org/)
-- [Simple XML](http://simple.sourceforge.net/)
-- [Gson](https://github.com/google/gson)
-- [Jackson](http://wiki.fasterxml.com/JacksonHome)
-- [XmlPullParser](https://developer.android.com/reference/org/xmlpull/v1/XmlPullParser.html)
