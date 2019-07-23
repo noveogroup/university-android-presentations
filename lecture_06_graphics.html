@@ -2,7 +2,8 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport"
+          content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <title>Android Graphics</title>
 
@@ -30,80 +31,257 @@
             <h1>Android Graphics</h1>
             <div class="title-separator"></div>
             <h2>автор:</h2>
-            <p>Алексей Литвинов</p>
+            <p>Татьяна Распутина</p>
         </section>
-		<section class="center center-horizontal">
-            <h1>Resource System</h1>
+        <section class="center center-horizontal"
+                 data-background-image="lecture/graphics/ic_android_studio_logo.png"
+                 data-background-position="right bottom"
+                 data-background-size="30%"
+                 data-background-color="#d5e29f">
+            <h1 style="display:inline-block; padding: 0.5em 0.75em; font-size: 3em; color: white; background-image:url('lecture/graphics/title_bg.png')"
+                class="half-right center-horizontal">Ресурсы</h1>
         </section>
-		<section class="center center-horizontal">
-            <h2>Fragmentation</h2>
-            <img src="https://www.auglaizelibraries.org/sites/default/files/images/Android%20devices.jpg" height="90%" width="50%">
-        </section>
-		<section class="center center-horizontal">
-            <h2>DPI scale</h2>
-            <img src="https://developer.android.com/images/screens_support/screens-ranges.png" height="90%" width="50%">
-        </section>
-		<section class="center center-horizontal">
-            <h2>Density qualifiers</h2>
-            <ul>
-                <li class="fragment" data-fragment-index="1">ldpi - (~120dpi)</li>
-                <li class="fragment" data-fragment-index="1">mdpi - (~160dpi) (baseline)</li>
-                <li class="fragment" data-fragment-index="1">hdpi - (~240dpi)</li>
-                <li class="fragment" data-fragment-index="1">xhdpi - (~320dpi)</li>
-                <li class="fragment" data-fragment-index="1">xxdpi - (~480dpi)</li>
-                <li class="fragment" data-fragment-index="1">xxxdpi - (~640dpi)</li>
-                <li class="fragment" data-fragment-index="2">nodpi - no scaling</li>
-                <li class="fragment" data-fragment-index="3">tvdpi - (~231dpi)</li>
-            </ul>
-        </section>
-		<section class="center center-horizontal">
-            <h2>DPI scale ratio</h2>
-            <img src="https://developer.android.com/images/screens_support/screens-densities.png" height="70%" width="33%">
-        </section>
-		<section class="center center-horizontal">
-            <h2>Different drawables for different screens</h2>
-            <pre><code class="normal" data-trim data-noescape>
-    res/drawable-mdpi/super_icon.png         // bitmap for medium-density
-				res/drawable-hdpi/super_icon.png         // bitmap for high-density
-				res/drawable-xhdpi/super_icon.png        // bitmap for extra-high-density
-				res/drawable-xxhdpi/super_icon.png       // bitmap for extra-extra-high-density
-            </code></pre>
-        </section>
-		<section class="center center-horizontal">
-            <h2>Resource types</h2>
-            <ul>
-                <li class="fragment" data-fragment-index="1">Animation Resources - anim (drawable) - R.anim, R.drawable</li>
-                <li class="fragment" data-fragment-index="2">Color/Color state list - color - R.color</li>
-                <li class="fragment" data-fragment-index="3">Drawable - drawable - R.drawable</li>
-                <li class="fragment" data-fragment-index="4">Layout - layout - R.layout</li>
-                <li class="fragment" data-fragment-index="5">Menu - menu - R.menu</li>
-                <li class="fragment" data-fragment-index="6">String - values - R.string, R.array, R.plurals</li>
-                <li class="fragment" data-fragment-index="7">Style - values - R.style</li>
-                <li class="fragment" data-fragment-index="8">Rest - values - R.bool, R.integer, R.dimen...</li>
-            </ul>
-        </section>
-		<section class="center center-horizontal">		
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">Ресурсы</h1>
             <div class="half-left">
-				<p>Device Configuration:</p>
-				<pre><code class="normal" data-trim data-noescape>
+                <p>Какие бывают типы ресурсов?</p>
+                <ul>
+                    <li>Изображения</li>
+                    <li>Строковые константы</li>
+                    <li>Цвета</li>
+                    <li>Размеры</li>
+                    <li>Анимации</li>
+                    <li>Стили</li>
+                    <li>Файлы разметки</li>
+                    <li>Дополнительные типы ресурсов: Integer, Bool, Typed Array</li>
+                </ul>
+            </div>
+            <div class="half-right center-horizontal fragment" data-fragment-index="1">
+                <p>Зачем экспортировать ресурсы?</p>
+                <ul>
+                    <li>Позволяет поддерживать, обновлять и редактировать ресурсы независимо от исходного кода</li>
+                    <li>Позволяет предоставлять альтернативные ресурсы для разных конфигураций устройств</li>
+                    <li>Позволяет переиспользовать ресурсы по ссылке</li>
+                    <li>Ресурсы доступны из кода и из XML</li>
+                </ul>
+            </div>
+
+        </section>
+        <section class="center center-horizontal" data-transition="none">
+            <h1 class="center-horizontal">Как добавить ресурсы?</h1>
+            <div class="half-left">
+                <div class="borders">
+                    <img src="lecture/graphics/folders.png" width="79%" height="auto">
+                </div>
+            </div>
+            <div class="half-right center-horizontal">
+                <div class="borders">
+                    <img src="lecture/graphics/folders_project_structure.png" width="53.75%" height="auto">
+                </div>
+            </div>
+        </section>
+        <section class="center center-horizontal" data-transition="none">
+            <h1 class="center-horizontal">Как добавить ресурсы?</h1>
+            <div class="half-left">
+                <div class="borders">
+                    <img src="lecture/graphics/resources_folders.png" width="79%" height="auto">
+                </div>
+            </div>
+            <div class="half-right center-horizontal">
+                <div class="borders">
+                    <img src="lecture/graphics/resources_folders_project_structure.png" width="53.75%" height="auto">
+                </div>
+            </div>
+        </section>
+        <section class="center center-horizontal" data-transition="none">
+            <h1 class="center-horizontal">/assets vs /res</h1>
+            <div class="half-left">
+                <h2>/assets</h2>
+                <ul>
+                    <li>Можно работать как с директориями</li>
+                    <li>Позволяет задать произвольные имена файлов ресурсов</li>
+                    <li>Для чтения файлов нужно указывать относительный путь к файлу, начиная с /assets директории</li>
+                    <li>Для чтения используется класс <b>AssetManager</b></li>
+                    <li>Файлы читаются, как поток байтов</li>
+                    <li>От вызова к вызову будут читаться сырые данные, которые нужно парсить в runtime</li>
+                </ul>
+            </div>
+            <div class="half-right center-horizontal">
+                <h2>/res</h2>
+                <ul>
+                    <li>Ресурсы объединены по типу в специальных подкаталогах</li>
+                    <li>Каждому ресурсу присваивается уникальный идентификатор</li>
+                    <li>Идентификатор - статическая целочисленная переменная</li>
+                    <li>Инструмент <b>aapt</b> создает класс <b>R</b>, содержащий идентификаторы всех ресурсов, во время
+                        компиляции
+                    </li>
+                    <li>Ресурсы выбираются для текущей конфигурации</li>
+                    <li>По идентификатору получаются готовые объекты</li>
+                </ul>
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">Ресурсы в приложении</h1>
+            <div class="third-left">
+                <p><b>aapt</b> - Android Asset Packaging Tool - инструмент запаковки ресурсов</p>
+                <p><b>android.content.res.Resources</b> - менеджер ресурсов, генерирует мапу ресурсов (файл c
+                    константами)</p>
+                <p><b>app.packagename.R.*</b> - ключи ресурсов</p>
+                <p><span style="color: red;">Важно:</span> позволяет с помощью аннотаций провалидировать ожидаемый
+                    ресурс на этапе компиляции</p>
+            </div>
+            <div class="third-center-right center-horizontal borders">
+                <img src="lecture/graphics/analyse_apk.png" width="80%" height="auto">
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">Типы ресурсов в структуре проекта</h1>
+            <div class="third-left">
+                <ul>
+                    <li>anim/</li>
+                    <li>animator/</li>
+                    <li>color/</li>
+                    <li>drawable/</li>
+                    <li>mipmap/</li>
+                    <li>layout/</li>
+                    <li>menu/</li>
+                    <li>font/</li>
+                    <li>raw/</li>
+                    <li>xml/</li>
+                </ul>
+            </div>
+            <div class="third-center">
+                <ul>
+                    <li>values/attrs.xml</li>
+                    <li>values/arrays.xml</li>
+                    <li>values/colors.xml</li>
+                    <li>values/dimens.xml</li>
+                    <li>values/strings.xml</li>
+                    <li>values/styles.xml</li>
+                    <li>values/bools.xml</li>
+                    <li>values/ids.xml</li>
+                    <li>values/integers.xml</li>
+                </ul>
+            </div>
+            <div class="third-right center-horizontal">
+                <div class="borders">
+                    <img src="lecture/graphics/res_folder_main.png" width="85%" height="auto">
+                </div>
+            </div>
+        </section>
+        <section class="center center-horizontal" data-transition="none">
+            <h1 class="center-horizontal">Как настраивать ресурсы под разную конфигурацию? Квалификаторы:</h1>
+            <div class="half-left">
+                <ul>
+                    <li>country code (MCC)</li>
+                    <li>network code (MNC)</li>
+                    <li>locale</li>
+                    <li>layout direction</li>
+                    <li>smallest screen width</li>
+                    <li>screen width</li>
+                    <li>screen height</li>
+                    <li>size</li>
+                    <li>ration</li>
+                    <li>orientation</li>
+                </ul>
+            </div>
+            <div class="half-right center-horizontal">
+                <ul>
+                    <li>ui mode</li>
+                    <li>night node</li>
+                    <li>density</li>
+                    <li>touch screen</li>
+                    <li>keyboard</li>
+                    <li>text input</li>
+                    <li>navigation state</li>
+                    <li>navigation method</li>
+                    <li>version</li>
+                </ul>
+            </div>
+        </section>
+        <section class="center center-horizontal" data-transition="none">
+            <h1 class="center-horizontal">Как настраивать ресурсы под разную конфигурацию? Квалификаторы:</h1>
+            <div class="half-left">
+                <ul>
+                    <li>country code (MCC)</li>
+                    <li>network code (MNC)</li>
+                    <li><span style="color: green;">locale</span></li>
+                    <li>layout direction (ldrtl, ldltr)</li>
+                    <li><span style="color: green;">smallest screen width</span></li>
+                    <li>screen width (ex.: w720dp)</li>
+                    <li>screen height (ex.: h720dp)</li>
+                    <li><span style="color: green;">size</span></li>
+                    <li>ration (long, notlong)</li>
+                    <li><span style="color: green;">orientation (port, land)</span></li>
+                </ul>
+            </div>
+            <div class="half-right center-horizontal">
+                <ul>
+                    <li>ui mode</li>
+                    <li><span style="color: green;">night node (night, notnight)</span></li>
+                    <li><span style="color: green;">density</span></li>
+                    <li>touch screen (notouch, finger)</li>
+                    <li>keyboard (keysexposed, keyshidden, keyssoft)</li>
+                    <li>text input (nokeys, qwerty, 12key)</li>
+                    <li>navigation state (navexposed, navhidden)</li>
+                    <li>navigation method (nonav, dpad, trackball, wheel)</li>
+                    <li><span style="color: green;">version</span></li>
+                </ul>
+            </div>
+        </section>
+        <section class="center center-horizontal" data-transition="none">
+            <h1 class="center-horizontal">Квалификаторы:</h1>
+            <div class="half-left">
+                <p><span style="color: green;">locale</span></p>
+                <ul>
+                    <li>fr (код языка)</li>
+                    <li>en-rUS (код языка + код региона)</li>
+                </ul>
+                <p><span style="color: green;">smallest screen width</span></p>
+                <ul>
+                    <li>sw320dp (смартфоны: 240x320 ldpi, 320x480 mdpi, 480x800 hdpi)</li>
+                    <li>sw480dp (смартфоны, планшеты: 480x800 mdpi)</li>
+                    <li>sw600dp (планшет 7'': 600x1024 mdpi)</li>
+                    <li>sw720dp (планшет 10'': 720x1280 mdp)</li>
+                </ul>
+                <p><span style="color: green;">version</span></p>
+                <ul>
+                    <li>v21</li>
+                    <li>v23</li>
+                </ul>
+            </div>
+            <div class="half-right center-horizontal">
+                <p><span style="color: green;">density</span></p>
+                <ul>
+                    <li>ldpi ~ 120dpi - x0.75</li>
+                    <li>mdpi ~ 160dpi - baseline x1</li>
+                    <li>hdpi ~ 240dpi - x1.5</li>
+                    <li>xhdpi ~ 320dpi - x2</li>
+                    <li>xxdpi ~ 480dpi - x3</li>
+                    <li>xxxdpi ~ 640dpi - x4</li>
+                    <li>nodpi - no scaling</li>
+                    <li>tvdpi ~ 231dpi</li>
+                </ul>
+                <p><span style="color: green;">size</span></p>
+                <ul>
+                    <li>small (от 320x426 px)</li>
+                    <li>normal (от 320x470 px)</li>
+                    <li>large (от 480x640 px)</li>
+                    <li>xlarge (от 720x960 px)</li>
+                </ul>
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <div class="half-left">
+                <p>Device Configuration:</p>
+                <pre><code class="normal" data-trim data-noescape>
 					Screen orientation: landscape
 					Screen pixel density: hdpi
 					Screen size: large
 					Touchscreen type: finger
 				</code></pre>
-			</div>		
-        </section>
-		<section class="center center-horizontal">		
-            <div class="half-left">
-				<p>Device Configuration:</p>
-				<pre><code class="normal" data-trim data-noescape>
-					Screen orientation: landscape
-					Screen pixel density: hdpi
-					Screen size: large
-					Touchscreen type: finger
-				</code></pre>
-				<p>Resource folder:</p>
-				<pre><code class="normal" data-trim>
+                <p>Resource folder:</p>
+                <pre><code class="normal" data-trim>
 					res/drawable
 					res/drawable-notouch
 					res/drawable-land
@@ -111,429 +289,432 @@
 					res/drawable-land-finger
 					res/drawable-hdpi
 				</code></pre>
-			</div>		
+            </div>
+            <div class="half-right">
+                <ul>
+                    <li class="fragment" data-fragment-index="1">Убираем notouch</li>
+                    <li class="fragment" data-fragment-index="2">Пропускаем screen size</li>
+                    <li class="fragment" data-fragment-index="3">Убираем папки без "land"</li>
+                    <li class="fragment" data-fragment-index="4">Поиск по dpi</li>
+                    <li class="fragment" data-fragment-index="5">Поиск по touchscreen type</li>
+                </ul>
+                <p class="fragment" data-fragment-index="6">res/drawable-land-finger</p>
+            </div>
         </section>
-		<section class="center center-horizontal">		
-            <div class="half-left">
-				<p>Device Configuration:</p>
-				<pre><code class="normal" data-trim data-noescape>
-					Screen orientation: landscape
-					Screen pixel density: hdpi
-					Screen size: large
-					Touchscreen type: finger
-				</code></pre>
-				<p>Resource folder:</p>
-				<pre><code class="normal" data-trim>
-					res/drawable
-					res/drawable-land
-					res/drawable-land-ldpi
-					res/drawable-land-finger
-					res/drawable-hdpi
-				</code></pre>
-			</div>
-			<div class="half-right">
-				<ul>
-					<li>Убираем notouch</li>
-				</ul>
-			</div>			
+        <section class="center center-horizontal"
+                 data-background-image="lecture/graphics/ic_android_studio_logo.png"
+                 data-background-position="right bottom"
+                 data-background-size="30%"
+                 data-background-color="#d5e29f">
+            <h1 style="display:inline-block; padding: 0.5em 0.75em; font-size: 3em; color: white; background-image:url('lecture/graphics/title_bg.png')"
+                class="half-right center-horizontal">Графика</h1>
         </section>
-		<section class="center center-horizontal">		
-            <div class="half-left">
-				<p>Device Configuration:</p>
-				<pre><code class="normal" data-trim data-noescape>
-					Screen orientation: landscape
-					Screen pixel density: hdpi
-					Screen size: large
-					Touchscreen type: finger
-				</code></pre>
-				<p>Resource folder:</p>
-				<pre><code class="normal" data-trim>
-					res/drawable
-					res/drawable-land
-					res/drawable-land-ldpi
-					res/drawable-land-finger
-					res/drawable-hdpi
-				</code></pre>
-			</div>
-			<div class="half-right">
-				<ul>
-					<li>Убираем notouch</li>
-					<li>Пропускаем screen size</li>
-				</ul>
-			</div>			
+        <section class="center center-horizontal">
+            <h1>Графика: растровая и векторная</h1>
+            <div class="center-horizontal borders">
+                <img src="lecture/graphics/png_svg_zoom.png"/>
+            </div>
         </section>
-		<section class="center center-horizontal">		
-            <div class="half-left">
-				<p>Device Configuration:</p>
-				<pre><code class="normal" data-trim data-noescape>
-					Screen orientation: landscape
-					Screen pixel density: hdpi
-					Screen size: large
-					Touchscreen type: finger
-				</code></pre>
-				<p>Resource folder:</p>
-				<pre><code class="normal" data-trim>
-					res/drawable-land
-					res/drawable-land-ldpi
-					res/drawable-land-finger
-				</code></pre>
-			</div>
-			<div class="half-right">
-				<ul>
-					<li>Убираем notouch</li>
-					<li>Пропускаем screen size</li>
-					<li>Убираем папки без "land"</li>
-				</ul>
-			</div>			
-        </section>
-		<section class="center center-horizontal">		
-            <div class="half-left">
-				<p>Device Configuration:</p>
-				<pre><code class="normal" data-trim data-noescape>
-					Screen orientation: landscape
-					Screen pixel density: hdpi
-					Screen size: large
-					Touchscreen type: finger
-				</code></pre>
-				<p>Resource folder:</p>
-				<pre><code class="normal" data-trim>
-					res/drawable-land
-					res/drawable-land-ldpi
-					res/drawable-land-finger
-				</code></pre>
-			</div>
-			<div class="half-right">
-				<ul>
-					<li>Убираем notouch</li>
-					<li>Пропускаем screen size</li>
-					<li>Убираем папки без "land"</li>
-					<li>Поиск по dpi</li>
-				</ul>
-			</div>			
-        </section>
-		<section class="center center-horizontal">		
-            <div class="half-left">
-				<p>Device Configuration:</p>
-				<pre><code class="normal" data-trim data-noescape>
-					Screen orientation: landscape
-					Screen pixel density: hdpi
-					Screen size: large
-					Touchscreen type: finger
-				</code></pre>
-				<p>Resource folder:</p>
-				<pre><code class="normal" data-trim>
-					res/drawable-land-finger
-				</code></pre>
-			</div>
-			<div class="half-right">
-				<ul>
-					<li>Убираем notouch</li>
-					<li>Пропускаем screen size</li>
-					<li>Убираем папки без "land"</li>
-					<li>Поиск по dpi</li>
-					<li>Поиск по touchscreen type</li>
-				</ul>
-			</div>			
-        </section>
-		<section class="center center-horizontal">
-            <h1>How to use</h1>
-        </section>		
-		<section class="center center-horizontal">
-            <h2>Supported formats</h2>
+        <section class="center center-horizontal">
+            <h1>Поддерживаемые форматы изображений</h1>
             <ul>
-                <li class="fragment" data-fragment-index="1">JPEG</li>
-                <li class="fragment" data-fragment-index="1">PNG</li>
-                <li class="fragment" data-fragment-index="1">BMP</li>
-                <li class="fragment" data-fragment-index="2">GIF</li>
-                <li class="fragment" data-fragment-index="3">SVG (ну почти)</li>
+                <li>BMP - без сжатия</li>
+                <li>JPEG - сжатие с компрессией</li>
+                <li>PNG - сжатие без компрессии</li>
+                <li>GIF - с индексированным цветом</li>
+                <li>SVG - Scalable Vector Graphics</li>
             </ul>
         </section>
-		<section class="center center-horizontal">
-            <h2>Showing images on screen</h2>
-            <ul>
-                <li class="fragment" data-fragment-index="1">ImageView</li>
-                <li class="fragment" data-fragment-index="1">android:background любого View</li>
-                <li class="fragment" data-fragment-index="2">Canvas</li>
-                <li class="fragment" data-fragment-index="3">WebView</li>
-                <li class="fragment" data-fragment-index="4">OpenGL/SurfaceView</li>
-            </ul>
+        <section class="center center-horizontal">
+            <h1>Bitmap</h1>
+            <pre><code class="kotlin">val bitmap = Bitmap.createBitmap(100, 100, Bitmap.Config.ARGB_8888)</code></pre>
+            <div class="half-left">
+                <p><b>ALPHA_8</b></p>
+                <ul>
+                    <li>Хранит: прозрачность</li>
+                    <li>Нет данных о цвете</li>
+                    <li>8 bits/px</li>
+                </ul>
+                <p><b>RGB_565</b></p>
+                <ul>
+                    <li><span style="color: red;">Red</span> & <span style="color: blue;">Blue</span> - 5 bits (32)</li>
+                    <li><span style="color: green;">Green</span> - 6 bits (64)</li>
+                    <li>Нет данных о прозрачности</li>
+                    <li>16 bits/px</li>
+                </ul>
+            </div>
+            <div class="half-right center-horizontal">
+                <p><b>ARGB_8888</b></p>
+                <ul>
+                    <li>ARGB - Alpha, <span style="color: red;">Red</span>,<span
+                            style="color: green;">Green</span>,<span style="color: blue;">Blue</span></li>
+                    <li>4 byte/px</li>
+                    <li>ARGB_4444 - аналог ARGB_8888 (2 byte/px) - deprecated API >= 13</li>
+                </ul>
+            </div>
         </section>
-		<section class="center center-horizontal">
-            <h1>Drawables</h1>
-        </section>	
-		<section class="center center-horizontal">
-            <h2>Drawable</h2>
-            <p>Абстрактный класс для рисования различных изображений</p>
-            <pre class="fragment" data-fragment-index="1"><code class="normal" data-trim data-noescape>
-				/** 
-				Draw in its bounds (set via setBounds) respecting optional 
-				effects such as alpha (set via setAlpha) and color filter (set via setColorFilter).
-				
-				@param canvas - The canvas to draw into
-				*/
-				public abstract void More ...draw(Canvas canvas);
+        <section class="center center-horizontal">
+            <h1>Сохранение и чтение Bitmap</h1>
+            <div class="half-left">
+                <pre><code class="kotlin" data-trim data-noescape>
+                    val stream = FileOutputStream("image.jpg")
+                    bitmap.compress(CompressFormat.JPEG, 50, stream)
+                    stream.close()</code></pre>
+            </div>
+            <div class="half-right center-horizontal">
+                <pre><code class="kotlin" data-trim data-noescape>
+                    BitmapFactory.decodeStream(
+                        FileInputStream(file), // InputStream
+                        null, // Rect - padding rect for bitmap
+                        options // BitmapFactory.Options - downsampling
+                    )
                 </code></pre>
+                <pre><code class="kotlin" data-trim data-noescape>
+                    BitmapFactory.decodeResource(resources, R.drawable.ic_image)
+                </code></pre>
+                <pre><code class="kotlin" data-trim data-noescape>
+                    BitmapFactory.decodeFile(imagePath, options)
+                </code></pre>
+            </div>
         </section>
-		<section class="center center-horizontal">
-            <h2>Bitmap Drawable</h2>
-            <p>Drawable, который умеет рисовать Bitmap'ы</p>
-            <h4  class="fragment" data-fragment-index="1">XML</h4>
-			<pre class="fragment" data-fragment-index="1"><code data-trim data-noescape>
+        <section class="center center-horizontal">
+            <h2>Bitmap handling</h2>
+            <ul>
+                <li>Делаем recycle(), как только картинка становится не нужна.</li>
+                <li>Если нужно много изображений — выделяем память при старте приложения, создаём пул картинок.</li>
+                <li>При создании через BitmapFactory ставим нужные флаги в BitmapFactory.Options.</li>
+                <li>Проверяем размер картинки (BitmapOptions.inJustDecodeBounds).</li>
+                <li>Открываем картинку сразу с масштабированием.</li>
+                <li>Пробуем обрабатывать OutOfMemoryError и в случае нехватки памяти грузить картинку с другой цветовой
+                    палитрой или ещё уменьшить размер.
+                </li>
+            </ul>
+        </section>
+        <section class="center center-horizontal">
+            <h1>Canvas</h1>
+            <p>Выполняет операции рисования</p>
+            <pre><code class="kotlin">override fun onDraw(canvas: Canvas) // method of View's lifecycle, where we can draw on Canvas</code></pre>
+            <div class="half-left">
+                <ul>
+                    <li><b>drawARGB(), drawRGB(), drawColor()</b> - заполнение цветом</li>
+                    <li><b>drawPoint()</b> - рисует точку</li>
+                    <li><b>drawLine()</b> - рисует линию</li>
+                    <li><b>drawRect()</b> - рисует прямоугольник</li>
+                    <li><b>drawCircle()</b> - рисует круг</li>
+                    <li><b>drawOval()</b> - рисует овал</li>
+                    <li><b>drawArc()</b> - рисует дугу</li>
+                </ul>
+            </div>
+            <div class="half-right center-horizontal">
+                <ul>
+                    <li><b>drawRoundRect()</b> - рисует прямоугольник с закругленными краями</li>
+                    <li><b>drawText()</b> - рисует текст</li>
+                    <li><b>drawBitmap()</b> - рисует Bitmap</li>
+                    <li><b>drawPaint()</b> - закрашивает холст с заданной Paint</li>
+                    <li><b>drawPath()</b> - рисует контур</li>
+                </ul>
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1>Трансформации Canvas</h1>
+            <div class="half-left">
+                <ul>
+                    <li><b>translate(dx: Float, dy: Float)</b> - добавляет смещение для матрицы изображения</li>
+                    <li><b>rotate(degrees: Float)</b> - добавляет поворот в матрицу</li>
+                    <li><b>rotate(degrees: Float, dx: Float, dy: Float)</b> - поворот с заданной точкой поворота</li>
+                    <li><b>scale(sx: Float, sy: Float)</b> - масштабирует изображение</li>
+                    <li><b>skew(sx: Float, sy: Float)</b> - растягивает изображение</li>
+                </ul>
+            </div>
+            <div class="half-right center-horizontal">
+                <ul>
+                    <li><b>save()</b> - сохранение текущей матрицы</li>
+                    <li><b>restore()</b> - удаляет все модификации после последнего вызова <b>save()</b></li>
+                </ul>
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1>Paint</h1>
+            <p>Определяет с какими параметрами рисовать на Canvas</p>
+            <div class="half-left">
+                <ul>
+                    <li>Цвет</li>
+                    <li>Стиль: сплошная закраска и/или контурная</li>
+                    <li>Толщина линий</li>
+                    <li>Сглаживание на краях</li>
+                    <li>Штрихпунктир</li>
+                    <li>Параметры текста: размер, шрифт, стиль</li>
+                </ul>
+            </div>
+            <div class="half-right center-horizontal">
+                <p>Градиент: Shader</p>
+                <ul>
+                    <li>LinearGradient</li>
+                    <li>RadialGradient</li>
+                    <li>SweepGradient</li>
+                    <li>ComposeGradient</li>
+                    <li>BitmapGradient</li>
+                </ul>
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1>Paint - PathEffect</h1>
+            <div class="center-horizontal borders">
+                <img src="lecture/graphics/path_effect.png" width="200%"/>
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1>Path</h1>
+            <p>Замкнутый контур, соединенный линиями или кривыми</p>
+            <div class="center-horizontal borders">
+                <img src="lecture/graphics/path_methods.png"/>
+            </div>
+            <p>Методы относительного перемещения</p>
+            <ul>
+                <li>rMoveTo(dx, dy)</li>
+                <li>rLineTo(dx, dy)</li>
+                <li>rQuadTo(dx1, dy1, dx2, dy2)</li>
+                <li>rCubicTo(dx1, dy1, dx2, dy2, dx3, dy3)</li>
+            </ul>
+        </section>
+        <section class="center center-horizontal">
+            <h2>Drawable</h2>
+            <p>Абстрактный класс для рисования</p>
+            <div class="half-left">
+                <ul>
+                    <li>Изображение</li>
+                    <li>Фигура</li>
+                    <li>Градиент</li>
+                    <li>Сплошной цвет</li>
+                    <li>Композиция</li>
+                    <li>...</li>
+                </ul>
+            </div>
+            <div class="half-right center-horizontal">
+                <ul>
+                    <li>BitmapDrawable</li>
+                    <li>ShapeDrawable</li>
+                    <li>NinePatchDrawable</li>
+                    <li>ColorDrawable</li>
+                    <li>LayerDrawable</li>
+                    <li>TransitionDrawable</li>
+                    <li>AnimationDrawable</li>
+                    <li>StateListDrawable</li>
+                    <li>...</li>
+                </ul>
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h2>BitmapDrawable</h2>
+            <p>Обертка над Bitmap</p>
+            <h4>XML</h4>
+            <pre><code class="xml" data-trim data-noescape>
 				&lt;ImageView
-				android:layout_width="40dp"
-				android:layout_height="40dp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
 				android:src="@drawable/ic_cool_icon"&gt;
-				   
+
 				&lt;ImageView
-				android:layout_width="40dp"
-				android:layout_height="40dp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
 				android:background="@drawable/ic_cool_icon"&gt;
 			</code></pre>
-            <h4 class="fragment" data-fragment-index="1">Code</h4>
-			<pre class="fragment" data-fragment-index="1"><code data-trim data-noescape>
-				imageView.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_cool_icon))//src
-				imageView.setBackgroundResource(R.drawable.ic_cool_icon) //background
+            <h4>Code</h4>
+            <pre><code class="kotlin" data-trim data-noescape>
+				imageView.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_cool_icon)) // src
+				imageView.setBackgroundResource(R.drawable.ic_cool_icon) // background
 			</code></pre>
         </section>
-		<section class="center center-horizontal">
+        <section class="center center-horizontal">
             <h2>Color Drawable</h2>
-            <p>Drawable, который умеет в заливку</p>
-            <h4 class="fragment" data-fragment-index="1">XML</h4>
-			<pre class="fragment" data-fragment-index="1"><code data-trim data-noescape>				   
+            <h4>XML</h4>
+            <pre><code class="xml" data-trim data-noescape>
 				&lt;View
-				android:layout_width="40dp"
-				android:layout_height="40dp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
 				android:background="@color/cool_color"&gt;
 			</code></pre>
-            <h4  class="fragment" data-fragment-index="1">Code</h4>
-			<pre class="fragment" data-fragment-index="1"><code data-trim data-noescape>
+            <h4>Code</h4>
+            <pre><code class="kotlin" data-trim data-noescape>
 				imageView.setImageDrawable(ColorDrawable(R.color.black))
 			</code></pre>
         </section>
-		<section class="center center-horizontal">
+        <section class="center center-horizontal">
             <h2>State List Drawable</h2>
             <p>Drawable, который может меняться в зависимости от состояния View</p>
-            <h4 class="fragment" data-fragment-index="1">XML</h4>
-			<pre class="fragment" data-fragment-index="1"><code data-trim data-noescape>
-&lt;selector xmlns:android="http://schemas.android.com/apk/res/android"&gt;
-	&lt;item android:state_enabled="false" android:drawable="@drawable/bttn_grey_disabled"/&gt;
-	&lt;item android:state_pressed="true" android:drawable="@drawable/bttn_orange_selected"/&gt;
-	&lt;item android:drawable="@drawable/bttn_orange_normal"/&gt;
-&lt;/selector>
+            <h4>XML</h4>
+            <pre><code class="xml" data-trim data-noescape>
+                &lt;selector xmlns:android="http://schemas.android.com/apk/res/android"&gt;
+                    &lt;item android:state_enabled="false" android:drawable="@drawable/bttn_grey_disabled"/&gt;
+                    &lt;item android:state_pressed="true" android:drawable="@drawable/bttn_orange_selected"/&gt;
+                    &lt;item android:drawable="@drawable/bttn_orange_normal"/&gt;
+                &lt;/selector>
 			</code></pre>
-            <h4  class="fragment" data-fragment-index="2">Code</h4>
-			<pre class="fragment" data-fragment-index="2"><code data-trim data-noescape>
-val stateListDrawable = StateListDrawable()
+            <h4>Code</h4>
+            <pre><code class="kotlin" data-trim data-noescape>
+                val stateListDrawable = StateListDrawable()
 
-stateListDrawable.addState(intArrayOf(android.R.attr.state_pressed), ContextCompat.getDrawable(context, R.drawable.bttn_orange_selected))
-stateListDrawable.addState(StateSet.WILD_CARD, ContextCompat.getDrawable(context, R.drawable.bttn_orange_normal))
+                stateListDrawable.addState(intArrayOf(android.R.attr.state_pressed), ContextCompat.getDrawable(context, R.drawable.bttn_orange_selected))
+                stateListDrawable.addState(StateSet.WILD_CARD, ContextCompat.getDrawable(context, R.drawable.bttn_orange_normal))
 
-view.setBackground(stateListDrawable)
+                view.setBackground(stateListDrawable)
 			</code></pre>
         </section>
-		<section class="center center-horizontal">
+        <section class="center center-horizontal">
             <h2>Shape Drawable</h2>
             <p>Drawable, который умеет рисовать примитивные фигуры</p>
-            <h4 class="fragment" data-fragment-index="1">XML</h4>
-			<pre class="fragment" data-fragment-index="1"><code data-trim data-noescape>
-&lt;shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="oval"&gt;
-    &lt;solid android:color="@color/fill_color"&gt;
-    &lt;stroke
-        android:width="@dimen/stroke_width"
-        android:color="@color/border_color"&gt;
-&lt;/shape&gt;
+            <h4>XML</h4>
+            <pre><code class="xml" data-trim data-noescape>
+                &lt;shape xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:shape="oval"&gt;
+                    &lt;solid android:color="@color/fill_color"&gt;
+                    &lt;stroke
+                        android:width="@dimen/stroke_width"
+                        android:color="@color/border_color"&gt;
+                &lt;/shape&gt;
 			</code></pre>
-            <h4  class="fragment" data-fragment-index="2">Code</h4>
-			<pre class="fragment" data-fragment-index="2"><code data-trim data-noescape>
-val shapeDrawable = ShapeDrawable(OvalShape())
+            <h4>Code</h4>
+            <pre><code class="kotlin" data-trim data-noescape>
+                val shapeDrawable = ShapeDrawable(OvalShape())
 
-shapeDrawable.paint.strokeWidth = context.getResources().getDimension(R.dimen.stroke_width)
-shapeDrawable.paint.style = Paint.Style.FILL
+                shapeDrawable.paint.strokeWidth = context.getResources().getDimension(R.dimen.stroke_width)
+                shapeDrawable.paint.style = Paint.Style.FILL
 
-view.setBackground(shapeDrawable);
+                view.setBackground(shapeDrawable);
 			</code></pre>
         </section>
-		
-		<section class="center center-horizontal">
+
+        <section class="center center-horizontal">
             <h2>9-Patch Drawable</h2>
-            <p>Drawable, который умеет круто растягиваться </p>
-            <div class="half-left"  class="fragment" data-fragment-index="1">
-				<img src="http://developer.alexanderklimov.ru/android/theory/draw9patch.png" width="70%" height="auto">
-			</div>
-			<div class="half-right"  class="fragment" data-fragment-index="2">
-				<img src="https://i.stack.imgur.com/MLYha.png" width="70%" height="auto">
+            <p>Drawable, который умеет растягиваться</p>
+            <div class="half-left">
+                <img src="http://developer.alexanderklimov.ru/android/theory/draw9patch.png" width="70%" height="auto">
+            </div>
+            <div class="half-right">
+                <img src="lecture/graphics/nine_patch_editor.png" width="80%" height="auto">
             </div>
         </section>
-		<section class="center center-horizontal">
-            <h2>Over 9000 drawables</h2>
-            <ul>
-                <li class="fragment" data-fragment-index="1">VectorDrawable/VectorDrawableCompat</li>
-                <li class="fragment" data-fragment-index="1">GradientDrawable</li>
-                <li class="fragment" data-fragment-index="2">AdaptiveIconDrawable</li>
-                <li class="fragment" data-fragment-index="2">LayerDrawable</li>
-                <li class="fragment" data-fragment-index="2">CompositeDrawable</li>
-                <li class="fragment" data-fragment-index="2">PictureDrawable</li>
-                <li class="fragment" data-fragment-index="2">RoundedBitmapDrawable</li>
-                <li class="fragment" data-fragment-index="2">InsetDrawable</li>
-                <li class="fragment" data-fragment-index="2">PaintDrawable</li>
-                <li class="fragment" data-fragment-index="2">RippleDrawable</li>
-                <li class="fragment" data-fragment-index="2">TransitionDrawable</li>
-                <li class="fragment" data-fragment-index="2">PaintDrawable</li>
-            </ul>
-        </section>
-		<section class="center center-horizontal">
-            <h1>Remote images</h1>
-        </section>
-		<section class="center center-horizontal">
-            <h2>Glide</h2>
-        </section>
-		<section class="center center-horizontal">
-            <h2>Glide</h2>
-			<p>Чудесная библиотека для работы с изображениями</p>
-			<div class="half-left">
-				<ul>
-					<li class="fragment" data-fragment-index="1">Простая в использовании</li>
-					<li class="fragment" data-fragment-index="3">Берёт почти всю боль на себя</li>
-					<li class="fragment" data-fragment-index="4">Из коробки поддерживает различные преобразования; позволяет писать собственные</li>
-					<li class="fragment" data-fragment-index="5">Невероятно кастомизируема</li>
-				</ul>
-			</div>
-			<div class="half-right">
-				<pre class="fragment" data-fragment-index="2"><code data-trim data-noescape>
-Glide
-	.with(context)
-    .load(url)
-    .placeholder(R.drawable.loading_spinner)
-    .into(imageView);
+        <section class="center center-horizontal">
+            <h2>Загрузка изображений: Glide</h2>
+            <div class="half-left">
+                <ul>
+                    <li>Простая в использовании</li>
+                    <li>Из коробки поддерживает различные преобразования</li>
+                    <li>Позволяет писать собственные преобразования</li>
+                </ul>
+            </div>
+            <div class="half-right">
+				<pre><code class="kotlin" data-trim data-noescape>
+                    Glide
+                        .with(context)
+                        .load(url)
+                        .placeholder(R.drawable.loading_spinner)
+                        .into(imageView)
 				</code></pre>
-			</div>
+            </div>
         </section>
-		<section class="center center-horizontal">
-            <h1>Canvas</h1>
+        <section class="center center-horizontal">
+            <h2>Glide.with(?)</h2>
+            <p class="fragment" data-fragment-index="1">Загрузка вместе с жизненным циклом Activity:</p>
+            <pre><code class="kotlin" data-trim
+                       data-noescape>fun with(android.app.Activity activity): RequestManager</code></pre>
+            <p class="fragment" data-fragment-index="1">Загрузка вместе с жизненным циклом Fragment:</p>
+            <pre><code class="kotlin" data-trim data-noescape>fun with(android.support.v4.app.Fragment fragment): RequestManager</code></pre>
+            <p class="fragment" data-fragment-index="1">Context - это контекст приложения:</p>
+            <pre><code class="kotlin" data-trim
+                       data-noescape>fun with(android.content.Context context): RequestManager</code></pre>
+            <p class="fragment" data-fragment-index="1">Загрузка вместе с жизненным циклом Activity или Fragment,
+                которые содержат View:</p>
+            <pre><code class="kotlin" data-trim
+                       data-noescape>fun with(android.view.View view): RequestManager</code></pre>
+            <p class="fragment" data-fragment-index="1"><span style="color: red;">Важно:</span> запросы должны быть
+                вызваны от контекста, на котором результат будет использоваться.</p>
         </section>
-		<section class="center center-horizontal">
-            <h2>Canvas</h2>
-			<p>Всегда можно вклиниться в цикл отрисовки View и рисовать там</p>
-            <ul>
-                <li class="fragment" data-fragment-index="1">Наследуемся от View (или его детей), переопределяем onDraw() или используем SurfaceView</li>
-                <li class="fragment" data-fragment-index="2">invalidate() и postInvalidate()</li>
-                <li class="fragment" data-fragment-index="3">Можем рисовать геометрические примитивы напрямую руками</li>
-                <li class="fragment" data-fragment-index="4">Не стоит забывать о буферизации и не делать слишком часто перерисовку</li>
-            </ul>
+        <section class="center center-horizontal">
+            <h2>Glide Transformations</h2>
+            <div class="third-left">
+                <p>Built in types:</p>
+                <ul>
+                    <li>CenterCrop</li>
+                    <li>FitCenter</li>
+                    <li>CircleCrop</li>
+                </ul>
+                <p>Using default transformations:</p>
+                <pre><code class="kotlin" data-trim data-noescape>
+                    Glide
+                        .with(fragment)
+                        .load(url)
+                        .fitCenter()
+                        .into(imageView)
+				</code></pre>
+            </div>
+            <div class="third-center-right">
+                <p>Using RequestOptions:</p>
+				<pre><code class="kotlin" data-trim data-noescape>
+                    Glide
+                        .with(context)
+                        .load(url)
+                        .apply(RequestOptions().centerCrop())
+                        .into(imageView)
+				</code></pre>
+                <p>Using MultiTransformation:</p>
+                <pre><code class="kotlin" data-trim data-noescape>
+                    Glide
+                        .with(context)
+                        .load(url)
+                        .transform(MultiTransformation(FitCenter(), CustomTransformation()))
+                        .into(imageView)
+				</code></pre>
+            </div>
         </section>
-		<section class="center center-horizontal">
-            <h2>Canvas howto</h2>
-            <ul>
-                <li class="fragment" data-fragment-index="1">.drawLine — и мы рисуем линии.</li>
-                <li class="fragment" data-fragment-index="2">.drawBitmap(), drawRect(), drawText()</li>
-                <li class="fragment" data-fragment-index="3">Drawable.draw(Canvas)</li>
-                <li class="fragment" data-fragment-index="4">Используем класс Path, если нам надо нарисовать сложную ломаную или много примитивов, тогда отрисовка будет проходить быстрее.</li>
-                <li class="fragment" data-fragment-index="5">Класс Picture позволяет кэшировать запросы к Canvas (отрисовали раз, потом из него
-воспроизводим гораздо быстрее) — но он не работает при аппаратном ускорении.</li>
-                <li class="fragment" data-fragment-index="6">Класс Paint — настройки кисти.</li>
-				<li class="fragment" data-fragment-index="7">Стоит воздержаться от создания объектов внутри onDraw</li>
-            </ul>
-        </section>
-		<section class="center center-horizontal">
-            <h2>onDraw Example</h2>
-			<pre class="fragment" data-fragment-index="1"><code data-trim data-noescape>
-private val redLinePaint = Paint().apply {
-   color = Color.RED
-}
-
-private val blueCirclePaint = Paint().apply {
-   color = Color.BLUE
-}
-
-override fun onDraw(canvas: Canvas) {
-   //super.onDraw(canvas)
-
-   canvas.drawCircle(width / 2.0f, width.toFloat(), Math.min(width / 2.0f, height / 2.0f), blueCirclePaint)
-   canvas.drawLine(0.0f,0.0f, width.toFloat(), height.toFloat(), redLinePaint)
-        
-   //super.onDraw(canvas)
-}
-			</code></pre>
-        </section>
-		<section class="center center-horizontal">
-            <h1>Bitmaps</h1>
-        </section>
-		<section class="center center-horizontal">
-            <h2>Bitmaps</h2>
-			<p>Представление картинки в памяти</p>
-            <ul>
-                <li class="fragment" data-fragment-index="1">Создаётся или напрямую статическим методом createBitmap, или при чтении из источника
-данных (файл, поток, ресурс и т. д.) статическими методами класса BitmapFactory</li>
-                <li class="fragment" data-fragment-index="2">Можно узнать размеры изображения</li>
-                <li class="fragment" data-fragment-index="3">Можно скопировать/отмасштабировать изображение.</li>
-                <li class="fragment" data-fragment-index="4">Можно закрасить пиксель/всё изображение/часть изображения.</li>
-                <li class="fragment" data-fragment-index="5">Можно словить проблемы с памятью</li>
-            </ul>
-        </section>
-		<section class="center center-horizontal">
-            <h2>Bitmaps and RAM</h2>
-			<p>Bitmap занимает в памяти 4 * width * height байт</p>
-            <ul>
-                <li class="fragment" data-fragment-index="1">Можно использовать RGB-565 и лишиться прозрачности.</li>
-                <li class="fragment" data-fragment-index="2">Можно использовать ARGB-4444, который давно deprecated, и картинка будет выглядеть грустно</li>
-                <li class="fragment" data-fragment-index="3">DVM не дефрагментирует память, поэтому даже если в куче хватает места, OutOfMemoryError всё равно где-то рядом.</li>
-            </ul>
-			<p class="fragment" data-fragment-index="4">А как избавиться от Bitmap'a?</p>
-			<ul>
-                <li class="fragment" data-fragment-index="5">Дождаться, когда GC вызовет finalize()</li>
-                <li class="fragment" data-fragment-index="6">Вызвать recycle()</li>
-                <li class="fragment" data-fragment-index="6">После вызова recycle() картинка не может быть использована — выбрасывается исключение. В старых версиях Android (API <= 10) использование recycle() настоятельно рекомендуется, в новых - не является обязательным, но хуже не будет</li>
-            </ul>
-        </section>
-		<section class="center center-horizontal">
-            <h2>Bitmap handling</h2>
-			<ul>
-                <li class="fragment" data-fragment-index="2">Делаем recycle(), как только картинка становится не нужна. В том числе, если в тот же Bitmap загружаем новое изображение</li>
-                <li class="fragment" data-fragment-index="3">Если нужно много изображений — выделяем память при старте приложения, создаём пул картинок.</li>
-                <li class="fragment" data-fragment-index="4">При создании через BitmapFactory ставим нужные флаги в BitmapFactory.Options.</li>
-				<li class="fragment" data-fragment-index="5">Проверяем размер картинки (BitmapOptions.inJustDecodeBounds).</li>
-				<li class="fragment" data-fragment-index="6">Открываем картинку сразу с масштабированием.</li>
-				<li class="fragment" data-fragment-index="7">Пробуем ловить OutOfMemoryError и в случае нехватки памяти грузить картинку с другой
-цветовой палитрой или ещё уменьшить размер.</li>
-            </ul>
-        </section>
-		
         <section>
             <h2>Дополнительные ссылки</h2>
-			<div class="half-left">
-				<h4>Resources</h4>
-				<ul>
-					<li><p><a href="https://developer.android.com/guide/practices/screens_support.html">Supporting Multiple Screens</a></p></li>
-					<li><p><a href="https://developer.android.com/guide/topics/resources/providing-resources.html">Providing Resources</a></p></li>
-				</ul>
-				<h4>Drawables</h4>
-				<ul>
-					<li><p><a href="https://developer.android.com/guide/topics/resources/drawable-resource.html">Drawables</a></p></li>
-					<li><p><a href="https://developer.android.com/reference/android/graphics/drawable/Drawable.html">Drawable class</a></p></li>
-					<li><p><a href="https://developer.android.com/guide/topics/graphics/vector-drawable-resources.html">Vector Drawables</a></p></li>
-				</ul>
-				<h4>Canvas</h4>
-				<ul>			
-					<li><p><a href="https://developer.android.com/training/custom-views/custom-drawing.html">Custom drawing</a></p></li>
-					<li><p><a href="https://developer.android.com/reference/android/graphics/Canvas.html">Canvas</a></p></li>
-					<li><p><a href="https://developer.android.com/guide/topics/graphics/2d-graphics.html">Canvas and Drawables</a></p></li>
-				</ul>
-			</div>
-			<div class="half-right">
-				<h4>Glide</h4>
-				<ul>
-					<li><p><a href="https://github.com/bumptech/glide">Glide library</a></p></li>
-					<li><p><a href="https://futurestud.io/tutorials/glide-getting-started">Glide: getting started</a></p></li>
-				</ul>
-				<h4>Bitmap</h4>
-				<ul>
-				
-					<li><p><a href="https://developer.android.com/reference/android/graphics/Bitmap.html">Bitmap</a></p></li>
-					<li><p><a href="https://developer.android.com/topic/performance/graphics/index.html">Handling Bitmaps</a></p></li>
-					<li><p><a href="https://developer.android.com/topic/performance/graphics/manage-memory.html">Managing Bitmap Memory</a></p></li>
-				</ul>
-			</div>
+            <div class="half-left">
+                <h4>Resources</h4>
+                <ul>
+                    <li><p><a href="https://developer.android.com/guide/practices/screens_support.html">Supporting
+                        Multiple Screens</a></p></li>
+                    <li><p><a href="https://developer.android.com/guide/topics/resources/providing-resources.html">Providing
+                        Resources</a></p></li>
+                </ul>
+                <h4>Drawables</h4>
+                <ul>
+                    <li><p><a href="https://developer.android.com/guide/topics/resources/drawable-resource.html">Drawables</a>
+                    </p></li>
+                    <li><p><a href="https://developer.android.com/reference/android/graphics/drawable/Drawable.html">Drawable
+                        class</a></p></li>
+                    <li><p><a href="https://developer.android.com/guide/topics/graphics/vector-drawable-resources.html">Vector
+                        Drawables</a></p></li>
+                </ul>
+                <h4>Canvas</h4>
+                <ul>
+                    <li><p><a href="https://developer.android.com/training/custom-views/custom-drawing.html">Custom
+                        drawing</a></p></li>
+                    <li><p><a href="https://developer.android.com/reference/android/graphics/Canvas.html">Canvas</a></p>
+                    </li>
+                    <li><p><a href="https://developer.android.com/guide/topics/graphics/2d-graphics.html">Canvas and
+                        Drawables</a></p></li>
+                </ul>
+            </div>
+            <div class="half-right">
+                <h4>Glide</h4>
+                <ul>
+                    <li><p><a href="https://bumptech.github.io/glide/">About Glide</a></p></li>
+                    <li><p><a href="https://github.com/bumptech/glide">Glide library</a></p></li>
+                    <li><p><a href="https://futurestud.io/tutorials/glide-getting-started">Glide: getting started</a>
+                    </p></li>
+                </ul>
+                <h4>Bitmap</h4>
+                <ul>
+
+                    <li><p><a href="https://developer.android.com/reference/android/graphics/Bitmap.html">Bitmap</a></p>
+                    </li>
+                    <li><p><a href="https://developer.android.com/topic/performance/graphics/index.html">Handling
+                        Bitmaps</a></p></li>
+                    <li><p><a href="https://developer.android.com/topic/performance/graphics/manage-memory.html">Managing
+                        Bitmap Memory</a></p></li>
+                </ul>
+            </div>
         </section>
     </div>
 </div>
@@ -548,5 +729,5 @@ override fun onDraw(canvas: Canvas) {
 </html>
 
 Reveal.initialize({
-    center: true
+center: true
 })
