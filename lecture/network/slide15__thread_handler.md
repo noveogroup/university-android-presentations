@@ -4,31 +4,12 @@ Handler — ассоциированный с потоком объект, об�
 
 <br>
 
-<pre><code class="Kotlin large">
-val thread = Thread(Runnable {
-    val result = executeSomeFun()
-
-    // Run the result on Main UI Thread
-    Handler(Looper.getMainLooper()).post { showResult(result) }
-})
-thread.start()
-
-</code></pre>
-
-------
-
-# Thread with Handler
-
-Kotlin-style
-
-<br>
-
-<pre><code class="Kotlin large">
+<pre><code class="Kotlin large" data-trim data-noescape>
+val mainHandler = Handler(Looper.getMainLooper())
 thread(start = true) {
     val result = executeSomeFun()
 
     // Run the result on Main UI Thread
-    Handler(Looper.getMainLooper()).post { showResult(result) }
+    mainHandler.post { showResult(result) }
 }
-
 </code></pre>

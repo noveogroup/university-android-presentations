@@ -1,3 +1,11 @@
+<!-- .slide:    data-background-color="#699f00" -->
+<!-- .slide:    class="center center-horizontal" -->
+<!-- .slide:    data-transition="convex" -->
+
+# Фреймворки
+
+---
+
 # Retrofit
 
 <blockquote class="noveo-info">

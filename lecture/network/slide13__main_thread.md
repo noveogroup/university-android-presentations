@@ -8,4 +8,9 @@
 <div class="fragment" data-fragment-index="1">
 Долгие операции в главном потоке - это плохо!
 </div>
-</div>
+
+------
+
+# Main Thread
+
+<img src="/lecture/network/img/queue.png" width="100%">
