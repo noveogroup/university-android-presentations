@@ -2,7 +2,15 @@
 <!-- .slide:    class="center center-horizontal" -->
 <!-- .slide:    data-transition="convex" -->
 
-# Фреймворки
+# Фреймворки <span class="fragment" data-fragment-index="1">для сети</span> <span class="fragment" data-fragment-index="2">и для графики</span>
+
+---
+
+<!-- .slide:    data-background-color="#699f00" -->
+<!-- .slide:    class="center center-horizontal" -->
+<!-- .slide:    data-transition="convex" -->
+
+# HTTP-клиент
 
 ---
 
@@ -38,8 +46,8 @@ Retrofit turns your HTTP API into a Java interface.
 - Декларативное описание взаимодействия с REST API
 - Синхронные и асинхронные вызовы
 - Встроенная интеграция с другими библиотеками
-    + Парсеры: Jackson, GSON, etc.
-    + Клиенты: OkHttp, HttpUrlConnection
-    + RxJava
+    + Парсеры: `Jackson`, `GSON`, etc.
+    + Клиенты: `OkHttp`, `HttpUrlConnection`
+    + `RxJava`
 
 <!-- .element: class="fragment" data-fragment-index="1" -->

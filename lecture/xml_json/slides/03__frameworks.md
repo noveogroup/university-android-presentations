@@ -22,7 +22,7 @@
 <br>
 
 <blockquote class="fragment noveo-info" data-fragment-index="5">
-Такую разметку и автоматический разбор принято называть <strong>mapping</strong>
+<p>Такую разметку и автоматический разбор принято называть <strong> mapping</strong></p>
 </blockquote>
 
 ---
@@ -40,13 +40,12 @@
 <div class="half-right">
 <pre><code class="kotlin" data-trim data-noescape>
 @Root
-class Example {
+class Example(
     @field:Element(name = "text", required = true)
-    val text: String
-    
+    var text: String,
     @field:Attribute(name = "index")
     var index: Int
-}
+)
 </code></pre>  
 </div>
 
