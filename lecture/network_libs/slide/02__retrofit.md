@@ -2,17 +2,11 @@
 <!-- .slide:    class="center center-horizontal" -->
 <!-- .slide:    data-transition="convex" -->
 
-# Фреймворки <span class="fragment" data-fragment-index="1">для сети</span> <span class="fragment" data-fragment-index="2">и для графики</span>
+# REST-клиент
 
 ---
 
-<!-- .slide:    data-background-color="#699f00" -->
-<!-- .slide:    class="center center-horizontal" -->
-<!-- .slide:    data-transition="convex" -->
-
-# HTTP-клиент
-
----
+<!-- .slide:    data-transition="convex-in fade-out" -->
 
 # Retrofit
 
@@ -22,7 +16,8 @@ Retrofit turns your HTTP API into a Java interface.
 
 <br>
 
-<pre><code class="Kotlin large" data-trim data-noescape>interface NetworkClient {
+<pre><code class="Kotlin large" data-trim data-noescape>
+interface NetworkClient {
     @GET("entities/{id}")
     fun getById(
         @Path("id") id: Int,
@@ -36,18 +31,18 @@ Retrofit turns your HTTP API into a Java interface.
 
 ------
 
-# Retrofit
+<!-- .slide:    data-transition="fade-in slide-out" -->
 
-Библиотека - REST-клиент
+# Retrofit 
 
-<br> 
+<pre><code class="Kotlin large" data-trim data-noescape>
+val retrofit = Retrofit.Builder().run {
+    baseUrl(BuildConfig.END_POINT)
+    client(<span class="fragment highlight-green" data-fragment-index="1">OkHttpClient.Builder().build()</span>)
+    addConverterFactory(GsonConverterFactory.create(gson))
+    addInterceptor(AuthenticationInterceptor())
+    build()
+}
 
-
-- Декларативное описание взаимодействия с REST API
-- Синхронные и асинхронные вызовы
-- Встроенная интеграция с другими библиотеками
-    + Парсеры: `Jackson`, `GSON`, etc.
-    + Клиенты: `OkHttp`, `HttpUrlConnection`
-    + `RxJava`
-
-<!-- .element: class="fragment" data-fragment-index="1" -->
+val rest: NetworkClient = retrofit.create(NetworkClient::class.java)
+</code></pre>

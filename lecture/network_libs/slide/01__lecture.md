@@ -36,3 +36,10 @@
 - Доставить результаты в целевой поток <!-- .element class="fragment" data-fragment-index="3" -->
 - Обработать результаты <!-- .element class="fragment" data-fragment-index="4" -->
 
+---
+
+<!-- .slide:    data-background-color="#699f00" -->
+<!-- .slide:    class="center center-horizontal" -->
+<!-- .slide:    data-transition="convex" -->
+
+# Фреймворки <span class="fragment" data-fragment-index="1">для сети</span> <span class="fragment" data-fragment-index="2">и для графики</span>

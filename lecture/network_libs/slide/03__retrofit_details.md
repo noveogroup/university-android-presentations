@@ -1,3 +1,5 @@
+<!-- .slide:    data-transition="slide-in fade-out" -->
+
 ## Retrofit
 
 - Библиотека - REST-клиент
@@ -8,7 +10,9 @@
     + `OkHttp`(по умолчанию), `HttpUrlConnection`
     + `RxJava`
 
----
+------
+
+<!-- .slide:    data-transition="fade" -->
 
 ## Retrofit - доступные аннотации
 
