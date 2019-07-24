@@ -20,7 +20,7 @@
 
 # Service
 
-![app](lecture/multithread_network/img/service_lifecycle.png)
+![app](lecture/network/img/service_lifecycle.png)
 <!-- .element: width="30%" -->
 
 <!-- .element: class="center-horizontal" -->

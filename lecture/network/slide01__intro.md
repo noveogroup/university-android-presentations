@@ -5,7 +5,7 @@
 <!-- .slide:    class="center noveo-title" -->
 <!-- .slide:    data-transition="convex" -->
 
-# Network. Multithreading
+# HTTP REST API
 
 <!-- .element: style="width: 60%" -->
 

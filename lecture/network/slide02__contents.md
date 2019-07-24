@@ -2,9 +2,8 @@
 <ul class="table-of-content">
 <li><a href="#api">Что такое API</a></li>
     <li><a href="#rest">REST API</a></li>
-    <li><a href="#url">URL</a></li>
+    <li><a href="#network_url">URL</a></li>
     <li><a href="#formats">Форматы передачи данных. Json</a></li>
-    <li><a href="#retrofit">Retrofit</a></li>
 </ul>   
 
 <br>
