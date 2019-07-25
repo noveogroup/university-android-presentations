@@ -10,7 +10,7 @@
 
 <br>
 <div class="third-left fragment" data-fragment-index="1">
-<img src="/lecture/xml_json/img/dom.png" width="100%">
+<img src="lecture/xml_json/img/dom.png" width="100%">
 </div>
 <div class="third-center-right">
     <strong class="fragment" data-fragment-index="2">Document Object Model</strong>
@@ -53,7 +53,7 @@
 
 ### SAX-парсер
 
-<img src="/lecture/xml_json/img/sax.png" width="50%">
+<img src="lecture/xml_json/img/sax.png" width="50%">
 
 ---
 

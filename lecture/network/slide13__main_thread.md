@@ -13,4 +13,4 @@
 
 # Main Thread
 
-<img src="/lecture/network/img/queue.png" width="100%">
+<img src="lecture/network/img/queue.png" width="100%">
