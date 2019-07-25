@@ -14,7 +14,7 @@
 <br>
 
 <div class="center-horizontal">
-    <img class="center center-horizontal" src="lecture/network/img/processes.png" width="100%">
+    <img class="center center-horizontal" src="https://noveogroup.github.io/university-android-presentations/lecture/network/img/processes.png" width="100%">
 </div>
 
 ------
