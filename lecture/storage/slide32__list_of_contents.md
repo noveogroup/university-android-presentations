@@ -1,6 +1,6 @@
 ## В главных ролях:
 
-* [Shared Preferences](#/storage__shared_preferences) <!-- .element: style="color: white" -->
+* [Shared Preferences](#/shared_preferences) <!-- .element: style="color: white" -->
 
 * [Internal Storage](#/storage__filesystem_internal) <!-- .element: style="color: white" -->
 * [External Storage](#/storage__filesystem_external) <!-- .element: style="color: white" -->

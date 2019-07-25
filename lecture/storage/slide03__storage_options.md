@@ -1,5 +1,5 @@
 ## Где хранить
-* [Shared Preferences](#/storage__shared_preferences)
+* [Shared Preferences](#/shared_preferences)
 * [Файловая система](#/storage__filesystem)
     - [Internal Storage](#/storage__filesystem_internal)
     - [External Storage](#/storage__filesystem_external)
