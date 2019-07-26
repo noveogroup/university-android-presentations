@@ -9,7 +9,7 @@
 <br>
 <br>
 
-also `DocumentsProvides`, `FileProvider`, etc.
+also `DocumentsProvider`, `FileProvider`, etc.
 
 <!-- .element: class="fragment" data-fragment-index="1" -->
 
