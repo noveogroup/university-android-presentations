@@ -14,5 +14,26 @@
 <br>
 
 <div class="center-horizontal">
-<img class="center center-horizontal" src="lecture/network/img/processes.png">
+    <img class="center center-horizontal" src="https://noveogroup.github.io/university-android-presentations/lecture/network/img/processes.png" width="100%">
 </div>
+
+------
+
+# Process importance
+
+<pre>
+<code class="kotlin" data-trim data-noescape>
+val activityManager = context.getSystemService(Context.ACTIVITY_SERVICE) as? ActivityManager
+val currentProcess = activityManager?.runningAppProcesses?.firstOrNull()
+
+//High importance -- 0, Low  importance -- 100000
+val currentProcessImportance = currentProcess?.importance ?: 0
+val foregroundAllowed = currentProcessImportance &lt;= ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND <span style="display: none">// ></span>
+
+if (foregroundAllowed) {
+    // foreground!
+} else {
+    // some other
+}
+</code>
+</pre>

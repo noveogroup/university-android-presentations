@@ -1,3 +1,11 @@
+<!-- .slide:    data-background-color="#699f00" -->
+<!-- .slide:    class="center center-horizontal" -->
+<!-- .slide:    data-transition="convex" -->
+
+# Фреймворки
+
+---
+
 # Retrofit
 
 <blockquote class="noveo-info">
@@ -6,7 +14,7 @@ Retrofit turns your HTTP API into a Java interface.
 
 <br>
 
-<pre><code class="Kotlin large">interface NetworkClient {
+<pre><code class="Kotlin large" data-trim data-noescape>interface NetworkClient {
     @GET("entities/{id}")
     fun getById(
         @Path("id") id: Int,

@@ -2,9 +2,11 @@
 
 <br>
 
-<li>Thread и Runnable</li>
-<li>AsyncTask</li>
-<li>IntentService</li>
-<li>Loader</li>
-<li>RxJava</li>
-<li>Coroutines</li>
+<ul>
+    <li>`Thread` и `Runnable`</li>
+    <li>`AsyncTask`</li>
+    <li>`IntentService`</li>
+    <li>`Loader`</li>
+    <li>`RxJava`</li>
+    <li>`Coroutines`</li>
+</ul>

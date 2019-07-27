@@ -9,6 +9,8 @@ URI = scheme:[//authority]path[?query][#fragment]
 
 <!-- .element: class="fragment" data-fragment-index="1" -->
 
+<blockquote class="fragment noveo-success" data-fragment-index="3">Более широкий класс</blockquote>
+<blockquote class="fragment noveo-success" data-fragment-index="4">Идентифицирует сущность</blockquote>
 
 <br>
 <br>
@@ -21,6 +23,9 @@ URI = scheme:[//authority]path[?query][#fragment]
 https://openweathermap.org/find?q=novosibirsk
 </code></pre>
 <!-- .element: class="fragment" data-fragment-index="2" -->
+
+<blockquote class="fragment noveo-success" data-fragment-index="3">Подмножество URI</blockquote>
+<blockquote class="fragment noveo-info" data-fragment-index="4">Идентифицирует и помогает найти</blockquote>
 
 
 ------

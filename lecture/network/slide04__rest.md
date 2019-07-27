@@ -1,4 +1,4 @@
-# ReST API
+# REST API
 
 <blockquote class="noveo-info">
 Representational State Transfer — передача состояния отображения.

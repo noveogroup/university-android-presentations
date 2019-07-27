@@ -1,3 +1,11 @@
+<!-- .slide:    data-background-color="#699f00" -->
+<!-- .slide:    class="center center-horizontal" -->
+<!-- .slide:    data-transition="convex" -->
+
+# API
+
+---
+
 # Что такое API
 
 <blockquote class="noveo-info">
