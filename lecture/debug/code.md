@@ -12,7 +12,7 @@
 + Помощь в процессе отладки
 + Сбор информации о причинах возникновения ошибок
 
----
+------
 
 ## Logging - Рекомендуемое решение
 
@@ -27,7 +27,7 @@
 
 [История Java Logging](https://habrahabr.ru/post/113145/)
 
----
+------
 
 <!-- .slide:    class="center center-horizontal" -->
 
@@ -50,7 +50,9 @@
 </configuration>
 ```
 
----
+------
+
+<!-- .slide:    data-transition="slide-in fade-out" -->    
 
 ## Logging - раскраска 
 
@@ -64,6 +66,16 @@
 
 Или использовать готовую тему, например [Solarized](https://github.com/jkaving/intellij-colors-solarized)
 
+------
+
+<!-- .slide:    data-transition="fade-in slide-out" -->    
+
+## Logging - раскраска 
+
+[Editor] -> [Colors&Fonts] -> [Android Logcat]
+
+![](lecture/debug/img/logcat_colorful.png)
+
 ---
 
 <!-- .slide:    class="center center-horizontal" -->
@@ -74,7 +86,7 @@
 
 И все? <!-- .element: class="fragment" data-fragment-index="1" -->
 
----
+------
 
 <!-- .slide:    class="center center-horizontal" -->
 <!-- .slide:    data-transition="fade" -->    
@@ -85,7 +97,7 @@
 
 ![](lecture/debug/img/debugger_breakpoints.png)
 
----
+------
 
 <!-- .slide:    class="center center-horizontal" -->
 <!-- .slide:    data-transition="fade" -->    
@@ -96,7 +108,7 @@
 
 ![](lecture/debug/img/debugger_breakpoints_more.png)
 
----
+------
 
 <!-- .slide:    class="center center-horizontal" -->
 <!-- .slide:    data-transition="fade" -->    
@@ -107,7 +119,7 @@
 
 ![](lecture/debug/img/debugger_breakpoints_more_more.png)
 
----
+------
 
 <!-- .slide:    class="center center-horizontal" -->
 <!-- .slide:    data-transition="fade" -->    
@@ -118,7 +130,7 @@
 
 ![](lecture/debug/img/debugger_evaluate.png)
 
----
+------
 
 <!-- .slide:    class="center center-horizontal" -->
 
@@ -132,7 +144,7 @@
 <img src="lecture/debug/img/debugger_run.png" width="40%">
 </div>
 
----
+------
 
 <!-- .slide:    class="center center-horizontal" -->
 <!-- .slide:    data-transition="fade" -->    
@@ -157,7 +169,7 @@ override fun onCreate() {
 
 ## А как дебажить Rx?
 
----
+------
 
 ## Rx Logging 
 
@@ -179,7 +191,7 @@ fun test() {
 }
 ```
 
----
+------
 
 ## Rx General Error Handler
 
