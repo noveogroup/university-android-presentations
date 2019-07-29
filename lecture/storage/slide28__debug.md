@@ -21,10 +21,10 @@
 
 ## Debug
 
-<br>
-
 #### Доступ к БД через [Device File Explorer](https://developer.android.com/studio/debug/device-file-explorer.html)
 
+
+**View > Tool Windows > Device File Explorer**
 
 <img src="lecture/storage/img/android_studio_3.0.png">
 

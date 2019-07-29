@@ -34,30 +34,42 @@
             <h1 class="fragment" data-fragment-index="1">Preferences</h1>
         </section>
 
-        <section data-markdown="lecture/storage/slide04__shared_prefs.md"
+        <section data-markdown="lecture/storage/slide04_1__shared_prefs.md"
                  data-separator-vertical="^\r?\n------\r?\n$"
-                 id="storage__shared_preferences"></section>
+                 id="shared_preferences"></section>
+
+        <section data-markdown="lecture/storage/slide04_2__shared_prefs_practice.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"></section>
+
+        <section data-markdown="lecture/storage/slide04_3__shared_prefs_example.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"></section>
 
         <section data-background-color="#699f00" class="center center-horizontal" id="storage__filesystem">
             <h1 class="fragment" data-fragment-index="1">File Storage</h1>
         </section>
 
-        <section data-markdown="lecture/storage/slide05__internal_storage.md"
+        <section data-markdown="lecture/storage/slide05_1__internal_storage.md"
                  data-separator-vertical="^\r?\n------\r?\n$"
                  id="storage__filesystem_internal"></section>
 
-        <section data-markdown="lecture/storage/slide06__external_storage.md"
+        <section data-markdown="lecture/storage/slide05_2__external_storage.md"
                  data-separator-vertical="^\r?\n------\r?\n$"
-                 id="storage__filesystem_external">
+                 id="storage__filesystem_external"></section>
 
-        </section>
+        <section data-markdown="lecture/storage/slide06_1__content_provider.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"
+                 id="content_provider"></section>
+
+        <section data-markdown="lecture/storage/slide06_2__content_provider_uri.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"></section>
 
         <section data-background-color="#699f00" class="center center-horizontal">
             <h1 class="fragment" data-fragment-index="1">Database</h1>
         </section>
 
-        <section data-markdown="lecture/storage/slide07__database_general.md"
-                 data-separator-vertical="^\r?\n------\r?\n$">
+        <section data-markdown="lecture/storage/slide07_0__database_general.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"
+                 id="database_general">
         </section>
 
         <section data-external="lecture/storage/slide07__database_systems.html" id="storage__database">
@@ -67,6 +79,9 @@
                  data-separator-vertical="^\r?\n------\r?\n$"
                  id="storage__sql"></section>
 
+        <section data-markdown="lecture/storage/slide08_1__entities_foreign.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"></section>
+
         <section data-markdown="lecture/storage/slide09__sqlite.md"
                  data-separator-vertical="^\r?\n------\r?\n$"
                  id="storage__sqlite">
@@ -75,26 +90,13 @@
 
         <section data-markdown="lecture/storage/slide10__sqlite_android.md"></section>
 
-        <section data-markdown="lecture/storage/slide11__work_with_sqlite.md"></section>
-
-        <section data-markdown="lecture/storage/slide12__sqlite_open_helper.md"
-                 data-separator-vertical="^\r?\n------\r?\n$"></section>
-
-        <section data-markdown="lecture/storage/slide13__sqlite_database.md"
+        <section data-markdown="lecture/storage/slide11__legacy_work_with_sqlite.md"
                  data-separator-vertical="^\r?\n------\r?\n$"
-                 id="storage__sqlite_database"></section>
+                 id="legacy"></section>
 
-        <section data-markdown="lecture/storage/slide14__cursor.md"
-                 data-separator-vertical="^\r?\n------\r?\n$"
-                 id="cursor"></section>
-
-        <section data-markdown="lecture/storage/slide15__contract_class.md"
-                 data-separator-vertical="^\r?\n------\r?\n$"
-                 id="contract"></section>
-
-        <section data-markdown="lecture/storage/slide16__cursor_resumption.md"
-                 data-separator-vertical="^\r?\n------\r?\n$"></section>
-
+        <section class="center center-horizontal">
+            <h1>Это было неудобно</h1>
+        </section>
 
         <section data-background-color="#699f00" class="center center-horizontal" id="storage__orm">
             <h1 class="fragment" data-fragment-index="1">ORM</h1>
@@ -103,33 +105,28 @@
 
         <section data-markdown="lecture/storage/slide18__orm.md" id="orm"></section>
 
-        <section data-markdown="lecture/storage/slide19__room.md"
+        <section data-markdown="lecture/storage/slide19_0__room.md"
                  data-separator-vertical="^\r?\n------\r?\n$"
                  id="room"></section>
 
-        <section data-background-color="#699f00" class="center center-horizontal">
-            <h1 class="fragment" data-fragment-index="1">Alternatives</h1>
-        </section>
-
-        <section data-markdown="lecture/storage/slide20__ormlite.md" id="storage__ormlite"></section>
-
-        <section data-markdown="lecture/storage/slide21__realm.md"
-                 data-separator-vertical="^\r?\n------\r?\n$"
-                 id="realm"></section>
-
-        <section data-background-color="#699f00" class="center center-horizontal">
-            <h1 class="fragment" data-fragment-index="1">More info</h1>
-        </section>
-
-        <section data-markdown="lecture/storage/slide22__entities_foreign.md"
+        <section data-markdown="lecture/storage/slide19_1__room_entity.md"
                  data-separator-vertical="^\r?\n------\r?\n$"></section>
 
-        <section data-markdown="lecture/storage/slide23__content_provider.md"
-                 data-separator-vertical="^\r?\n------\r?\n$"
-                 id="content_provider"></section>
 
-        <section data-markdown="lecture/storage/slide24__content_provider_uri.md"
+        <section data-markdown="lecture/storage/slide19_2__room_foreign.md"
                  data-separator-vertical="^\r?\n------\r?\n$"></section>
+
+        <section data-markdown="lecture/storage/slide20_0__room_database.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"
+                 id="room_database"></section>
+
+        <section data-markdown="lecture/storage/slide20_1__room_dao.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"
+                 id="room_dao"></section>
+
+        <section data-markdown="lecture/storage/slide20_2__room_dao_rx.md"
+                 data-separator-vertical="^\r?\n------\r?\n$"
+                 id="room_rx"></section>
 
         <section data-background-color="#699f00" class="center center-horizontal">
             <h1 class="fragment" data-fragment-index="1">Handy Tips</h1>
@@ -146,6 +143,12 @@
                  id="clear_data"></section>
 
         <section data-markdown="lecture/storage/slide31__respect_the_main_thread.md"></section>
+
+        <section data-background-color="#699f00"
+                 data-markdown="lecture/storage/slide32__list_of_contents.md"
+                 id="list_of_contents"></section>
+
+        <section data-markdown="lecture/storage/slide33__extra_links.md"></section>
 
         <section data-background-color="#699f00" class="center">
             <h1>Storage</h1>
