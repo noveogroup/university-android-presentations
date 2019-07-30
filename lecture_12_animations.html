@@ -30,73 +30,1210 @@
             <h1>Android Animations</h1>
             <div class="title-separator"></div>
             <h2>автор:</h2>
-            <p>Клещев Денис</p>
+            <p>Распутина Татьяна</p>
         </section>
         <section class="center center-horizontal">
-            <h2>Animations Overview</h2>
-            <ul>
-				<li>Animation Frameworks <em>(Drawable Animations, View Animations, Propertry Animations)</em></li>
-				<li>Layout Transitions <em>(Layout Animations, Transitions Framework)</em></li>
-				<li>Window Transitions <em>(Custom Animations, Shared Elements)</em></li>
-				<li>Moar <em>(Ripples, Reveals, Links)</em></li>
-			</ul>
+            <h1 class="center-horizontal">Что такое анимация?</h1>
+            <div class="center-horizontal">
+                <p>Воспроизведение кадров во времени с некоторой трансформацией и сглаживанием (рендеринг)</p>
+                <ul>
+                    <li>Решают проблему недостаточной интерактивности UI</li>
+                    <li>Позволяют фокусировать внимание</li>
+                    <li>Обладают силой убеждения</li>
+                    <li>Улучшают понимание навигации</li>
+                    <li>Подсвечивают реакции на пользовательский ввод и нажатие на элементы</li>
+                    <li>...</li>
+                </ul>
+            </div>
         </section>
         <section class="center center-horizontal">
-            <h2>Animation Frameworks</h2>
-            <ul>
-				<li>Drawable Animations - <em>покадровая анимация</em></li>
-				<li>View Animations - <em>анимация отображения view</em></li>
-				<li>Property Animations - <em>изменение свойств</em></li>
-			</ul>
+            <h1 class="center-horizontal">Какое время отрисовки кадра?</h1>
+            <div class="center-horizontal">
+                <ul>
+                    <li>10-12 fps - четкое движение, глазу видно отдельные кадры</li>
+                    <li>24 fps - плавное движение, размытие движений - отдельные кадры сливаются</li>
+                    <li>30 fps - анимации похожие на "живые", могут выглядеть не убедительно</li>
+                    <li>60 fps - идеальная анимация для глаза, высококачественное плавное движение</li>
+                    <li>1000 ms / 60 frames = 16.666 ms/frame</li>
+                    <li class="fragment" data-fragment-index="1">Если приложение отрисовывает кадр дольше 16ms, то
+                        появляется dropped frame - Jank
+                    </li>
+                    <li class="fragment" data-fragment-index="1"><span
+                            style="color: red;">Hitching, Lag, Stutter, Jank:</span> глаз отлавливает дискретность в
+                        анимациях: если один кадр тормозит, пользователь сразу заметит
+                    </li>
+                </ul>
+            </div>
         </section>
-        <section data-markdown="lecture/animations/animation_list.md"></section>
-        <section  class="center center-horizontal">
-        	<h2>+/- Drawable Animations</h2>
-        	<img src="lecture/animations/cat.gif" width="20%" height="40%"/>
-        	<ul>
-				<li>сложные анимации</li>
-				<li>сложно создавать и поддерживать</li>
-				<li>много ресурсов -&gt; долгие билды, больший вес выходного файла</li>
-			</ul>
-        </section>
-        <section data-markdown="lecture/animations/view_animations.md"></section>
         <section class="center center-horizontal">
-            <h2>Чем плоха система</h2>
-            <ul>
-				<li>анимировать можно только Views</li>
-				<li>только простейшие преобразования (alpha, translate, scale, rotate)</li>
-				<li><strong>объект анимации остается неизменным</strong></li>
-			</ul>
+            <h1 class="center-horizontal">Overview</h1>
+            <div class="center-horizontal">
+                <ul>
+                    <li>View Animation</li>
+                    <li>Drawable Animation</li>
+                    <li>ValueAnimator</li>
+                    <li>ObjectAnimator</li>
+                    <li>ViewPropertyAnimator</li>
+                    <li>Layout Transition</li>
+                    <li>Transitions Framework</li>
+                    <li>Dynamic Animation</li>
+                </ul>
+            </div>
         </section>
-        <section data-markdown="lecture/animations/property_animations.md"></section>
         <section class="center center-horizontal">
-            <h2>Интерполяторы</h2>            
-        	<img src="lecture/animations/interpolator.png" width="50%" height="50%"/>
+            <h1 class="center-horizontal">View Animation</h1>
+            <div class="half-left">
+                <ul>
+                    <li>Анимации через Animation были в Android до появления Animator</li>
+                    <li>Простый анимации для View: alpha, rotate, scale, translate</li>
+                    <li>Представление View меняется на этапе отрисовки</li>
+                    <li><span style="color: red;">Важно:</span> параметры View не меняются в процессе анимаций</li>
+                </ul>
+                <p>Code ScaleAnimation:</p>
+                <pre><code class="kotlin small" data-trim data-noescape>
+                    view.startAnimation(
+                        ScaleAnimation(0f, 1f, 0f, 1f, 0f, view.height.toFloat())
+                            .apply {
+                                duration = 300
+                                interpolator = AccelerateInterpolator()
+                                fillAfter = true
+                            }
+                    )
+
+                    view.startAnimation(
+                        AnimationUtils.loadAnimation(context, R.anim.pulse)
+                    )
+                </code></pre>
+            </div>
+            <div class="half-right">
+                <p>XML pulse animation:</p>
+                <pre><code class="xml small" data-trim data-noescape>
+                    &lt;scale xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:duration="@integer/animation_time_1500"
+                        android:fromXScale="1"
+                        android:fromYScale="1"
+                        android:pivotX="50%"
+                        android:pivotY="50%"
+                        android:repeatCount="infinite"
+                        android:repeatMode="reverse"
+                        android:toXScale="0.9"
+                        android:toYScale="0.9"/>
+                </code></pre>
+                <p>XML shake animation:</p>
+                <pre><code class="xml small" data-trim data-noescape>
+                    &lt;set xmlns:android="http://schemas.android.com/apk/res/android"
+                         android:interpolator="@android:anim/linear_interpolator">
+
+                        &lt;translate
+                                android:duration="@integer/animation_time_50"
+                                android:fromXDelta="-5"
+                                android:repeatCount="2"
+                                android:repeatMode="reverse"
+                                android:toXDelta="5"/>
+                    &lt;/set>
+                </code></pre>
+            </div>
         </section>
-        <section data-markdown="lecture/animations/change_fragment_animations.md"></section>
-        <section data-markdown="lecture/animations/layout_animations.md"></section>
         <section class="center center-horizontal">
-            <h2>Transitions Framework</h2>            
-        	<img src="lecture/animations/transitions.png" width="50%" height="40%"/>
+            <h1 class="center-horizontal">Drawable Animation</h1>
+            <div class="half-left">
+                <ul>
+                    <li>Покадровая анимация: новый Drawable загружается на каждый кадр</li>
+                    <li><span style="color: red;">Важно:</span> большое потребление ресурсов, возможность получить
+                        OutOfMemoryException
+                    </li>
+                </ul>
+            </div>
+            <div class="half-right">
+                <pre><code class="xml small" data-trim data-noescape>
+                    &lt;animation-list android:id="@+id/icon" android:oneshot="false">
+                        &lt;item android:drawable="@drawable/icon0" android:duration="@integer/animation_fast" />
+                        &lt;item android:drawable="@drawable/icon1" android:duration="@integer/animation_fast" />
+                        &lt;item android:drawable="@drawable/icon2" android:duration="@integer/animation_fast" />
+                        &lt;item android:drawable="@drawable/icon3" android:duration="@integer/animation_fast" />
+                        &lt;item android:drawable="@drawable/icon4" android:duration="@integer/animation_fast" />
+                    &lt;/animation-list>
+                </code></pre>
+            </div>
         </section>
-        <section data-markdown="lecture/animations/scenes.md"></section>
-        <section data-markdown="lecture/animations/scenes_2.md"></section>
-        <section data-markdown="lecture/animations/scenes_3.md"></section>
-        <section data-markdown="lecture/animations/transition.md"></section>
-        <section data-markdown="lecture/animations/transition_usage.md"></section>
-        <section data-markdown="lecture/animations/shared_element.md"></section>
-        <section data-markdown="lecture/animations/view_state.md"></section>
-        <section data-markdown="lecture/animations/ripples.md"></section>
-        <section data-markdown="lecture/animations/circular.md"></section>       
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">ValueAnimator</h1>
+            <div class="half-left">
+                <ul>
+                    <li>Позволяет анимировать любое свойство через Integer, Float или Object</li>
+                    <li>Свойство меняется программно внутри UpdateListener</li>
+                    <li>Не привязан к жизненному циклу View</li>
+                    <li>Есть собственная иерархия вызовов в процессе формирования кадров</li>
+                    <li>Можно одновременно анимировать несколько View элементов</li>
+                </ul>
+            </div>
+            <div class="half-right">
+                <pre><code class="kotlin small" data-trim data-noescape>
+                    val animationDuration = resources.getInteger(R.integer.animation_time_100).toLong()
+                    val animator = ValueAnimator.ofInt(start, end)
+                        .apply {
+                            duration = animationDuration
+                            repeatCount = 1
+                            repeatMode = ValueAnimator.REVERSE
+                            addUpdateListener { animation ->
+                                view.setPadding(
+                                    view.paddingLeft,
+                                    animation.animatedValue as Int,
+                                    view.paddingRight,
+                                    view.paddingBottom
+                                )
+                            }
+                            addListener(object : Animator.AnimatorListener {
+                                override fun onAnimationStart(animator: Animator?) { }
+                                override fun onAnimationEnd(animator: Animator?) { }
+                                override fun onAnimationCancel(animator: Animator?) { }
+                                override fun onAnimationRepeat(animator: Animator?) { }
+                            })
+                        }
+                        .also { it.start() }
+                </code></pre>
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">ValueAnimator</h1>
+            <div class="half-left">
+                <ul>
+                    <li>Время переводится в интервал [0.0, 1.0]</li>
+                    <li>TimeInterpolator - функция, которая определяет с какой скоростью происходит анимация</li>
+                    <li>TypeEvaluator - как должен изменяться объект в процессе анимации относительно времени</li>
+                    <li>Можно писать свои реализации для TimeInterpolator и TypeEvaluator</li>
+                    <li>TypeEvaluator используется для изменения сложных объектов или для изменения примитивов
+                        (RectEvaluator, ArgbEvaluator)
+                    </li>
+                </ul>
+            </div>
+            <div class="half-right">
+                <img src="lecture/animations/value_animator.png" width="75%"/>
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">TimeInterpolator</h1>
+            <div class="half-left">
+                <ul>
+                    <li>LinearInterpolator - функция с постоянной скоростью или линейная анимация</li>
+                    <li>AccelerateInterpolator - функция с увеличивающейся скоростью (для пропадающих элементов)</li>
+                    <li>DecelerateInterpolator - функция с уменьшающейся скоростью (для появляющихся элементов)</li>
+                    <li>AccelerateDecelerateInterpolator</li>
+                </ul>
+                <p>Material Interpolators - более плавные</p>
+                <ul>
+                    <li>FastOutLinearInInterpolator</li>
+                    <li>LinearOutSlowInInterpolator</li>
+                    <li>FastOutSlowInInterpolator</li>
+                </ul>
+            </div>
+            <div class="half-right">
+                <img src="lecture/animations/interpolator.png" width="100%" height="auto"/>
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">ObjectAnimator</h1>
+            <div class="half-left">
+                <ul>
+                    <li>Расширение ValueAnimator, имеет упрощенное API</li>
+                    <li>Можно указать конкретные свойства объекта, которые ObjectAnimator меняет автоматически</li>
+                    <li>Значение Property может быть задано с помощью наследника Property или явно строкой</li>
+                    <li>Не может анимировать два объекта одновременно: нужны разные экземпляры ObjectAnimator</li>
+                    <li><span style="color: red;">Важно:</span> задание Property через строку вызывает методы
+                        Reflection!
+                    </li>
+                </ul>
+            </div>
+            <div class="half-right">
+                <p>Property:</p>
+                <ul>
+                    <li>View.ALPHA</li>
+                    <li>View.TRANSLATION_X (_Y / _Z)</li>
+                    <li>View.X / View.Y / View.Z</li>
+                    <li>View.ROTATION</li>
+                    <li>View.SCALE</li>
+                    <li>Можно создать свои Property!</li>
+                </ul>
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">ObjectAnimator</h1>
+            <div class="half-left">
+                <p>XML:</p>
+                <pre><code class="xml small" data-trim data-noescape>
+                    &lt;set xmlns:android="http://schemas.android.com/apk/res/android"
+                         android:ordering="sequentially">
+                        &lt;objectAnimator
+                            android:propertyName="alpha"
+                            android:duration="500"
+                            android:valueFrom="0f"
+                            android:valueTo="1f"/>
+                        &lt;objectAnimator
+                            android:propertyName="rotation"
+                            android:duration="500"
+                            android:valueType="floatType"
+                            android:valueFrom="0f"
+                            android:valueTo="90f" />
+                    &lt;/set>
+                </code></pre>
+                <pre><code class="kotlin small" data-trim data-noescape>
+                    val animator = AnimatorInflater
+                        .loadAnimator(context, R.animator.animator_set)
+                        .let { it as AnimatorSet }
+                        .apply { setTarget(view) }
+                        .also { it.start() }
+                </code></pre>
+            </div>
+            <div class="half-right">
+                <p>Code:</p>
+                <pre><code class="kotlin small" data-trim data-noescape>
+                    val pulseAnimator = ObjectAnimator
+                        .ofPropertyValuesHolder(
+                            view,
+                            PropertyValuesHolder.ofFloat(View.SCALE_X, 1f),
+                            PropertyValuesHolder.ofFloat(View.SCALE_Y, 1f)
+                        )
+                        .apply {
+                            duration = resources.getInteger(R.integer.animation_time_500).toLong()
+                            repeatCount = ValueAnimator.INFINITE
+                            repeatMode = ValueAnimator.REVERSE
+                            setAutoCancel(true)
+                        }
+                        .also { it.start() }
+                </code></pre>
+                <pre><code class="kotlin small" data-trim data-noescape>
+                    val start = view.translationY
+                    val end = start + update
+                    val animator = ObjectAnimator.ofFloat(view, "translationY", start, end)
+                        .apply { duration = resources.getInteger(R.integer.animation_time_200).toLong() }
+                        .also { it.start() }
+                </code></pre>
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">AnimatorSet</h1>
+            <div class="half-left">
+                <ul>
+                    <li>Позволяет воспроизводить несколько анимаций: одновременно или последовательно</li>
+                    <li>play(animator1) - передается главный аниматор</li>
+                    <li>with(animator2) - для воспроизведения одновременно с аниматором в play(animator1)</li>
+                    <li>before(animator2) - для воспроизведения до</li>
+                    <li>after(animator2) - для воспроизведения после</li>
+                    <li>playTogether(animator1, animator2) - для воспроизведения одновременно</li>
+                    <li>playSequentially(animator1, animator2) - для воспроизведения последовательно</li>
+                </ul>
+            </div>
+            <div class="half-right">
+                <p>Code:</p>
+                <pre><code class="kotlin small" data-trim data-noescape>
+                    val animator1 = AnimatorInflater.loadAnimator(context, R.animator.animator_1)
+                    val animator2 = AnimatorInflater.loadAnimator(context, R.animator.animator_2)
+                    val animator3 = AnimatorInflater.loadAnimator(context, R.animator.animator_3)
+                    val animator4 = AnimatorInflater.loadAnimator(context, R.animator.animator_4)
+
+                    val animator = AnimatorSet()
+                        .apply {
+                            play(animator1)
+                                .before(animator2)
+                                .with(animator3)
+                                .after(animator4)
+                        }
+                        .also { it.start() }
+                </code></pre>
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">ViewPropertyAnimator</h1>
+            <div class="half-left">
+                <ul>
+                    <li>Работает на основе ValueAnimator, удобный API для простых свойств</li>
+                    <li>Может быть быстрее ObjectAnimator (если аниминуется несколько Property)</li>
+                    <li>Набор Property ограничен</li>
+                    <li><span style="color: red;">Важно:</span> не можем сделать анимации кастомных атрибутов</li>
+                </ul>
+            </div>
+            <div class="half-right">
+                <pre><code class="kotlin small" data-trim data-noescape>
+                    view.animate().alpha(0f).alphaBy(1f).start()
+                </code></pre>
+                <pre><code class="kotlin small" data-trim data-noescape>
+                    view.animate().x(500f).y(500f)
+                    // animate absolute position
+                    // was x=100, y=100
+                    // start1: x=500, y=500
+                    // start2: x=500, y=500
+                </code></pre>
+                <pre><code class="kotlin small" data-trim data-noescape>
+                    view.animate().xBy(500f).yBy(500f)
+                    // animate absolute position by value
+                    // was x=100, y=100
+                    // start1: x=100+500, y=100+500
+                    // start2: x=100+500+500, y=100+500+500
+                </code></pre>
+                <pre><code class="kotlin small" data-trim data-noescape>
+                    view.animate().translationX(500f).translationY(500f)
+                    // animate left-top position by value
+                    // was x=100, y=100
+                    // start1: x=100+500, y=100+500
+                    // start2: x=100+500, y=100+500
+                </code></pre>
+                <pre><code class="kotlin small" data-trim data-noescape>
+                    view.animate().translationXBy(500f).translationYBy(500f)
+                    // animate left-top position by value
+                    // was x=100, y=100
+                    // start1: x=100+500, y=100+500
+                    // start2: x=100+500+500, y=100+500+500
+                </code></pre>
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">Как завершить анимации?</h1>
+            <div class="center-horizontal">
+                <ul>
+                    <li>view.clearAnimation() - для View Animation</li>
+                    <li>view.animate().cancel() - для ViewPropertyAnimator</li>
+                    <li>animator.cancel() - ValueAnimator / ObjectAnimator</li>
+                    <li><span style="color: red;">Важно:</span> при уходе с экрана может быть утечка Context - нужно
+                        останавливать аниматоры
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">Layout Transition</h1>
+            <div class="half-left">
+                <ul>
+                    <li>Работает на основе ValueAnimator</li>
+                    <li>Флаг в XML: android:animateLayoutChanges="true"</li>
+                    <li>Запускает анимацию на изменение положения, видимости или размера View внутри ViewGroup</li>
+                    <li>Решает проблему временного прерывания анимации из-за потери фреймов</li>
+                    <li>Анимирует прямых детей ViewGroup</li>
+                    <li>При анимации сложной иерархии может привести к laggy behavior из-за флага
+                        animateParentHierarchy
+                    </li>
+                    <li>При анимации нескольких изменений будет применяться только для последнего изменения</li>
+                </ul>
+            </div>
+            <div class="half-right">
+                <ul>
+                    <li>Appearing (addView / setVisibility)</li>
+                    <li>Disappearing (removeView / setVisibility)</li>
+                    <li>Change appearing - изменение родителей при Appearing</li>
+                    <li>Change disappearing - изменение родителей при Disappearing</li>
+                    <li>Changing - анимирует изменение размеров</li>
+                </ul>
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">Transitions Framework</h1>
+            <div class="half-left">
+                <ul>
+                    <li>Вводится понятие Transition и Scene</li>
+                    <li>Transition - инкапсулирует класс анимаций</li>
+                    <li>Scene - состояние до и после анимации</li>
+                    <li>Анимирует всю иерархию View</li>
+                    <li>Решает проблему временного прерывания анимации из-за потери фреймов</li>
+                    <li>Появляется вместе с Material Design (Android 4.4+)</li>
+                    <li>Можно делать свои Transition</li>
+                    <li>Можно использовать для сложных иерархий View</li>
+                </ul>
+            </div>
+            <div class="half-right">
+                <p>Android 4.4+:</p>
+                <ul>
+                    <li>ChangeBounds</li>
+                    <li>Fade</li>
+                </ul>
+                <p>Android 5.+:</p>
+                <ul>
+                    <li>ChangeTransform</li>
+                    <li>Explode</li>
+                    <li>Slide</li>
+                    <li>ChangeImageTransform</li>
+                    <li>ChangeClipBounds</li>
+                </ul>
+                <p>Android 6.+:</p>
+                <ul>
+                    <li>ChangeScroll</li>
+                </ul>
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">Transitions Framework: XML</h1>
+            <div class="center-horizontal">
+                <pre><code class="xml small" data-trim data-noescape>
+                    &lt;transitionSet xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:transitionOrdering="sequential">
+                        &lt;fade android:fadingMode="fade_out">
+                            &lt;targets>
+                                &lt;target android:targetId="@id/view" />
+                            &lt;/targets>
+                        &lt;/fade>
+                        &lt;changeBounds/>
+                        &lt;fade android:fadingMode="fade_in"/>
+                    &lt;/transitionSet>
+                </code></pre>
+                <pre><code class="kotlin small" data-trim data-noescape>
+                    TransitionManager.beginDelayedTransition(
+                        viewGroup,
+                        TransitionInflater.from(viewGroup.context).inflateTransition(R.transition.transition_set)
+                    )
+                    val newSize = resources.getDimensionPixelSize(R.dimen.size_large)
+                    view.layoutParams = view.layoutParams
+                        .apply {
+                            width = newSize
+                            height = newSize
+                        }
+                </code></pre>
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">Transitions Framework: Code</h1>
+            <div class="center-horizontal">
+                <pre><code class="kotlin small" data-trim data-noescape>
+                    val transitions = TransitionSet()
+                        .apply {
+                            addTransition(Slide())
+                            addTransition(ChangeBounds())
+                            addTarget(R.id.view)
+                            addListener(object : Transition.TransitionListener {
+                                override fun onTransitionStart(transition: Transition?) {}
+                                override fun onTransitionEnd(transition: Transition?) {}
+                                override fun onTransitionResume(transition: Transition?) {}
+                                override fun onTransitionPause(transition: Transition?) {}
+                                override fun onTransitionCancel(transition: Transition?) {}
+                            })
+                            ordering = TransitionSet.ORDERING_TOGETHER // ORDERING_SEQUENTIAL
+                            duration = resources.getInteger(R.integer.animation_time_500).toLong()
+                            interpolator = AccelerateInterpolator()
+                        }
+
+                    TransitionManager.beginDelayedTransition(viewGroup, transitions)
+                </code></pre>
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">Transitions Framework: Scene</h1>
+            <div class="half-left center-horizontal">
+                <p>res/layout/view_root.xml</p>
+                <pre><code class="xml small" data-trim data-noescape>
+                    &lt;FrameLayout
+                            android:id="@+id/viewGroup"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                        &lt;include layout="@layout/view_scene1"/>
+
+                    &lt;/FrameLayout>
+                </code></pre>
+                <p>Code:</p>
+                <pre><code class="kotlin small" data-trim data-noescape>
+                    val scene2: Scene = Scene
+                        .getSceneForLayout(viewGroup, R.layout.view_scene2, this)
+
+                    viewGroup.setOnClickListener {
+                        val transitionSet = TransitionSet()
+                            .apply {
+                                addTransition(Fade())
+                                addTransition(ChangeBounds())
+                                addTransition(ChangeImageTransform())
+                                ordering = TransitionSet.ORDERING_TOGETHER
+                                duration = 1000L
+                                interpolator = AccelerateInterpolator()
+                            }
+                        TransitionManager.go(scene2, transitionSet)
+                    }
+                </code></pre>
+            </div>
+            <div class="half-right">
+                <p>res/layout/view_scene1.xml</p>
+                <pre><code class="xml small" data-trim data-noescape>
+                    &lt;FrameLayout
+                        android:id="@+id/viewGroupScene1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        &lt;ImageView
+                            android:id="@+id/targetView"
+                            android:layout_width="@dimen/target_width_scene1"
+                            android:layout_height="@dimen/target_height_scene1"
+                            android:src="@drawable/ic_image"
+                            android:scaleType="centerCrop"
+                            android:layout_gravity="top|center_horizontal"/>
+
+                    &lt;/FrameLayout>
+                </code></pre>
+                <p>res/layout/view_scene2.xml</p>
+                <pre><code class="xml small" data-trim data-noescape>
+                    &lt;FrameLayout
+                        android:id="@+id/viewGroupScene2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        &lt;ImageView
+                            android:id="@+id/targetView"
+                            android:layout_width="@dimen/target_width_scene2"
+                            android:layout_height="@dimen/target_height_scene2"
+                            android:src="@drawable/ic_image"
+                            android:scaleType="fitXY"
+                            android:layout_gravity="bottom|center_horizontal"/>
+
+                    &lt;/FrameLayout>
+                </code></pre>
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">Dynamic Animation</h1>
+            <div class="half-left">
+                <ul>
+                    <li>Базируется на законах физики</li>
+                    <li>FlingAnimation - пользователь своими действиями инициирует анимацию</li>
+                    <li>SpringAnimation - анимация возврата к начальному значению</li>
+                    <li>Позволяет изменить конечное значение во время анимации</li>
+                    <li>Нет: duration</li>
+                    <li>Нет: interpolator</li>
+                    <li>Есть: физика (конечная позиция и начальная скорость)</li>
+                    <li>FlingAnimation доп. параметр: трение (friction)</li>
+                    <li>SpringAnimation доп. параметр: жёсткость (stiffness) & затухание (damping ratio)</li>
+                </ul>
+            </div>
+            <div class="half-right">
+                <pre><code class="kotlin small" data-trim data-noescape>
+                    val flingAnimation = FlingAnimation(view, DynamicAnimation.X)
+                        .apply {
+                            setStartVelocity(500f)
+                            friction = 0.5f
+                        }
+                        .also { it.start() }
+                </code></pre>
+                <pre><code class="kotlin small" data-trim data-noescape>
+                    val springAnimation = SpringAnimation(view, DynamicAnimation.SCALE_X)
+                        .apply {
+                            spring = SpringForce()
+                                .apply {
+                                    finalPosition = view.x
+                                    dampingRatio = SpringForce.DAMPING_RATIO_HIGH_BOUNCY
+                                    stiffness = SpringForce.STIFFNESS_LOW
+                                }
+                            setStartVelocity(1000f)
+                        }
+                        .also { it.start() }
+                </code></pre>
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">RecyclerView - ItemAnimator</h1>
+            <div class="half-left">
+                <ul>
+                    <li>Анимация элементов внутри RecyclerView</li>
+                    <li>canReuseUpdatedViewHolder(vh: ViewHolder) - определяет будет ли анимация вызываться после
+                        изменения данных элемента
+                    </li>
+                    <li>recordPreLayoutInformation(...): ItemHolderInfo - вызывается RecyclerView до начала отрисовки
+                    </li>
+                    <li>ItemAnimator сохраняет информацию о View до перемещения, обновления или удаления</li>
+                    <li>ItemHolderInfo передается в метод animateChange(oldVH: ViewHolder, newVH: ViewHolder, preInfo:
+                        ItemHolderInfo, postInfo: ItemHolderInfo): Boolean
+                    </li>
+                    <li>RecyclerView вызывает animateChange(...) при notifyItemChanged(position: Int)</li>
+                </ul>
+            </div>
+            <div class="half-right">
+                <img src="https://cdn.dribbble.com/users/1784312/screenshots/4366193/sample5.gif" width="100%"
+                     height="auto">
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">AnimatedVectorDrawable</h1>
+            <div class="half-left">
+                <ul>
+                    <li>Расширение PropertyAnimation</li>
+                    <li>Ресурс анимации - это стандартный objectAnimator</li>
+                    <li>Количество командв исходном и конечном пути должно быть одинаковым</li>
+                </ul>
+                <pre><code class="xml small" data-trim data-noescape>
+                    &lt;animated-vector
+                        android:drawable="@drawable/vector_drawable">
+
+                        &lt;target
+                            android:name="start"
+                            android:animation="@anim/start_animation" />
+
+                       &lt;target
+                            android:name="end"
+                            android:animation="@anim/end_animation"/>
+
+                    &lt;/animated-vector>
+                </code></pre>
+            </div>
+            <div class="half-right">
+                <img src="https://cs4.pikabu.ru/post_img/2015/01/13/11/1421175572_2027214263.gif" width="70%"
+                     height="auto">
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">Activity / Fragment Transition</h1>
+            <div class="center-horizontal">
+                <img src="https://i.imgur.com/1cjqsSA.gif" width="20%" height="auto">
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">Activity Shared Element Transition</h1>
+            <div class="half-left">
+                <ol>
+                    <li>Добавить атрибут android:transitionName к View</li>
+                    <li>Описать анимацию перехода View через XML: transitionSet</li>
+                    <li>Передать ActivityOptions для второй Activity при запуске</li>
+                    <li>Объявить анимации в темах Activity</li>
+                </ol>
+            </div>
+            <div class="half-right">
+                <p>In res/values/theme.xml:</p>
+                <pre><code class="xml small" data-trim data-noescape>
+                    &lt;item name="android:windowContentTransitions">true&lt;/item>
+
+                    &lt;item name="android:windowEnterTransition">@transition/transition_fade&lt;/item>
+                    &lt;item name="android:windowExitTransition">@transition/transition_fade&lt;/item>
+
+                    &lt;item name="android:windowSharedElementEnterTransition">@transition/transition_fade&lt;/item>
+                    &lt;item name="android:windowSharedElementExitTransition">@transition/transition_fade&lt;/item>
+                </code></pre>
+                <p>In res/layout/activity_layout.xml</p>
+                <pre><code class="xml small" data-trim data-noescape>
+                    &lt;ImageView
+                        android:id="@+id/transitionView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:transitionName="transitionViewName"
+                        ... />
+                </code></pre>
+                <p>In ActivityStart.kt launch transition:</p>
+                <pre><code class="kotlin small" data-trim data-noescape>
+                    val activityOptionsCompat: ActivityOptionsCompat = ActivityOptionsCompat
+                        .makeSceneTransitionAnimation(this, transitionView, "transitionViewName")
+                    val intent = Intent(this, ActivityEnd::class.java)
+                    startActivity(intent, activityOptionsCompat.toBundle())
+                </code></pre>
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">Fragment Shared Element Transition</h1>
+            <div class="half-left">
+                <ol>
+                    <li>Добавить атрибут android:transitionName к View</li>
+                    <li>Описать анимацию перехода View через XML: transitionSet</li>
+                    <li>Описать для второго фрагмента анимации через сеттеры</li>
+                    <li>Добавить SharedElement к FragmentTransaction</li>
+                </ol>
+            </div>
+            <div class="half-right">
+                <p>In res/layout/activity_layout.xml</p>
+                <pre><code class="xml small" data-trim data-noescape>
+                    &lt;ImageView
+                        android:id="@+id/transitionView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:transitionName="transitionViewName"
+                        ... />
+                </code></pre>
+                <p>In StartFragment.kt:</p>
+                <pre><code class="kotlin small" data-trim data-noescape>
+                    val endFragment = EndFragment.newInstance()
+
+                    // possibly need to check: Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP
+                    endFragment.setSharedElementEnterTransition(ChangeImageTransform())
+                    endFragment.setSharedElementReturnTransition(ChangeImageTransform())
+                    endFragment.setEnterTransition(Slide())
+                    this.setExitTransition(Slide())
+
+                    activity.supportFragmentManager
+                        .beginTransaction()
+                        .addSharedElement(transitionView, "transitionViewName")
+                        .replace(R.id.container, endFragment)
+                        .addToBackStack(null)
+                        .commit()
+                </code></pre>
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">DrawerLayout - Google I/O 2013</h1>
+            <div class="half-left">
+                <pre><code class="xml small" data-trim data-noescape>
+                    &lt;androidx.drawerlayout.widget.DrawerLayout
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:tools="http://schemas.android.com/tools"
+                        android:id="@+id/drawerLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        &lt;FrameLayout
+                            android:id="@+id/container"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"/>
+
+                        &lt;fragment
+                            android:id="@+id/drawerMenu"
+                            android:name="com.intership.example.DrawerMenuFragment"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="start"
+                            tools:layout="@layout/fragment_drawer_menu"/>
+
+                    &lt;/androidx.drawerlayout.widget.DrawerLayout>
+                </code></pre>
+            </div>
+            <div class="half-right">
+                <img src="https://i.stack.imgur.com/Un1GJ.gif" width="50%" height="auto">
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">DrawerLayout</h1>
+            <div class="half-left center-horizontal">
+                <pre><code class="kotlin small" data-trim data-noescape>
+                    drawerLayout.openDrawer(drawerMenu)
+                    drawerLayout.closeDrawer(drawerMenu)
+                    drawerLayout.openDrawer(GravityCompat.START)
+                    drawerLayout.closeDrawer(GravityCompat.START)
+
+                    // проверить текущее состояние Drawer
+                    drawerLayout.isDrawerOpen(drawerMenu)
+                    drawerLayout.isDrawerOpen(GravityCompat.START)
+                    // разблокировать для пользователя
+                    drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
+                    // заблокировать в закрытом состоянии
+                    drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+                    // заблокировать в открытом состоянии
+                    drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_OPEN)
+                    // заблокировать в состоянии по умолчанию
+                    drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNDEFINED)
+                </code></pre>
+            </div>
+            <div class="half-right">
+                <pre><code class="kotlin small" data-trim data-noescape>
+                    drawerLayout.addDrawerListener(object : DrawerLayout.DrawerListener {
+
+                        override fun onDrawerStateChanged(newState: Int) {
+                            // DrawerLayout.STATE_IDLE
+                            // DrawerLayout.STATE_DRAGGING
+                            // DrawerLayout.STATE_SETTLING
+                        }
+                        override fun onDrawerSlide(drawerView: View, slideOffset: Float) {}
+                        override fun onDrawerClosed(drawerView: View) {}
+                        override fun onDrawerOpened(drawerView: View) {}
+                    })
+                </code></pre>
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">CoordinatorLayout - Google I/O 2015</h1>
+            <div class="half-left">
+                <pre><code class="xml small" data-trim data-noescape>
+                    &lt;androidx.coordinatorlayout.widget.CoordinatorLayout
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/coordinatorLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        &lt;com.google.android.material.appbar.AppBarLayout
+                            android:id="@+id/appBarLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fitsSystemWindows="true"
+                            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+                            &lt;com.google.android.material.appbar.CollapsingToolbarLayout
+                                android:id="@+id/collapsingToolbarLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:fitsSystemWindows="true"
+                                app:contentScrim="?attr/colorPrimary"
+                                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                                &lt;androidx.constraintlayout.widget.ConstraintLayout
+                                    android:id="@+id/toolbarLayout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fitsSystemWindows="true"
+                                    app:layout_collapseMode="parallax">
+
+                                    &lt;ImageView
+                                        android:id="@+id/imageView"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:fitsSystemWindows="true"
+                                        app:layout_constraintDimensionRatio="1:1"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent"/>
+                                &lt;/androidx.constraintlayout.widget.ConstraintLayout>
+
+                                &lt;androidx.appcompat.widget.Toolbar
+                                    android:id="@+id/toolbar"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="?attr/actionBarSize"
+                                    app:layout_collapseMode="pin"
+                                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+                            &lt;/com.google.android.material.appbar.CollapsingToolbarLayout>
+                        &lt;/com.google.android.material.appbar.AppBarLayout>
+
+                        &lt;FrameLayout
+                            android:id="@+id/container"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+                        &lt;com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:id="@+id/favorite_fab"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:fabSize="normal"
+                            app:layout_anchor="@id/appBarLayout"
+                            app:layout_anchorGravity="bottom|end"
+                            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                            android:src="@drawable/ic_fab_image"/>
+
+                    &lt;/androidx.coordinatorlayout.widget.CoordinatorLayout>
+                </code></pre>
+            </div>
+            <div class="half-right">
+                <img src="https://hsto.org/getpro/habr/post_images/6b2/949/7e7/6b29497e7884c4bebc757a19cb187564.gif"
+                     width="50%" height="auto">
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">MotionLayout - Google I/O 2018</h1>
+            <div class="half-left">
+                <p>A MotionLayout is a ConstraintLayout which allows you to animate layouts between various states. (&copy;
+                    Docs)</p>
+                <ul>
+                    <li>Animated Vector Drawable</li>
+                    <li>Property Animation Framework</li>
+                    <li>LayoutTransition animations: TransitionManager</li>
+                    <li>CoordinatorLayout</li>
+                </ul>
+                <p>Обратная совместимость: Android API >= 14 (IceCreamSandwich 4.0, 4.0.1, 4.0.2)</p>
+                <p>Полностью декларативный: можно описать сцены любой сложности в XML</p>
+            </div>
+            <div class="half-right">
+                <img src="https://cdn.dribbble.com/users/3573403/screenshots/6489543/shot1.gif" width="100%"
+                     height="auto">
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">MotionLayout: overview</h1>
+            <div class="center">
+                <img src="https://miro.medium.com/max/700/1*ht1WQDkxsoeINtC2pwSfig.png" width="50%" height="auto">
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">MotionLayout: expandable top card example</h1>
+            <div class="half-left">
+                <pre><code class="xml small" data-trim data-noescape>
+                    &lt;androidx.constraintlayout.motion.widget.MotionLayout
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        xmlns:tools="http://schemas.android.com/tools"
+                        android:id="@+id/motionLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:layoutDescription="@xml/scene_main"
+                        app:applyMotionScene="true"
+                        app:progress="0.0"
+                        app:currentState="@id/start"
+                        app:motionDebug="SHOW_ALL"
+                        tools:showPaths="true">
+
+                        &lt;View
+                            android:id="@+id/cardBackgroundView"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:background="@drawable/shape_white_large_cornered_bottom"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintBottom_toBottomOf="@id/cardLayoutGuideline"
+                            app:layout_constraintTop_toTopOf="parent"/>
+
+                        &lt;androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/cardLayoutGuideline"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"/>
+                        &lt;View android:id="@+id/view" ... />
+                    &lt;/androidx.constraintlayout.motion.widget.MotionLayout>
+                </code></pre>
+            </div>
+            <div class="half-right">
+                <pre><code class="xml small" data-trim data-noescape>
+                    &lt;MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+                         xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+                        &lt;Transition
+                            motion:constraintSetStart="@id/start"
+                            motion:constraintSetEnd="@id/end"
+                            motion:motionInterpolator="linear"
+                            motion:duration="1000">
+                            &lt;OnSwipe
+                                motion:touchAnchorId="@id/cardBackgroundView"
+                                motion:touchAnchorSide="bottom"
+                                motion:dragDirection="dragUp"
+                                motion:touchRegionId="@id/cardBackgroundView"/>
+                        &lt;/Transition>
+                        &lt;ConstraintSet android:id="@+id/start">
+                            &lt;Constraint
+                                    android:id="@id/cardLayoutGuideline"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    motion:layout_constraintGuide_percent="0.8"/>
+                        &lt;/ConstraintSet>
+                        &lt;ConstraintSet android:id="@+id/end">
+                            &lt;Constraint
+                                    android:id="@id/cardLayoutGuideline"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    motion:layout_constraintGuide_percent="0.05"/>
+                        &lt;/ConstraintSet>
+                    &lt;/MotionScene>
+                </code></pre>
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">MotionLayout: Interpolation attributes</h1>
+            <div class="half-left">
+                <ul>
+                    <li>alpha</li>
+                    <li>visibility</li>
+                    <li>elevation</li>
+                    <li>rotation, rotationX, rotationY</li>
+                    <li>translationX, translationY, translationZ</li>
+                    <li>scaleX, scaleY</li>
+                </ul>
+                <p><span style="color: red;">Важно:</span> нужно определить CustomAttribute в start и end &lt;ConstraintSet>
+                </p>
+            </div>
+            <div class="half-right">
+                <p>&lt;CustomAttribute> supported types:</p>
+                <ul>
+                    <li>motion:customColorValue</li>
+                    <li>motion:customIntegerValue</li>
+                    <li>motion:customFloatValue</li>
+                    <li>motion:customStringValue</li>
+                    <li>motion:customDimension</li>
+                    <li>motion:customBoolean</li>
+                </ul>
+                <pre><code class="xml small" data-trim data-noescape>
+                    &lt;Constraint
+                        android:id="@id/cardBackgroundView" ...>
+                        &lt;CustomAttribute
+                            motion:attributeName="backgroundColor"
+                            motion:customColorValue="#0099ff"/>
+                    &lt;/Constraint>
+                </code></pre>
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">MotionLayout: ImageFilterView</h1>
+            <div class="half-left">
+                <pre><code class="xml small" data-trim data-noescape>
+                    &lt;android.support.constraint.utils.ImageFilterView
+                        android:id="@+id/imageFilterView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/accent"
+                        android:src="@drawable/ic_start"
+                        app:altSrc="@drawable/ic_end" />
+                </code></pre>
+                <pre><code class="xml small" data-trim data-noescape>
+                    &lt;ConstraintSet android:id="@+id/start">
+                        &lt;Constraint
+                            android:id="@id/imageFilterView" ...>
+                            &lt;CustomAttribute
+                                motion:attributeName="crossfade"
+                                motion:customColorValue="0"/>
+                            &lt;CustomAttribute
+                                motion:attributeName="saturation"
+                                &lt;-- 0 = grayscale; 1 = original, 2 = hyper saturated -->
+                                motion:customFloatValue="1" />
+                            &lt;CustomAttribute
+                                motion:attributeName="contrast"
+                                &lt;-- 0 = gray; 1 = original, 2 = hyper contrast -->
+                                motion:customFloatValue="1" />
+                            &lt;CustomAttribute
+                                motion:attributeName="warmth"
+                                &lt;-- 0.5 = cold (blue); 1 = original, 2 = warm (red) -->
+                                motion:customFloatValue="1" />
+                        &lt;/Constraint>
+                    &lt;/ConstraintSet>
+                    &lt;ConstraintSet android:id="@+id/end">
+                        &lt;Constraint
+                            android:id="@id/imageFilterView" ...>
+                            &lt;-- exactly same list of &lt;CustomAttribute> -->
+                        &lt;/Constraint>
+                    &lt;/ConstraintSet>
+                </code></pre>
+            </div>
+            <div class="half-right">
+                <img src="https://user-images.githubusercontent.com/796361/53616396-a6b75500-3c25-11e9-985f-8c800b1bb174.gif"
+                     width="45%" height="auto">
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">MotionLayout: Keyframe</h1>
+            <div class="half-left">
+                <pre><code class="xml small" data-trim data-noescape>
+                    &lt;Transition ...>
+                        &lt;KeyFrameSet>
+
+                            &lt;KeyPosition
+                                motion:keyPositionType="parentRelative"
+                                motion:percentY="0.25"
+                                motion:framePosition="50"
+                                motion:target="@id/imageView"/>
+
+                            &lt;KeyAttribute
+                                motion:rotation="90"
+                                motion:framePosition="100"
+                                motion:motionTarget="@id/recyclerView"/>
+
+                            &lt;KeyAttribute
+                                motion:alpha="0"
+                                motion:framePosition="0"
+                                motion:motionTarget="@id/view"/>
+                            &lt;KeyAttribute
+                                motion:alpha="0"
+                                motion:framePosition="75"
+                                motion:motionTarget="@id/view"/>
+                            &lt;KeyAttribute
+                                motion:alpha="1"
+                                motion:framePosition="100"
+                                motion:motionTarget="@id/view"/>
+                        &lt;/KeyFrameSet>
+                    &lt;/Transition>
+                </code></pre>
+            </div>
+            <div class="half-right">
+                <img src="lecture/animations/motion_coordinate_systems.png" width="38%" height="auto">
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">MotionLayout: Future Comes Today</h1>
+            <div class="half-left">
+                <img src="https://cdn.dribbble.com/users/3573403/screenshots/6489543/shot1.gif" width="100%"
+                     height="auto">
+            </div>
+            <div class="half-right">
+                <img src="https://cdn.dribbble.com/users/1998175/screenshots/6558765/shoes.gif" width="100%"
+                     height="auto">
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">MotionLayout: Tools</h1>
+            <div class="center">
+                <img src="https://miro.medium.com/max/700/1*--BinUe-6XZPrZhPys6mzA.gif" width="70%" height="auto">
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">Lottie: download animations easily</h1>
+            <div class="half-left">
+                <ul>
+                    <li>Запросы кэшируются</li>
+                    <li>Множественные одинаковые запросы будут объединяться и парсинг анимации будет выполнен один раз
+                    </li>
+                    <li>Анимацию можно комбинировать с ValueAnimator</li>
+                    <li>Анимацию можно проигрывать по частям</li>
+                    <li>LottieAnimationView поддерживает два scale types: centerCrop & centerInside</li>
+                </ul>
+                <ol>
+                    <li>src/main/res/raw - json ресурс анимации</li>
+                    <li>src/main/assets - json ресурс анимации</li>
+                    <li>src/main/assets - zip ресурс анимации</li>
+                    <li>URL - для json или zip</li>
+                    <li>String - json виде строки</li>
+                    <li>InputStream - для json или zip</li>
+                </ol>
+            </div>
+            <div class="half-right">
+                <img src="http://airbnb.io/lottie/images/Introduction_00_sm.gif" width="100%" height="auto">
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">Lottie: LottieAnimationView</h1>
+            <div class="half-left">
+                <p>From <b>res/raw</b>: lottie_rawRes</p>
+                <pre><code class="xml small" data-trim data-noescape>
+                    &lt;com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/lottieAnimationView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        app:lottie_rawRes="@raw/animation"
+
+                        &lt;-- Loop indefinitely -->
+                        app:lottie_loop="true"
+                        &lt;-- Start playing as soon as the animation is loaded -->
+                        app:lottie_autoPlay="true" />
+                </code></pre>
+                <p>From <b>assets/</b>: lottie_fileName</p>
+                  <pre><code class="xml small" data-trim data-noescape>
+                    &lt;com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/lottieAnimationView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:lottie_fileName="animation.json"
+
+                        &lt;-- Repeat count: Integer -->
+                        app:lottie_repeatCount="-1"
+                        &lt;-- Repeat mode: reverse / restart -->
+                        app:lottie_repeatMode="reverse" />
+                </code></pre>
+            </div>
+            <div class="half-right">
+                <ul>
+                    <li>LottieAnimationView - расширение ImageView</li>
+                    <li>LottieDrawable - Drawable, который можно использовать для любого View</li>
+                    <li>LottieComposition - абстрактная модель анимации (создается через LottieCompositionFactory)</li>
+                </ul>
+                <img src="https://github.com/airbnb/lottie-android/raw/master/gifs/Example4.gif" width="100%"
+                     height="auto">
+            </div>
+        </section>
+        <section class="center center-horizontal">
+            <h1 class="center-horizontal">Summary</h1>
+            <div class="center-horizontal">
+                <ul>
+                    <li>Анимации должны быть информативными и упрощать жизнь пользователю</li>
+                    <li>Используйте современные анимации</li>
+                    <li>Помните о скорости отрисовки кадров</li>
+                    <li>Lottie - аналог Glide для анимаций</li>
+                </ul>
+            </div>
+        </section>
         <section>
             <h2>Дополнительные ссылки</h2>
             <ul>
-                <li><p><a href="https://developer.android.com/guide/topics/graphics/view-animation.html">View animation</a></p></li>
-                <li><p><a href="http://www.androidhive.info/2013/06/android-working-with-xml-animations/">View animation examples</p></li>
-                <li><p><a href="https://developer.android.com/training/material/animations.html">Material animations</a></p></li>
-                <li><p><a href="https://github.com/codepath/android_guides/wiki/Shared-Element-Activity-Transition">Shared Element Activity Transition</a></p></li>
+                <li><p><a href="https://developer.android.com/guide/topics/graphics/view-animation.html">View
+                    animation</a></p></li>
+                <li><p><a href="http://www.androidhive.info/2013/06/android-working-with-xml-animations/">View animation
+                    examples</a></p></li>
+                <li><p><a href="https://developer.android.com/training/material/animations.html">Material animations</a>
+                </p></li>
+                <li><p><a href="https://github.com/codepath/android_guides/wiki/Shared-Element-Activity-Transition">Shared
+                    Element Activity Transition</a></p></li>
                 <li><p><a href="https://developer.android.com/training/transitions/index.html">Transitions</a></p></li>
-                <li><p><a href="https://android-arsenal.com/">Android arsenal</a></p></li>
+                <li><p><a href="https://developer.android.com/reference/android/support/constraint/motion/MotionLayout">MotionLayout:
+                    docs</a></p></li>
+                <li><p><a href="https://developer.android.com/training/constraint-layout/motion-layout">MotionLayout:
+                    guideline</a></p></li>
+                <li><p><a href="https://codelabs.developers.google.com/codelabs/motion-layout/#0">MotionLayout:
+                    codelab</a></p></li>
+                <li><p><a href="https://github.com/googlesamples/android-ConstraintLayoutExamples">MotionLayout:
+                    GitHub</a></p></li>
+                <li><p><a href="https://airbnb.design/lottie/">Lottie: docs</a></p></li>
+                <li><p><a href="https://lottiefiles.com/">Lottie: free collection</a></p></li>
+                <li><p><a href="https://dribbble.com/">Dribbble: free design</a></p></li>
             </ul>
         </section>
     </div>
@@ -112,5 +1249,5 @@
 </html>
 
 Reveal.initialize({
-    center: true
+center: true
 })
